@@ -1,0 +1,24 @@
+---
+exclude:
+- Gemfile
+- Gemfile.lock
+- lib
+baseurl: /
+assets:
+  dirname: assets
+  baseurl: /assets/
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+  bundles:
+    - 'application.css'
+    - 'application.js'
+  compress:
+    css: sass
+    js: uglifier
+  cachebust: hard
+  gzip:
+  - text/css
+  - application/javascript
+env: staging

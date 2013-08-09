@@ -1,0 +1,49 @@
+/* variables */
+@import "constants";
+
+/* variables */
+@import "mixins";
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
+{
+  font-family: "adobe-clean";
+  color: #fff;
+  line-height: 140%;
+}
+
+a, a:active, a:focus, a:visited, a:hover
+{
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+
+/* layouts */
+
+body
+{
+  background: $smokewhite;
+  font-size: 62.5%;
+}
+
+
+@media screen and (max-width: 767px) {
+  /* Sometimes, you just want to be different on small screens */
+  .center-on-mobiles {
+    text-align: center !important;
+  }
+  .hide-on-mobiles {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body
+  {
+    font-size: 50%;
+  }
+}

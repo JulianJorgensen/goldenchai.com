@@ -1,0 +1,56 @@
+/* mixins */
+@mixin yellow-btn {
+  background: #fba502;
+  background: -moz-linear-gradient(#fba502, #fddc69);
+  background: -webkit-linear-gradient(#fba502, #fddc69);
+  background: -o-linear-gradient(#fba502, #fddc69);
+  background: -ms-linear-gradient(#fba502, #fddc69);
+  /*For IE10*/
+  background: linear-gradient(#fba502, #fddc69);
+  font-size: 13px;
+  font-weight: 600;
+  height: 24px;
+  border: 1px solid;
+  display: inline;
+  text-shadow: none;
+  text-transform: none;
+  color: #1f1f1f !important;
+  padding: 2px 17px 2px;
+  text-decoration: none;
+}
+
+@mixin transition($transition)
+{
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin gradientBG($color1, $color2)
+{
+  /* IE10 Consumer Preview */ 
+  background-image: -ms-linear-gradient(top, $color1 0%, $color2 100%);
+
+  /* Mozilla Firefox */ 
+  background-image: -moz-linear-gradient(top, $color1 0%, $color2 100%);
+
+  /* Opera */ 
+  background-image: -o-linear-gradient(top, $color1 0%, $color2 100%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $color1), color-stop(1, $color2));
+
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-linear-gradient(top, $color1 0%, $color2 100%);
+
+  /* W3C Markup, IE10 Release Preview */ 
+  background-image: linear-gradient(to bottom, $color1 0%, $color2 100%);
+}
+
+@mixin boxshadow($shadow)
+{
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
