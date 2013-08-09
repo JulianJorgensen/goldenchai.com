@@ -6,7 +6,7 @@
 
   <title>Samuchai - Minimalistic Front-end</title>
 
-  <script type="text/javascript" src="//use.typekit.net/oet7obn.js"></script>
+  <script type="text/javascript" src="//use.typekit.net/qxk0qin.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,40 +16,16 @@
 </head>
 
 <body>
-  <div id="main-wrapper">
-    <header>
-      <nav>
-      </nav>
-    </header>
 
-      <section id="main">
-        <div id="content-wrapper" class="row-fluid inherit-height">
-          <div class="span12 inherit-height">
-            {{ content }}
-          </div>
-          <div class="clear"></div>
-        </div>
-      </section>
+<div id="content">
 
+  {% include primary-story.html %}
 
-     <footer>
-        <div class="row-fluid">
-          <div class="span6">
-            <div class="copyright center-on-mobiles">
-              <p>Copyright © 2013 Adobe Systems Incorporated. All Rights Reserved.</p>
-            </div>
-          </div>
-          <div class="span6">
-            <div class="share center-on-mobiles">
-              <span>Share</span>
-              <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://summit.adobe.com&p[images][0]=http://summit-stage.coverallcrew.com/images/logo.png&p[title]=Adobe%20Summit%202014&p[summary]=Learn%20from%20entrepreneurs%20and%20innovators%20who%20continue%20to%20push%20the%20boundaries%20of%20digital%20marketing%20and%20advertising." target="_blank"><img src="/images/socialmedia/footer-facebook.png"></a>
-              <a href="http://twitter.com/share?text=I'm%20checking%20out%20Adobe%20Summit:%20The%20Digital%20Marketing%20Conference.%20You%20should,%20too.&url=http://summit.adobe.com" target="_blank"><img src="/images/socialmedia/footer-twitter.png"></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+  <section class="window" id="portfolio"></section>
+
+  <section class="window" id="services"></section>
+
+</div>
 
 
 {% javascript application %}

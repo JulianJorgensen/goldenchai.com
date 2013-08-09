@@ -9,9 +9,14 @@
 
 h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
 {
-  font-family: "adobe-clean";
-  color: #fff;
-  line-height: 140%;
+  font-family: $fonts;
+  color: $gray70;
+  line-height: 160%;
+}
+
+p
+{
+  font-size: 1.5em;
 }
 
 a, a:active, a:focus, a:visited, a:hover
@@ -21,15 +26,65 @@ a, a:active, a:focus, a:visited, a:hover
   text-decoration: none;
 }
 
-
 /* layouts */
 
 body
 {
   background: $smokewhite;
   font-size: 62.5%;
+  font-family: $fonts;
+
+  #content
+  {
+    #main, header, footer
+    {
+      max-width: 700px;
+      margin: 0 auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+
+      #content-wrapper
+      {
+        position: relative;
+        margin: 40px auto;
+        height: inherit;
+      }
+    }
+
+    .window{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+  }
 }
 
+
+/* HELPERS */
+.preloader
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -64px;
+  margin-top: -64px;
+  width: 128px;
+  height: 128px;
+  
+  &.preloader-portfolio
+  {
+    background: url('/images/ajax-loader-gray70.gif') 0 0 no-repeat;
+  }
+
+  &.preloader-services
+  {
+    background: url('/images/ajax-loader-golden.gif') 0 0 no-repeat;
+  }
+}
+
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 767px) {
   /* Sometimes, you just want to be different on small screens */

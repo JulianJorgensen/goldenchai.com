@@ -4,4 +4,7 @@
 //= require vendor/bootstrap.min
 //= require vendor/modernizr.custom
 //
+//= require vendor/jquery.visible.min
+//
+//= require functions
 //= require index

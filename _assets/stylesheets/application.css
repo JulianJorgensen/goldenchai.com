@@ -5,7 +5,7 @@
   *= require './components.scss'
 
   *= require './layout.scss'
-  *= require './nav.scss'
+  *= require './header.scss'
 
   *= require_tree .
 
