@@ -3,6 +3,7 @@ exclude:
 - Gemfile
 - Gemfile.lock
 - lib
+title: Samuchai
 baseurl: /
 assets:
   dirname: assets

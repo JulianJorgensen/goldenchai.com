@@ -5,132 +5,185 @@
 @import "mixins";
 
 
-
 /* header */
-
-header
+body
 {
-  padding: 40px 0 0 0;
-  position: relative;
-
-  .samuchai-logo
+  header
   {
-    display: block;
-    padding: 10px;
-    width: 80px;
-    font-size: 1.3em;
-    text-transform: uppercase;
-    text-align: center;
+    margin-top: 40px;
+    position: relative;
 
-    .logo-samu
+    &.position-fixed
     {
-      color: $smokewhite;
+      position: fixed;
+      top: 0px;
+      margin-top: 0;
+      width: 100px;
+      left: 50%;
+      margin-left: -350px;
+      z-index: 999;
+
+      .samuchai-logo
+      {
+        padding: 17px 10px 7px;
+      }
+
+      .tiny-nav-boxes
+      {
+        display: none !important;
+      }
     }
 
-    .logo-chai
+    .samuchai-logo
     {
-      color: $goldenbrown;
+      float: left;
+      opacity: 0;
+      padding: 7px 10px;
+      font-size: 1.5em;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      background-color: $gray6;
+      @include transition((padding $defaultTransitionSpeed ease-out, opacity ($defaultTransitionSpeed*2) ease-in));
+      @include disableHighlighting;
+
+      .logo-samu
+      {
+        color: $black;
+      }
+
+      .logo-chai
+      {
+        color: $goldenbrown;
+      }
+    }
+
+    .tiny-nav-boxes
+    {
+      opacity: 0;
+      position: relative;
+
+      .tiny-nav
+      {
+        width: 10px;
+        height: 10px;
+        margin-left: 7px;
+        float: right;
+
+        .tiny-active-arrow
+        {
+          display: none;
+          width: 0; 
+          height: 0; 
+          border-left: 5px solid transparent;  /* left arrow slant */
+          border-right: 5px solid transparent; /* right arrow slant */
+          border-bottom: 5px solid $white; /* bottom, add background color here */
+          font-size: 0;
+          line-height: 0;
+          position: relative;
+          top: 5px;
+        }
+
+        &.tiny-durability
+        {
+          background-color: $durability-color;
+        }
+
+        &.tiny-usability
+        {
+          background-color: $usability-color;
+        }
+
+        &.tiny-art
+        {
+          background-color: $art-color;
+        }
+      }
+    }
+
+    .spacing-fix
+    {
+      display: none;
     }
   }
 
-  .tiny-nav-boxes
+
+  section.window
   {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-
-    .tiny-nav
+    .page-meta
     {
-      width: 10px;
-      height: 10px;
-      margin-left: 7px;
-      float: right;
+      padding-top: 10px;
 
-      .tiny-active-arrow
+      h1
       {
-        display: none;
-        width: 0; 
-        height: 0; 
-        border-left: 5px solid transparent;  /* left arrow slant */
-        border-right: 5px solid transparent; /* right arrow slant */
-        border-bottom: 5px solid $smokewhite; /* bottom, add background color here */
-        font-size: 0;
-        line-height: 0;
-        position: relative;
-        top: 5px;
+        font-size: 2.2em; 
+        font-weight: 300;     
+        margin: 2px 10px 10px;
+        text-transform: uppercase;
+        text-align: left;
+        margin-left: 120px;
       }
 
-      &.tiny-durability
+      .section-right-header
       {
-        background-color: $durability-color;
-      }
+        font-size: 1.2em;
+        text-transform: uppercase;
+        padding-top: 15px;
 
-      &.tiny-usability
-      {
-        background-color: $usability-color;
-      }
+        .contact-link
+        {
+          opacity: 0.3;
+        }
 
-      &.tiny-art
+        .back-to-top
+        {
+          cursor: pointer;
+
+          .up-arrow-icon
+          {
+            display: inline-block;
+            width: 16px;
+            height: 8px;
+            background: url("/images/arrows-small.png") 0 -32px no-repeat;
+            margin-left: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  &.actiated-primary
+  {
+    header
+    {
+      .samuchai-logo
       {
-        background-color: $art-color;
+        opacity: 1;
       }
     }
   }
 }
 
 
-/* marquee */
-
-section#marquee
+body.four-half-seconds-load
 {
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-  padding: 20px 0 0;
-  text-transform: uppercase;
-  font-weight: 100;
-
-  h1, span, nav
+  header
   {
-    color: $smokewhite;
+    .samuchai-logo
+    {
+      opacity: 1;
+    }
   }
+}
 
-  .nav
+body.activated-primary
+{
+  header
   {
-    position: relative;
-    font-size: 4em;
-    list-style: none;
-    padding-bottom: 15px;
-
-    > li {
-      display: inline-block;
-      color: $white;
-
-
-      &.active
-      {
-        a
-        {
-          background: url("/images/marquee/active-nav-arrow.png") center bottom no-repeat; 
-          color: $white;
-          padding-bottom: 25px;
-        }
-      }
-    }
-
-    .nav-durability
+    .tiny-nav-boxes
     {
-      color: $durability-color;
-    }
-
-    .nav-usability
-    {
-      color: $usability-color;
-    }
-
-    .nav-art
-    {
-      color: $art-color;
+      opacity: 1;
     }
   }
 }
@@ -142,7 +195,12 @@ body.durability
   {
     .samuchai-logo
     {
-      background: $durability-color;
+      background-color: darken($durability-color, 10);
+
+      .logo-samu
+      {
+        color: $smokewhite;
+      }
     }
 
     .tiny-nav-boxes
@@ -156,11 +214,6 @@ body.durability
       }
     }
   }
-
-  #marquee
-  {
-    background: $durability-color;
-  }
 }
 
 // STYLES FOR USABILITY ONLY
@@ -170,7 +223,12 @@ body.usability
   {
     .samuchai-logo
     {
-      background: $usability-color;
+      .logo-samu
+      {
+        color: $gray85;
+      }
+
+      background-color: $usability-color;
     }
 
     .tiny-nav-boxes
@@ -184,21 +242,16 @@ body.usability
       }
     }
   }
-
-  #marquee
-  {
-    background: $usability-color;
-  }
 }
 
 // STYLES FOR ART ONLY
 body.art
-{
+{  
   header
   {
     .samuchai-logo
     {
-      background: $art-color;
+      background-color: darken($art-color, 20);
     }
 
     .tiny-nav-boxes
@@ -211,10 +264,5 @@ body.art
         }
       }
     }
-  }
-
-  #marquee
-  {
-    background: $art-color;
   }
 }

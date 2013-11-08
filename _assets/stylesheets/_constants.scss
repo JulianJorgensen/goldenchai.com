@@ -1,6 +1,15 @@
+/* marquee variables */
+$defaultTransitionSpeed: 0.3s;
+
+
 /* variables */
 $white: #ffffff;
+$black: #000000;
 $gray: #525252;
+$gray2: #fbfbfb;
+$gray6: #f0f0f0;
+$gray10: #e5e5e5;
+$gray20: #cccccc;
 $gray70: #4d4d4d;
 $gray85: #272727;
 
@@ -9,7 +18,13 @@ $beige: #bbb4a0;
 
 $usability-color: #fbd738;
 $durability-color: $gray70;
-$art-color: #ff3ac1;
+$art-color: #d349d1;
+$art-color-dark: #4a1876;
+
+$portfolio-color: #e5dbb7;
+$portfolio-color-dark: #E0C77D;
+
+$services-color: #4d4a42;
 
 $smokewhite: #f4f4f4;
 

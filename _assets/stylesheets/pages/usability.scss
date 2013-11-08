@@ -1,0 +1,30 @@
+/* variables */
+@import "constants";
+
+/* mixins */
+@import "mixins";
+
+
+// STYLES FOR USABILITY ONLY
+body.usability
+{
+  #primary-story-wrapper
+  {
+    #primary-story
+    {
+      #marquee-wrapper
+      {
+        #marquee
+        {    
+          background-color: $usability-color;
+
+          .marquee-bg-usability
+          {
+            opacity: 1;
+            @include gradientDiagonal($usability-color, adjust_hue($usability-color, 350));      
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/* variables */
+@import "constants";
+
+/* variables */
+@import "mixins";
+
+
+@media screen and (max-width: 1000px)
+{
+  body
+  {
+    header
+    {
+      margin-top: 20px;
+    }
+
+    #primary-story-wrapper
+    {
+    }
+  }  
+}

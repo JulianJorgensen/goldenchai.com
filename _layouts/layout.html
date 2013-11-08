@@ -4,12 +4,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
-  <title>Samuchai - Minimalistic Front-end</title>
+  <title>Minimalist web development. Samuchai.</title>
 
   <script type="text/javascript" src="//use.typekit.net/qxk0qin.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+  {% javascript application-init %}
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   {% stylesheet application %}
 
   <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico">
@@ -17,18 +20,63 @@
 
 <body>
 
-<div id="content">
+  {% include header.html %}
 
-  {% include primary-story.html %}
+  <section id="primary-story-wrapper" class="window transitioned" data-type="parallax" data-speed="20">
+    <div id="primary-story">
+      <div class="spacing-fix"></div>
 
-  <section class="window" id="portfolio"></section>
+      <section id="marquee-wrapper">
+        <div id="marquee">
+          <div class="marquee-bg marquee-bg-durability"></div>
+          <div class="marquee-bg marquee-bg-usability"></div>
+          <div class="marquee-bg marquee-bg-art"></div>
+          <div class="marquee-shadow"></div>
+          <h1 class="headline headline-default">Great websites merge</h1>
+          <h1 class="headline headline-durability">Flawless websites merge</h1>
+          <h1 class="headline headline-usability">Brilliant websites merge</h1>
+          <h1 class="headline headline-art">Samuchai merge</h1>
 
-  <section class="window" id="services"></section>
+          <ul class="nav nav-tabs">
+            <li><a href="#durability" class="nav-durability" data-toggle="tab">Durability</a>, </li>
+            <li><a href="#usability" class="nav-usability" data-toggle="tab">Usability</a></li>
+            <li>and <a href="#art" class="nav-art" data-toggle="tab">Art</a></li>
+          </ul>
+        </div>
+      </section>
 
-</div>
+      <section class="content-wrapper">
+        <div class="inner-wrapper row">
+          <div class="col-sm-12 main-content">
+            {{ content }}
+          </div>
+          <div class="col-sm-12 fly-content">
+            {% include fly.html %}
+          </div>
+          <div class="clear"></div>
+        </div>
+      </section>
 
 
-{% javascript application %}
+      {% include footer.html %}
+    </div>
+  </section>
+
+
+  <!-- DON'T SHOW THE ADDITIONAL PAGES ON MOBILE - THESE SHOULD APPEAR IN SEPARATE PAGES -->
+  <div class="hidden-xs">
+    <div id="window-divider-1"></div>
+
+    {% include pages/portfolio-full.html %}
+
+    <img src="/images/tree.png" class="tree-bg" />    
+    <div id="window-divider-2"></div>
+
+    {% include pages/services.html %}
+  </div>
+
+
+  {% javascript application %}
 
 </body>
 </html>

@@ -5,15 +5,77 @@
 @import "mixins";
 
 
-section#portfolio
+section#portfolio-wrapper
 {
-  background: $gray70;
-  top: 100%;
+  padding-top: 100px;
+  text-align: center;
+  @include diagonalGradient($portfolio-color, $portfolio-color-dark, 70%);
 
   /* typography */
   h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
   {
-    color: $smokewhite;
+    color: $black;
   }
 
+
+  .portfolio-content-slider
+  {
+    min-height: 400px;
+
+    .rsSlide
+    {
+      .rsImg.rsMainSlideImage
+      {
+        width: 700px !important;
+        margin: 0 !important;
+        height: auto !important;
+      }
+
+      .from-right
+      {
+        position: absolute;        
+        left: 700px;
+        opacity: 0;
+        top: 0;
+        @include transition((left 0.7s ease-out, opacity 0.7s ease-out));
+
+        &.active
+        {
+          opacity: 1;
+          left: 0;
+        }
+      }
+    }
+
+    .intro-slide
+    {
+      height: 300px;
+      padding-top: 100px;
+
+      .adobe-logo
+      {
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+      }
+      
+      h3
+      {
+        width: 480px;
+        margin: 0 auto 40px;
+        font-weight: 100;
+        color: $black;
+        font-size: 4em;
+      }
+    }
+  }
+}
+
+#portfolio-fader
+{
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  z-index: 999999999999;
 }

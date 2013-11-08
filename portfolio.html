@@ -1,1 +1,33 @@
-<img src="/images/portfolio-placeholder.png">
+---
+layout: subpage
+title: Portfolio
+name: portfolio
+---
+
+<section id="portfolio-wrapper" class="window">
+  {% include section-header.html section="portfolio" %}
+
+    <div class="royalSlider rsDefault portfolio-content-slider">
+
+      <!-- INTRO SLIDER -->
+      {% include portfolio/slides.html slides="intro" %}
+
+      <!-- ADOBE YOUTH VOICES SLIDER -->
+      {% include portfolio/slides.html slides="ayv" %}
+
+      <!-- MAX SLIDER -->
+      {% include portfolio/slides.html slides="max" %}
+
+    </div>
+
+  </div>
+
+  {% include footer.html %}
+</section>
+
+<script>
+  $(document).ready(function() {
+    {% include portfolio/single-sliders.js %}
+    {% include portfolio/functions.js %}
+  });
+</script>

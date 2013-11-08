@@ -1,0 +1,241 @@
+/* variables */
+@import "constants";
+
+/* mixins */
+@import "mixins";
+
+
+#portfolio-thumbs-slider
+{
+  padding-top: 30px;
+  margin: 0 auto;
+  width: 1000px;
+
+  .rsThumbs
+  {
+    margin-top: 30px;
+    width: 700px;
+    margin-left: 150px;
+
+    .rsThumbsContainer
+    {
+      border-top: 2px solid $black;
+
+      .rsThumb
+      {
+        padding-top: 20px;
+        margin-top: -2px;
+
+        &.rsNavSelected
+        {
+          // background: url("/images/active-tab-arrow.png") center bottom no-repeat;
+          .arrow-up {
+            position: absolute;
+            margin-left: -20px;
+            top: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 17px solid $black;
+
+            .arrow-up-inner {
+              position: relative;
+              right: 18px;
+              top: -18px;
+              width: 0;
+              height: 0;
+              border-left: 18px solid transparent;
+              border-right: 18px solid transparent;
+              border-top: 15px solid $portfolio-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .rsOverflow
+  {
+    > .rsSlide
+    {
+      width: 800px;
+    }
+  }
+
+  /* Thumbnails arrow icons */
+  .rsThumbsArrow {
+    height: 100%;
+    width: 100px;
+    position: absolute;
+    display: block;
+    cursor: pointer;  
+    z-index: 21;  
+  }
+
+  .rsThumbsArrowLeft
+  {
+    left: 0;
+    top: 0;
+    @include transparentGradientRight($portfolio-color);
+  }
+
+  .rsThumbsArrowRight
+  {
+    right: 0;
+    top: 0;
+    @include transparentGradientLeft($portfolio-color);
+  }
+
+  .rsThumbsArrowDisabled { display: none !important; }
+}
+
+
+/* PORTFOLIO CONTENT SLIDER STYLES */
+
+.portfolio-content-slider
+{
+  &.adobe-slider
+  {
+    .rsArrowRight
+    {
+      display: block !important;
+    }    
+  }
+
+  .rsOverflow
+  {
+    width: 700px !important;
+    margin-left: 150px;
+  }
+
+
+  .rsArrowRight, .rsArrowLeft
+  {
+    top: 50%;
+    margin-top: -30px;
+    width: 150px;
+    @include transition(width 0.2s linear);
+
+    .rsArrowIcn {
+      width: 28px;
+      height: 36px;
+      top: 50%;
+      margin-top: -18px; 
+      position: absolute; 
+      cursor: pointer;
+      @include transition(background-position 0.2s linear);
+
+      background-image: url("/images/arrows-eastern.png");
+      background-repeat: no-repeat;
+    }
+
+    &.rsArrowDisabled
+    {
+      font-size: 1.3em;
+      padding-top: 26px;
+
+      .rsArrowIcn {
+        height: 14px;
+        width: 25px;
+        background-image: url("/images/arrows-eastern.png");
+        background-repeat: no-repeat;
+      }
+    
+      &.rsHide
+      {
+        display: none !important;
+      }
+    }
+  }
+
+  .rsArrowRight
+  {
+    right: 0;
+
+    .rsArrowIcn
+    {
+      right: 80px;
+      background-position: -36px -24px;
+    }
+
+    &.rsArrowDisabled
+    {
+      &:after
+      {
+        content: "NEXT PROJECT";
+      }
+
+      .rsArrowIcn
+      {
+        right: 0;
+        background-position: -35px -4px;
+      }
+    }
+  }
+
+  .rsArrowLeft
+  {
+    left: 80px;
+    opacity: 0.2;
+
+    &:hover
+    {
+      opacity: 1;
+    }
+
+    .rsArrowIcn
+    {
+      left: 0;
+      background-position: 0 -24px;
+    }
+
+    &.rsArrowDisabled
+    {
+      .rsArrowIcn
+      {
+        background-position: -3px -4px;
+      }
+    }
+  }
+
+}
+
+body.subpage
+{
+  #portfolio-wrapper
+  {
+    padding-top: 0;
+
+    #portfolio-thumbs-slider
+    {
+      width: 100% !important;
+
+      .rsThumbs
+      {
+        width: inherit;
+        margin-left: 0;
+      }
+    }
+
+    .portfolio-content-slider
+    {
+      width: 900px !important;
+      height: 400px !important;
+      margin: 0 auto;
+
+      .rsOverflow
+      {
+        width: 600px !important;
+        // margin-left: 0px !important;
+
+        > .rsSlide
+        {
+          width: inherit !important;
+        }
+      }
+    }    
+  }
+}

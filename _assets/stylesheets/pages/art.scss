@@ -1,0 +1,30 @@
+/* variables */
+@import "constants";
+
+/* mixins */
+@import "mixins";
+
+
+// STYLES FOR ART ONLY
+body.art
+{
+  #primary-story-wrapper
+  {
+    #primary-story
+    {
+      #marquee-wrapper
+      {
+        #marquee
+        {
+          background-color: $art-color;
+
+          .marquee-bg-art
+          {
+            opacity: 1;
+            @include gradientDiagonal($art-color, $art-color-dark);
+          }      
+        }
+      }
+    }
+  }
+}

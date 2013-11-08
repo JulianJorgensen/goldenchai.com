@@ -19,9 +19,170 @@ button.yellow
   height: inherit;
 }
 
+.durability-color
+{
+  color: $durability-color;
+}
+
+.usability-color
+{
+  color: $usability-color;
+}
+
+.art-color
+{
+  color: $art-color;
+}
+
+
 /* Utility classes */
 .align-center { text-align: center; }
 .align-left   { text-align: left; }
 .align-right  { text-align: right; }
 .pull-left    { float: left; }
 .pull-right   { float: right; }
+
+
+/* forward arrow */
+.arrow-forward
+{
+  position: absolute;
+  right: -70px;
+  top: 50%;
+  margin-top: -18px;
+  background: url("/images/arrows.png") 0 0 no-repeat;
+  height: 36px;
+  width: 18px;
+  cursor: pointer;
+  opacity: 0.5;
+
+  &:hover
+  {
+    opacity: 1;
+  }
+}
+
+
+/* TABS */
+/* ==== */
+body
+{
+  .nav-tabs
+  {
+    @include disableHighlighting;
+
+    > li
+    {
+      @include disableHighlighting;
+
+      > a
+      {
+        padding: 0;
+      }
+    }
+  }  
+}
+
+.tab-content
+{
+  .tab-pane
+  {
+    display: none;
+
+    &.active
+    {
+      display: block;
+    }
+
+    /* LIST STYLES */
+    /* ======== */
+
+    ul
+    {
+      display: block;
+
+      li
+      {
+        font-size: 1.5em;
+        text-align: left;
+        list-style-type: square;
+        list-style-position: inside;
+      }
+    }
+  }
+}
+
+
+
+/* FANCY CSS SPACERS */
+/* ============= */
+
+.spacer {
+  margin-top:100px;
+  margin-left:100px;
+  width:400px; 
+  position:relative; 
+  
+  .mask { 
+    overflow:hidden; height:20px; 
+    &:after { 
+      content:''; 
+      display:block; margin:-25px auto 0;
+      width:100%; height:25px;  
+      border-radius:125px / 12px;  
+      box-shadow:0 0 8px black;
+    }
+  }
+  span {
+    $size:50px;
+    width:$size; height:$size; 
+    position:absolute; 
+    bottom:100%; margin-bottom:-$size/2;
+    left:50%; margin-left:-$size/2;
+    border-radius:100%;
+    box-shadow:0 2px 4px #999;
+    background:white;
+  }
+  span i {
+    $offset:4px;
+    position:absolute;
+    top:$offset; bottom:$offset;
+    left:$offset; right:$offset;
+    border-radius:100%;
+    border:1px dashed #aaa;
+    
+    text-align:center;
+    line-height:40px;
+    font-style:normal;
+    color:#999;
+  }
+}
+
+
+
+// vertical variation
+
+.spacer-vertical {
+  display:inline-block;
+  width:100px; 
+  position: absolute; 
+  
+  .mask { 
+    overflow:hidden; width:20px; height:200px; 
+    //outline:1px solid pink;
+  }
+  &.left .mask:after { 
+    content:''; 
+    display:block; margin-left:-20px;
+    width:20px; height:100%;  
+    border-radius:12px / 125px;  
+    box-shadow:0 0 8px black;
+  }
+  &.right .mask:before { 
+    content:''; 
+    display:block; margin-left:20px;
+    width:20px; height:100%; 
+    border-radius:12px / 125px; 
+    box-shadow:0 0 8px black;
+  }
+}

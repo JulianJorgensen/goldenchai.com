@@ -1,0 +1,30 @@
+/* variables */
+@import "constants";
+
+/* mixins */
+@import "mixins";
+
+
+// STYLES FOR DURABILITY ONLY
+body.durability
+{
+  #primary-story-wrapper
+  {
+    #primary-story
+    {
+      #marquee-wrapper
+      {
+        #marquee
+        {    
+          background-color: $durability-color;
+
+          .marquee-bg-durability
+          {
+            opacity: 1;
+            @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
+          }
+        }
+      }      
+    }
+  }
+}

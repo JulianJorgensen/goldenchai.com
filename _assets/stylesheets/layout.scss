@@ -1,7 +1,7 @@
 /* variables */
 @import "constants";
 
-/* variables */
+/* mixins */
 @import "mixins";
 
 
@@ -9,7 +9,7 @@
 
 h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
 {
-  font-family: $fonts;
+  font-family: $fonts !important;
   color: $gray70;
   line-height: 160%;
 }
@@ -21,16 +21,16 @@ p
 
 a, a:active, a:focus, a:visited, a:hover
 {
+  background-color: none;
   border: none;
-  outline: none;
-  text-decoration: none;
+  outline: none !important;
+  text-decoration: none !important;
 }
 
 /* layouts */
 
 html, body
 {
-  background: $smokewhite;
   font-family: $fonts;
   margin: 0;
   padding: 0;
@@ -38,57 +38,99 @@ html, body
 
 body
 {
-  font-size: 62.5%;
-
-  #content
+  .content-wrapper, header, footer
   {
-    #main, header, footer
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    .inner-wrapper
     {
-      max-width: 600px;
-      margin: 0 auto;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
+      position: relative;
+      margin: 40px auto;
+      height: inherit;
+    }
+  }
 
-      #content-wrapper
-      {
-        position: relative;
-        margin: 40px auto;
-        height: inherit;
-      }
+  .window
+  {
+    position: relative;    
+    width: 100%;
+    height: 100%;
+  }
+
+  footer
+  {
+    opacity: 0;
+    border-top: 1px solid $gray20;
+    margin-top: 20px;
+
+    p
+    {
+      font-size: 1em;        
+    }
+  }
+
+  &.one-page-site
+  {
+    // hide portfolio and services wrapper at first load - after entering site, they'll be visible (and scrollbar will appear)
+    #portfolio-wrapper, #services-wrapper
+    {
+      position: absolute;
+      top: -1000%;
+    }
+  }
+
+
+  &.activated-primary
+  {
+    #portfolio-wrapper, #services-wrapper
+    {
+      position: static;
+      top: 0;
     }
 
-    .window{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        text-align: center;
+    #window-divider-1, #window-divider-2, .tree-bg
+    {
+      display: block;
     }
   }
 }
 
 
-/* HELPERS */
-.preloader
+#window-divider-1
 {
+  display: none;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -64px;
-  margin-top: -64px;
-  width: 128px;
-  height: 128px;
-  
-  &.preloader-portfolio
-  {
-    background: url('/images/ajax-loader-gray70.gif') 0 0 no-repeat;
-  }
-
-  &.preloader-services
-  {
-    background: url('/images/ajax-loader-golden.gif') 0 0 no-repeat;
-  }
+  margin-top: -1px;
+  height: 70px;
+  width: 100%;
+  background: url("/images/bamboo-white-top.png") 0 0 repeat-x;
+  z-index: 99;
 }
+
+.tree-bg
+{
+  display: none;
+  position: absolute;
+  margin-top: -280px;
+  right: 100px;
+}
+
+#window-divider-2
+{
+  display: none;
+  position: absolute;
+  margin-top: -58px;
+  height: 93px;
+  width: 100%;
+  background: url("/images/bamboo-gray-bottom.png") 0 0 repeat-x;
+  z-index: 99;
+}
+
 
 
 /* MEDIA QUERIES */
@@ -106,6 +148,6 @@ body
 @media screen and (max-width: 480px) {
   body
   {
-    font-size: 50%;
+    // font-size: 50%;
   }
 }

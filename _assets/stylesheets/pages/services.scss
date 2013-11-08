@@ -4,9 +4,115 @@
 /* mixins */
 @import "mixins";
 
-
-section#services
+section#services-wrapper
 {
-  background: $beige;
-  top: 200%;
+  padding-top: 100px;
+  text-align: center;
+  @include diagonalGradient($services-color, darken($services-color, 10%), 30%);
+
+  .page-meta
+  {
+    a, h1
+    {
+      color: #fff;
+    }
+  }
+
+  .info-box
+  {
+    float: right;
+    width: 300px;
+    p
+    {
+      color: $white;
+    }
+  }
+
+  .nav-tabs
+  {
+    margin-top: 100px;
+    border-bottom: 2px solid $white;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+
+    li
+    {
+      position: relative;
+      font-size: 2em;
+      font-weight: 100;
+      display: inline-block;
+      margin: 0 20px;
+      text-transform: uppercase;
+      
+      a
+      {
+        color: $white;
+      }
+
+      &.active
+      {
+
+        /* shared with before and after */
+        &:before, &:after {
+          content: ' ';
+          height: 0;
+          position: absolute;
+          width: 0;
+          left: 50%;
+          margin-left: -13px;
+          border: 15px solid transparent; /* arrow size */
+        }
+
+        /* these arrows will point up */
+
+        /* top-stacked, smaller arrow */
+        &:before {
+          border-bottom-color: $services-color;  /* arrow color */
+
+          /* positioning */
+          top: 25px;
+          z-index: 2;
+        }
+
+        /* arrow which acts as a background shadow */
+        &:after {
+          border-bottom-color: $white;  /* arrow color */
+
+          /* positioning */
+          top: 22px;
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  .tab-content
+  {
+    margin-bottom: 60px;
+
+    .tab-pane
+    {
+
+      ul
+      {
+        width: 200px;
+
+        li
+        {
+          color: $white;
+        }
+      }
+    }
+  }
+
+
+  footer
+  {
+    opacity: 0.6;
+    
+    p, a
+    {
+      color: $white;
+    }
+  }
 }
