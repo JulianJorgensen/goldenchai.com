@@ -8,21 +8,18 @@
 // STYLES FOR USABILITY ONLY
 body.usability
 {
-  #primary-story-wrapper
+  #manifestos
   {
-    #primary-story
+    #marquee-wrapper
     {
-      #marquee-wrapper
-      {
-        #marquee
-        {    
-          background-color: $usability-color;
+      #marquee
+      {    
+        background-color: $usability-color;
 
-          .marquee-bg-usability
-          {
-            opacity: 1;
-            @include gradientDiagonal($usability-color, adjust_hue($usability-color, 350));      
-          }
+        .marquee-bg-usability
+        {
+          opacity: 1;
+          @include gradientDiagonal($usability-color, adjust_hue($usability-color, 350));      
         }
       }
     }

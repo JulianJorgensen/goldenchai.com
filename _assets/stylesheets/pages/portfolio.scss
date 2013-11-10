@@ -5,9 +5,8 @@
 @import "mixins";
 
 
-section#portfolio-wrapper
+section#portfolio
 {
-  padding-top: 100px;
   text-align: center;
   @include diagonalGradient($portfolio-color, $portfolio-color-dark, 70%);
 

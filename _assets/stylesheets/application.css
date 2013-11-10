@@ -1,6 +1,6 @@
 /**
+  *= require './vendor/bootstrap.min.css'
   *= require './vendor/animations.css'
-
   *= require './vendor/royalslider.css'
   *= require './vendor/rs-default.css'
   *= require './vendor/boxshadows.css'
@@ -9,15 +9,18 @@
 
   *= require './layout.scss'
   *= require './header.scss'
+  *= require './primaryNav.scss'
 
+  *= require './pages/manifestos.scss'
   *= require './pages/durability.scss'
   *= require './pages/usability.scss'
   *= require './pages/art.scss'
 
+  *= require './pages/portfolio.scss'
+  *= require './pages/services.scss'
+
   *= require './royalslider.scss'
 
   *= require './mobile.scss'
-
-  *= require_tree .
 
   */

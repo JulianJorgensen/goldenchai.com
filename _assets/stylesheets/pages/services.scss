@@ -4,19 +4,10 @@
 /* mixins */
 @import "mixins";
 
-section#services-wrapper
+section#services
 {
-  padding-top: 100px;
   text-align: center;
   @include diagonalGradient($services-color, darken($services-color, 10%), 30%);
-
-  .page-meta
-  {
-    a, h1
-    {
-      color: #fff;
-    }
-  }
 
   .info-box
   {

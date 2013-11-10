@@ -10,206 +10,82 @@ body
 {
   header
   {
-    margin-top: 40px;
-    position: relative;
+    position: fixed;
+    top: 0px;
+    margin-top: 70px;
+    width: 700px;
+    left: 50%;
+    margin-left: -350px;
+    z-index: 99999;
 
-    &.position-fixed
+    .samuchai-logo-wrapper
     {
-      position: fixed;
-      top: 0px;
-      margin-top: 0;
-      width: 100px;
-      left: 50%;
-      margin-left: -350px;
-      z-index: 999;
+      position: relative;
+      cursor: pointer;
+      width: 102px;
+      height: 40px;
+      @include disableHighlighting;
 
       .samuchai-logo
       {
-        padding: 17px 10px 7px;
-      }
-
-      .tiny-nav-boxes
-      {
-        display: none !important;
-      }
-    }
-
-    .samuchai-logo
-    {
-      float: left;
-      opacity: 0;
-      padding: 7px 10px;
-      font-size: 1.5em;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-align: center;
-      cursor: pointer;
-      background-color: $gray6;
-      @include transition((padding $defaultTransitionSpeed ease-out, opacity ($defaultTransitionSpeed*2) ease-in));
-      @include disableHighlighting;
-
-      .logo-samu
-      {
-        color: $black;
-      }
-
-      .logo-chai
-      {
-        color: $goldenbrown;
-      }
-    }
-
-    .tiny-nav-boxes
-    {
-      opacity: 0;
-      position: relative;
-
-      .tiny-nav
-      {
-        width: 10px;
-        height: 10px;
-        margin-left: 7px;
-        float: right;
-
-        .tiny-active-arrow
-        {
-          display: none;
-          width: 0; 
-          height: 0; 
-          border-left: 5px solid transparent;  /* left arrow slant */
-          border-right: 5px solid transparent; /* right arrow slant */
-          border-bottom: 5px solid $white; /* bottom, add background color here */
-          font-size: 0;
-          line-height: 0;
-          position: relative;
-          top: 5px;
-        }
-
-        &.tiny-durability
-        {
-          background-color: $durability-color;
-        }
-
-        &.tiny-usability
-        {
-          background-color: $usability-color;
-        }
-
-        &.tiny-art
-        {
-          background-color: $art-color;
-        }
-      }
-    }
-
-    .spacing-fix
-    {
-      display: none;
-    }
-  }
-
-
-  section.window
-  {
-    .page-meta
-    {
-      padding-top: 10px;
-
-      h1
-      {
-        font-size: 2.2em; 
-        font-weight: 300;     
-        margin: 2px 10px 10px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 7px 10px;
+        font-size: 1.5em;
+        letter-spacing: 1.5px;
         text-transform: uppercase;
-        text-align: left;
-        margin-left: 120px;
-      }
+        text-align: center;
 
-      .section-right-header
-      {
-        font-size: 1.2em;
-        text-transform: uppercase;
-        padding-top: 15px;
-
-        .contact-link
+        &.samuchai-logo-manifestos
         {
-          opacity: 0.3;
-        }
-
-        .back-to-top
-        {
-          cursor: pointer;
-
-          .up-arrow-icon
+          .logo-copy
           {
-            display: inline-block;
-            width: 16px;
-            height: 8px;
-            background: url("/images/arrows-small.png") 0 -32px no-repeat;
-            margin-left: 6px;
+            .logo-chai
+            {
+              color: $goldenbrown;
+            }
+          }
+        }
+
+        &.samuchai-logo-portfolio
+        {
+          opacity: 0;
+          background-color: $gray6;
+
+          .logo-copy
+          {
+            .logo-samu
+            {
+              color: $black;
+            }
+
+            .logo-chai
+            {
+              color: $goldenbrown;
+            }
           }
         }
       }
     }
   }
-
-  &.actiated-primary
-  {
-    header
-    {
-      .samuchai-logo
-      {
-        opacity: 1;
-      }
-    }
-  }
 }
 
-
-body.four-half-seconds-load
-{
-  header
-  {
-    .samuchai-logo
-    {
-      opacity: 1;
-    }
-  }
-}
-
-body.activated-primary
-{
-  header
-  {
-    .tiny-nav-boxes
-    {
-      opacity: 1;
-    }
-  }
-}
 
 // STYLES FOR DURABILITY ONLY
 body.durability
 {
   header
   {
-    .samuchai-logo
+    .samuchai-logo-wrapper
     {
-      background-color: darken($durability-color, 10);
-
-      .logo-samu
+      .samuchai-logo.samuchai-logo-manifestos
       {
-        color: $smokewhite;
-      }
-    }
+        background-color: darken($durability-color, 10);
 
-    .tiny-nav-boxes
-    {
-      .tiny-durability
-      {
-        .tiny-active-arrow
+        .logo-copy .logo-samu
         {
-          display: block;
+          color: $smokewhite;
         }
       }
     }
@@ -221,23 +97,15 @@ body.usability
 {
   header
   {
-    .samuchai-logo
+    .samuchai-logo-wrapper
     {
-      .logo-samu
+      .samuchai-logo.samuchai-logo-manifestos
       {
-        color: $gray85;
-      }
+        background-color: $usability-color;
 
-      background-color: $usability-color;
-    }
-
-    .tiny-nav-boxes
-    {
-      .tiny-usability
-      {
-        .tiny-active-arrow
+        .logo-copy .logo-samu
         {
-          display: block;
+          color: $gray85;
         }
       }
     }
@@ -246,22 +114,14 @@ body.usability
 
 // STYLES FOR ART ONLY
 body.art
-{  
+{
   header
   {
-    .samuchai-logo
+    .samuchai-logo-wrapper
     {
-      background-color: darken($art-color, 20);
-    }
-
-    .tiny-nav-boxes
-    {
-      .tiny-art
+      .samuchai-logo.samuchai-logo-manifestos
       {
-        .tiny-active-arrow
-        {
-          display: block;
-        }
+        background-color: darken($art-color, 20);
       }
     }
   }

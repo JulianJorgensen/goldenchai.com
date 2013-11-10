@@ -20,60 +20,19 @@
 
 <body>
 
+  <!-- INCLUDE THE HEADER -->
   {% include header.html %}
 
-  <section id="primary-story-wrapper" class="window transitioned" data-type="parallax" data-speed="20">
-    <div id="primary-story">
-      <div class="spacing-fix"></div>
 
-      <section id="marquee-wrapper">
-        <div id="marquee">
-          <div class="marquee-bg marquee-bg-durability"></div>
-          <div class="marquee-bg marquee-bg-usability"></div>
-          <div class="marquee-bg marquee-bg-art"></div>
-          <div class="marquee-shadow"></div>
-          <h1 class="headline headline-default">Great websites merge</h1>
-          <h1 class="headline headline-durability">Flawless websites merge</h1>
-          <h1 class="headline headline-usability">Brilliant websites merge</h1>
-          <h1 class="headline headline-art">Samuchai merge</h1>
+  <!-- INCLUDE THE MANIFESTOS CONTENT -->
+  {% include pages/manifestos.html %}  
 
-          <ul class="nav nav-tabs">
-            <li><a href="#durability" class="nav-durability" data-toggle="tab">Durability</a>, </li>
-            <li><a href="#usability" class="nav-usability" data-toggle="tab">Usability</a></li>
-            <li>and <a href="#art" class="nav-art" data-toggle="tab">Art</a></li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="content-wrapper">
-        <div class="inner-wrapper row">
-          <div class="col-sm-12 main-content">
-            {{ content }}
-          </div>
-          <div class="col-sm-12 fly-content">
-            {% include fly.html %}
-          </div>
-          <div class="clear"></div>
-        </div>
-      </section>
+  <!-- INCLUDE THE FULL PORTFOLIO CONTENT -->
+  {% include pages/portfolio-full.html %}
 
 
-      {% include footer.html %}
-    </div>
-  </section>
-
-
-  <!-- DON'T SHOW THE ADDITIONAL PAGES ON MOBILE - THESE SHOULD APPEAR IN SEPARATE PAGES -->
-  <div class="hidden-xs">
-    <div id="window-divider-1"></div>
-
-    {% include pages/portfolio-full.html %}
-
-    <img src="/images/tree.png" class="tree-bg" />    
-    <div id="window-divider-2"></div>
-
-    {% include pages/services.html %}
-  </div>
+  <!-- INCLUDE THE FOOTER -->
+  {% include footer.html %}
 
 
   {% javascript application %}

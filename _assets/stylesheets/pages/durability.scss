@@ -8,23 +8,20 @@
 // STYLES FOR DURABILITY ONLY
 body.durability
 {
-  #primary-story-wrapper
+  #manifestos
   {
-    #primary-story
+    #marquee-wrapper
     {
-      #marquee-wrapper
-      {
-        #marquee
-        {    
-          background-color: $durability-color;
+      #marquee
+      {    
+        background-color: $durability-color;
 
-          .marquee-bg-durability
-          {
-            opacity: 1;
-            @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
-          }
+        .marquee-bg-durability
+        {
+          opacity: 1;
+          @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
         }
-      }      
+      }
     }
   }
 }

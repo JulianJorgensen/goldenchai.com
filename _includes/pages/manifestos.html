@@ -1,0 +1,77 @@
+<section id="manifestos" class="window" data-_manifestos_pre_end="opacity:1;z-index: 999;" data-_manifestos_end="opacity:0; z-index:0;">
+
+  <section id="marquee-wrapper">
+    <div id="marquee">
+      <div class="marquee-bg marquee-bg-durability"></div>
+      <div class="marquee-bg marquee-bg-usability"></div>
+      <div class="marquee-bg marquee-bg-art"></div>
+      <div class="marquee-shadow"></div>
+      <div class="marquee-headline" data-_manifestos_pre_end="right:0%;" data-_manifestos_end="right:50%;">
+        <h1 class=" headline-default">Great websites merge</h1>
+        <h1 class="headline-durability">Flawless websites merge</h1>
+        <h1 class="headline-usability">Brilliant websites merge</h1>
+        <h1 class="headline-art">Samuchai merge</h1>
+      </div>
+
+      <ul class="nav nav-tabs" data-0p="left:0;" data-_manifestos_pre_end="left:0%;" data-_manifestos_end="left:50%;">
+        <li><a href="#durability" class="nav-durability" data-toggle="tab">Durability</a>, </li>
+        <li><a href="#usability" class="nav-usability" data-toggle="tab">Usability</a></li>
+        <li>and <a href="#art" class="nav-art" data-toggle="tab">Art</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-wrapper" data-_manifestos_pre_end_start="opacity: 1;" data-_manifestos_pre_end="opacity: 0;">
+    <div class="inner-wrapper">
+      <div class="main-content">
+
+        <!-- TAB CONTENT: DURABILITY, USABILITY, ART -->
+        <div class="tab-content">
+          <div class="tab-pane" id="durability">
+            <div class="content-front active">
+              <div class="black-diamond content-cta">
+                <img src="/images/cta/black-diamond.png" class="default">
+                <img src="/images/cta/black-diamond-hover.png" class="hover">
+              </div>
+              {% include copy/durability.html side="front" %}
+            </div>
+            <div class="content-summary">
+              {% include copy/durability.html side="back" %}
+              <div class="content-cta close-summary"></div>
+            </div>
+            <div class="arrow-forward"></div>
+          </div>
+
+          <div class="tab-pane" id="usability">
+            <div class="content-front active">
+              <div class="zen-symbol content-cta"></div>
+              {% include copy/usability.html side="front" %}
+            </div>
+
+            <div class="content-summary">
+              {% include copy/usability.html side="back" %}
+              <div class="content-cta close-summary"></div>
+            </div>
+            <div class="arrow-forward"></div>
+          </div>
+
+          <div class="tab-pane" id="art">
+            <div class="content-front active">
+              <div class="vitruvian content-cta"></div>
+              {% include copy/art.html side="front" %}
+            </div>
+            <div class="content-summary">
+              {% include copy/art.html side="back" %}
+              <div class="content-cta close-summary"></div>
+            </div>
+            <div class="arrow-forward"></div>
+          </div>
+        </div>
+        <!-- END OF TAB CONTENT -->
+
+      </div>
+      <div class="clear"></div>
+    </div>
+  </section>
+
+</section>

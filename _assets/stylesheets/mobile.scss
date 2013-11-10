@@ -5,17 +5,111 @@
 @import "mixins";
 
 
-@media screen and (max-width: 1000px)
+@media screen and (max-width: 720px)
 {
   body
   {
     header
     {
-      margin-top: 20px;
+      #primary-nav
+      {
+        right: 10px;
+      }
     }
 
-    #primary-story-wrapper
+    .content-wrapper, header, footer
     {
+      width: 100%;
+      left: auto;
+      margin-left: 0;
+      padding: 0 10px;
+    }
+
+    .content-wrapper
+    {
+      margin: 0;
+    }
+  }  
+}
+
+
+@media screen and (max-width: 667px)
+{
+  body
+  {
+    #manifestos
+    {
+      .content-wrapper
+      {
+        .inner-wrapper
+        {
+          .main-content
+          {
+            .tab-content
+            {
+              .tab-pane
+              {
+                .content-front
+                {
+                  .content-cta
+                  {
+                    margin-right: -100px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      #marquee-wrapper
+      {
+        height: 124px;
+
+        #marquee
+        {
+          .marquee-headline h1
+          {
+            font-size: 2em;
+            margin: 0;
+          }
+
+          .nav
+          {
+            font-size: 3em;
+          }
+        }
+      }
+    }
+  }  
+}
+
+
+
+@media screen and (max-width: 443px)
+{
+  body
+  {
+    #manifestos
+    {
+      #marquee-wrapper
+      {
+        height: 118px;
+
+        #marquee
+        {
+          .marquee-headline h1
+          {
+            font-size: 2em;
+            margin: 0;
+          }
+
+          .nav
+          {
+            font-size: 2.5em;
+          }
+        }
+      }
     }
   }  
 }
