@@ -11,8 +11,6 @@ body
 {
   #manifestos
   {
-    padding-top: 110px;
-
     .content-wrapper
     {
       .inner-wrapper
@@ -39,7 +37,38 @@ body
               .content-cta
               {
                 cursor: pointer;
-              }          
+
+                &.content-cta-hover
+                {
+                  img
+                  {
+                    position: absolute;
+                  }
+
+                  img.default
+                  {
+                    opacity: 1;
+                  }
+
+                  img.hover
+                  {
+                    opacity: 0;
+                  }
+
+                  &:hover
+                  {
+                    img.default
+                    {
+                      opacity: 0;
+                    }
+
+                    img.hover
+                    {
+                      opacity: 1;
+                    }
+                  }
+                }
+              }
             }
 
             .content-front, .content-summary
@@ -326,12 +355,7 @@ body
             float: right;
             width: 180px;
             height: 179px;
-            background: url("/images/zen-symbol.png") 0 0 no-repeat;
           }
-        }
-
-        .content-summary
-        {
         }
       }
     }
@@ -360,8 +384,6 @@ body
             float: right;
             width: 178px;
             height: 178px;
-
-            background: url("/images/vitruvianman.png") 0 0 no-repeat;
           }
         }
 

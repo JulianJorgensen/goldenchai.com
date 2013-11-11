@@ -132,16 +132,6 @@ function smartScroll(direction){
   }
 }
 
-function parallaxEffect(el) {
-  var coords, yPos;
-  yPos = -($(window).scrollTop() / el.data("speed"));
-  coords = "50% " + yPos + "px";
-  
-  el.css({
-    top: el.css("max-height").replace("px", "") - Math.abs(yPos * el.data("speed"))
-  });
-}
-
 
 function collapseMarquee(navName)
 {
@@ -165,4 +155,50 @@ function collapseMarquee(navName)
   setTimeout(function(){
     $("#manifestos").removeClass("transitioning");
   }, 700);
+}
+
+
+function updateSite(refreshSkrollr){
+
+  // window variables
+  windowHeight = $(window).height();
+  windowWidth = $(window).width();
+
+  if ((windowHeight < 665) || (windowWidth < 800))
+  {
+    if ($("body").hasClass("mobile")){return "";}
+
+    console.log('mobile size window');
+    // IT'S A MOBILE SITE!
+    $("body").removeClass("desktop");
+    $("body").addClass("mobile");
+    console.log("mobile class added");
+
+    if (refreshSkrollr){
+      updateSkrollr();
+    }
+
+  }else{
+    if ($("body").hasClass("desktop")){return "";}
+
+    console.log('desktop size window');
+    // IT'S A DESKTOP SITE!
+    $("body").removeClass("mobile");
+    $("body").addClass("desktop");
+    console.log("desktop class added");
+
+    if (refreshSkrollr){
+      updateSkrollr();
+    }
+  }
+}
+
+
+function updateSkrollr(){
+  skrollrStylesheets.refresh();
+
+  var s = skrollr.init();
+  s.refresh();
+
+  console.log("skrollr updated!");
 }

@@ -4,3 +4,4 @@
 //= require vendor/bootstrap.min
 //= require vendor/modernizr.custom
 //
+//= require init

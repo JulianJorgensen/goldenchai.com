@@ -5,6 +5,10 @@
 @import "mixins";
 
 
+// MEDIA QUERIES JUST FOR THE RESPONSIVE STUFF ONLY. LATER WE ADD SPECIFIC STYLES FOR "body.mobile"
+// ********************************************************************************************
+
+// less than 721 px wide screens
 @media screen and (max-width: 720px)
 {
   body
@@ -22,7 +26,8 @@
       width: 100%;
       left: auto;
       margin-left: 0;
-      padding: 0 10px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
 
     .content-wrapper
@@ -33,6 +38,7 @@
 }
 
 
+// less than 668px wide screens
 @media screen and (max-width: 667px)
 {
   body
@@ -85,7 +91,7 @@
 }
 
 
-
+// less than 444px wide screens
 @media screen and (max-width: 443px)
 {
   body
@@ -111,5 +117,16 @@
         }
       }
     }
-  }  
+  }
+}  
+
+
+// MOBILE SPECIFIC STYLES
+// note: when mobile is detected, the class "site-multiple-pages" also gets added. These styles are primarily in the main layout.scss file
+body.mobile
+{
+  footer
+  {
+    position: relative;
+  }
 }

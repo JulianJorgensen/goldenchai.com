@@ -1,0 +1,21 @@
+/* variables */
+@import "variables";
+
+body.mobile
+{
+  #manifestos
+  {
+    -skrollr-animation-name:contentGoUp;
+  }
+}
+
+
+@-skrollr-keyframes contentGoUp {
+  #{$manifestos_start} {
+    top: 0px;
+  }
+
+  #{$manifestos_end} {
+    top: -100px;
+  }
+}
