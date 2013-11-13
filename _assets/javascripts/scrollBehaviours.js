@@ -1,33 +1,71 @@
 $(document).ready(function() {
 
-  // variables
-  var windowHeight;
-  var windowWidth;
-  var documentHeight = $(document).height();
-  var refreshSkrollr = true;
 
+  updateSite();
 
-
-  // INITIALIZE THE SKROLLR. ALSO DEFINE CONSTANTS FOR ANIMATION MANUSCRIPT
+  // INITIALIZE SKROLLR. (IT"LL BE DESTROYED AND RE-INITIALIZED ON WINDOW RESIZE.)
+  skrollrStylesheets.refresh();
   var s = skrollr.init();
-
-
-
-  // setTimeout(function(){
-  //   $("body").addClass("desktop");
-  //   $("body").removeClass("mobile");
-  // }, 1000);
-
-  // setTimeout(function(){
-  //   skrollrStylesheets.refresh();
-  //   s.refresh();
-  // }, 2000);
 
 
   // ON WINDOW RESIZE: APPLY MOBILE CLASS FOR SMALL SCREENS, AND DESKTOP FOR LARGER
   $( window ).resize(function() {
-    updateSite(refreshSkrollr);
+    updateSite(true);
   });
+
+
+  // ALSO UPDATE SKROLLR AND BODY CLASSES ON ORIENTATION CHANGE
+  window.addEventListener("orientationchange", (function() {
+    updateSite(true);
+  }), false);
+
+
+  var refresh;
+
+  function updateSite(refresh){
+
+    // window variables
+    windowHeight = $(window).height();
+    windowWidth = $(window).width();
+
+    if ((windowHeight < 665) || (windowWidth < 800))
+    {
+      if ($("body").hasClass("mobile")){return "";}
+
+      // IT'S A MOBILE SITE!
+      $("body").removeClass("desktop site-single-page");
+      $("body").addClass("mobile site-multiple-pages");
+
+      if (refresh){
+        updateSkrollr();
+      }
+
+    }else{
+
+      if ($("body").hasClass("desktop")){return "";}
+
+      // IT'S A DESKTOP SITE!
+      $("body").removeClass("mobile site-multiple-pages");
+      $("body").addClass("desktop site-single-page");
+
+      if (refresh){
+        updateSkrollr();
+      }
+    }
+  }
+
+
+  function updateSkrollr(){
+
+    s.destroy();
+
+    skrollrStylesheets.refresh();
+    console.log("skrollr stylesheets re-initialized.");
+
+    s = skrollr.init();
+    console.log("skrollr re-initialized.");
+
+  }
 
 
 

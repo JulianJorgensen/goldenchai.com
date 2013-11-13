@@ -84,14 +84,15 @@ body
 
   &.site-multiple-pages
   {
-    header, footer
+    footer
     {
       // position: relative;
     }
 
     section.window
     {
-      // position: static;
+      // position: relative;
+      // height: auto;
       // overflow: hidden;
       // padding-top: 0;
 

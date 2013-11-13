@@ -1,0 +1,14 @@
+#manifestos
+{
+  -skrollr-animation-name:disappear;
+}
+
+@-skrollr-keyframes disappear {
+  200 {
+    top: 0%;
+  }
+
+  500 {
+    top: -10%;
+  }
+}

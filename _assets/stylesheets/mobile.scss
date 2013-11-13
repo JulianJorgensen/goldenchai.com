@@ -11,7 +11,7 @@
 // less than 721 px wide screens
 @media screen and (max-width: 720px)
 {
-  body
+  body.mobile
   {
     header
     {
@@ -41,7 +41,7 @@
 // less than 668px wide screens
 @media screen and (max-width: 667px)
 {
-  body
+  body.mobile
   {
     #manifestos
     {
@@ -94,25 +94,134 @@
 // less than 444px wide screens
 @media screen and (max-width: 443px)
 {
-  body
+  body.mobile
   {
+    p
+    {
+      font-size: 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
+    {
+      line-height: 130%;
+    }
+
+    header
+    {
+      padding-top: 0;
+
+      .samuchai-logo-wrapper
+      {
+        .samuchai-logo
+        {
+          padding: 5px 6px;
+          font-size: 1em;  
+          letter-spacing: 1px;        
+        }
+      }
+
+      #primary-nav
+      {
+        display: none;
+      }
+    }
+
+    .window
+    {
+      padding-top: 28px;
+    }
+
     #manifestos
     {
       #marquee-wrapper
       {
-        height: 118px;
+        height: 76px;
 
         #marquee
         {
-          .marquee-headline h1
+          .marquee-headline
           {
-            font-size: 2em;
-            margin: 0;
+            margin-top: -5px;
+
+            h1
+            {
+              font-size: 1.4em;
+              margin: 0;              
+            }
           }
 
           .nav
           {
-            font-size: 2.5em;
+            font-size: 2em;
+
+            li a
+            {
+              border-bottom-width: 1px;
+            }
+          }
+
+          li.active a
+          {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+          }
+        }
+      }
+
+      .content-wrapper
+      {
+        .inner-wrapper
+        {
+          margin: 20px auto;
+
+          .main-content
+          {
+            .tab-content
+            {
+              .tab-pane
+              {
+                .content-front
+                {
+                  h1
+                  {
+                    font-size: 1.1em;
+                  }
+
+                  .content-cta
+                  {
+                    margin-right: -130px;
+                  }
+
+                  .content-cta
+                  {
+                    width: auto;
+                    height: auto;
+
+                    img
+                    {
+                      position: static;
+                      width: 60%;
+                    }
+
+                    &.content-cta-hover
+                    {
+                      &:hover
+                      {
+                        img.default
+                        {
+                          opacity: 1;
+                        }
+                      }
+
+                      .hover
+                      {
+                        display: none;
+                      }
+                    }
+                  }
+                }                
+              }
+            }
           }
         }
       }
@@ -125,8 +234,4 @@
 // note: when mobile is detected, the class "site-multiple-pages" also gets added. These styles are primarily in the main layout.scss file
 body.mobile
 {
-  footer
-  {
-    position: relative;
-  }
 }

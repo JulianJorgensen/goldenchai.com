@@ -19,13 +19,15 @@
   <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/layout %}" data-skrollr-stylesheet />
   <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/manifestos %}" data-skrollr-stylesheet />
   <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/portfolio %}" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/mobile %}" data-skrollr-stylesheet />
+  <link class="mobile" rel="stylesheet" type="text/css" href="{% asset_path keyframes/site-multiple-pages %}" data-skrollr-stylesheet />
 
+
+  <!-- <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/test %}" data-skrollr-stylesheet /> -->
 
   <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico">
 </head>
 
-<body class="site-multiple-pages">
+<body>
 
   <!-- INCLUDE THE HEADER -->
   {% include header.html %}

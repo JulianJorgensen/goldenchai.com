@@ -122,6 +122,11 @@ body.art
       .samuchai-logo.samuchai-logo-manifestos
       {
         background-color: darken($art-color, 20);
+
+        .logo-copy .logo-samu
+        {
+          color: $smokewhite;
+        }
       }
     }
   }

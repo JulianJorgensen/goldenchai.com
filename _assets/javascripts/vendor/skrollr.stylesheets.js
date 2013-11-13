@@ -5,10 +5,11 @@
  * Doesn't expose any globals.
  */
 (function(window, document, undefined) {
-  'use strict';
 
   var content;
   var contents = [];
+  var animations = {};
+  var selectors = [];
 
   //Finds the declaration of an animation block.
   var rxAnimation = /@-skrollr-keyframes\s+([\w-]+)/g;
@@ -48,6 +49,7 @@
 
   //"main"
   var kickstart = function(stylesheets) {
+    // console.log(stylesheets);
     //Iterate over all stylesheets, embedded and remote.
     for(var stylesheetIndex = 0; stylesheetIndex < stylesheets.length; stylesheetIndex++) {
       var sheet = stylesheets[stylesheetIndex];
@@ -82,9 +84,6 @@
     //This is needed to ensure correct order of stylesheets and inline styles.
     contents.reverse();
 
-    var animations = {};
-    var selectors = [];
-
     //Now parse all stylesheets.
     for(var contentIndex = 0; contentIndex < contents.length; contentIndex++) {
       content = contents[contentIndex];
@@ -108,6 +107,7 @@
     var curAnimation;
 
     while((animation = rxAnimation.exec(input)) !== null) {
+
       //Grab the keyframes inside this animation.
       rxKeyframes.lastIndex = rxAnimation.lastIndex;
       rawKeyframes = rxKeyframes.exec(input);
@@ -153,7 +153,8 @@
   };
 
   //Applies the keyframes (as data-attributes) to the elements.
-  var applyKeyframes = function(animations, selectors) {
+  var applyKeyframes = function(_animations, _selectors) {
+
     var elements;
     var keyframes;
     var keyframeName;
@@ -161,6 +162,10 @@
     var attributeName;
     var attributeValue;
     var curElement;
+
+    animations = _animations || animations;
+    selectors = _selectors || selectors;
+
 
     for(var selectorIndex = 0; selectorIndex < selectors.length; selectorIndex++) {
       elements = document.querySelectorAll(selectors[selectorIndex][0]);
@@ -174,28 +179,73 @@
       for(keyframeName in keyframes) {
         for(elementIndex = 0; elementIndex < elements.length; elementIndex++) {
           curElement = elements[elementIndex];
+
+
           attributeName = 'data-' + keyframeName;
-          attributeValue = keyframes[keyframeName] + ";";
+          attributeValue = keyframes[keyframeName];
 
           //If the element already has this keyframe inline, give the inline one precedence by putting it on the right side.
           //The inline one may actually be the result of the keyframes from another stylesheet.
           //Since we reversed the order of the stylesheets, everything comes together correctly here.
           if(curElement.hasAttribute(attributeName)) {
-            //attributeValue += curElement.getAttribute(attributeName);
+            // attributeValue += curElement.getAttribute(attributeName);
           }
+          el = elements[elementIndex];
+          el.setAttribute(attributeName, attributeValue);
 
-          elements[elementIndex].setAttribute(attributeName, attributeValue);
+          if (!hasClass(el, 'skrollr-element'))
+          {
+            el.className = elements[elementIndex].className + " skrollr-element";
+          }
         }
       }
     }
   };
 
 
+  function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+  }
+
+  function removeClassName(elem, name){
+    var remClass = elem.className;
+    var re = new RegExp('(^| )' + name + '( |$)');
+    remClass = remClass.replace(re, '$1');
+    remClass = remClass.replace(/ $/, '');
+    elem.className = remClass;
+  }
+
+
+  function resetSkrollrElements(){
+    elements = document.querySelectorAll(".skrollr-element");
+    for(elementIndex = 0; elementIndex < elements.length; elementIndex++) {
+      curElement = elements[elementIndex];
+
+      // DELETE SKROLLR-ELEMENT CLASS
+      removeClassName(curElement, 'skrollr-element');
+
+      // DELETE EXISTING ATTRIBUTES
+      var attArray = [];
+      for(var k = 0; k < curElement.attributes.length; k++) {
+        var attr = curElement.attributes[k];
+
+        if((attr.name != 'class') && (attr.name != 'id') && (attr.name != 'style'))
+        {
+          attArray.push(attr.name);
+        }
+      }
+      for(var k = 0; k < attArray.length; k++){
+        curElement.removeAttribute(attArray[k]);
+        console.log("removed: " + attArray[k]);
+      }
+    }
+
+  }
+
   window.skrollrStylesheets = {
     refresh: function() {
-      $('.skrollable').removeAttrs(/^data-/);
-      $('.skrollable').removeAttrs(/^style/);
-      kickstart(document.querySelectorAll('link, style'));
+      resetSkrollrElements();
+      kickstart(document.querySelectorAll('link'));
     }
   };
 
