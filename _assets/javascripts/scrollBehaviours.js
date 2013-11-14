@@ -45,6 +45,7 @@ $(document).ready(function() {
       if ($("body").hasClass("desktop")){return "";}
 
       // IT'S A DESKTOP SITE!
+      $("header").removeClass("mobile-nav-active"); // hide mobile nav just in case it's active
       $("body").removeClass("mobile site-multiple-pages");
       $("body").addClass("desktop site-single-page");
 

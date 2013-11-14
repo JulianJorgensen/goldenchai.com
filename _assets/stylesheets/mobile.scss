@@ -5,13 +5,31 @@
 @import "mixins";
 
 
-// MEDIA QUERIES JUST FOR THE RESPONSIVE STUFF ONLY. LATER WE ADD SPECIFIC STYLES FOR "body.mobile"
+// MEDIA QUERIES JUST FOR THE RESPONSIVE STUFF ONLY. LATER WE ADD SPECIFIC STYLES FOR "body"
 // ********************************************************************************************
+
+body header
+{
+  @include transition(padding-top $defaultTransitionSpeed ease-out);
+
+  #mobile-nav-icon
+  {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    opacity: 0.4;
+    cursor: pointer;
+    @include disableHighlighting;
+    @include transition(opacity $defaultTransitionSpeed ease-out);
+  }
+}
+
+
 
 // less than 721 px wide screens
 @media screen and (max-width: 720px)
 {
-  body.mobile
+  body
   {
     header
     {
@@ -41,7 +59,7 @@
 // less than 668px wide screens
 @media screen and (max-width: 667px)
 {
-  body.mobile
+  body
   {
     #manifestos
     {
@@ -90,11 +108,49 @@
   }  
 }
 
-
-// less than 444px wide screens
-@media screen and (max-width: 443px)
+// less than 580px wide screens (this is where mobile landscape begins)
+// below styles are just for the mobile nav and header
+@media screen and (max-width: 580px)
 {
-  body.mobile
+  body
+  {
+    header
+    {
+      padding-top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      
+      &.mobile-nav-transitioning
+      {
+        @include transition(padding-top $defaultTransitionSpeed ease-out);
+      }
+
+      &.mobile-nav-active
+      {
+        @include transition(padding-top ($defaultTransitionSpeed*1.5) ease-out);
+        padding-top: 85px;
+        padding-bottom: 10px;
+
+        #primary-nav
+        {
+          opacity: 1;
+          bottom: 10px;
+          @include transition(opacity ($defaultTransitionSpeed*1.5) ease-out);
+        }
+
+        #mobile-nav-icon
+        {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+
+// less than 580px wide screens (this is where mobile landscape begins)
+@media screen and (max-width: 580px)
+{
+  body
   {
     p
     {
@@ -106,9 +162,11 @@
       line-height: 130%;
     }
 
+
     header
     {
       padding-top: 0;
+      @include transition(padding-top 0); // no transition on header initially
 
       .samuchai-logo-wrapper
       {
@@ -122,7 +180,28 @@
 
       #primary-nav
       {
-        display: none;
+        opacity: 0;
+      }
+
+      #mobile-nav
+      {
+        display: block;
+      }
+    }
+
+    footer
+    {
+      p, li
+      {
+        font-size: 1em;
+      }
+
+      ul
+      {
+        li
+        {
+          padding: 4px 5px;
+        }
       }
     }
 

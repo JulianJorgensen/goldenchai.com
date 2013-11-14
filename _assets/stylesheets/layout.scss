@@ -66,22 +66,6 @@ body
     overflow: hidden;
   }
 
-  footer
-  {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    width: 700px;
-    margin-left: -350px;
-    border-top: 1px solid $gray20;
-    z-index: 9999;
-
-    p
-    {
-      font-size: 1em;        
-    }
-  }
-
   &.site-multiple-pages
   {
     footer

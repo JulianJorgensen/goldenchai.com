@@ -23,6 +23,7 @@ $(document).ready(function() {
     $("body").addClass("subpage");
   }else{
     $("body").addClass("durability");
+    $("body").addClass("page-manifestos");
     $('.nav-tabs li:eq(0)').find('a').trigger('click');
   }
 
@@ -97,6 +98,28 @@ $(document).ready(function() {
       $('.nav-tabs > .active').next('li').find('a').trigger('click');
       collapseMarquee();
     }
+  });
+
+
+  // MOBILE NAV ICON
+  // *****************************
+  $("#mobile-nav-icon").click(function(){
+    $("header").addClass("mobile-nav-active");
+    $("header").addClass("mobile-nav-transitioning");
+
+
+    $(window).scroll(function() {
+      $("header").removeClass("mobile-nav-active");
+    });
+
+    $("section.window").click(function() {
+      $("header").removeClass("mobile-nav-active");
+      $("header").addClass("mobile-nav-transitioning");
+
+      setTimeout(function(){
+        $("header").removeClass("mobile-nav-active");
+      }, marqueeTransitionSpeed);
+    });
   });
 
 

@@ -330,13 +330,12 @@
       _skrollables = [];
       _skrollableIdCounter = 0;
 
+      // Changed below to fetch only elements with "skrollr-element" class. The class should either be added manually, or, what I've done is add it automatically in the skrollr.stylesheet.js (see my fork for this: https://github.com/JulianJorgensen/skrollr-stylesheets)
       elements = document.getElementsByClassName('skrollr-element');
     } else {
       //We accept a single element or an array of elements.
       elements = [].concat(elements);
     }
-
-    console.log(elements);
 
     elementIndex = 0;
     elementsLength = elements.length;
@@ -627,8 +626,6 @@
     cancelAnimFrame(_animFrame);
     _removeAllEvents();
 
-    console.log('called destroy!');
-
     _updateClass(documentElement, [NO_SKROLLR_CLASS], [SKROLLR_CLASS, SKROLLR_DESKTOP_CLASS, SKROLLR_MOBILE_CLASS]);
 
     var skrollableIndex = 0;
@@ -644,9 +641,6 @@
     if(_skrollrBody) {
       skrollr.setStyle(_skrollrBody, 'transform', 'none');
     }
-
-    console.log("body.style.height: " + body.style.height);
-    console.log("_maxKeyFrame: " + _maxKeyFrame);
 
     _instance = undefined;
     _skrollrBody = undefined;
@@ -671,10 +665,6 @@
     _isMobile = false;
     _mobileOffset = 0;
     _translateZ = undefined;
-    _skrollables = [];
-    _skrollableIdCounter = 0;
-
-    _updateDependentKeyFrames();
   };
 
   /*
