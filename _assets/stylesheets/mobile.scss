@@ -10,12 +10,12 @@
 
 body header
 {
-  @include transition(padding-top $defaultTransitionSpeed ease-out);
+  @include transition(padding-top $defaultTransitionSpeed ease);
 
   #mobile-nav-icon
   {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     right: 10px;
     opacity: 0.4;
     cursor: pointer;
@@ -121,20 +121,19 @@ body header
       
       &.mobile-nav-transitioning
       {
-        @include transition(padding-top $defaultTransitionSpeed ease-out);
+        @include transition(padding-top $defaultTransitionSpeed ease);
       }
 
       &.mobile-nav-active
       {
-        @include transition(padding-top ($defaultTransitionSpeed*1.5) ease-out);
+        @include transition(padding-top ($defaultTransitionSpeed*1.5) ease);
         padding-top: 85px;
-        padding-bottom: 10px;
 
         #primary-nav
         {
           opacity: 1;
           bottom: 10px;
-          @include transition(opacity ($defaultTransitionSpeed*1.5) ease-out);
+          @include transition(opacity ($defaultTransitionSpeed*1.5) ease);
         }
 
         #mobile-nav-icon

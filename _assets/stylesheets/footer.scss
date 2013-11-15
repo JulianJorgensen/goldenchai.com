@@ -4,27 +4,58 @@
 /* variables */
 @import "mixins";
 
+// local mixins
+@mixin footerNavActive()
+{
+  background: rgba($gray20, 0.3);
+}
 
+
+// styles start
 body
 {
   footer
   {
+    position: fixed;
+    top: 650px;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    @include transition(top $defaultTransitionSpeed ease-out);
+
     p, li
     {
       font-size: 1.2em;
     }
 
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    width: 700px;
-    margin-left: -350px;
-    border-top: 1px solid $gray20;
-    z-index: 9999;
+    nav
+    {
+      li.active
+      {
+        @include footerNavActive();
+      }      
+    }
+
+    .content-wrapper
+    {
+      border-top: 1px solid $gray20;
+    }
+
+    &.active
+    {
+      top: 130px;
+      background-color: $white;
+
+      .copyright
+      {
+        opacity: 0;
+      }
+    }
 
     .copyright
     {
       padding-top: 4px;
+      @include transition(opacity $defaultTransitionSpeed);
     }
 
     ul
@@ -50,7 +81,7 @@ body.page-manifestos
     {
       li.footer-nav-manifestos
       {
-        background: rgba($gray20, 0.3);
+        @include footerNavActive();
       }
     }
   }
@@ -64,7 +95,7 @@ body.page-portfolio
     {
       li.footer-nav-portfolio
       {
-        background: rgba($gray20, 0.3);
+        @include footerNavActive();
       }
     }
   }
@@ -78,7 +109,7 @@ body.page-services
     {
       li.footer-nav-services
       {
-        background: rgba($gray20, 0.3);
+        @include footerNavActive();
       }
     }
   }

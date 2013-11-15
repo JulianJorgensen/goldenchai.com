@@ -123,7 +123,6 @@ $(document).ready(function() {
   });
 
 
-
   // SMART SCROLL TO NEXT WINDOW WHEN USING WHEEL OR TRACKPAD SCROLL
   // ******************************************
   // $(window).bind('mousewheel', function(event) {
