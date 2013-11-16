@@ -1,0 +1,93 @@
+/* variables */
+@import "constants";
+
+/* variables */
+@import "mixins";
+
+
+/* header */
+body
+{
+  header
+  {
+    #primary-nav
+    {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      @include disableHighlighting;
+      @include transition(opacity $defaultTransitionSpeed ease-out);
+
+
+      .primary-nav-item
+      {
+        position: relative;
+        text-align: right;
+        clear: both;
+        margin: 10px 0 0;
+        z-index: 999;
+        @include disableHighlighting;
+
+        &:nth-child(1)
+        {
+          margin: 0;
+        }
+
+        .nav-title
+        {
+          display: inline-block;
+          position: relative;
+          bottom: -4px;
+          font-size: 1.2em;
+          text-transform: uppercase;
+          @include disableHighlighting;
+        }
+
+        .nav-icon
+        {
+          width: 30px;
+          height: 25px;
+          float: right;
+          margin-left: 10px;
+          background: url("/images/nav/nav-double-arrow.png") center center no-repeat;
+        }
+
+        &.primary-nav-manifestos
+        {
+          .nav-icon
+          {
+            background-color: $manifestos-nav-color;
+          }
+        }
+
+        &.primary-nav-portfolio
+        {
+          .nav-icon
+          {
+            background-color: $portfolio-nav-color;
+          }
+        }
+
+        &.primary-nav-services
+        {
+          .nav-icon
+          {
+            background-color: $services-nav-color;
+          }
+        }
+      }
+
+      .primary-nav-active-bg
+      {
+        position: absolute;
+        right: 30px;
+        top: 0;
+        background-color: $gray20;
+        opacity: 0.5;
+        width: 100px;
+        height: 25px;
+        z-index: 998;
+      }
+    }
+  }
+}

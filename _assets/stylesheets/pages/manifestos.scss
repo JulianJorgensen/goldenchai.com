@@ -1,0 +1,428 @@
+/* variables */
+@import "constants";
+
+/* mixins */
+@import "mixins";
+
+
+// MANIFESTOS CONTENT STYLES
+// *****************************
+body
+{
+  #manifestos
+  {
+    .content-wrapper
+    {
+      .inner-wrapper
+      {
+        .main-content
+        {
+          padding: 0;
+
+          .tab-content
+          {
+            @include transition(opacity $defaultTransitionSpeed ease-out);
+
+            .content-front
+            {
+              h1
+              {
+                font-size: 1.5em;
+                margin: 0 0 10px;
+                font-weight: 300;
+                font-style: italic;
+              }
+
+              .content-cta
+              {
+                cursor: pointer;
+
+                &.content-cta-hover
+                {
+                  img
+                  {
+                    position: absolute;
+                  }
+
+                  img.default
+                  {
+                    opacity: 1;
+                  }
+
+                  img.hover
+                  {
+                    opacity: 0;
+                  }
+
+                  &:hover
+                  {
+                    img.default
+                    {
+                      opacity: 0;
+                    }
+
+                    img.hover
+                    {
+                      opacity: 1;
+                    }
+                  }
+                }
+              }
+            }
+
+            .content-front, .content-summary
+            {
+              p
+              {
+                margin-top: 0;
+              }
+            }
+
+            .content-summary
+            {
+              display: none;
+
+              h2
+              {
+                font-size: 1.5em;
+                margin: 0 0 10px;
+                font-weight: 100;
+                text-decoration: underline;
+              }
+
+              .close-summary
+              {
+                background: url("/images/close-summary.png") 0 0 no-repeat;
+                width: 66px;
+                height: 21px;
+                margin-top: 20px;
+                cursor: pointer;
+                float: right;
+              }
+            }
+          }
+        }          
+      }
+    }
+
+    /* marquee */
+
+    #marquee-wrapper
+    {
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      padding: 0;
+      height: 151px;
+      @include disableHighlighting;
+
+      #marquee
+      {
+        height: inherit;
+        text-transform: uppercase;
+        font-weight: 100;
+
+        .marquee-headline h1, span, .nav
+        {
+          color: $white;
+        }
+        
+        .marquee-headline h1, .nav
+        {
+          @include transition(opacity $defaultTransitionSpeed ease-out ($defaultTransitionSpeed*0.8));
+        }
+
+        .marquee-headline
+        {
+          position: relative;
+
+          h1
+          {
+            font-size: 2.5em;
+            font-weight: 100;            
+            margin: 10px 0 2px 0;
+          }
+
+          .headline-durability, .headline-usability,  .headline-art
+          {
+            display: none;
+          }
+        }
+
+        .marquee-bg
+        {
+          position: absolute;
+          width: 100%;
+          height: inherit;
+          opacity: 0;
+          @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
+        }
+
+        .marquee-shadow
+        {
+          width: 100%;
+          background: url("/images/marquee/shadow.png") 0 0 repeat-x;
+          padding-bottom: 20px;
+          position: relative;
+          @include transition(opacity $defaultTransitionSpeed ease-in);
+        }
+
+        .nav
+        {
+          position: relative;
+          font-size: 3.5em;
+          border: 0;
+          list-style: none;
+          margin: 0;
+          padding-left: 0;
+
+          > li {
+            display: inline-block;
+            float: none;
+            color: $white;
+
+            &:nth-child(1)
+            {
+              @include transition(opacity $defaultTransitionSpeed ease-in);
+            }
+
+            &:nth-child(2)
+            {
+              @include transition(opacity $defaultTransitionSpeed ease-in 1s);
+            }
+
+            &:nth-child(3)
+            {
+              @include transition(opacity $defaultTransitionSpeed ease-in 2s);
+            }
+
+
+            a
+            {
+              display: inline-block;
+              padding: 0;
+              line-height: 100%;
+              margin-bottom: 33px;
+            }
+
+            &.active
+            {
+              a
+              {
+                background: url("/images/marquee/active-nav-arrow.png") center bottom no-repeat; 
+                color: $white;
+                border: none;
+                padding-bottom: 35px;
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          .nav-durability
+          {
+            color: $durability-color;
+            border-bottom: 2px solid $durability-color;
+          }
+
+          .nav-usability
+          {
+            color: $usability-color;
+            border-bottom: 2px solid $usability-color;
+          }
+
+          .nav-art
+          {
+            color: $art-color;
+            border-bottom: 2px solid $art-color;
+          }
+        }
+      }
+    }
+
+    &.transitioning
+    {
+      #marquee-wrapper
+      {
+        #marquee
+        {
+          @include transition(height $defaultTransitionSpeed);
+        }
+      }
+    }
+
+    &.collapsed
+    {
+      #marquee-wrapper
+      {
+        #marquee
+        {
+          height: 0;
+
+          .nav, .marquee-headline h1
+          {
+            opacity: 0;
+            @include transition(opacity 0);
+          }
+        }
+      }
+
+      .content-wrapper
+      {
+        .inner-wrapper
+        {
+          .main-content
+          {
+            .tab-content
+            {
+              opacity: 0 !important;
+              @include transition(opacity 0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// DURABILITY CONTENT STYLES
+// *************************
+body
+{
+  .content-wrapper
+  {
+    .inner-wrapper
+    {
+      #durability.tab-pane
+      {
+        .content-front
+        {
+          .black-diamond
+          {
+            float: right;
+            width: 219px;
+            height: 203px;
+
+            img
+            {
+              position: absolute;
+            }
+
+            img.default
+            {
+              opacity: 1;
+            }
+
+            img.hover
+            {
+              opacity: 0;
+            }
+
+            &:hover
+            {
+              img.default
+              {
+                opacity: 0;
+              }
+
+              img.hover
+              {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// USABILITY CONTENT STYLES
+// *************************
+body
+{
+  .content-wrapper
+  {
+    .inner-wrapper
+    {
+      #usability.tab-pane
+      {
+        .content-front
+        {
+          .zen-symbol
+          {
+            float: right;
+            width: 180px;
+            height: 179px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ART CONTENT STYLES
+// *************************
+body
+{
+  .content-wrapper
+  {
+    .inner-wrapper
+    {
+      #art.tab-pane
+      {
+        .arrow-forward
+        {
+          display: none;
+        }
+
+        .content-front
+        {
+          .vitruvian
+          {
+            float: right;
+            width: 178px;
+            height: 178px;
+          }
+        }
+
+        .content-summary
+        {
+          text-align: center;
+          padding-top: 50px;
+
+          quote
+          {
+            color: darken($art-color, 20);
+            font-size: 3em;
+          }
+
+          .author
+          {
+            position: absolute;
+            right: 74px;
+            display: block;
+            margin-top: 11px;
+            font-size: 1.5em;
+          }
+
+          .close-summary
+          {
+            margin-top: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ENABLE FORWARD ARROW ON ART SECTION IF VISITOR HAS VISITED ALL PAGES
+// ********************************************************************
+
+body.visited-durability.visited-usability.visited-art.visited-portfolio.visited-services
+{
+  .content-wrapper .inner-wrapper #art.tab-pane .arrow-forward
+  {
+    display: block;
+  }
+}

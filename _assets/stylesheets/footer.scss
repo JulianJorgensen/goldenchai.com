@@ -1,0 +1,152 @@
+/* variables */
+@import "constants";
+
+/* variables */
+@import "mixins";
+
+// local mixins
+@mixin footerNavActive()
+{
+  background: rgba($gray20, 0.3);
+}
+
+
+// styles start
+body
+{
+  footer
+  {
+    position: fixed;
+    top: 650px;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    @include transition((background $defaultTransitionSpeed ease-out, top $defaultTransitionSpeed ease-out));
+
+    p, li
+    {
+      font-size: 1.2em;
+    }
+
+    section#footer-content
+    {
+      opacity: 0;
+    }
+
+    .content-wrapper
+    {
+      border-top: 1px solid $gray20;
+    }
+
+    p
+    {
+      padding-top: 4px;
+      @include transition(opacity $defaultTransitionSpeed);      
+    }
+
+
+    .collapseFooter
+    {
+      display: none;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    ul
+    {
+      list-style-type: none;
+      padding: 0;
+
+      li
+      {
+        display: inline-block;
+        padding: 4px 15px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+body.footer-active
+{
+  header
+  {
+    #primary-nav
+    {
+      opacity: 0.2;
+    }    
+  }
+
+  footer
+  {
+    top: 130px;
+    background-color: $white;
+
+    nav
+    {
+      li.active
+      {
+        @include footerNavActive();
+      }
+    }
+
+    .copyright
+    {
+      display: none;
+      opacity: 0;
+    }
+
+    .collapseFooter
+    {
+      display: block;
+      opacity: 1;
+    }
+
+    section#footer-content
+    {
+      opacity: 1;
+    }
+  }
+}
+
+body.page-manifestos
+{
+  footer
+  {
+    ul
+    {
+      li.footer-nav-manifestos
+      {
+        @include footerNavActive();
+      }
+    }
+  }
+}
+
+body.page-portfolio
+{
+  footer
+  {
+    ul
+    {
+      li.footer-nav-portfolio
+      {
+        @include footerNavActive();
+      }
+    }
+  }
+}
+
+body.page-services
+{
+  footer
+  {
+    ul
+    {
+      li.footer-nav-services
+      {
+        @include footerNavActive();
+      }
+    }
+  }
+}

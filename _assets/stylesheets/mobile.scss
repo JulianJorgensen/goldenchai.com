@@ -5,17 +5,313 @@
 @import "mixins";
 
 
-@media screen and (max-width: 1000px)
+// MEDIA QUERIES JUST FOR THE RESPONSIVE STUFF ONLY. LATER WE ADD SPECIFIC STYLES FOR "body"
+// ********************************************************************************************
+
+body header
+{
+  @include transition(padding-top $defaultTransitionSpeed ease);
+
+  #mobile-nav-icon
+  {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0;
+    opacity: 0.4;
+    cursor: pointer;
+    @include disableHighlighting;
+    @include transition(opacity $defaultTransitionSpeed ease-out);
+  }
+}
+
+
+
+// less than 721 px wide screens
+@media screen and (max-width: 720px)
 {
   body
   {
     header
     {
-      margin-top: 20px;
+      #primary-nav
+      {
+        right: 10px;
+      }
     }
 
-    #primary-story-wrapper
+    .content-wrapper, header, footer
     {
+      width: 100%;
+      left: auto;
+      margin-left: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .content-wrapper
+    {
+      margin: 0;
     }
   }  
+}
+
+
+// less than 668px wide screens
+@media screen and (max-width: 667px)
+{
+  body
+  {
+    #manifestos
+    {
+      .content-wrapper
+      {
+        .inner-wrapper
+        {
+          .main-content
+          {
+            .tab-content
+            {
+              .tab-pane
+              {
+                .content-front
+                {
+                  .content-cta
+                  {
+                    margin-right: -100px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      #marquee-wrapper
+      {
+        height: 124px;
+
+        #marquee
+        {
+          .marquee-headline h1
+          {
+            font-size: 2em;
+            margin: 0;
+          }
+
+          .nav
+          {
+            font-size: 3em;
+          }
+        }
+      }
+    }
+  }  
+}
+
+// less than 580px wide screens (this is where mobile landscape begins)
+// below styles are just for the mobile nav and header
+@media screen and (max-width: 580px)
+{
+  body
+  {
+    header
+    {
+      padding-top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      
+      &.mobile-nav-transitioning
+      {
+        @include transition(padding-top $defaultTransitionSpeed ease);
+      }
+
+      &.mobile-nav-active
+      {
+        @include transition(padding-top ($defaultTransitionSpeed*1.5) ease);
+        padding-top: 85px;
+
+        #primary-nav
+        {
+          opacity: 1;
+          bottom: 10px;
+          @include transition(opacity ($defaultTransitionSpeed*1.5) ease);
+        }
+
+        #mobile-nav-icon
+        {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+
+// less than 580px wide screens (this is where mobile landscape begins)
+@media screen and (max-width: 580px)
+{
+  body
+  {
+    p
+    {
+      font-size: 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
+    {
+      line-height: 130%;
+    }
+
+
+    header
+    {
+      padding-top: 0;
+      @include transition(padding-top 0); // no transition on header initially
+
+      .samuchai-logo-wrapper
+      {
+        .samuchai-logo
+        {
+          padding: 5px 6px;
+          font-size: 1em;  
+          letter-spacing: 1px;        
+        }
+      }
+
+      #primary-nav
+      {
+        opacity: 0;
+      }
+
+      #mobile-nav-icon
+      {
+        display: block;
+      }
+    }
+
+    footer
+    {
+      p, li
+      {
+        font-size: 1em;
+      }
+
+      ul
+      {
+        li
+        {
+          padding: 4px 5px;
+        }
+      }
+    }
+
+    .window
+    {
+      padding-top: 28px;
+    }
+
+    #manifestos
+    {
+      #marquee-wrapper
+      {
+        height: 76px;
+
+        #marquee
+        {
+          .marquee-headline
+          {
+            margin-top: -5px;
+
+            h1
+            {
+              font-size: 1.4em;
+              margin: 0;              
+            }
+          }
+
+          .nav
+          {
+            font-size: 2em;
+
+            li a
+            {
+              border-bottom-width: 1px;
+            }
+          }
+
+          li.active a
+          {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+          }
+        }
+      }
+
+      .content-wrapper
+      {
+        .inner-wrapper
+        {
+          margin: 20px auto;
+
+          .main-content
+          {
+            .tab-content
+            {
+              .tab-pane
+              {
+                .content-front
+                {
+                  h1
+                  {
+                    font-size: 1.1em;
+                  }
+
+                  .content-cta
+                  {
+                    margin-right: -130px;
+                  }
+
+                  .content-cta
+                  {
+                    width: auto;
+                    height: auto;
+
+                    img
+                    {
+                      position: static;
+                      width: 60%;
+                    }
+
+                    &.content-cta-hover
+                    {
+                      &:hover
+                      {
+                        img.default
+                        {
+                          opacity: 1;
+                        }
+                      }
+
+                      .hover
+                      {
+                        display: none;
+                      }
+                    }
+                  }
+                }                
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}  
+
+
+// MOBILE SPECIFIC STYLES
+// note: when mobile is detected, the class "site-multiple-pages" also gets added. These styles are primarily in the main layout.scss file
+body.mobile
+{
 }

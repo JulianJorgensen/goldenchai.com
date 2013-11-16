@@ -8,22 +8,19 @@
 // STYLES FOR ART ONLY
 body.art
 {
-  #primary-story-wrapper
+  #manifestos
   {
-    #primary-story
+    #marquee-wrapper
     {
-      #marquee-wrapper
+      #marquee
       {
-        #marquee
-        {
-          background-color: $art-color;
+        background-color: $art-color;
 
-          .marquee-bg-art
-          {
-            opacity: 1;
-            @include gradientDiagonal($art-color, $art-color-dark);
-          }      
-        }
+        .marquee-bg-art
+        {
+          opacity: 1;
+          @include gradientDiagonal($art-color, $art-color-dark);
+        }      
       }
     }
   }
