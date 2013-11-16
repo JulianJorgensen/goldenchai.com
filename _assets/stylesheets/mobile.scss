@@ -14,9 +14,11 @@ body header
 
   #mobile-nav-icon
   {
+    display: none;
     position: absolute;
     bottom: 10px;
     right: 10px;
+    opacity: 0;
     opacity: 0.4;
     cursor: pointer;
     @include disableHighlighting;
@@ -182,7 +184,7 @@ body header
         opacity: 0;
       }
 
-      #mobile-nav
+      #mobile-nav-icon
       {
         display: block;
       }

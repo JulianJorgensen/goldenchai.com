@@ -3,6 +3,7 @@
     <nav class="row">
       <div class="col-sm-7 hidden-xs">
         <p class="copyright">© 2013 GoldenChai</p>
+        <p class="collapseFooter">CLOSE</p>
       </div>
       <div class="col-xs-7 visible-xs">
         <ul>
@@ -63,17 +64,33 @@
     // FOOTER NAV LINKS
     // *****************
     $(".footer-nav-ctas li a").click(function(){
-      $(this).parent().siblings("li").removeClass("active");
-      $(this).parent().addClass("active");
+      if ($(this).parent().hasClass("active")){
 
-      if ($("footer").hasClass("active"))
-      {
-        footerContentSlider.goTo($(this).parent().index());
+        collapseFooter();
+
       }else{
-        $("footer").addClass("active");
+        $(this).parent().siblings("li").removeClass("active");
+        $(this).parent().addClass("active");
+        $("body").addClass("footer-active");
+        footerContentSlider.goTo($(this).parent().index());
+
+        $("header, .window").one("click", function(event) {
+          console.log(event.target);
+          $("body").removeClass("footer-active");
+            collapseFooter();
+            console.log('test');
+        });
       }
     });
 
+    $(".collapseFooter").click(function(){
+      collapseFooter();
+    });
 
   });
+
+  function collapseFooter(){
+    $(".footer-nav-ctas li").removeClass("active");
+    $("body").removeClass("footer-active");    
+  }
 </script>
