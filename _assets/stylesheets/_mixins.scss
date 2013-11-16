@@ -27,6 +27,24 @@
   transition: $transition;
 }
 
+@mixin blur($amount)
+{
+  -webkit-filter: blur($amount);
+  -moz-filter: blur($amount);
+  -o-filter: blur($amount);
+  -ms-filter: blur($amount);
+  filter: blur($amount);
+}
+
+@mixin blurPerformanceHack()
+{
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -filter: translate3d(0, 0, 0);
+}
+
 @mixin disableHighlighting
 {
   -webkit-user-select: none;  

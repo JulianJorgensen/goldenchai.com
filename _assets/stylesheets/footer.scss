@@ -21,7 +21,7 @@ body
     height: 100%;
     width: 100%;
     z-index: 9999;
-    @include transition((background $defaultTransitionSpeed ease-out, top $defaultTransitionSpeed ease-out));
+    @include transition((background $defaultTransitionSpeed ease, top $fastTransitionSpeed ease));
 
     p, li
     {
@@ -59,34 +59,117 @@ body
 
       li
       {
+        position: relative;
         display: inline-block;
         padding: 4px 15px;
         text-transform: uppercase;
+
+        i
+        {
+          opacity: 0;
+          display: block;
+          position: absolute;
+          left: 50%;
+          width: 16px;
+          height: 8px;
+          background: url("/images/nav/arrows-small-vertical.png") 0 -8px no-repeat;
+          margin-top: 12px;
+          margin-left: -8px;
+          @include transition(opacity $defaultTransitionSpeed);
+        }
       }
     }
   }
 }
 
+
+// ADD SPECIFIC BLUR TRANSITION EFFECT ON TARGET ELEMENTS
+body
+{
+  #manifestos
+  {
+    .content-wrapper
+    {
+      @include transition(all $defaultTransitionSpeed);
+    }
+
+    #marquee-wrapper
+    {
+      #marquee
+      {
+        .marquee-headline, .nav
+        {
+          @include transition(all $defaultTransitionSpeed);
+        }
+      }
+    }
+  }
+}
+
+
+// FOOTER ACTIVE STATE
 body.footer-active
 {
   header
   {
+    .samuchai-logo-wrapper
+    {
+      bottom: 20px;
+    }
+
     #primary-nav
     {
-      opacity: 0.2;
-    }    
+      opacity: 0;
+    }
+  }
+
+  .window
+  {
+    .content-wrapper, #marquee .nav, #marquee .marquee-headline
+    {
+      @include blur(15px);
+      @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.
+    }
+
+    .black-diamond
+    {
+      opacity: 0.2 !important;
+    }
+  }
+
+  #marquee
+  {
+    .marquee-bg
+    {
+      opacity: 0 !important;
+    }
+
+    .marquee-shadow
+    {
+      visibility: hidden;
+    }
   }
 
   footer
   {
-    top: 130px;
-    background-color: $white;
+    top: 120px;
+    background-color: rgba($gray20, 0.4);
+
+    .content-wrapper
+    {
+      border-top: 0;
+    }
 
     nav
     {
       li.active
       {
         @include footerNavActive();
+
+        i
+        {
+          opacity: 1;
+        }
       }
     }
 
@@ -100,6 +183,13 @@ body.footer-active
     {
       display: block;
       opacity: 1;
+
+      img
+      {
+        width: 14px;
+        margin-top: -4px;
+        margin-right: 4px;
+      }
     }
 
     section#footer-content

@@ -160,6 +160,55 @@ body
 
 
 
+/* ACCORDION */
+/* ======== */
+
+.accordion
+{
+  text-align: left;
+
+  .accordion-item
+  {
+    border-bottom: 1px solid #aca68e;
+    padding: 30px;
+
+    .accordion-title
+    {
+      background: url("/images/nav/accordion-default.png") left center no-repeat;
+      cursor: pointer;
+      margin: 0;
+      padding-left: 20px;
+      @include disableHighlighting;
+    }
+
+    .accordion-content
+    {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      @include transition((opacity $defaultTransitionSpeed, max-height ($defaultTransitionSpeed/2)));
+    }
+  }
+
+  .accordion-item.active
+  {
+    background: rgba($white, 0.2);
+
+    .accordion-title
+    {
+      background: url("/images/nav/accordion-active.png") left center no-repeat;
+    }
+
+    .accordion-content
+    {
+      max-height: 300px;
+      opacity: 1;
+      @include transition((opacity $defaultTransitionSpeed, max-height ($defaultTransitionSpeed*2)));
+    }
+  }
+}
+
+
 // vertical variation
 
 .spacer-vertical {

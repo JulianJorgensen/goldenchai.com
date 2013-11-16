@@ -25,6 +25,7 @@ body
       cursor: pointer;
       width: 102px;
       height: 40px;
+      @include transition(bottom $fastTransitionSpeed);
       @include disableHighlighting;
 
       .samuchai-logo

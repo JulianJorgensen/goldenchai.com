@@ -127,11 +127,6 @@ body
           color: $white;
         }
         
-        .marquee-headline h1, .nav
-        {
-          @include transition(opacity $defaultTransitionSpeed ease-out ($defaultTransitionSpeed*0.8));
-        }
-
         .marquee-headline
         {
           position: relative;
@@ -156,6 +151,7 @@ body
           height: inherit;
           opacity: 0;
           @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
+          @include transition(opacity $defaultTransitionSpeed);
         }
 
         .marquee-shadow
@@ -180,22 +176,6 @@ body
             display: inline-block;
             float: none;
             color: $white;
-
-            &:nth-child(1)
-            {
-              @include transition(opacity $defaultTransitionSpeed ease-in);
-            }
-
-            &:nth-child(2)
-            {
-              @include transition(opacity $defaultTransitionSpeed ease-in 1s);
-            }
-
-            &:nth-child(3)
-            {
-              @include transition(opacity $defaultTransitionSpeed ease-in 2s);
-            }
-
 
             a
             {
@@ -246,6 +226,11 @@ body
         #marquee
         {
           @include transition(height $defaultTransitionSpeed);
+
+          .marquee-headline h1, .nav
+          {
+            @include transition(opacity $defaultTransitionSpeed ease-out ($defaultTransitionSpeed*0.8));
+          }
         }
       }
     }

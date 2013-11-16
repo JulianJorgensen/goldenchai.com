@@ -7,7 +7,6 @@
 //= require vendor/skrollr
 //= require vendor/jquery.skrollr.refresh
 //= require vendor/skrollr.menu.min
-//= require vendor/skrollr.colors.min
 //
 //= require functions
 //= require scrollBehaviours
