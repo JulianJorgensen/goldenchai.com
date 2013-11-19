@@ -1,0 +1,69 @@
+---
+---
+
+body.desktop #manifestos
+{
+  -skrollr-animation-name: manifestos_opacity;
+}
+
+body.desktop #manifestos .content-wrapper
+{
+  -skrollr-animation-name: copyContentOpacity;
+}
+
+body.desktop #marquee .nav
+{
+  -skrollr-animation-name: goRight;
+}
+
+body.desktop #marquee .marquee-headline
+{
+  -skrollr-animation-name: goLeft;
+}
+
+
+@-skrollr-keyframes manifestos_opacity{
+  {{ site.manifestos_pre_end }} {
+    opacity: 1;
+    z-index: 999;
+  }
+
+  {{ site.manifestos_end }} {
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+@-skrollr-keyframes copyContentOpacity{
+  {{ site.manifestos_start }} {
+    opacity: 1;
+  }
+
+  {{ site.manifestos_content_pre_end }} {
+    opacity: 1;
+  }
+
+  {{ site.manifestos_content_end }} {
+    opacity: 0;
+  }
+}
+
+@-skrollr-keyframes goRight{
+  {{ site.manifestos_pre_end }} {
+    left: 0%;
+  }
+
+  {{ site.manifestos_end }} {
+    left: 50%;
+  }
+}
+
+@-skrollr-keyframes goLeft{
+  {{ site.manifestos_pre_end }} {
+    right: 0%;
+  }
+
+  {{ site.manifestos_end }} {
+    right: 50%;
+  }
+}

@@ -1,0 +1,35 @@
+---
+---
+
+body.site-multiple-pages #manifestos
+{
+  -skrollr-animation-name:disappear;
+}
+
+body.site-multiple-pages footer
+{
+  -skrollr-animation-name:appear;
+}
+
+
+@-skrollr-keyframes disappear {
+  {{ site.manifestos_start }} {
+    top: 0%;
+    opacity: 1;
+  }
+
+  {{ site.manifestos_content_pre_end }} {
+    top: -10%;
+    opacity: 0;
+  }
+}
+
+@-skrollr-keyframes appear {
+  {{ site.manifestos_start }} {
+    margin-top: 0%;
+  }
+
+  {{ site.manifestos_content_pre_end }} {
+    margin-top: -50%;
+  }
+}

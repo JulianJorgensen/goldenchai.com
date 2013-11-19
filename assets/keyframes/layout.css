@@ -1,0 +1,61 @@
+---
+---
+
+body.desktop header .samuchai-logo-manifestos
+{
+  -skrollr-animation-name: fade_out_manifestos_logo;
+}
+
+body.desktop header .samuchai-logo-portfolio
+{
+  -skrollr-animation-name: fade_in_portfolio_logo;
+}
+
+body.desktop #primary-nav .primary-nav-active-bg
+{
+  -skrollr-animation-name: transition_active_nav_bg;
+}
+
+
+@-skrollr-keyframes fade_out_manifestos_logo{
+  {{ site.manifestos_pre_end }} {
+    opacity: 1;
+  }
+
+  {{ site.manifestos_end }} {
+    opacity: 0;
+  }
+}
+
+
+@-skrollr-keyframes fade_in_portfolio_logo{
+  {{ site.manifestos_pre_end }} {
+    opacity: 0;
+  }
+
+  {{ site.manifestos_end }} {
+    opacity: 1;
+  }
+}
+
+
+@-skrollr-keyframes transition_active_nav_bg{
+  {{ site.manifestos_pre_end }} {
+    opacity: 1;
+    top: 0px;
+  }
+
+  {{ site.manifestos_end }} {
+    opacity: 0;
+    top: 0px;
+  }
+
+  {{ site.portfolio_pre_start }} {
+    opacity: 0;
+    top: 30px;
+  }
+
+  {{ site.portfolio_start }} {
+    opacity: 1;
+  }
+}

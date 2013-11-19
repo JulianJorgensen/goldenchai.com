@@ -16,10 +16,11 @@
   {% stylesheet application %}
 
 
-  <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/layout %}" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/manifestos %}" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="{% asset_path keyframes/portfolio %}" data-skrollr-stylesheet />
-  <link class="mobile" rel="stylesheet" type="text/css" href="{% asset_path keyframes/site-multiple-pages %}" data-skrollr-stylesheet />
+  <!-- keyframes for skrollr -->
+  <link rel="stylesheet" type="text/css" href="/assets/keyframes/layout.css" data-skrollr-stylesheet />
+  <link rel="stylesheet" type="text/css" href="/assets/keyframes/manifestos.css" data-skrollr-stylesheet />
+  <link rel="stylesheet" type="text/css" href="/assets/keyframes/portfolio.css" data-skrollr-stylesheet />
+  <link class="mobile" rel="stylesheet" type="text/css" href="/assets/keyframes/site-multiple-pages.css" data-skrollr-stylesheet />
 
   <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico">
 </head>
@@ -41,7 +42,13 @@
   {% include footer.html %}
 
 
+  <!-- the main js files (compiled) -->
   {% javascript application %}
+
+
+  <!-- include the js files that shouldn't be pre-compiled. This is primarily the ones that uses environment variables (such as the scrolling stuff) -->
+  <script type="text/javascript" src="/assets/deeplinking.js"></script>
+  <script type="text/javascript" src="/assets/scrollBehaviours.js"></script>
 
 </body>
 </html>

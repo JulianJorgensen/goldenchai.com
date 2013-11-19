@@ -24,7 +24,8 @@ body
         position: relative;
         text-align: right;
         clear: both;
-        margin: 10px 0 0;
+        height: 25px;
+        margin: 5px 0 0;
         z-index: 999;
         @include disableHighlighting;
 
@@ -37,6 +38,7 @@ body
         {
           display: inline-block;
           position: relative;
+          height: inherit;
           bottom: -4px;
           font-size: 1.2em;
           text-transform: uppercase;
@@ -46,7 +48,7 @@ body
         .nav-icon
         {
           width: 30px;
-          height: 25px;
+          height: inherit;
           float: right;
           margin-left: 10px;
           background: url("/images/nav/nav-double-arrow.png") center center no-repeat;

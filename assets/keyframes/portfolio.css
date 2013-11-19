@@ -1,6 +1,5 @@
-/* variables */
-@import "variables";
-
+---
+---
 
 body.desktop #portfolio
 {
@@ -8,16 +7,13 @@ body.desktop #portfolio
 }
 
 
-// KEYFRAMES START
-// ****************
-
 @-skrollr-keyframes portfolio_opacity{
-  #{$portfolio_pre_start} {
+  {{ site.portfolio_pre_start }} {
     opacity: 0;
     z-index: 0;
   }
 
-  #{$portfolio_start} {
+  {{ site.portfolio_start }} {
     opacity: 1;
     z-index: 999;
   }

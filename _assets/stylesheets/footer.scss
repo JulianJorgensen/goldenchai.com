@@ -7,7 +7,7 @@
 // local mixins
 @mixin footerNavActive()
 {
-  background: rgba($gray20, 0.3);
+  background: rgba($white, 0.5);
 }
 
 
@@ -23,14 +23,23 @@ body
     z-index: 9999;
     @include transition((background $defaultTransitionSpeed ease, top $fastTransitionSpeed ease));
 
-    p, li
+    .copyright
     {
       font-size: 1.2em;
+      padding-top: 4px;
+      @include transition(opacity $defaultTransitionSpeed);      
     }
 
     section#footer-content
     {
       opacity: 0;
+
+      .collapseFooter
+      {
+        cursor: pointer;
+        text-align: right;
+        float: right;
+      }
     }
 
     .content-wrapper
@@ -38,19 +47,6 @@ body
       border-top: 1px solid $gray20;
     }
 
-    p
-    {
-      padding-top: 4px;
-      @include transition(opacity $defaultTransitionSpeed);      
-    }
-
-
-    .collapseFooter
-    {
-      display: none;
-      opacity: 0;
-      cursor: pointer;
-    }
 
     ul
     {
@@ -61,22 +57,97 @@ body
       {
         position: relative;
         display: inline-block;
-        padding: 4px 15px;
+        font-size: 1.3em;
+        padding: 3px 22px;
         text-transform: uppercase;
+        @include transition(all $defaultTransitionSpeed);
 
-        i
+        .cta-helper
         {
           opacity: 0;
-          display: block;
           position: absolute;
+          top: -50px;
           left: 50%;
-          width: 16px;
-          height: 8px;
-          background: url("/images/nav/arrows-small-vertical.png") 0 -8px no-repeat;
-          margin-top: 12px;
-          margin-left: -8px;
-          @include transition(opacity $defaultTransitionSpeed);
+          margin-left: -60px;
+          width: 120px;
+          padding: 5px;
+          text-align: center;
+          font-size: 11px;
+          background: rgba($gray20, 0.3);
+          @include transition(opacity ($defaultTransitionSpeed*2));
+
+          .cta-helper-arrow
+          {
+            position: absolute;
+            bottom: -10px;
+            margin-left: -10px;
+            left: 50%;
+            width:0;
+            height:0;
+            border-color:transparent;
+            border-style:solid;
+            border-top-color: rgba($gray20, 0.3);
+            border-width:10px 10px 0;
+          }
         }
+      }
+    }
+
+    #info-slide
+    {
+      .accordion
+      {
+        margin-bottom: 20px;
+      }
+    }
+
+    #contact-slide
+    {
+      text-align: center;
+      padding-top: 50px;
+
+      p
+      {
+        font-size: 3em;
+      }
+
+      .btn-get-a-quote
+      {
+        margin-top: 50px;
+      }
+
+      small
+      {
+        display: block;
+        margin-top: 10px;
+      }
+    }
+
+    #get-a-quote-slide
+    {
+      text-align: center;
+
+      input, textarea
+      {
+        display: block;
+        width: 100%;
+        border: none;
+        outline: 0;
+        background: transparent;
+        font-size: 3em;
+        margin-bottom: 20px;
+
+        &:hover, &:focus, &:active
+        {
+          border: none !important;
+          outline: none !important;
+          text-decoration: none !important;
+        }
+      }
+
+      textarea
+      {
+        height: 200px;
       }
     }
   }
@@ -90,7 +161,7 @@ body
   {
     .content-wrapper
     {
-      @include transition(all $defaultTransitionSpeed);
+      @include transition((-webkit-filter $defaultTransitionSpeed, filter $defaultTransitionSpeed))
     }
 
     #marquee-wrapper
@@ -99,7 +170,7 @@ body
       {
         .marquee-headline, .nav
         {
-          @include transition(all $defaultTransitionSpeed);
+          @include transition((-webkit-filter $defaultTransitionSpeed, filter $defaultTransitionSpeed))
         }
       }
     }
@@ -115,6 +186,7 @@ body.footer-active
     .samuchai-logo-wrapper
     {
       bottom: 20px;
+      opacity: 0.4;
     }
 
     #primary-nav
@@ -123,17 +195,28 @@ body.footer-active
     }
   }
 
+  // blur/hide manifestos stuff
   .window
   {
     .content-wrapper, #marquee .nav, #marquee .marquee-headline
     {
-      @include blur(15px);
+      @include blur(10px);
       @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.
     }
 
     .black-diamond
     {
-      opacity: 0.2 !important;
+      opacity: 0.3 !important;
+    }
+  }
+
+  // blur/hide portfolio stuff
+  #portfolio
+  {
+    .royalSlider
+    {
+      @include blur(10px);
+      @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.      
     }
   }
 
@@ -153,45 +236,43 @@ body.footer-active
   footer
   {
     top: 120px;
-    background-color: rgba($gray20, 0.4);
-
-    .content-wrapper
-    {
-      border-top: 0;
-    }
 
     nav
     {
+      li
+      {
+        font-size: 1.5em;
+      }
+
       li.active
       {
         @include footerNavActive();
 
-        i
+        &:hover
         {
-          opacity: 1;
+          .cta-helper
+          {
+            opacity: 1 !important;
+            @include transition(opacity ($defaultTransitionSpeed*2) ease 1.5s);
+          }          
+        }
+
+        &.showHelperText
+        {
+          .cta-helper
+          {
+            opacity: 1 !important;
+            @include transition(opacity ($defaultTransitionSpeed*4) ease 0.5s);
+          }
         }
       }
     }
 
     .copyright
     {
-      display: none;
       opacity: 0;
     }
-
-    .collapseFooter
-    {
-      display: block;
-      opacity: 1;
-
-      img
-      {
-        width: 14px;
-        margin-top: -4px;
-        margin-right: 4px;
-      }
-    }
-
+  
     section#footer-content
     {
       opacity: 1;

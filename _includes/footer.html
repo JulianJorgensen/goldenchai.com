@@ -7,129 +7,76 @@
       </div>
       <div class="col-xs-7 visible-xs">
         <ul>
-          <li class="footer-nav-manifestos"><a href="#">Manifestos</a></li>
-          <li class="footer-nav-portfolio"><a href="#">Portfolio</a></li>
-          <li class="footer-nav-services"><a href="#">Services</a></li>
+          <li class="footer-nav-manifestos"><a href="#manifestos">Manifestos</a></li>
+          <li class="footer-nav-portfolio"><a href="#portfolio">Portfolio</a></li>
+          <li class="footer-nav-services"><a href="#services">Services</a></li>
         </ul>
       </div>
       <div class="col-xs-5 align-right">
         <ul class="footer-nav-ctas">
-          <li class="footer-nav-info"><a href="#">Info</a><i></i></li>
-          <li class="footer-nav-contact"><a href="#">Contact</a><i></i></li>
-          <li class="footer-nav-getquote"><a href="#"><img src="/images/nav/quotes.png" /></a><i></i></li>
+          <li class="footer-nav-info"><a href="#info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</li>
+          <li class="footer-nav-contact"><a href="#contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</li>
+          <li class="footer-nav-getquote"><a href="#get-a-quote"><img src="/images/nav/quotes.png" /></a>{% include tooltips.html tooltip="click-to-close" %}</li>
         </ul>
       </div>
     </nav>
     <section id="footer-content">
 
      <div id="footer-content-slider" class="royalSlider rsDefault">
-
-        <div>
+        <div id="info-slide">
           <div class="accordion">
-            <div class="accordion-item">
-              <h3 class="accordion-title">Accordion One</h3>
+            <div class="accordion-item active">
+              <h3 class="accordion-title">Why work with us?</h3>
               <div class="accordion-content">
                 <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
               </div>
             </div>
 
             <div class="accordion-item">
-              <h3 class="accordion-title">Accordion One</h3>
+              <h3 class="accordion-title">About GoldenChai</h3>
               <div class="accordion-content">
                 <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
               </div>
             </div>
 
             <div class="accordion-item">
-              <h3 class="accordion-title">Accordion One</h3>
+              <h3 class="accordion-title">Pricing</h3>
+              <div class="accordion-content">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-title">The process / workflow</h3>
               <div class="accordion-content">
                 <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
               </div>
             </div>
           </div>
+
+          <div class="button footer-cta-item pull-right" data-slide="1">contact &rsaquo;</div>
         </div>
 
-        <div>
-          <h2>Contact</h2>
-          <p>Lorem ipsum</p>
+        <div id="contact-slide">
+          <p>1-800-987-7654</p>
+          <p>chai@goldenchai.com</p>
+          <div class="button button-get-a-quote footer-cta-item" data-slide="2">Get a quote now</div>
+          <small>why work with us?</small>
         </div>
 
-        <div>
+        <div id="get-a-quote-slide">
           <h2>Get a quote</h2>
-          <p>Lorem ipsum</p>
+          <input type="text" id="name" placeholder="Your name..."></input>
+          <input type="text" id="email" placeholder="Your email..."></input>
+          <textarea placeholder="Tell us what you have in mind..."></textarea>
+          <div class="button button-submit">Submit</div>
+          <small>We usually get back within 24 hrs.</small>
         </div>
 
       </div>
 
+      <div class="collapseFooter"><p>close &darr;</p></div>
+
     </section>
   </div>
 </footer>
-
-<script>
-  $(document).ready(function() {
-    // FOOTER CONTENT SLIDER: INFO, CONTACT, AND GET A QUOTE
-    $('#footer-content-slider').royalSlider({
-      controlNavigation: 'none',
-      autoScaleSlider: true,
-      autoScaleSliderHeight: 800,
-      controlsInside: false,
-      navigateByClick: false,
-      sliderDrag: false,
-      arrowsNavAutoHide: false,
-      numImagesToPreload: 10
-    });
-
-    var footerContentSlider = $("#footer-content-slider").data('royalSlider');
-
-
-    // ACCORDION
-    // *****************
-    $(".accordion .accordion-item .accordion-title").click(function(){
-      var accordionItem = $(this).parent();
-
-      // remove active classes on siblings
-      accordionItem.siblings(".accordion-item").removeClass("active");
-
-      if (accordionItem.hasClass("active")){
-        // remove active class
-        accordionItem.removeClass("active");
-      }else{
-        // add active class
-        accordionItem.addClass("active");
-      }
-    });
-
-
-    // FOOTER NAV LINKS
-    // *****************
-    $(".footer-nav-ctas li a").click(function(){
-      if ($(this).parent().hasClass("active")){
-
-        collapseFooter();
-
-      }else{
-        $(this).parent().siblings("li").removeClass("active");
-        $(this).parent().addClass("active");
-        $("body").addClass("footer-active");
-        footerContentSlider.goTo($(this).parent().index());
-
-        $("header, .window").one("click", function(event) {
-          console.log(event.target);
-          $("body").removeClass("footer-active");
-            collapseFooter();
-            console.log('test');
-        });
-      }
-    });
-
-    $(".collapseFooter").click(function(){
-      collapseFooter();
-    });
-
-  });
-
-  function collapseFooter(){
-    $(".footer-nav-ctas li").removeClass("active");
-    $("body").removeClass("footer-active");    
-  }
-</script>

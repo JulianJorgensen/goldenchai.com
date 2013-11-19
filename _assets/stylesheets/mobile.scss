@@ -197,11 +197,15 @@ body header
         font-size: 1em;
       }
 
-      ul
+      nav
       {
-        li
+        ul
         {
-          padding: 4px 5px;
+          li
+          {
+            padding: 4px 5px;
+            font-size: 0.9em;
+          }
         }
       }
     }

@@ -1,22 +1,10 @@
 /* mixins */
-@mixin yellow-btn {
-  background: #fba502;
-  background: -moz-linear-gradient(#fba502, #fddc69);
-  background: -webkit-linear-gradient(#fba502, #fddc69);
-  background: -o-linear-gradient(#fba502, #fddc69);
-  background: -ms-linear-gradient(#fba502, #fddc69);
-  /*For IE10*/
-  background: linear-gradient(#fba502, #fddc69);
-  font-size: 13px;
-  font-weight: 600;
-  height: 24px;
-  border: 1px solid;
-  display: inline;
-  text-shadow: none;
-  text-transform: none;
-  color: #1f1f1f !important;
-  padding: 2px 17px 2px;
-  text-decoration: none;
+@mixin btn{
+  display: inline-block;
+  padding: 10px 28px;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 @mixin transition($transition)
