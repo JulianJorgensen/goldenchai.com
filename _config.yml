@@ -1,10 +1,34 @@
 ---
+title: GoldenChai
+baseurl: /
+
+#scrolling constants
+default_scroll_speed: 1500
+
+#responsive constants
+mobile_start_height: 665
+mobile_start_width: 767
+
+# scroll position constants (used in both .js and the keyframe .css files)
+manifestos_auto_scroll_start: 400
+manifestos_start: 0
+manifestos_content_pre_end: 200
+manifestos_pre_end: 200
+manifestos_content_end: 500
+manifestos_end: 1000
+
+portfolio_auto_scroll_start: 1400
+portfolio_pre_start: 1200
+portfolio_start: 1800
+
+services_pre_start: 3000
+
+
+#other site variables and configs
 exclude:
 - Gemfile
 - Gemfile.lock
 - lib
-title: Samuchai
-baseurl: /
 assets:
   dirname: assets
   baseurl: /assets/

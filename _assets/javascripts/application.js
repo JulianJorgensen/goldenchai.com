@@ -6,8 +6,9 @@
 //= require vendor/skrollr.stylesheets
 //= require vendor/skrollr
 //= require vendor/jquery.skrollr.refresh
-//= require vendor/skrollr.menu.min
+//
+//= require vendor/jquery.history.min
 //
 //= require functions
-//= require scrollBehaviours
 //= require index
+//= require footer

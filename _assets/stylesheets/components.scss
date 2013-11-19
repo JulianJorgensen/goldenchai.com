@@ -4,10 +4,6 @@
 /* variables */
 @import "mixins";
 
-button.yellow
-{
-  @include yellow-btn;
-}
 
 .clear
 {
@@ -33,6 +29,31 @@ button.yellow
 {
   color: $art-color;
 }
+
+
+// Buttons
+.button
+{
+  @include btn;  
+}
+
+.button-get-a-quote
+{
+  background-color: $zen-red;
+  color: $white;
+}
+
+.button-submit
+{
+  background-color: $zen-red;
+  color: $white;
+}
+
+.button.footer-footer-nav-item
+{
+  background: rgba($white, 0.5);
+}
+
 
 
 /* Utility classes */
@@ -170,14 +191,22 @@ body
   .accordion-item
   {
     border-bottom: 1px solid #aca68e;
-    padding: 30px;
+    padding: 0 20px;
+    opacity: 0.7;
+    @include transition(opacity $defaultTransitionSpeed);
+
+    &:hover
+    {
+      opacity: 1;
+    }
 
     .accordion-title
     {
       background: url("/images/nav/accordion-default.png") left center no-repeat;
       cursor: pointer;
       margin: 0;
-      padding-left: 20px;
+      font-size: 2em;
+      padding: 15px 15px 15px 20px;
       @include disableHighlighting;
     }
 
@@ -192,7 +221,8 @@ body
 
   .accordion-item.active
   {
-    background: rgba($white, 0.2);
+    background: rgba($white, 0.1);
+    opacity: 1;
 
     .accordion-title
     {
@@ -203,6 +233,8 @@ body
     {
       max-height: 300px;
       opacity: 1;
+      margin-top: -12px;
+      padding: 0 0 20px 20px;
       @include transition((opacity $defaultTransitionSpeed, max-height ($defaultTransitionSpeed*2)));
     }
   }
