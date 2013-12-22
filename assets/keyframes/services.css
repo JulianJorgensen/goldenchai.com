@@ -1,0 +1,25 @@
+---
+---
+
+body.desktop #services
+{
+  -skrollr-animation-name: services_opacity;
+}
+
+
+@-skrollr-keyframes services_opacity{
+  {{ site.services_pre_start }} {
+    opacity: 0;
+    z-index: 0;
+  }
+
+  {{ site.services_start }} {
+    opacity: 1;
+    z-index: 999;
+  }
+
+  {{ site.services_end }} {
+    opacity: 1;
+    z-index: 999;
+  }
+}

@@ -4,8 +4,8 @@ $('.portfolio-content-slider').royalSlider({
   autoScaleSlider: true,
   controlsInside: false,
   navigateByClick: false,
+  globalCaption: true,
   arrowsNavAutoHide: false,
-  autoHeight: true,
   numImagesToPreload: 10
 });
 
@@ -17,4 +17,5 @@ $(".portfolio-content-slider").each(function(n){
   str.ev.on('rsAfterSlideChange', function(event) {
     activateAnimationOnCurrentSlide();
   });
+
 });

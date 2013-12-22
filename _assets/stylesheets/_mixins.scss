@@ -15,6 +15,14 @@
   transition: $transition;
 }
 
+@mixin transitionDelay($delay)
+{
+  -webkit-transition-delay: $delay;
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
 @mixin blur($amount)
 {
   -webkit-filter: blur($amount);

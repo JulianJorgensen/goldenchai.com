@@ -1,7 +1,22 @@
 function activateAnimationOnCurrentSlide()
 {
   var currSlider = currentContentSlider().data('royalSlider');
-  currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .from-right").addClass("active");
+
+  setTimeout(function(){
+    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-1").addClass("active");
+  }, 1000);
+
+  setTimeout(function(){
+    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-2").addClass("active");
+  }, 3000);
+
+  setTimeout(function(){
+    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-3").addClass("active");
+  }, 4500);
+
+  setTimeout(function(){
+    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-4").addClass("active");
+  }, 6000);
 }
 
 function currentContentSlider()
@@ -25,7 +40,7 @@ function slideDragCheck()
     {
       $(".rsArrowRight").addClass("rsHide");
     }else{
-      $(".rsArrowRight").removeClass("rsHide");        
+      $(".rsArrowRight").removeClass("rsHide");      
     }
   });
 

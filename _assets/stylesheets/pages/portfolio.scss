@@ -16,10 +16,21 @@ section#portfolio
     color: $black;
   }
 
+  #portfolio-thumbs-slider
+  {
+    margin-top: 40px;
+    height: 500px !important;
+
+    .rsThumb:nth-child(1)
+    {
+      display: none;
+    }
+  }
 
   .portfolio-content-slider
   {
-    min-height: 400px;
+    height: 400px !important;
+    max-height: 400px;
 
     .rsSlide
     {
@@ -30,7 +41,27 @@ section#portfolio
         height: auto !important;
       }
 
-      .from-right
+      .slide-caption
+      {
+        opacity: 0;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: rgba($white, 0.8);
+        padding: 3px 6px;
+        z-index: 999;
+        @include transition(opacity 0.7s ease);
+      }
+
+      &:hover
+      {
+        .slide-caption
+        {
+          opacity: 1;
+        }
+      }
+
+      .slide-from-right
       {
         position: absolute;        
         left: 700px;
@@ -42,6 +73,25 @@ section#portfolio
         {
           opacity: 1;
           left: 0;
+
+          &.offset-250
+          {
+            left: 450px;
+          }
+        }
+      }
+
+      .slide-fade-in
+      {
+        position: absolute;        
+        left: 0;
+        opacity: 0;
+        top: 0;
+        @include transition(opacity 0.7s ease-out);
+
+        &.active
+        {
+          opacity: 1;
         }
       }
     }

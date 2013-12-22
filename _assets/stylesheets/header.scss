@@ -19,7 +19,7 @@ body
     padding-bottom: 10px;
     z-index: 99999;
 
-    .samuchai-logo-wrapper
+    .goldenchai-logo-wrapper
     {
       position: relative;
       cursor: pointer;
@@ -28,41 +28,48 @@ body
       @include transition(bottom $fastTransitionSpeed);
       @include disableHighlighting;
 
-      .samuchai-logo
+      .goldenchai-logo
       {
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 7px 10px;
+        padding: 7px 13px;
         font-size: 1.5em;
-        letter-spacing: 1.5px;
         text-transform: uppercase;
         text-align: center;
+        @include transition(all $defaultTransitionSpeed);
 
-        &.samuchai-logo-manifestos
+        &:hover
         {
+          text-shadow: 0 0 10px $gray40;
+        }
+
+        &.goldenchai-logo-manifestos
+        {
+          z-index:999;
+
           .logo-copy
           {
+            .logo-golden
+            {
+              color: $golden;
+            }
+
             .logo-chai
             {
-              color: $goldenbrown;
+              color: $white;
             }
           }
         }
 
-        &.samuchai-logo-portfolio
+        &.goldenchai-logo-portfolio
         {
           opacity: 0;
           background-color: $gray6;
 
           .logo-copy
           {
-            .logo-samu
-            {
-              color: $black;
-            }
-
-            .logo-chai
+            .logo-golden
             {
               color: $goldenbrown;
             }
@@ -79,16 +86,11 @@ body.durability
 {
   header
   {
-    .samuchai-logo-wrapper
+    .goldenchai-logo-wrapper
     {
-      .samuchai-logo.samuchai-logo-manifestos
+      .goldenchai-logo.goldenchai-logo-manifestos
       {
         background-color: darken($durability-color, 10);
-
-        .logo-copy .logo-samu
-        {
-          color: $smokewhite;
-        }
       }
     }
   }
@@ -99,15 +101,25 @@ body.usability
 {
   header
   {
-    .samuchai-logo-wrapper
+    .goldenchai-logo-wrapper
     {
-      .samuchai-logo.samuchai-logo-manifestos
+      .goldenchai-logo.goldenchai-logo-manifestos
       {
         background-color: $usability-color;
 
-        .logo-copy .logo-samu
+        &:hover
         {
-          color: $gray85;
+          text-shadow: 0 0 10px $white;
+        }
+
+        .logo-golden
+        {
+          color: $goldendark;
+        }
+
+        .logo-chai
+        {
+          color: $gray40;
         }
       }
     }
@@ -119,16 +131,11 @@ body.art
 {
   header
   {
-    .samuchai-logo-wrapper
+    .goldenchai-logo-wrapper
     {
-      .samuchai-logo.samuchai-logo-manifestos
+      .goldenchai-logo.goldenchai-logo-manifestos
       {
         background-color: darken($art-color, 20);
-
-        .logo-copy .logo-samu
-        {
-          color: $smokewhite;
-        }
       }
     }
   }

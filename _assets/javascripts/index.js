@@ -65,9 +65,9 @@ $(document).ready(function() {
   });
 
 
-  // SAMUCHAI LOGO CLICK (HOME)
+  // goldenCHAI LOGO CLICK (HOME)
   // **************************
-  $(".samuchai-logo").click(function(){
+  $(".goldenchai-logo").click(function(){
     $('html, body').animate({
       scrollTop: 0
       }, scrollSpeed);
@@ -121,43 +121,5 @@ $(document).ready(function() {
       }, marqueeTransitionSpeed);
     });
   });
-
-
-  // SMART SCROLL TO NEXT WINDOW WHEN USING WHEEL OR TRACKPAD SCROLL
-  // ******************************************
-  // $(window).bind('mousewheel', function(event) {
-  //   if (event.originalEvent.wheelDelta >= 0) {
-  //     smartScroll("up");
-  //   }
-  //   else
-  //   {
-  //     smartScroll("down");
-  //   }
-  // });
-
-
-  // SMOOTH SCROLL ON INTERNAL LINKS
-  // ********************************
-  // $('a.smooth').on('click',function (e) {
-  //     e.preventDefault();
-
-  //     var target = this.hash,
-  //     $target = $(target);
-
-  //     $('html, body').stop().animate({
-  //         'scrollTop': $target.offset().top
-  //     }, scrollSpeed, function () {
-  //         window.location.hash = target;
-  //         $(".window").removeClass("current");
-  //         if ($(target).hasClass("window"))
-  //         {
-  //           $(target).addClass("current");
-  //         }else{
-  //           $(target).parent(".window").addClass("current");
-  //         }
-  //     });
-  // });
-
-
 
 });

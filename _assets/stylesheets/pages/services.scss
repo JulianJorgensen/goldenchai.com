@@ -7,22 +7,19 @@
 section#services
 {
   text-align: center;
-  @include diagonalGradient($services-color, darken($services-color, 10%), 30%);
+  background: $services-color;
+  // @include diagonalGradient($services-color, darken($services-color, 10%), 30%);
 
   .info-box
   {
     float: right;
     width: 300px;
-    p
-    {
-      color: $white;
-    }
   }
 
   .nav-tabs
   {
     margin-top: 100px;
-    border-bottom: 2px solid $white;
+    border-bottom: 2px solid $gray70;
     padding-bottom: 20px;
     margin-bottom: 50px;
 
@@ -35,11 +32,6 @@ section#services
       margin: 0 20px;
       text-transform: uppercase;
       
-      a
-      {
-        color: $white;
-      }
-
       &.active
       {
 
@@ -67,7 +59,7 @@ section#services
 
         /* arrow which acts as a background shadow */
         &:after {
-          border-bottom-color: $white;  /* arrow color */
+          border-bottom-color: $gray70;  /* arrow color */
 
           /* positioning */
           top: 22px;
@@ -87,23 +79,7 @@ section#services
       ul
       {
         width: 200px;
-
-        li
-        {
-          color: $white;
-        }
       }
-    }
-  }
-
-
-  footer
-  {
-    opacity: 0.6;
-    
-    p, a
-    {
-      color: $white;
     }
   }
 }

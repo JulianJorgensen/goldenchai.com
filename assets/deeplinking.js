@@ -53,6 +53,19 @@ $(document).ready(function() {
         updatePageMeta("portfolio");
         break;
 
+
+      case "services":
+        if ($("body").hasClass("footer-active")){
+          collapseFooter();
+        }
+        if (scrollPos !== {{ site.services_start }})
+        {
+          smoothPageScroll({{ site.services_start }}, scrollSpeed);
+        }
+
+        updatePageMeta("services");
+        break;
+
       default:
         if ($("body").hasClass("footer-active")){
           collapseFooter();
@@ -78,6 +91,10 @@ $(document).ready(function() {
       }else if (scrollPos === {{ site.portfolio_start }}){
         if (!$("body").hasClass("page-portfolio")){
           $.history.push("#portfolio");
+        }
+      }else if (scrollPos === {{ site.services_start }}){
+        if (!$("body").hasClass("page-services")){
+          $.history.push("#services");
         }
       }
     }

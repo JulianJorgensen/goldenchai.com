@@ -3,9 +3,7 @@ $('#portfolio-thumbs-slider').royalSlider({
   controlNavigation: 'thumbnails',
   arrowsNav: false,
   autoScaleSlider: true,
-  autoScaleSliderHeight: 500,
   slidesOrientation: 'vertical',
-  autoHeight: true,
   navigateByClick: false,
   sliderDrag: false,
   sliderTouch: false,
@@ -23,7 +21,6 @@ $("#portfolio-thumbs-slider .rsNavItem.rsThumb").prepend("<div class='arrow-up'>
 portfolioThumbsSlider.ev.on('rsAfterSlideChange', function(event) {
   activateAnimationOnCurrentSlide();
 });
-
 
 // IF IT'S THE LAST SLIDE, GO TO NEXT THUMB ITEM
 $('.rsArrowRight').off('click').on('click.custom',function(e) {

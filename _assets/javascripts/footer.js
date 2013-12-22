@@ -108,11 +108,11 @@ function collapseFooter(){
 
   $('.footer-nav-ctas li').tooltip('destroy');
 
-  console.log("pushin url to nada");
-
   if ($("body").hasClass("page-manifestos")){
     $.history.push("#manifestos");
   }else if ($("body").hasClass("page-portfolio")){    
     $.history.push("#portfolio");
+  }else if ($("body").hasClass("page-services")){    
+    $.history.push("#services");
   }
 }
