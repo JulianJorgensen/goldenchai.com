@@ -116,6 +116,8 @@
     top: 50%;
     margin-top: -30px;
     width: 150px;
+    padding-top: 15px;
+    font-size: 13px;
     @include transition(width 0.2s linear);
 
     .rsArrowIcn {
@@ -131,22 +133,13 @@
       background-repeat: no-repeat;
     }
 
+    &.rsHide
+    {
+      display: none !important;
+    }
+
     &.rsArrowDisabled
     {
-      font-size: 1.3em;
-      padding-top: 26px;
-
-      .rsArrowIcn {
-        height: 14px;
-        width: 25px;
-        background-image: url("/images/arrows-eastern.png");
-        background-repeat: no-repeat;
-      }
-    
-      &.rsHide
-      {
-        display: none !important;
-      }
     }
   }
 
@@ -157,7 +150,7 @@
     .rsArrowIcn
     {
       right: 80px;
-      background-position: -36px -24px;
+      background-position: -30px 0px;
     }
 
     &.rsArrowDisabled
@@ -170,7 +163,6 @@
       .rsArrowIcn
       {
         right: 0;
-        background-position: -35px -4px;
       }
     }
   }
@@ -178,7 +170,6 @@
   .rsArrowLeft
   {
     left: 80px;
-    opacity: 0.2;
 
     &:hover
     {
@@ -188,14 +179,14 @@
     .rsArrowIcn
     {
       left: 0;
-      background-position: 0 -24px;
+      background-position: 0 0px;
     }
 
     &.rsArrowDisabled
     {
       .rsArrowIcn
       {
-        background-position: -3px -4px;
+        background-position: 0 0px;
       }
     }
   }

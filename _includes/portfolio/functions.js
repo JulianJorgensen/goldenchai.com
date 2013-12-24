@@ -28,6 +28,23 @@ function matrixToArray(matrix) {
     return matrix.substr(7, matrix.length - 8).split(', ');
 }
 
+function hideLastArrowNav(){
+  var lastSlider = $("#portfolio-thumbs-slider > .rsOverflow > .rsContainer > .rsSlide:last-child .royalSlider").data('royalSlider');
+
+  if ((portfolioThumbsSlider.currSlideId+1) == portfolioThumbsSlider.numSlides) // it's the last slide item in the thumbs slider
+  {
+    console.log("portfolio slide id: " + (portfolioThumbsSlider.currSlideId+1));
+    console.log("portfolio num slides: " + portfolioThumbsSlider.numSlides);
+
+    if ((lastSlider.currSlideId+1) == lastSlider.numSlides)
+    {
+      $(".rsArrowRight").addClass("rsHide");
+    }else{
+      $(".rsArrowRight").removeClass("rsHide");
+    }
+  }
+}
+
 function slideDragCheck()
 {
   var currSlider = currentContentSlider().data('royalSlider');
@@ -35,13 +52,8 @@ function slideDragCheck()
   currSlider.updateSliderSize();
 
   // slide drag release trigger
-  currSlider.ev.on('rsDragRelease', function(event) {
-    if ((((currSlider.currSlideId+2) == currSlider.numSlides) || ((currSlider.currSlideId+1) == currSlider.numSlides)) && (portfolioThumbsSlider.currSlideId+1 == portfolioThumbsSlider.numSlides)) // it's the very last slide item
-    {
-      $(".rsArrowRight").addClass("rsHide");
-    }else{
-      $(".rsArrowRight").removeClass("rsHide");      
-    }
+  currSlider.ev.on('rsBeforeAnimStart', function(event) {
+    hideLastArrowNav();
   });
 
   // slide drag release trigger
