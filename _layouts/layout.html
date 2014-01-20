@@ -26,20 +26,33 @@
   <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico">
 </head>
 
+
+{% if page.services %}
+<body class="page-services">
+{% elsif page.portfolio %}
+<body class="page-portfolio">
+{% else %}
 <body>
+{% endif %}
+
 
   <!-- INCLUDE THE HEADER -->
   {% include header.html %}
 
-
   <!-- INCLUDE THE MANIFESTOS CONTENT -->
-  {% include pages/manifestos.html %}  
+  {% if page.manifestos %}
+    {% include pages/manifestos.html %}
+  {% endif %}
 
   <!-- INCLUDE THE FULL PORTFOLIO CONTENT -->
-  {% include pages/portfolio-full.html %}
+  {% if page.portfolio %}
+    {% include pages/portfolio-full.html %}
+  {% endif %}
 
   <!-- INCLUDE THE SERVICES CONTENT -->
-  {% include pages/services.html %}
+  {% if page.services %}
+    {% include pages/services.html %}
+  {% endif %}
 
   <!-- INCLUDE THE FOOTER -->
   {% include footer.html %}

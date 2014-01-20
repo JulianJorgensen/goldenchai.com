@@ -100,26 +100,4 @@ $(document).ready(function() {
     }
   });
 
-
-  // MOBILE NAV ICON
-  // *****************************
-  $("#mobile-nav-icon").click(function(){
-    $("header").addClass("mobile-nav-active");
-    $("header").addClass("mobile-nav-transitioning");
-
-
-    $(window).scroll(function() {
-      $("header").removeClass("mobile-nav-active");
-    });
-
-    $("section.window").click(function() {
-      $("header").removeClass("mobile-nav-active");
-      $("header").addClass("mobile-nav-transitioning");
-
-      setTimeout(function(){
-        $("header").removeClass("mobile-nav-active");
-      }, marqueeTransitionSpeed);
-    });
-  });
-
 });

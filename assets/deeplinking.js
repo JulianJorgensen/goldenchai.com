@@ -80,19 +80,19 @@ $(document).ready(function() {
 
   // CONTROL OF WHAT NEEDS TO GET ACTIVATED AT WHICH SCROLL POSITIONS.
   $(window).scroll(function() {
-    if (!$("body").hasClass("transitioning"))
+    if (!$("body").hasClass("transitioning") && !$("body").hasClass("site-multiple-pages"))
     {
       scrollPos = $(window).scrollTop();
 
-      if (scrollPos === {{ site.manifestos_start }}){
+      if (scrollPos < {{ site.portfolio_pre_start }}){
         if (!$("body").hasClass("page-manifestos")){
           $.history.push("#manifestos");
         }
-      }else if (scrollPos === {{ site.portfolio_start }}){
+      }else if ((scrollPos > {{ site.portfolio_pre_start }}) && (scrollPos < {{ site.services_pre_start }})){
         if (!$("body").hasClass("page-portfolio")){
           $.history.push("#portfolio");
         }
-      }else if (scrollPos === {{ site.services_start }}){
+      }else if ((scrollPos > {{ site.services_pre_start }}) && (scrollPos <= {{ site.services_start }})){
         if (!$("body").hasClass("page-services")){
           $.history.push("#services");
         }
@@ -115,7 +115,6 @@ $(document).ready(function() {
   // Update the URL and body class names
   function updatePageMeta(activePage){
     clearBodyPageClasses();
-    console.log(activePage);
     $("body").addClass("page-" + activePage);
   }
 

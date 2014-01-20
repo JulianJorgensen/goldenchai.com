@@ -10,8 +10,6 @@
 
 body header
 {
-  @include transition(padding-top $defaultTransitionSpeed ease);
-
   #mobile-nav-icon
   {
     display: none;
@@ -22,7 +20,6 @@ body header
     opacity: 0.4;
     cursor: pointer;
     @include disableHighlighting;
-    @include transition(opacity $defaultTransitionSpeed ease-out);
   }
 }
 
@@ -119,30 +116,6 @@ body header
     header
     {
       padding-top: 0;
-      background-color: rgba(255, 255, 255, 0.95);
-      
-      &.mobile-nav-transitioning
-      {
-        @include transition(padding-top $defaultTransitionSpeed ease);
-      }
-
-      &.mobile-nav-active
-      {
-        @include transition(padding-top ($defaultTransitionSpeed*1.5) ease);
-        padding-top: 85px;
-
-        #primary-nav
-        {
-          opacity: 1;
-          bottom: 10px;
-          @include transition(opacity ($defaultTransitionSpeed*1.5) ease);
-        }
-
-        #mobile-nav-icon
-        {
-          opacity: 0;
-        }
-      }
     }
   }
 }
@@ -167,7 +140,6 @@ body header
     header
     {
       padding-top: 0;
-      @include transition(padding-top 0); // no transition on header initially
 
       .goldenchai-logo-wrapper
       {
@@ -242,12 +214,12 @@ body header
             {
               border-bottom-width: 1px;
             }
-          }
 
-          li.active a
-          {
-            margin-bottom: 28px;
-            padding-bottom: 28px;
+            li.active a
+            {
+              margin-bottom: 28px;
+              padding-bottom: 28px;
+            }
           }
         }
       }
@@ -318,4 +290,24 @@ body header
 // note: when mobile is detected, the class "site-multiple-pages" also gets added. These styles are primarily in the main layout.scss file
 body.mobile
 {
+  .window
+  {
+  }
+
+  footer
+  {
+    top: 350px;
+    @include transition(none);
+
+    ul
+    {
+      li
+      {
+        .cta-helper
+        {
+          display: none;
+        }
+      }
+    }
+  }
 }

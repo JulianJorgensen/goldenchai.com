@@ -16,7 +16,6 @@ body
       bottom: 0;
       right: 0;
       @include disableHighlighting;
-      @include transition(opacity $defaultTransitionSpeed ease-out);
 
 
       .primary-nav-item

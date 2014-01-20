@@ -28,10 +28,11 @@ $(document).ready(function() {
   function updateSite(refresh){
 
     // window variables
-    windowHeight = $(window).height();
     windowWidth = $(window).width();
 
-    if ((windowHeight < {{ site.mobile_start_height }}) || (windowWidth < {{ site.mobile_start_width }}))
+    var isSubpage;
+
+    if ((windowWidth < {{ site.mobile_start_width }}))
     {
       if ($("body").hasClass("mobile")){return "";}
 

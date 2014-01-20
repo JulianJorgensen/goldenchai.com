@@ -1,12 +1,12 @@
 ---
 ---
 
-body.desktop header .samuchai-logo-manifestos
+body.desktop header .goldenchai-logo-manifestos
 {
   -skrollr-animation-name: fade_out_manifestos_logo;
 }
 
-body.desktop header .samuchai-logo-portfolio
+body.desktop header .goldenchai-logo-portfolio
 {
   -skrollr-animation-name: fade_in_portfolio_logo;
 }
@@ -18,12 +18,12 @@ body.desktop #primary-nav .primary-nav-active-bg
 
 
 @-skrollr-keyframes fade_out_manifestos_logo{
-  {{ site.manifestos_pre_end }} {
+  {{ site.manifestos_end }} {
     opacity: 1;
     z-index: 999;
   }
 
-  {{ site.manifestos_end }} {
+  {{ site.portfolio_pre_start }} {
     opacity: 0;
     z-index: 0;
   }
@@ -31,12 +31,12 @@ body.desktop #primary-nav .primary-nav-active-bg
 
 
 @-skrollr-keyframes fade_in_portfolio_logo{
-  {{ site.manifestos_pre_end }} {
+  {{ site.manifestos_end }} {
     opacity: 0;
     z-index: 0;
   }
 
-  {{ site.manifestos_end }} {
+  {{ site.portfolio_pre_start }} {
     opacity: 1;
     z-index: 999;
   }

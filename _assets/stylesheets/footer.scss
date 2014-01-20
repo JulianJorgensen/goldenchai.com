@@ -5,9 +5,9 @@
 @import "mixins";
 
 // local mixins
-@mixin footerNavActive()
+@mixin footerNavActive($color)
 {
-  background: rgba($white, 0.5);
+  background: rgba($color, 0.5);
 }
 
 
@@ -21,7 +21,7 @@ body
     height: 100%;
     width: 100%;
     z-index: 9999;
-    @include transition((background $defaultTransitionSpeed ease, top $fastTransitionSpeed ease));
+    @include transition((background $defaultTransitionSpeed ease, top $fastTransitionSpeed ease-out));
 
     .copyright
     {
@@ -46,7 +46,6 @@ body
     {
       border-top: 1px solid $gray20;
     }
-
 
     ul
     {
@@ -99,6 +98,13 @@ body
       {
         margin-bottom: 20px;
       }
+
+      .button.footer-cta-item
+      {
+        position: absolute;
+        bottom: 15px;
+        right: 0;
+      }
     }
 
     #contact-slide
@@ -111,7 +117,7 @@ body
         font-size: 3em;
       }
 
-      .btn-get-a-quote
+      .button-get-a-quote
       {
         margin-top: 50px;
       }
@@ -125,7 +131,12 @@ body
 
     #get-a-quote-slide
     {
-      text-align: center;
+      text-align: right;
+
+      h2
+      {
+        text-align: left;
+      }
 
       input, textarea
       {
@@ -134,7 +145,7 @@ body
         border: none;
         outline: 0;
         background: transparent;
-        font-size: 3em;
+        font-size: 1.8em;
         margin-bottom: 20px;
 
         &:hover, &:focus, &:active
@@ -217,6 +228,11 @@ body.footer-active
     {
       @include blur(10px);
       @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.      
+
+      .rsOverflow
+      {
+        opacity: 0.5;
+      }
     }
   }
 
@@ -246,8 +262,6 @@ body.footer-active
 
       li.active
       {
-        @include footerNavActive();
-
         &:hover
         {
           .cta-helper
@@ -288,7 +302,15 @@ body.page-manifestos
     {
       li.footer-nav-manifestos
       {
-        @include footerNavActive();
+        @include footerNavActive($white);
+      }
+    }
+
+    nav
+    {
+      li.active
+      {
+        @include footerNavActive($gray20);
       }
     }
   }
@@ -302,7 +324,15 @@ body.page-portfolio
     {
       li.footer-nav-portfolio
       {
-        @include footerNavActive();
+        @include footerNavActive($white);
+      }
+    }
+
+    nav
+    {
+      li.active
+      {
+        @include footerNavActive($white);
       }
     }
   }
@@ -316,7 +346,15 @@ body.page-services
     {
       li.footer-nav-services
       {
-        @include footerNavActive();
+        @include footerNavActive($white);
+      }
+    }
+
+    nav
+    {
+      li.active
+      {
+        @include footerNavActive($white);
       }
     }
   }
