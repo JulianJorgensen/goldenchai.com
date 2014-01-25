@@ -1,7 +1,7 @@
 ---
 ---
 
-body.desktop #services
+body.site-single-page.screen-desktop #services, body.site-single-page.screen-tablet #services
 {
   -skrollr-animation-name: services_opacity;
 }

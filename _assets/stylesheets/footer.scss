@@ -1,8 +1,6 @@
-/* variables */
 @import "constants";
-
-/* variables */
 @import "mixins";
+@import 'bootstrap-variables';
 
 // local mixins
 @mixin footerNavActive($color)
@@ -14,25 +12,48 @@
 // styles start
 body
 {
+  &.site-single-page
+  {
+    footer
+    {
+      @include transition((background $defaultTransitionSpeed ease, top ($fastTransitionSpeed/2) ease-out));
+    }
+  }
+
   footer
   {
     position: fixed;
-    top: 700px;
+    top: 650px;
     height: 100%;
     width: 100%;
     z-index: 9999;
-    @include transition((background $defaultTransitionSpeed ease, top $fastTransitionSpeed ease-out));
 
     .copyright
     {
-      font-size: 1.2em;
-      padding-top: 4px;
-      @include transition(opacity $defaultTransitionSpeed);      
+      padding-top: 10px;
+      @include transition(opacity $defaultTransitionSpeed);
+    }
+
+    #footer-kicker
+    {
+      opacity: 0;
+      position: fixed;
+      bottom: 0;
+      margin-right: 15px;
+      text-align: center;
+
+      h4
+      {
+        background: rgba($gray20, 0.2);
+        padding: 15px;
+        margin-top: 30px;
+      }
     }
 
     section#footer-content
     {
       opacity: 0;
+      pointer-events: none;
 
       .collapseFooter
       {
@@ -42,52 +63,47 @@ body
       }
     }
 
-    .content-wrapper
+    hr
     {
       border-top: 1px solid $gray20;
+      margin-bottom: 0;
     }
 
-    ul
+    .footer-nav-cta
     {
-      list-style-type: none;
-      padding: 0;
+      display: inline-block;
+      position: relative;
+      padding: 10px;
+      margin: 0 0 0 15px;
+      text-transform: uppercase;
+      @include transition(all $defaultTransitionSpeed);
 
-      li
+      .cta-helper
       {
-        position: relative;
-        display: inline-block;
-        font-size: 1.3em;
-        padding: 3px 22px;
-        text-transform: uppercase;
-        @include transition(all $defaultTransitionSpeed);
+        opacity: 0;
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        margin-left: -60px;
+        width: 120px;
+        padding: 5px;
+        text-align: center;
+        font-size: 11px;
+        background: rgba($gray20, 0.3);
+        @include transition(opacity ($defaultTransitionSpeed*2));
 
-        .cta-helper
+        .cta-helper-arrow
         {
-          opacity: 0;
           position: absolute;
-          top: -50px;
+          bottom: -10px;
+          margin-left: -10px;
           left: 50%;
-          margin-left: -60px;
-          width: 120px;
-          padding: 5px;
-          text-align: center;
-          font-size: 11px;
-          background: rgba($gray20, 0.3);
-          @include transition(opacity ($defaultTransitionSpeed*2));
-
-          .cta-helper-arrow
-          {
-            position: absolute;
-            bottom: -10px;
-            margin-left: -10px;
-            left: 50%;
-            width:0;
-            height:0;
-            border-color:transparent;
-            border-style:solid;
-            border-top-color: rgba($gray20, 0.3);
-            border-width:10px 10px 0;
-          }
+          width:0;
+          height:0;
+          border-color:transparent;
+          border-style:solid;
+          border-top-color: rgba($gray20, 0.3);
+          border-width:10px 10px 0;
         }
       }
     }
@@ -99,7 +115,7 @@ body
         margin-bottom: 20px;
       }
 
-      .button.footer-cta-item
+      .button.footer-cta-button
       {
         position: absolute;
         bottom: 15px;
@@ -114,7 +130,7 @@ body
 
       p
       {
-        font-size: 3em;
+        font-size: 2.5em;
       }
 
       .button-get-a-quote
@@ -166,11 +182,11 @@ body
 
 
 // ADD SPECIFIC BLUR TRANSITION EFFECT ON TARGET ELEMENTS
-body
+body.desktop
 {
   #manifestos
   {
-    .content-wrapper
+    .container
     {
       @include transition((-webkit-filter $defaultTransitionSpeed, filter $defaultTransitionSpeed))
     }
@@ -188,7 +204,6 @@ body
   }
 }
 
-
 // FOOTER ACTIVE STATE
 body.footer-active
 {
@@ -196,78 +211,93 @@ body.footer-active
   {
     .goldenchai-logo-wrapper
     {
-      bottom: 20px;
       opacity: 0.4;
     }
 
     #primary-nav
     {
       opacity: 0;
-    }
-  }
-
-  // blur/hide manifestos stuff
-  .window
-  {
-    .content-wrapper, #marquee .nav, #marquee .marquee-headline
-    {
-      @include blur(10px);
-      @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.
-    }
-
-    .black-diamond
-    {
-      opacity: 0.3 !important;
-    }
-  }
-
-  // blur/hide portfolio stuff
-  #portfolio
-  {
-    .royalSlider
-    {
-      @include blur(10px);
-      @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.      
-
-      .rsOverflow
-      {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  #marquee
-  {
-    .marquee-bg
-    {
-      opacity: 0 !important;
-    }
-
-    .marquee-shadow
-    {
-      visibility: hidden;
+      pointer-events: none;
     }
   }
 
   footer
   {
-    top: 120px;
-
-    nav
+    #footer-content
     {
-      li
+      pointer-events: auto;      
+    }
+  }
+}
+
+@media (min-width: $screen-md)
+{
+  body.footer-active
+  {
+    header
+    {
+      .goldenchai-logo-wrapper
       {
-        font-size: 1.5em;
+        bottom: 20px;
+      }
+    }
+
+    // blur/hide manifestos stuff
+    .window
+    {
+      .container, #marquee .nav, #marquee .marquee-headline
+      {
+        @include blur(10px);
+        @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.
       }
 
-      li.active
+      .black-diamond
+      {
+        opacity: 0.3 !important;
+      }
+    }
+
+    // blur/hide portfolio stuff
+    #portfolio
+    {
+      .royalSlider
+      {
+        @include blur(10px);
+        @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.      
+
+        .rsOverflow
+        {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    #marquee
+    {
+      .marquee-bg
+      {
+        opacity: 0 !important;
+      }
+
+      .marquee-shadow
+      {
+        visibility: hidden;
+      }
+    }
+
+    footer
+    {
+      top: 120px;
+      
+
+      .footer-nav-cta.active
       {
         &:hover
         {
           .cta-helper
           {
             opacity: 1 !important;
-            @include transition(opacity ($defaultTransitionSpeed*2) ease 1.5s);
+            @include transition(opacity ($defaultTransitionSpeed*2) ease 1s);
           }          
         }
 
@@ -280,57 +310,46 @@ body.footer-active
           }
         }
       }
-    }
 
-    .copyright
-    {
-      opacity: 0;
-    }
-  
-    section#footer-content
-    {
-      opacity: 1;
-    }
-  }
-}
-
-body.page-manifestos
-{
-  footer
-  {
-    ul
-    {
-      li.footer-nav-manifestos
+      .copyright
       {
-        @include footerNavActive($white);
+        opacity: 0;
+      }
+    
+      section#footer-content
+      {
+        opacity: 1;
       }
     }
+  }
 
-    nav
+  body.page-manifestos
+  {
+    footer
     {
-      li.active
+      .footer-nav-cta.active
       {
         @include footerNavActive($gray20);
       }
     }
   }
-}
 
-body.page-portfolio
-{
-  footer
+  body.page-portfolio
   {
-    ul
+    footer
     {
-      li.footer-nav-portfolio
+      .footer-nav-cta.active
       {
         @include footerNavActive($white);
       }
     }
+  }
 
-    nav
+  body.page-services
+  {
+    footer
     {
-      li.active
+      .footer-nav-cta.active
       {
         @include footerNavActive($white);
       }
@@ -338,23 +357,120 @@ body.page-portfolio
   }
 }
 
-body.page-services
+
+
+@media (max-width: $screen-md)
 {
-  footer
+  body
   {
-    ul
+    footer
     {
-      li.footer-nav-services
+      #contact-slide
       {
-        @include footerNavActive($white);
+        padding-top: 70px;
+
+        p
+        {
+          font-size: 1.5em;
+        }
+
+        .button-get-a-quote
+        {
+          margin-top: 50px;
+        }
+
+        small
+        {
+          display: block;
+          margin-top: 10px;
+        }
+      }      
+    }
+  }
+
+
+  body.footer-active
+  {
+    section.window #marquee-wrapper, section.window .container
+    {
+      opacity: 0.2 !important;
+      @include blur(10px);
+      @include blurPerformanceHack();
+    }
+
+    header
+    {
+      padding-top: 50px !important;
+      @include transition(padding-top ($defaultTransitionSpeed) ease);
+
+      #primary-nav
+      {
+        opacity: 0 !important;
+        @include transition(opacity ($defaultTransitionSpeed) ease);
+      }
+
+      #mobile-nav-icon
+      {
+        opacity: 0.4 !important;
       }
     }
 
-    nav
+    footer
     {
-      li.active
+      top: 50px !important;
+      // remove comments on below 2 if footer is gonna have lots of content (needs to be static)
+      // position: static;
+      // padding-top: 50px !important;
+      @include transition(top ($defaultTransitionSpeed) ease);
+
+      .footer-nav
       {
-        @include footerNavActive($white);
+        .copyright
+        {
+          opacity: 0 !important;
+        }
+
+        .footer-nav-cta
+        {
+          &.active
+          {
+            background: url("/images/footer-nav-arrow.png") top center no-repeat;
+          }
+        }
+      }
+
+      #footer-kicker
+      {
+        display: none;
+      }
+
+      section#footer-content
+      {
+        opacity: 1;
+
+        @include transition(opacity ($defaultTransitionSpeed) ease);
+
+        .rsOverflow
+        {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs)
+{
+  body
+  {
+    footer
+    {
+      top: 380px;
+      height: 50px;
+
+      .copyright
+      {
+        font-size: 0.8em;
       }
     }
   }

@@ -1,8 +1,6 @@
-/* variables */
 @import "constants";
-
-/* variables */
 @import "mixins";
+@import 'bootstrap-variables';
 
 
 /* header */
@@ -38,8 +36,8 @@ body
           display: inline-block;
           position: relative;
           height: inherit;
-          bottom: -4px;
-          font-size: 1.2em;
+          bottom: -3px;
+          font-size: 0.9em;
           text-transform: uppercase;
           @include disableHighlighting;
         }
@@ -90,5 +88,19 @@ body
         z-index: 998;
       }
     }
+  }
+}
+
+
+@media (max-width: $screen-sm) {
+  body
+  {
+    header
+    {
+      #primary-nav
+      {
+        right: 15px;
+      }
+    }    
   }
 }

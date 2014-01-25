@@ -1,9 +1,28 @@
-/* variables */
 @import "constants";
-
-/* mixins */
 @import "mixins";
+@import 'bootstrap-variables';
 
+body.site-multiple-pages.page-manifestos
+{
+  header
+  {
+    #primary-nav .primary-nav-active-bg
+    {
+      top: 0;
+    }
+
+    .goldenchai-logo-wrapper
+    {
+      .goldenchai-logo
+      {
+        &.goldenchai-logo-manifestos
+        {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
 
 // MANIFESTOS CONTENT STYLES
 // *****************************
@@ -11,7 +30,7 @@ body
 {
   #manifestos
   {
-    .content-wrapper
+    .container
     {
       .inner-wrapper
       {
@@ -27,10 +46,14 @@ body
             {
               h1
               {
-                font-size: 1.5em;
                 margin: 0 0 10px;
                 font-weight: 300;
                 font-style: italic;
+              }
+
+              p
+              {
+                font-size: 1.1em;
               }
 
               .content-cta
@@ -122,7 +145,7 @@ body
       text-align: center;
       margin-top: 30px;
       padding: 0;
-      height: 151px;
+      height: 147px;
       @include disableHighlighting;
 
       #marquee
@@ -142,9 +165,9 @@ body
 
           h1
           {
-            font-size: 2.5em;
+            font-size: 1.8em;
             font-weight: 100;            
-            margin: 10px 0 2px 0;
+            margin: 14px 0 0 0;
           }
 
           .headline-durability, .headline-usability,  .headline-art
@@ -175,7 +198,7 @@ body
         .nav
         {
           position: relative;
-          font-size: 3.5em;
+          font-size: 2.8em;
           border: 0;
           list-style: none;
           margin: 0;
@@ -260,7 +283,7 @@ body
         }
       }
 
-      .content-wrapper
+      .container
       {
         .inner-wrapper
         {
@@ -283,7 +306,7 @@ body
 // *************************
 body
 {
-  .content-wrapper
+  .container
   {
     .inner-wrapper
     {
@@ -335,7 +358,7 @@ body
 // *************************
 body
 {
-  .content-wrapper
+  .container
   {
     .inner-wrapper
     {
@@ -359,7 +382,7 @@ body
 // *************************
 body
 {
-  .content-wrapper
+  .container
   {
     .inner-wrapper
     {
@@ -415,8 +438,201 @@ body
 
 body.visited-durability.visited-usability.visited-art.visited-portfolio.visited-services
 {
-  .content-wrapper .inner-wrapper #art.tab-pane .arrow-forward
+  .container .inner-wrapper #art.tab-pane .arrow-forward
   {
     display: block;
+  }
+}
+
+
+
+@media (max-width: 600px)
+{
+  body
+  {
+    #manifestos
+    {
+      #marquee-wrapper
+      {
+        height: 140px;
+        
+        #marquee
+        {
+          .marquee-headline h1
+          {
+            font-size: 1.8em;
+          }
+
+          .nav
+          {
+            font-size: 2.2em;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: $screen-xs)
+{
+  body
+  {
+    #manifestos
+    {
+      padding-top: 40px;
+
+      #marquee-wrapper
+      {
+        height: 92px;
+
+        #marquee
+        {
+          .marquee-headline
+          {
+            margin-top: -5px;
+
+            h1
+            {
+              font-size: 1.2em;
+              margin: 0;              
+            }
+          }
+
+          .nav
+          {
+            font-size: 2em;
+
+            li a
+            {
+              border-bottom-width: 1px;
+            }
+
+            li.active a
+            {
+              margin-bottom: 28px;
+              padding-bottom: 28px;
+            }
+          }
+        }
+      }
+
+      .container
+      {
+        .inner-wrapper
+        {
+          margin: 20px auto;
+
+          .main-content
+          {
+            .tab-content
+            {
+              .tab-pane
+              {
+                .content-front
+                {
+                  h1
+                  {
+                    font-size: 1.1em;
+                  }
+
+                  .content-cta
+                  {
+                    width: auto;
+                    height: auto;
+
+                    img
+                    {
+                      position: static;
+                      width: 140px;
+                    }
+
+                    &.content-cta-hover
+                    {
+                      &:hover
+                      {
+                        img.default
+                        {
+                          opacity: 1;
+                        }
+                      }
+
+                      .hover
+                      {
+                        display: none;
+                      }
+                    }
+                  }
+                }                
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: $screen-xs)
+{
+  body
+  {
+    #manifestos
+    {
+      .container
+      {
+        .inner-wrapper
+        {
+          .main-content
+          {
+            .tab-content
+            {
+              .tab-pane
+              {
+                .content-front
+                {
+                  h2, p
+                  {
+                    font-size: 0.9em;
+                  }
+
+                  .content-cta
+                  {
+                    margin-right: -70px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      #marquee-wrapper
+      {
+        height: 78px;
+
+        #marquee
+        {
+          .marquee-shadow
+          {
+            padding-bottom: 15px;
+          }
+
+          .marquee-headline h1
+          {
+            font-size: 1.2em;
+            margin: 0;
+          }
+
+          .nav
+          {
+            font-size: 1.4em;
+          }
+        }
+      }
+    }
   }
 }

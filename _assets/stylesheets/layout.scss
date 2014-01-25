@@ -1,58 +1,12 @@
-/* variables */
 @import "constants";
-
-/* mixins */
 @import "mixins";
+@import 'bootstrap-variables';
 
-
-/* typography */
-
-h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
-{
-  font-family: $fonts !important;
-  color: $gray70;
-  line-height: 160%;
-}
-
-p
-{
-  font-size: 1.5em;
-}
-
-small
-{
-  font-size: 1.3em;
-}
-
-a, a:active, a:focus, a:visited, a:hover
-{
-  background-color: none;
-  border: none;
-  outline: none !important;
-  text-decoration: none !important;
-}
-
-/* layouts */
-
-html, body
-{
-  font-family: $fonts;
-  margin: 0;
-  padding: 0;
-}
 
 body
 {
-  .content-wrapper, header
+  .container
   {
-    max-width: 720px;
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
     .inner-wrapper
     {
       position: relative;
@@ -71,20 +25,10 @@ body
     overflow: hidden;
   }
 
-  &.site-multiple-pages
+  &.index.site-multiple-pages
   {
-    footer
-    {
-      // position: relative;
-    }
-
     section.window
     {
-      // position: relative;
-      // height: auto;
-      // overflow: hidden;
-      // padding-top: 0;
-
       &.subpage
       {
         display: none;
@@ -96,7 +40,7 @@ body
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 767px) {
+@media (max-width: $screen-sm) {
   /* Sometimes, you just want to be different on small screens */
   .center-on-mobiles {
     text-align: center !important;
@@ -106,9 +50,19 @@ body
   }
 }
 
-@media screen and (max-width: 480px) {
+
+@media (max-width: $screen-xs)
+{
   body
   {
-    // font-size: 50%;
+    .container
+    {
+      width: 100%;
+    }
+
+    .window
+    {
+      padding-top: 55px;
+    }
   }
 }

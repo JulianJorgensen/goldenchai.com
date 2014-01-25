@@ -1,8 +1,6 @@
-/* variables */
 @import "constants";
-
-/* variables */
 @import "mixins";
+@import 'bootstrap-variables';
 
 
 /* header */
@@ -11,21 +9,21 @@ body
   header
   {
     position: fixed;
-    top: 0px;
-    width: 700px;
-    left: 50%;
-    margin-left: -350px;
+    width: 100%;
     padding-top: 110px;
     padding-bottom: 0;
     z-index: 99999;
+
+    .container
+    {
+      position: relative;
+    }
 
     .goldenchai-logo-wrapper
     {
       position: absolute;
       bottom: 0;
       cursor: pointer;
-      width: 102px;
-      height: 40px;
       @include transition(bottom $fastTransitionSpeed);
       @include disableHighlighting;
 
@@ -35,7 +33,6 @@ body
         bottom: 0;
         left: 0;
         padding: 7px 13px;
-        font-size: 1.5em;
         text-transform: uppercase;
         text-align: center;
         @include transition(all $defaultTransitionSpeed);
@@ -48,6 +45,7 @@ body
         &.goldenchai-logo-manifestos
         {
           z-index:999;
+          opacity: 0;
 
           .logo-copy
           {
@@ -77,6 +75,19 @@ body
           }
         }
       }
+    }
+
+
+    #mobile-nav-icon
+    {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      opacity: 0;
+      opacity: 0.4;
+      cursor: pointer;
+      @include disableHighlighting;
     }
   }
 }
@@ -137,6 +148,36 @@ body.art
       .goldenchai-logo.goldenchai-logo-manifestos
       {
         background-color: darken($art-color, 20);
+      }
+    }
+  }
+}
+
+
+@media (max-width: $screen-xs)
+{
+  body
+  {
+    header
+    {
+      padding-top: 50px;
+
+      .goldenchai-logo-wrapper
+      {
+        .goldenchai-logo
+        {
+          font-size: 0.9em;
+        }
+      }
+
+      #primary-nav
+      {
+        opacity: 0;
+      }
+
+      #mobile-nav-icon
+      {
+        display: block;
       }
     }
   }

@@ -1,22 +1,22 @@
 ---
 ---
 
-body.desktop #manifestos
+body.site-single-page.screen-desktop #manifestos, body.site-single-page.screen-tablet #manifestos
 {
   -skrollr-animation-name: manifestos_opacity;
 }
 
-body.desktop #manifestos .content-wrapper
+body.site-single-page.screen-desktop #manifestos .content-wrapper, body.site-single-page.screen-tablet #manifestos .content-wrapper
 {
   -skrollr-animation-name: copyContentOpacity;
 }
 
-body.desktop #marquee .nav
+body.site-single-page.screen-desktop #marquee .nav, body.site-single-page.screen-tablet #marquee .nav
 {
   -skrollr-animation-name: goRight;
 }
 
-body.desktop #marquee .marquee-headline
+body.site-single-page.screen-desktop #marquee .marquee-headline, body.site-single-page.screen-tablet #marquee .marquee-headline
 {
   -skrollr-animation-name: goLeft;
 }

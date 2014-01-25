@@ -6,7 +6,9 @@ baseurl: /
 default_scroll_speed: 1500
 
 #responsive constants
-mobile_start_width: 767
+mobile_start_width: 480
+tablet_start_width: 767
+desktop_start_width: 992
 
 # scroll position constants (used in both .js and the keyframe .css files)
 manifestos_auto_scroll_start: 400
@@ -19,11 +21,11 @@ manifestos_end: 1000
 portfolio_auto_scroll_start: 1400
 portfolio_pre_start: 1100
 portfolio_start: 1500
-portfolio_pre_end: 1900
-portfolio_end: 2300
+portfolio_pre_end: 2200
+portfolio_end: 2600
 
-services_pre_start: 2500
-services_start: 2900
+services_pre_start: 2800
+services_start: 3200
 
 
 #other site variables and configs
@@ -37,6 +39,7 @@ assets:
   sources:
     - _assets/javascripts
     - _assets/stylesheets
+    - _assets/videos
   bundles:
     - 'application.css'
     - 'application.js'

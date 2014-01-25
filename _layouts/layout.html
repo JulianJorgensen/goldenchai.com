@@ -11,8 +11,7 @@
 
   {% javascript application-init %}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
   {% stylesheet application %}
 
 
@@ -21,37 +20,50 @@
   <link rel="stylesheet" type="text/css" href="/assets/keyframes/manifestos.css" data-skrollr-stylesheet />
   <link rel="stylesheet" type="text/css" href="/assets/keyframes/portfolio.css" data-skrollr-stylesheet />
   <link rel="stylesheet" type="text/css" href="/assets/keyframes/services.css" data-skrollr-stylesheet />
-  <link class="mobile" rel="stylesheet" type="text/css" href="/assets/keyframes/site-multiple-pages.css" data-skrollr-stylesheet />
+  <link rel="stylesheet" type="text/css" href="/assets/keyframes/site-multiple-pages.css" data-skrollr-stylesheet />
+  <link rel="stylesheet" type="text/css" href="/assets/keyframes/tablet.css" data-skrollr-stylesheet />
+  <link rel="stylesheet" type="text/css" href="/assets/keyframes/mobile.css" data-skrollr-stylesheet />
 
   <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico">
 </head>
 
 
-{% if page.services %}
-<body class="page-services">
-{% elsif page.portfolio %}
-<body class="page-portfolio">
+{% if page.subpage and page.name == "services" %}
+<body class="page-services site-multiple-pages">
+{% elsif page.subpage and page.name == "portfolio" %}
+<body class="page-portfolio site-multiple-pages">
+{% elsif page.subpage and page.name == "manifestos" %}
+<body class="page-manifestos site-multiple-pages">
 {% else %}
-<body>
+<body class="index">
 {% endif %}
 
 
   <!-- INCLUDE THE HEADER -->
   {% include header.html %}
 
-  <!-- INCLUDE THE MANIFESTOS CONTENT -->
-  {% if page.manifestos %}
+  {% if page.subpage %}
+    <!-- INCLUDE THE MANIFESTOS CONTENT -->
+    {% if page.name == "manifestos" %}
+      {% include pages/manifestos.html %}
+    {% endif %}
+
+    <!-- INCLUDE THE FULL PORTFOLIO CONTENT -->
+    {% if page.name == "portfolio" %}
+      {% include pages/portfolio-single.html %}
+    {% endif %}
+
+    <!-- INCLUDE THE SERVICES CONTENT -->
+    {% if page.name == "services" %}
+      {% include pages/services.html %}
+    {% endif %}
+
+  {% else %}
+
     {% include pages/manifestos.html %}
-  {% endif %}
-
-  <!-- INCLUDE THE FULL PORTFOLIO CONTENT -->
-  {% if page.portfolio %}
     {% include pages/portfolio-full.html %}
-  {% endif %}
-
-  <!-- INCLUDE THE SERVICES CONTENT -->
-  {% if page.services %}
     {% include pages/services.html %}
+
   {% endif %}
 
   <!-- INCLUDE THE FOOTER -->

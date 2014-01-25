@@ -21,6 +21,11 @@ $(document).ready(function() {
 
   if (pathname !== "/"){
     $("body").addClass("subpage");
+    if (pathname == "/manifestos/")
+    {
+      $("body").addClass("durability");
+      $('.nav-tabs li:eq(0)').find('a').trigger('click');
+    }
   }else{
     $("body").addClass("durability");
     $("body").addClass("page-manifestos");
@@ -100,4 +105,30 @@ $(document).ready(function() {
     }
   });
 
+  // MOBILE NAV
+  // ************************************
+  $("#mobile-nav-icon").click(function(){
+
+    var windowHeight = $(window).height();
+    collapseFooter();
+    $("html, body").animate({
+      scrollTop: windowHeight
+    }, 10);
+
+  });
+
+
+  // DIRECT LINKS TO EITHER SINGLE PAGE OR MULTI PAGE
+  // ***********************************************
+  $("a").click(function(e){
+    if ($("body").hasClass("site-multiple-pages"))
+    {
+      if ($(this).attr("href").indexOf("/#/") != -1)
+      {
+        window.location.href = $(this).attr("href").replace("/#", "");
+      }
+
+      e.preventDefault();
+    }
+  });
 });

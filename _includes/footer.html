@@ -1,18 +1,22 @@
 <footer>
-  <div class="content-wrapper">
-    <nav class="row">
-      <div class="col-xs-7">
+  <div class="container">
+    <hr>
+    <div class="row footer-nav">
+      <div class="col-xs-5">
         <p class="copyright">© 2014 GoldenChai</p>
         <!-- <p class="collapseFooter"><img src="/images/nav/close.png" />CLOSE</p> -->
       </div>
-      <div class="col-xs-5 align-right">
-        <ul class="footer-nav-ctas">
-          <li class="footer-nav-info"><a href="#info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</li>
-          <li class="footer-nav-contact"><a href="#contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</li>
-          <li class="footer-nav-getquote"><a href="#get-a-quote"><img src="/images/nav/quotes.png" /></a>{% include tooltips.html tooltip="click-to-close" %}</li>
-        </ul>
+      <div class="col-xs-7 align-right">
+        <div class="footer-nav-cta footer-nav-info"><a href="#info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</div>
+        <div class="footer-nav-cta footer-nav-contact"><a href="#contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</div>
+        <!-- <div class="footer-cta-item footer-nav-getquote"><a href="#get-a-quote"><img src="/images/nav/quotes.png" /></a>{% include tooltips.html tooltip="click-to-close" %}</div> -->
       </div>
-    </nav>
+    </div>
+    <div id="footer-kicker">
+      <!-- <h3>Minimalism to perfection.</h3> -->
+      <h4>Let's get started; <a href="contact@goldenchai.com">contact@goldenchai.com</a></h4>
+      <h6>(Guaranteed response within 24 hours.)</h6>
+    </div>
     <section id="footer-content">
 
      <div id="footer-content-slider" class="royalSlider rsDefault">
@@ -46,14 +50,11 @@
               </div>
             </div>
           </div>
-
-          <div class="button footer-cta-item" data-slide="1">contact us now &rsaquo;</div>
         </div>
 
         <div id="contact-slide">
-          <p>1-800-987-7654</p>
-          <p>chai@goldenchai.com</p>
-          <div class="button button-get-a-quote footer-cta-item" data-slide="2">Get a quote now</div>
+          <p><a href="mailto:chai@goldenchai.com">chai@goldenchai.com</a></p>
+          <div class="button button-get-a-quote footer-cta-button" data-slide="2">Get a quote now</div>
           <small>why work with us?</small>
         </div>
 
@@ -68,7 +69,7 @@
 
       </div>
 
-      <div class="collapseFooter"><p>close &darr;</p></div>
+      <div class="collapseFooter hidden-xs"><p>close &darr;</p></div>
 
     </section>
   </div>

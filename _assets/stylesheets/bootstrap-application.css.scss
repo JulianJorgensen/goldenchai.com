@@ -1,0 +1,46 @@
+@import 'constants';
+@import 'bootstrap-variables';
+
+// IMPORT BOOTSTRAP LIBRARY
+// =====================
+
+@import "lib/bootstrap-3.0.3/bootstrap";
+
+
+
+// BOOTSTRAP STYLE OVERRIDES
+// =====================
+
+@media (min-width: $screen-sm)
+{
+  .container
+  {
+    padding: 0;
+
+    .row
+    {
+      padding: 0;
+    }
+  }
+}
+
+/* typography */
+a, a:active, a:focus, a:visited, a:hover
+{
+  background-color: none;
+  border: none;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+.nav-tabs
+{
+  > li
+  {
+    >a, >a:hover, >a:focus
+    {
+      background-color: transparent !important;
+      border: 0 !important;
+    }
+  }
+}

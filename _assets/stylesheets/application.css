@@ -1,9 +1,10 @@
 /**
-  *= require './vendor/bootstrap.min.css'
-  *= require './vendor/animations.css'
-  *= require './vendor/royalslider.css'
-  *= require './vendor/rs-default.css'
-  *= require './vendor/boxshadows.css'
+  *= require bootstrap-application
+
+  *= require './lib/animations.css'
+  *= require './lib/royalslider.css'
+  *= require './lib/rs-default.css'
+  *= require './lib/boxshadows.css'
 
   *= require './components.scss'
 

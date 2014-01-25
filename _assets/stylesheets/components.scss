@@ -1,9 +1,6 @@
-/* variables */
 @import "constants";
-
-/* variables */
 @import "mixins";
-
+@import 'bootstrap-variables';
 
 .clear
 {
@@ -40,7 +37,6 @@
   padding: 12px;
   text-align: center;
   border-radius: 5px;
-  font-size: 1em;
   line-height: 1em;
   margin-top: -10px;
 
@@ -80,7 +76,7 @@
   @include btn;  
 }
 
-.footer-cta-item
+.footer-cta-button
 {
   background: rgba($gray40, 0.3);
 
@@ -166,7 +162,6 @@ body
 
       li
       {
-        font-size: 1.5em;
         text-align: left;
         list-style-type: square;
         list-style-position: inside;
@@ -247,7 +242,7 @@ body
       background: url("/images/nav/accordion-default.png") left center no-repeat;
       cursor: pointer;
       margin: 0;
-      font-size: 2em;
+      font-size: 1.3em;
       padding: 15px 15px 15px 20px;
       @include disableHighlighting;
     }
@@ -258,6 +253,11 @@ body
       overflow: hidden;
       opacity: 0;
       @include transition((opacity $defaultTransitionSpeed, max-height $defaultTransitionSpeed));
+
+      p
+      {
+        width: 100%;
+      }
     }
   }
 
@@ -306,6 +306,29 @@ body
     display:block; margin-left:20px;
     width:20px; height:100%; 
     border-radius:12px / 125px; 
-    box-shadow:0 0 8px black;
+    box-shadow:0 0 8px $gray6;
+  }
+}
+
+
+@media (max-width: $screen-xs)
+{
+  .button
+  {
+    @include btn;
+    font-size: 1em;
+  }
+
+  .accordion
+  {
+    .accordion-item
+    {
+      padding: 0;
+
+      &.active
+      {
+        background: none;
+      }
+    }
   }
 }

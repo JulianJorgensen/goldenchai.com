@@ -18,22 +18,31 @@ $(document).ready(function() {
 
     switch(url){
       case "info":
-        activateFooter($(".footer-nav-ctas li.footer-nav-info a"));
+        if (event.type == "load")
+        {
+          activateFooter($(".footer-nav-cta.footer-nav-info"));
+        }
         break;
 
       case "contact":
-        activateFooter($(".footer-nav-ctas li.footer-nav-contact a"));
+        if (event.type == "load")
+        {
+          activateFooter($(".footer-nav-cta.footer-nav-contact"));
+        }
         break;
 
       case "get-a-quote":
-        activateFooter($(".footer-nav-ctas li.footer-nav-getquote a"));
+        if (event.type == "load")
+        {
+          activateFooter($(".footer-nav-cta.footer-nav-getquote"));
+        }
         break;
 
-      case "manifestos":
+      case "/manifestos":
         if ($("body").hasClass("footer-active")){
           collapseFooter();
         }
-        if (scrollPos > {{ site.manifestos_start }})
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
           smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
         }
@@ -41,11 +50,11 @@ $(document).ready(function() {
         updatePageMeta("manifestos");          
         break;
 
-      case "portfolio":
+      case "/portfolio":
         if ($("body").hasClass("footer-active")){
           collapseFooter();
         }
-        if (scrollPos !== {{ site.portfolio_start }})
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.portfolio_start }}))
         {
           smoothPageScroll({{ site.portfolio_start }}, scrollSpeed);
         }
@@ -54,11 +63,11 @@ $(document).ready(function() {
         break;
 
 
-      case "services":
+      case "/services":
         if ($("body").hasClass("footer-active")){
           collapseFooter();
         }
-        if (scrollPos !== {{ site.services_start }})
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.services_start }}))
         {
           smoothPageScroll({{ site.services_start }}, scrollSpeed);
         }
@@ -86,15 +95,17 @@ $(document).ready(function() {
 
       if (scrollPos < {{ site.portfolio_pre_start }}){
         if (!$("body").hasClass("page-manifestos")){
-          $.history.push("#manifestos");
+          $.history.push("/manifestos");
         }
       }else if ((scrollPos > {{ site.portfolio_pre_start }}) && (scrollPos < {{ site.services_pre_start }})){
+        console.log('portfolio start');
         if (!$("body").hasClass("page-portfolio")){
-          $.history.push("#portfolio");
+          $.history.push("/portfolio");
         }
       }else if ((scrollPos > {{ site.services_pre_start }}) && (scrollPos <= {{ site.services_start }})){
+        console.log('services start');
         if (!$("body").hasClass("page-services")){
-          $.history.push("#services");
+          $.history.push("/services");
         }
       }
     }
@@ -115,6 +126,7 @@ $(document).ready(function() {
   // Update the URL and body class names
   function updatePageMeta(activePage){
     clearBodyPageClasses();
+
     $("body").addClass("page-" + activePage);
   }
 

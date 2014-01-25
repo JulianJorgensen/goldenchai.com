@@ -1,89 +1,20 @@
 ---
 ---
 
-body.site-multiple-pages #manifestos
+/* MAKE CONTENT DISAPPEAR AND BLURRY */
+body.site-multiple-pages section.window #marquee-wrapper, body.site-multiple-pages section.window .container
 {
-  -skrollr-animation-name:manifestos-disappear;
+  -skrollr-animation-name:content-disappear;
 }
 
-body.site-multiple-pages footer
-{
-  -skrollr-animation-name:footer-appear;
-}
-
-body.site-multiple-pages header
-{
-  -skrollr-animation-name:expandheader;
-}
-
-body.site-multiple-pages header #primary-nav
-{
-  -skrollr-animation-name:appear;
-}
-
-body.site-multiple-pages header #mobile-nav-icon
-{
-  -skrollr-animation-name:mobile-icon-disappear;
-}
-
-
-
-@-skrollr-keyframes manifestos-disappear {
+@-skrollr-keyframes content-disappear {
   {{ site.manifestos_start }} {
     opacity: 1;
-    -webkit-filter: blur(0px);
-    -moz-filter: blur(0px);
-    -o-filter: blur(0px);
-    -ms-filter: blur(0px);
-    filter: blur(0px);
   }
 
   {{ site.manifestos_content_pre_end }} {
-    opacity: 0.2;
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: blur(10px);
+    opacity: 0.01;
   }
 }
 
-@-skrollr-keyframes footer-appear {
-  {{ site.manifestos_start }} {
-    top: 350px;
-  }
-
-  {{ site.manifestos_content_pre_end }} {
-    top: 220px;
-  }
-}
-
-@-skrollr-keyframes expandheader {
-  {{ site.manifestos_start }} {
-    height: 50px;
-  }
-
-  {{ site.manifestos_content_pre_end }} {
-    height: 200px;
-  }
-}
-
-@-skrollr-keyframes appear {
-  {{ site.manifestos_start }} {
-    opacity: 0;
-  }
-
-  {{ site.manifestos_content_pre_end }} {
-    opacity: 1;
-  }
-}
-
-@-skrollr-keyframes mobile-icon-disappear {
-  {{ site.manifestos_start }} {
-    opacity: 0.4;
-  }
-
-  {{ site.manifestos_content_pre_end }} {
-    opacity: 0;
-  }
-}
+/* END CONTENT DISAPPEAR */

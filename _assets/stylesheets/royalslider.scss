@@ -1,20 +1,16 @@
-/* variables */
 @import "constants";
-
-/* mixins */
 @import "mixins";
-
+@import "bootstrap-variables";
 
 #portfolio-thumbs-slider
 {
   margin: 0 auto;
-  width: 1000px;
+  width: $portfolio-container-lg;
 
   .rsThumbs
   {
-    margin-top: 30px;
-    width: 700px;
-    margin-left: 150px;
+    margin-top: 20px;
+    width: $portfolio-container-lg;
 
     .rsThumbsContainer
     {
@@ -22,7 +18,7 @@
 
       .rsThumb
       {
-        padding-top: 20px;
+        padding-top: 10px;
         margin-top: -2px;
 
         &.rsNavSelected
@@ -106,8 +102,9 @@
 
   .rsOverflow
   {
-    width: 700px !important;
-    margin-left: 150px;
+    width: inherit;
+    max-width: $container-lg;
+    margin-left: (($portfolio-container-lg - $container-lg)/2);
   }
 
 
@@ -193,39 +190,39 @@
 
 }
 
-body.subpage
-{
-  #portfolio-wrapper
-  {
-    padding-top: 0;
+// body.subpage
+// {
+//   #portfolio-wrapper
+//   {
+//     padding-top: 0;
 
-    #portfolio-thumbs-slider
-    {
-      width: 100% !important;
+//     #portfolio-thumbs-slider
+//     {
+//       width: 100% !important;
 
-      .rsThumbs
-      {
-        width: inherit;
-        margin-left: 0;
-      }
-    }
+//       .rsThumbs
+//       {
+//         width: inherit;
+//         margin-left: 0;
+//       }
+//     }
 
-    .portfolio-content-slider
-    {
-      width: 900px !important;
-      height: 400px !important;
-      margin: 0 auto;
+//     .portfolio-content-slider
+//     {
+//       width: 900px !important;
+//       height: 400px !important;
+//       margin: 0 auto;
 
-      .rsOverflow
-      {
-        width: 600px !important;
-        // margin-left: 0px !important;
+//       .rsOverflow
+//       {
+//         width: 600px !important;
+//         // margin-left: 0px !important;
 
-        > .rsSlide
-        {
-          width: inherit !important;
-        }
-      }
-    }    
-  }
-}
+//         > .rsSlide
+//         {
+//           width: inherit !important;
+//         }
+//       }
+//     }    
+//   }
+// }
