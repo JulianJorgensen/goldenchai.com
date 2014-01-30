@@ -1,0 +1,12 @@
+---
+---
+
+{% include pages/portfolio-full.html %}
+
+<script>
+{% asset portfolio/single-sliders.js %}
+{% if page.subpage != "true" %}
+  {% asset portfolio/multi-sliders.js %}
+{% endif %}
+{% asset portfolio/functions.js %}
+</script>

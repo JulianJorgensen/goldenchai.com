@@ -21,3 +21,10 @@ function collapseMarquee(navName)
     $("#manifestos").removeClass("transitioning");
   }, 700);
 }
+
+function activateFirstTab()
+{
+  $("body").addClass("manifesto-durability");
+  $("body").addClass("page-manifestos");
+  $("#marquee .nav li:eq(0)").addClass("active");
+}

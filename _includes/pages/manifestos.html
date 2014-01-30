@@ -12,10 +12,10 @@
         <h1 class="headline-art">GoldenChai merge</h1>
       </div>
 
-      <ul class="nav nav-tabs">
-        <li><a href="#durability" class="nav-durability" data-toggle="tab">Durability</a>, </li>
-        <li><a href="#usability" class="nav-usability" data-toggle="tab">Usability</a></li>
-        <li>and <a href="#art" class="nav-art" data-toggle="tab">Art</a></li>
+      <ul class="nav">
+        <li class="active"><a href="#durability" class="nav-durability">Durability</a>, </li>
+        <li><a href="#usability" class="nav-usability">Usability</a></li>
+        <li>and <a href="#art" class="nav-art">Art</a></li>
       </ul>
     </div>
   </section>
@@ -29,8 +29,8 @@
           <div class="tab-pane" id="durability">
             <div class="content-front active">
               <div class="black-diamond content-cta content-cta-hover">
-                <img src="/images/cta/black-diamond.png" class="default">
-                <img src="/images/cta/black-diamond-hover.png" class="hover">
+                <img src="{% asset_path cta/black-diamond.png %}" class="default">
+                <img src="{% asset_path cta/black-diamond-hover.png %}" class="hover">
               </div>
               {% include copy/durability.html side="front" %}
             </div>
@@ -44,7 +44,7 @@
           <div class="tab-pane" id="usability">
             <div class="content-front active">
               <div class="zen-symbol content-cta">
-                <img src="/images/cta/zen-symbol.png">
+                <img src="{% asset_path cta/zen-symbol.png %}">
               </div>
               {% include copy/usability.html side="front" %}
             </div>
@@ -59,7 +59,7 @@
           <div class="tab-pane" id="art">
             <div class="content-front active">
               <div class="vitruvian content-cta">
-                <img src="/images/cta/vitruvianman.png">
+                <img src="{% asset_path cta/vitruvianman.png %}">
               </div>
               {% include copy/art.html side="front" %}
             </div>

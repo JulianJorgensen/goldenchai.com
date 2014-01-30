@@ -1,0 +1,27 @@
+@import "constants";
+@import "mixins";
+@import "bootstrap-variables";
+
+
+.rsDefault .rsThumb
+{
+  float: left;
+  width: 120px;
+  height: 100px;
+  padding-right: 20px;
+}
+
+#portfolio-thumbs-slider
+{
+  width: $portfolio-container-lg;
+}
+
+#portfolio-thumbs-slider, .portfolio-content-slider
+{
+  height: 500px;
+}
+
+#footer-content-slider
+{
+  height: 1200px;
+}

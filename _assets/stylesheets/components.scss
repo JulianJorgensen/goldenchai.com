@@ -70,28 +70,6 @@
   }
 }
 
-// Buttons
-.button
-{
-  @include btn;  
-}
-
-.footer-cta-button
-{
-  background: rgba($gray40, 0.3);
-
-  &.button-submit, &.button-get-a-quote
-  {
-    background-color: $zen-red;
-    color: $white;
-  }
-}
-
-.button.footer-footer-nav-item
-{
-  background: rgba($white, 0.5);
-}
-
 
 
 /* Utility classes */
@@ -109,7 +87,7 @@
   right: -70px;
   top: 50%;
   margin-top: -18px;
-  background: url("/images/arrows.png") 0 0 no-repeat;
+  background: image-url("arrows.png") 0 0 no-repeat;
   height: 36px;
   width: 18px;
   cursor: pointer;
@@ -156,15 +134,29 @@ body
     /* LIST STYLES */
     /* ======== */
 
+    h4
+    {
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+
     ul
     {
       display: block;
+      padding-left: 0;
+      margin-bottom: 20px;
 
       li
       {
         text-align: left;
         list-style-type: square;
         list-style-position: inside;
+
+        // list-style-type: none;
+        // &:before {
+        //     content: "• ";
+        //     color: $white;
+        // }
       }
     }
   }
@@ -239,7 +231,7 @@ body
 
     .accordion-title
     {
-      background: url("/images/nav/accordion-default.png") left center no-repeat;
+      background: image-url("nav/accordion-default.png") left center no-repeat;
       cursor: pointer;
       margin: 0;
       font-size: 1.3em;
@@ -268,7 +260,7 @@ body
 
     .accordion-title
     {
-      background: url("/images/nav/accordion-active.png") left center no-repeat;
+      background: image-url("nav/accordion-active.png") left center no-repeat;
     }
 
     .accordion-content
@@ -286,9 +278,8 @@ body
 // vertical variation
 
 .spacer-vertical {
-  display:inline-block;
-  width:100px; 
-  float: right; 
+  display: inline-block;
+  width: 20px;
   
   .mask { 
     overflow:hidden; width:20px; height:200px; 
@@ -313,12 +304,6 @@ body
 
 @media (max-width: $screen-xs)
 {
-  .button
-  {
-    @include btn;
-    font-size: 1em;
-  }
-
   .accordion
   {
     .accordion-item

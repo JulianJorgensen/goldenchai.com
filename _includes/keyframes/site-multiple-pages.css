@@ -1,0 +1,17 @@
+/* MAKE CONTENT DISAPPEAR AND BLURRY */
+body.site-multiple-pages section.window #marquee-wrapper, body.site-multiple-pages section.window .container
+{
+  -skrollr-animation-name:content-disappear;
+}
+
+@-skrollr-keyframes content-disappear {
+  {{ site.manifestos_start }} {
+    opacity: 1;
+  }
+
+  {{ site.manifestos_content_pre_end }} {
+    opacity: 0.01;
+  }
+}
+
+/* END CONTENT DISAPPEAR */

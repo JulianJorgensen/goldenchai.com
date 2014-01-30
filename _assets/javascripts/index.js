@@ -5,9 +5,7 @@ var scrollSpeed = 600;
 // MARQUEE VARIABLES
 var marqueeTransitionSpeed = 300;
 
-
 $(document).ready(function() {
-
 
   // ACTIVATE TOOLTIPS
   // ***********************************
@@ -21,15 +19,15 @@ $(document).ready(function() {
 
   if (pathname !== "/"){
     $("body").addClass("subpage");
-    if (pathname == "/manifestos/")
-    {
-      $("body").addClass("durability");
-      $('.nav-tabs li:eq(0)').find('a').trigger('click');
-    }
   }else{
-    $("body").addClass("durability");
-    $("body").addClass("page-manifestos");
-    $('.nav-tabs li:eq(0)').find('a').trigger('click');
+    if ((pathname == "/#manifestos") || (pathname == "/"))
+    {
+      setTimeout(function(){
+        $(".window.lazy-load").removeClass("lazy-load");
+      }, 200);
+    }else{
+      $(".window.lazy-load").removeClass("lazy-load");
+    }
   }
 
 
@@ -40,11 +38,13 @@ $(document).ready(function() {
 
     if (!$(this).parent("li").hasClass("active"))
     {
+      $("#marquee .nav li").removeClass("active");
       collapseMarquee(navName);
 
       setTimeout(function(){
-        $("body").removeClass("durability usability art");
-        $("body").addClass(navName);
+        $("body").removeClass("manifesto-durability manifesto-usability manifesto-art");
+        $("body").addClass("manifesto-" + navName);
+        $("#marquee .nav li a.nav-" + navName).parent("li").addClass("active");
       }, marqueeTransitionSpeed);
     }
   });
@@ -131,4 +131,12 @@ $(document).ready(function() {
       e.preventDefault();
     }
   });
+
+
+  // STUPID FIREFOX SPECIFIC CLASS
+  // ****************************
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
+  {
+    $("body").addClass("browser-firefox");
+  }
 });

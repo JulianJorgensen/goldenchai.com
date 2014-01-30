@@ -1,0 +1,80 @@
+body.site-single-page.screen-desktop header .goldenchai-logo-manifestos, body.site-single-page.screen-tablet header .goldenchai-logo-manifestos
+{
+  -skrollr-animation-name: fade_out_manifestos_logo;
+}
+
+body.site-single-page.screen-desktop header .goldenchai-logo-portfolio, body.site-single-page.screen-tablet header .goldenchai-logo-portfolio
+{
+  -skrollr-animation-name: fade_in_portfolio_logo;
+}
+
+body.site-single-page.screen-desktop #primary-nav .primary-nav-active-bg, body.site-single-page.screen-tablet #primary-nav .primary-nav-active-bg
+{
+  -skrollr-animation-name: transition_active_nav_bg;
+}
+
+
+@-skrollr-keyframes fade_out_manifestos_logo{
+  {{ site.manifestos_end }} {
+    opacity: 1;
+    z-index: 999;
+  }
+
+  {{ site.portfolio_pre_start }} {
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+
+@-skrollr-keyframes fade_in_portfolio_logo{
+  {{ site.manifestos_end }} {
+    opacity: 0;
+    z-index: 0;
+  }
+
+  {{ site.portfolio_pre_start }} {
+    opacity: 1;
+    z-index: 999;
+  }
+}
+
+
+@-skrollr-keyframes transition_active_nav_bg{
+  {{ site.manifestos_pre_end }} {
+    opacity: 0.5;
+    top: 0px;
+  }
+
+  {{ site.manifestos_end }} {
+    opacity: 0;
+    top: 0px;
+  }
+
+  {{ site.portfolio_pre_start }} {
+    opacity: 0;
+    top: 30px;
+  }
+
+  {{ site.portfolio_start }} {
+    opacity: 0.5;
+  }
+
+  {{ site.portfolio_pre_end }} {
+    opacity: 0.5;
+  }
+
+  {{ site.portfolio_end }} {
+    opacity: 0;
+  }
+
+  {{ site.services_pre_start }} {
+    opacity: 0;
+    top: 60px;
+  }
+
+  {{ site.services_start }} {
+    opacity: 0.5;
+  }
+
+}

@@ -2,13 +2,14 @@
   <div class="container">
     <hr>
     <div class="row footer-nav">
+      <div class="collapseFooter"><p>&lsaquo; back</p></div>
       <div class="col-xs-5">
         <p class="copyright">© 2014 GoldenChai</p>
         <!-- <p class="collapseFooter"><img src="/images/nav/close.png" />CLOSE</p> -->
       </div>
       <div class="col-xs-7 align-right">
-        <div class="footer-nav-cta footer-nav-info"><a href="#info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</div>
-        <div class="footer-nav-cta footer-nav-contact"><a href="#contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</div>
+        <div class="footer-nav-cta footer-nav-info"><a href="#/info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</div>
+        <div class="footer-nav-cta footer-nav-contact"><a href="#/contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</div>
         <!-- <div class="footer-cta-item footer-nav-getquote"><a href="#get-a-quote"><img src="/images/nav/quotes.png" /></a>{% include tooltips.html tooltip="click-to-close" %}</div> -->
       </div>
     </div>
@@ -22,54 +23,34 @@
      <div id="footer-content-slider" class="royalSlider rsDefault">
         <div id="info-slide">
           <div class="accordion">
-            <div class="accordion-item active">
-              <h3 class="accordion-title">Why work with us?</h3>
-              <div class="accordion-content">
-                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accugoldens terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accugoldens labore sustainable VHS.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h3 class="accordion-title">About GoldenChai</h3>
-              <div class="accordion-content">
-                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accugoldens terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accugoldens labore sustainable VHS.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h3 class="accordion-title">Pricing</h3>
-              <div class="accordion-content">
-                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accugoldens terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accugoldens labore sustainable VHS.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h3 class="accordion-title">The process / workflow</h3>
-              <div class="accordion-content">
-                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accugoldens terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accugoldens labore sustainable VHS.</p>
-              </div>
-            </div>
+            {% include copy/info.html %}
           </div>
         </div>
 
         <div id="contact-slide">
-          <p><a href="mailto:chai@goldenchai.com">chai@goldenchai.com</a></p>
-          <div class="button button-get-a-quote footer-cta-button" data-slide="2">Get a quote now</div>
-          <small>why work with us?</small>
-        </div>
-
-        <div id="get-a-quote-slide">
-          <h2>Get a quote</h2>
-          <input type="text" id="name" placeholder="Your name..."></input>
-          <input type="text" id="email" placeholder="Your email..."></input>
-          <textarea placeholder="Tell us what you have in mind..."></textarea>
-          <div class="button button-submit footer-cta-item">Submit</div><br><br>
-          <small>You'll get a response within 24 hrs.</small>
+          <form action="POST">
+            <div class="row">
+              <div class="col-xs-6">
+                <input type="text" id="name" placeholder="Your name..."></input>
+                <input type="text" id="email" placeholder="Your email..."></input>
+              </div>
+              <div class="col-xs-6 contact-info text-center">
+                <p>contact@goldenchai.com<br>phone: (+91) 8476 957419</p>
+              </div>
+            </div>
+            <textarea id="message" placeholder="Tell us what you have in mind..."></textarea>
+            <div class="row">
+              <div class="col-xs-9 text-right">
+                <small>You'll get a response within 24 hrs.</small>
+              </div>
+              <div class="col-xs-3 text-right">
+                <button class="btn btn-lg btn-primary progress-button" data-style="shrink" data-horizontal>Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
 
       </div>
-
-      <div class="collapseFooter hidden-xs"><p>close &darr;</p></div>
 
     </section>
   </div>

@@ -12,7 +12,7 @@
 // styles start
 body
 {
-  &.site-single-page
+  &.site-single-page.footer-post-active, &.site-single-page.footer-active
   {
     footer
     {
@@ -31,7 +31,6 @@ body
     .copyright
     {
       padding-top: 10px;
-      @include transition(opacity $defaultTransitionSpeed);
     }
 
     #footer-kicker
@@ -54,19 +53,29 @@ body
     {
       opacity: 0;
       pointer-events: none;
-
-      .collapseFooter
-      {
-        cursor: pointer;
-        text-align: right;
-        float: right;
-      }
     }
 
     hr
     {
       border-top: 1px solid $gray20;
       margin-bottom: 0;
+    }
+
+    .footer-nav
+    {
+      position: relative;
+
+      .collapseFooter
+      {
+        display: none;
+        position: absolute;
+        top: -50px;
+        right: 15px;
+        opacity: 0.5;
+        cursor: pointer;
+        text-align: right;
+        float: right;
+      }
     }
 
     .footer-nav-cta
@@ -76,7 +85,12 @@ body
       padding: 10px;
       margin: 0 0 0 15px;
       text-transform: uppercase;
-      @include transition(all $defaultTransitionSpeed);
+      @include transition(opacity $defaultTransitionSpeed);
+
+      &.active
+      {
+        background: image-url("footer-nav-arrow.png") top center no-repeat;
+      }
 
       .cta-helper
       {
@@ -108,50 +122,22 @@ body
       }
     }
 
-    #info-slide
-    {
-      .accordion
-      {
-        margin-bottom: 20px;
-      }
-
-      .button.footer-cta-button
-      {
-        position: absolute;
-        bottom: 15px;
-        right: 0;
-      }
-    }
-
     #contact-slide
     {
-      text-align: center;
-      padding-top: 50px;
-
-      p
+      .contact-info
       {
-        font-size: 2.5em;
-      }
+        padding-top: 20px;
 
-      .button-get-a-quote
-      {
-        margin-top: 50px;
+        p
+        {
+          font-size: 1.3em;
+        }
       }
 
       small
       {
         display: block;
-        margin-top: 10px;
-      }
-    }
-
-    #get-a-quote-slide
-    {
-      text-align: right;
-
-      h2
-      {
-        text-align: left;
+        margin-top: 12px;
       }
 
       input, textarea
@@ -160,8 +146,9 @@ body
         width: 100%;
         border: none;
         outline: 0;
-        background: transparent;
-        font-size: 1.8em;
+        background: rgba($white, 0.2);
+        padding: 8px 15px;
+        font-size: 1.6em;
         margin-bottom: 20px;
 
         &:hover, &:focus, &:active
@@ -174,7 +161,21 @@ body
 
       textarea
       {
-        height: 200px;
+        height: 160px;
+      }
+    }
+  }
+}
+
+body.page-manifestos
+{
+  footer
+  {
+    #contact-slide
+    {
+      input, textarea
+      {
+        background: rgba($gray20, 0.2);
       }
     }
   }
@@ -223,9 +224,26 @@ body.footer-active
 
   footer
   {
+    .collapseFooter
+    {
+      display: block;
+    }
+
+    .footer-nav-cta
+    {
+      font-size: 1.4em;
+      opacity: 0.6;
+
+      &.active
+      {
+        opacity: 1;
+      }
+    }
+
     #footer-content
     {
-      pointer-events: auto;      
+      pointer-events: auto;
+      margin-top: 50px;
     }
   }
 }
@@ -287,8 +305,7 @@ body.footer-active
 
     footer
     {
-      top: 120px;
-      
+      top: 90px;     
 
       .footer-nav-cta.active
       {
@@ -322,73 +339,12 @@ body.footer-active
       }
     }
   }
-
-  body.page-manifestos
-  {
-    footer
-    {
-      .footer-nav-cta.active
-      {
-        @include footerNavActive($gray20);
-      }
-    }
-  }
-
-  body.page-portfolio
-  {
-    footer
-    {
-      .footer-nav-cta.active
-      {
-        @include footerNavActive($white);
-      }
-    }
-  }
-
-  body.page-services
-  {
-    footer
-    {
-      .footer-nav-cta.active
-      {
-        @include footerNavActive($white);
-      }
-    }
-  }
 }
 
 
 
 @media (max-width: $screen-md)
 {
-  body
-  {
-    footer
-    {
-      #contact-slide
-      {
-        padding-top: 70px;
-
-        p
-        {
-          font-size: 1.5em;
-        }
-
-        .button-get-a-quote
-        {
-          margin-top: 50px;
-        }
-
-        small
-        {
-          display: block;
-          margin-top: 10px;
-        }
-      }      
-    }
-  }
-
-
   body.footer-active
   {
     section.window #marquee-wrapper, section.window .container
@@ -428,14 +384,6 @@ body.footer-active
         .copyright
         {
           opacity: 0 !important;
-        }
-
-        .footer-nav-cta
-        {
-          &.active
-          {
-            background: url("/images/footer-nav-arrow.png") top center no-repeat;
-          }
         }
       }
 

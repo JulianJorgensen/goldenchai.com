@@ -33,14 +33,28 @@ a, a:active, a:focus, a:visited, a:hover
   text-decoration: none !important;
 }
 
-.nav-tabs
+.nav
 {
   > li
   {
     >a, >a:hover, >a:focus
     {
       background-color: transparent !important;
-      border: 0 !important;
     }
+  }
+}
+
+
+/* buttons */
+
+.btn
+{
+  text-transform: uppercase;
+  border: 0;
+
+  &.btn-lg
+  {
+    padding: 0 25px;
+    line-height: 3; /* this is necessary for progress-button. No top padding should be added. */
   }
 }

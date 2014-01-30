@@ -26,6 +26,8 @@ portfolio_end: 2600
 
 services_pre_start: 2800
 services_start: 3200
+services_pre_end: 3600
+services_end: 4000
 
 
 #other site variables and configs
@@ -39,6 +41,7 @@ assets:
   sources:
     - _assets/javascripts
     - _assets/stylesheets
+    - _assets/images
     - _assets/videos
   bundles:
     - 'application.css'

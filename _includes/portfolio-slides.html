@@ -1,0 +1,66 @@
+{% if include.slides == "intro" %}
+
+  <!-- INTRO SLIDES -->
+  <div class="rsContent intro-slide">
+    <h3>slide to view our work</h3>
+    <quote>"a great success and in no small part<br>to the fantastic site you guys built." <strong>- Stuart, Adobe</strong></quote>
+  </div>
+
+{% elsif include.slides == "ayv" %}
+
+  <!-- AYV SLIDES -->
+  <div>
+    <img src="{% asset_path portfolio/screenshots/youthvoices.adobe.com/1-desktop-1.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/youthvoices.adobe.com/1-desktop-2.jpg %}" width="730" class="slide-fade-in delay-1">
+    <img src="{% asset_path portfolio/screenshots/youthvoices.adobe.com/1-desktop-3.jpg %}" width="730" class="slide-fade-in delay-2">
+    <figure class="slide-caption"><a href="http://youthvoices.adobe.com" target="_blank">youthvoices.adobe.com</a></figure>
+  </div>
+  <div>
+    <img src="{% asset_path portfolio/screenshots/youthvoices.adobe.com/2-desktop-1.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/youthvoices.adobe.com/2-desktop-2.jpg %}" width="730" class="slide-fade-in delay-1">
+    <img src="{% asset_path portfolio/screenshots/youthvoices.adobe.com/2-desktop-3.jpg %}" width="730" class="slide-fade-in delay-2">
+    <figure class="slide-caption"><a href="http://youthvoices.adobe.com" target="_blank">youthvoices.adobe.com</a></figure>
+  </div>
+
+{% elsif include.slides == "max" %}
+
+  <!-- MAX SLIDES -->
+  <div>
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/desktop.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/mobile.png %}" class="slide-from-right offset-250 delay-1" width="300">
+    <figure class="slide-caption"><a href="http://max.adobe.com" target="_blank">Adobe MAX 2014 - max.adobe.com</a></figure>
+  </div>
+  <div>
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/2-desktop-1.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/2-desktop-2.jpg %}" width="730" class="slide-fade-in delay-1">
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/2-desktop-3.jpg %}" width="730" class="slide-fade-in delay-2">
+
+    <figure class="slide-caption"><a href="http://2013.max.adobe.com" target="_blank">Adobe MAX 2013</a></figure>
+  </div>
+  <div>
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/3-desktop-1.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/3-desktop-2.jpg %}" width="730" class="slide-fade-in delay-1">
+    <figure class="slide-caption"><a href="http://2013.max.adobe.com" target="_blank">Adobe MAX 2013</a></figure>
+  </div>
+  <div>
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/max-experience-bg.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/max.adobe.com/max-experience-content.png %}" class="slide-from-right delay-1">
+    <figure class="slide-caption"><a href="http://max.adobe.com" target="_blank">Adobe MAX 2012</a></figure>
+  </div>
+
+{% elsif include.slides == "adobestudio" %}
+
+  <!-- THEADOBESTUDIO SLIDES -->
+  <div>
+    <img src="{% asset_path portfolio/screenshots/theadobestudio.com/desktop-1.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/theadobestudio.com/desktop-2.jpg %}" class="slide-fade-in delay-1" width="730">
+    <img src="{% asset_path portfolio/screenshots/theadobestudio.com/mobile-1.png %}" class="slide-from-right offset-250 delay-3" width="200">
+  </div>
+  <div>
+    <img src="{% asset_path portfolio/screenshots/theadobestudio.com/desktop-1.jpg %}" width="730">
+    <img src="{% asset_path portfolio/screenshots/theadobestudio.com/desktop-2.jpg %}" class="slide-fade-in delay-1" width="730">
+    <img src="{% asset_path portfolio/screenshots/theadobestudio.com/mobile-1.png %}" class="slide-from-right offset-250 delay-3" width="200">
+  </div>
+
+
+{% endif %}

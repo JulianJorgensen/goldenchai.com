@@ -3,8 +3,36 @@
 @import 'bootstrap-variables';
 
 
+html.wf-loading
+{
+  body
+  {
+    h1, h2, h3, h4, h5, h6, p, li, a, span
+    {
+      opacity: 0;
+    }
+  }
+}
+
+html.wf-active
+{
+  body
+  {
+    h1, h2, h3, h4, h5, h6, p, li, a, span
+    {
+      opacity: 1;
+    }
+  }
+}
+
+
 body
 {
+  opacity: 1;
+}
+
+body
+{  
   .container
   {
     .inner-wrapper
@@ -23,10 +51,20 @@ body
     height: 100%;
     padding-top: 110px;
     overflow: hidden;
+
+    &.lazy-load
+    {
+      opacity: 0;
+    }
+  }
+
+  &.index.site-single-page
+  {
+    overflow-y: scroll;    
   }
 
   &.index.site-multiple-pages
-  {
+  {    
     section.window
     {
       &.subpage

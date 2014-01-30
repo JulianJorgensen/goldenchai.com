@@ -1,0 +1,71 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+
+body
+{
+  footer
+  {
+    #footer-content
+    {
+      #info-slide
+      {
+        .accordion
+        {
+          margin-bottom: 20px;
+
+          .profile-img
+          {
+            margin-left: 20px;
+            opacity: 0.7;
+
+            &:hover
+            {
+              opacity: 1;
+            }
+          }
+        }
+
+        .button.footer-cta-button
+        {
+          position: absolute;
+          bottom: 15px;
+          right: 0;
+        }
+
+        .nav-tabs
+        {
+          border: 0;
+          margin-top: 20px;
+
+          li
+          {
+            background: rgba($gray60, 0.2);
+            text-align: center;
+            margin-right: 30px;
+            width: 60px;
+            height: 60px;
+            @include circle(60px);
+
+            a
+            {
+              height: inherit;
+              width: inherit;
+              line-height: 60px;
+            }
+
+            &:hover
+            {
+              background: rgba(lighten($golden, 10), 0.4);              
+            }
+
+            &.active, &.active:hover
+            {
+              background: rgba($golden, 0.4);              
+            }
+          }
+        }
+      }
+    }
+  }
+}

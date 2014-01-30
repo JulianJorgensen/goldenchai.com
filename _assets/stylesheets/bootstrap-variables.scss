@@ -67,3 +67,12 @@ $container-md:                 $container-desktop !default;
 // Large screen / wide desktop
 $container-large-desktop:      ((700px + $grid-gutter-width)) !default;
 $container-lg:                 $container-large-desktop !default;
+
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+
+$btn-primary-color:              $brand-primary;
+$btn-primary-bg:                 rgba($brand-primary, 0.2);

@@ -6,7 +6,7 @@
 
 
 // STYLES FOR USABILITY ONLY
-body.usability
+body.manifesto-usability
 {
   #manifestos
   {
@@ -19,6 +19,14 @@ body.usability
           opacity: 1;
           @include gradientDiagonal($usability-color, adjust_hue($usability-color, 350));      
         }
+      }
+    }
+
+    .tab-content
+    {
+      .tab-pane#usability
+      {
+        display: block;
       }
     }
   }

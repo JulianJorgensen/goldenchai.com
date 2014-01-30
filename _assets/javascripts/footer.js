@@ -2,7 +2,6 @@ $(document).ready(function() {
   // FOOTER CONTENT SLIDER: INFO, CONTACT, AND GET A QUOTE
   $('#footer-content-slider').royalSlider({
     controlNavigation: 'none',
-    autoScaleSlider: true,
     autoScaleSliderHeight: 1200,
     controlsInside: false,
     navigateByClick: false,
@@ -13,6 +12,43 @@ $(document).ready(function() {
 
   var footerContentSlider = $("#footer-content-slider").data('royalSlider');
 
+
+  // CONTACT FORM SEND SCRIPT
+  // *****************
+
+    [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+      new ProgressButton( bttn, {
+        callback : function( instance ) {
+          var progress = 0,
+            interval = setInterval( function() {
+              progress = Math.min( progress + Math.random() * 0.1, 1 );
+              instance._setProgress( progress );
+
+              if( progress === 1 ) {
+                instance._stop(1);
+                clearInterval( interval );
+              }
+            }, 200 );
+        }
+      } );
+    } );
+
+    $('.progress-button').click(function() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var message = $("#message").val();
+      var dataString = 'name=' + name + '&from=' + email + '&subject=GoldenChai inquiry&to=chai@goldenchai.com&message=' + message;
+      $.ajax({
+        type : "POST",
+        url : "/lib/scripts/mailer.php",
+        data : dataString,
+        cache : false,
+        success : function() {
+
+        }
+      });
+      return false;
+    });
 
 
   // ACCORDION
@@ -45,6 +81,13 @@ $(document).ready(function() {
   });
 
 
+  // FOOTER NAV LINKS
+  // *****************
+  $("a[data-accordion]").on("click", function(event){
+    console.log($("footer #footer-content .accordion .accordion-item.accordion-item-" + $(this).attr("data-accordion")));
+    $("footer #footer-content .accordion .accordion-item").removeClass("active");
+    $("footer #footer-content .accordion .accordion-item.accordion-item-" + $(this).attr("data-accordion")).addClass("active");
+  });
 
   // FOOTER NAV LINKS
   // *****************
@@ -123,6 +166,7 @@ function collapseFooter(){
   // remove footer active classes
   $(".footer-nav-cta").removeClass("active");
   $("body").removeClass("footer-active");
+  $("body").addClass("footer-post-active");
 
   $('.footer-nav-cta').tooltip('destroy');
 

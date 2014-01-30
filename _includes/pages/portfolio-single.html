@@ -5,18 +5,11 @@
     <!-- INTRO SLIDER -->
     <div>
       <div class="royalSlider rsDefault portfolio-content-slider">
-        {% include portfolio/slides.html slides="intro" %}
-          {% include portfolio/slides.html slides="ayv" %}
+        {% include portfolio-slides.html slides="intro" %}
+          {% include portfolio-slides.html slides="ayv" %}
       </div>
     </div>
 
     </div>
   </div>
 </section>
-
-<script>
-  $(document).ready(function() {
-    {% include portfolio/single-sliders.js %}
-    {% include portfolio/functions.js %}
-  });
-</script>

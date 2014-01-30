@@ -1,30 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="wf-loading">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
 
   <title>Minimalist web development. GoldenChai.</title>
 
-  <script type="text/javascript" src="//use.typekit.net/qxk0qin.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-  {% javascript application-init %}
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
-  {% stylesheet application %}
-
-
-  <!-- keyframes for skrollr -->
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/layout.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/manifestos.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/portfolio.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/services.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/site-multiple-pages.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/tablet.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/mobile.css" data-skrollr-stylesheet />
-
   <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico">
+
+  <style>
+    body{opacity: 0;}
+
+    {% asset gc-slider-init.scss %}
+  </style>
 </head>
 
 
@@ -35,7 +24,7 @@
 {% elsif page.subpage and page.name == "manifestos" %}
 <body class="page-manifestos site-multiple-pages">
 {% else %}
-<body class="index">
+<body class="index manifesto-durability page-manifestos site-single-page">
 {% endif %}
 
 
@@ -61,8 +50,8 @@
   {% else %}
 
     {% include pages/manifestos.html %}
-    {% include pages/portfolio-full.html %}
-    {% include pages/services.html %}
+    <section id="portfolio" class="window subpage lazy-load"></section>
+    <section id="services" class="window subpage lazy-load">{% include pages/services.html %}</section>
 
   {% endif %}
 
@@ -70,13 +59,27 @@
   {% include footer.html %}
 
 
-  <!-- the main js files (compiled) -->
-  {% javascript application %}
+    
+  <link rel="stylesheet" type="text/css" href="{% asset_path application %}"/>
+
+  <!-- keyframes for skrollr -->
+  <link rel="stylesheet" type="text/css" href="/skrollr/keyframes.css" data-skrollr-stylesheet />
 
 
-  <!-- include the js files that shouldn't be pre-compiled. This is primarily the ones that uses environment variables (such as the scrolling stuff) -->
-  <script type="text/javascript" src="/assets/deeplinking.js"></script>
-  <script type="text/javascript" src="/assets/scrollBehaviours.js"></script>
+  <script type="text/javascript">
+  function downloadJSAtOnload() {
+    var element = document.createElement("text-css");
+    var element = document.createElement("script");
+    element.src = "defer.js";
+    document.body.appendChild(element);
+  }
+  if (window.addEventListener)
+    window.addEventListener("load", downloadJSAtOnload, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", downloadJSAtOnload);
+  else 
+    window.onload = downloadJSAtOnload;
+  </script>
 
 </body>
 </html>

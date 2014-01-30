@@ -25,9 +25,27 @@ body.site-multiple-pages.page-services
   }
 }
 
+body.page-services
+{
+  footer
+  {
+    hr
+    {
+      border-top-color: $white;
+    }
+
+    .footer-nav-cta
+    {
+      &.active
+      {
+        background-image: image-url("footer-nav-arrow-white.png");
+      }
+    }
+  }
+}
+
 section#services
 {
-  text-align: center;
   background: $services-color;
   // @include diagonalGradient($services-color, darken($services-color, 10%), 30%);
 
@@ -54,12 +72,6 @@ section#services
       width: 100%;
       @include transparentGradientTop($services-color);
     }
-  }
-
-  .info-box
-  {
-    float: right;
-    width: 300px;
   }
 
   .inner-wrapper
@@ -122,13 +134,72 @@ section#services
   .tab-content
   {
     margin-bottom: 60px;
+  }
 
-    .tab-pane
+  .design-concept
+  {
+    position: relative;
+    top: 50px;
+    left: 100px;
+    height: 250px;
+
+    h2
     {
+      position: absolute;
+      top: 0;
+      left: -20px;
+      font-size: 2.5em;
+      z-index: 99;
+    }
 
-      ul
+    .design-concept-group
+    {
+      position: relative;
+      opacity: 0;
+      padding-top: 42px;
+      width: 100px;
+      height: 100px;
+      @include circle(100px);
+      z-index: 99;
+
+      h3
       {
-        width: 200px;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 20px;
+      }
+
+      &.design-concept-group-dark
+      {
+        background: #89b399;
+      }
+
+      &.design-concept-group-light
+      {
+        background: #d3f3e0;
+      }
+
+      &.design-concept-group-2
+      {
+      }
+    }
+
+    .design-concept-ball
+    {
+      position: absolute;
+      background: $gray20;
+      opacity: 0;
+      text-align: center;
+      font-size: 0.9em;
+      padding-top: 22px;
+      width: 60px;
+      height: 60px;
+      @include circle(60px);
+
+      &.design-concept-ball-1
+      {
+        top: 0;
       }
     }
   }

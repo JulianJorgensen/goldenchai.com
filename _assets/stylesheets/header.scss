@@ -35,17 +35,15 @@ body
         padding: 7px 13px;
         text-transform: uppercase;
         text-align: center;
-        @include transition(all $defaultTransitionSpeed);
 
         &:hover
         {
-          text-shadow: 0 0 10px $gray40;
+          opacity: 0.8 !important;
         }
 
         &.goldenchai-logo-manifestos
         {
           z-index:999;
-          opacity: 0;
 
           .logo-copy
           {
@@ -94,7 +92,7 @@ body
 
 
 // STYLES FOR DURABILITY ONLY
-body.durability
+body.manifesto-durability
 {
   header
   {
@@ -109,7 +107,7 @@ body.durability
 }
 
 // STYLES FOR USABILITY ONLY
-body.usability
+body.manifesto-usability
 {
   header
   {
@@ -139,7 +137,7 @@ body.usability
 }
 
 // STYLES FOR ART ONLY
-body.art
+body.manifesto-art
 {
   header
   {

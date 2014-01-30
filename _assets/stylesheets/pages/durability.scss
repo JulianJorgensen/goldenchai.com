@@ -6,7 +6,7 @@
 
 
 // STYLES FOR DURABILITY ONLY
-body.durability
+body.manifesto-durability
 {
   #manifestos
   {
@@ -19,6 +19,14 @@ body.durability
           opacity: 1;
           @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
         }
+      }
+    }
+
+    .tab-content
+    {
+      .tab-pane#durability
+      {
+        display: block;
       }
     }
   }

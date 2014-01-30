@@ -6,7 +6,7 @@
 
 
 // STYLES FOR ART ONLY
-body.art
+body.manifesto-art
 {
   #manifestos
   {
@@ -18,7 +18,15 @@ body.art
         {
           opacity: 1;
           @include gradientDiagonal($art-color, $art-color-dark);
-        }      
+        }
+      }
+    }
+
+    .tab-content
+    {
+      .tab-pane#art
+      {
+        display: block;
       }
     }
   }
