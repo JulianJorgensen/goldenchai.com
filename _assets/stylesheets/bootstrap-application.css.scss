@@ -11,6 +11,27 @@
 // BOOTSTRAP STYLE OVERRIDES
 // =====================
 
+// tooltip
+.tooltip {
+  font-size: $font-size-base;
+  line-height: 1.4;
+
+  &.in     { @include opacity(1); }
+}
+
+span[data-toggle="tooltip"]
+{
+  cursor: help;
+}
+
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+  padding: 10px;
+  color: $tooltip-color;
+}
+
+
 @media (min-width: $screen-sm)
 {
   .container
@@ -31,6 +52,11 @@ a, a:active, a:focus, a:visited, a:hover
   border: none;
   outline: none !important;
   text-decoration: none !important;
+}
+
+.lead
+{
+  font-size: 1.2em;
 }
 
 .nav

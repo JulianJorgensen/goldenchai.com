@@ -4,19 +4,22 @@
     <div class="row footer-nav">
       <div class="collapseFooter"><p>&lsaquo; back</p></div>
       <div class="col-xs-5">
-        <p class="copyright">© 2014 GoldenChai</p>
-        <!-- <p class="collapseFooter"><img src="/images/nav/close.png" />CLOSE</p> -->
+        <div class="footer-chai">
+          <img src="{% asset_path chai-icon.png %}" data-toggle-invert>
+          <p class="invert-mode invert-mode-1">Black Ceylon Chai mode.</p>
+          <p class="invert-mode invert-mode-2">Magic Chai mode</p>
+          <p class="copyright active">© 2014 GoldenChai</p>
+        </div>
       </div>
       <div class="col-xs-7 align-right">
         <div class="footer-nav-cta footer-nav-info"><a href="#/info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</div>
         <div class="footer-nav-cta footer-nav-contact"><a href="#/contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</div>
-        <!-- <div class="footer-cta-item footer-nav-getquote"><a href="#get-a-quote"><img src="/images/nav/quotes.png" /></a>{% include tooltips.html tooltip="click-to-close" %}</div> -->
       </div>
     </div>
     <div id="footer-kicker">
       <!-- <h3>Minimalism to perfection.</h3> -->
       <h4>Let's get started; <a href="contact@goldenchai.com">contact@goldenchai.com</a></h4>
-      <h6>(Guaranteed response within 24 hours.)</h6>
+      <h6>(response within 24 hours.)</h6>
     </div>
     <section id="footer-content">
 
@@ -30,20 +33,20 @@
         <div id="contact-slide">
           <form action="POST">
             <div class="row">
-              <div class="col-xs-6">
+              <div class="col-sm-6 col-sm-push contact-info text-center">
+                <p><a href="contact@goldenchai.com">contact@goldenchai.com</a><br>phone: (+91) 8476 957419</p>
+              </div>
+              <div class="col-sm-6 col-sm-pull">
                 <input type="text" id="name" placeholder="Your name..."></input>
                 <input type="text" id="email" placeholder="Your email..."></input>
-              </div>
-              <div class="col-xs-6 contact-info text-center">
-                <p>contact@goldenchai.com<br>phone: (+91) 8476 957419</p>
               </div>
             </div>
             <textarea id="message" placeholder="Tell us what you have in mind..."></textarea>
             <div class="row">
-              <div class="col-xs-9 text-right">
-                <small>You'll get a response within 24 hrs.</small>
+              <div class="col-xs-7 col-sm-9 text-right">
+                <small>You'll get a response <nobr>within 24 hrs.</nobr></small>
               </div>
-              <div class="col-xs-3 text-right">
+              <div class="col-xs-5 col-sm-3 text-right">
                 <button class="btn btn-lg btn-primary progress-button" data-style="shrink" data-horizontal>Submit</button>
               </div>
             </div>

@@ -23,6 +23,13 @@ $font-size-h6: ceil($font-size-base * 0.85) !default;
 $grid-gutter-width: 30px !default;
 
 
+// Links
+// -------------------------
+
+$link-color: darken($brand-primary, 20%);
+$link-hover-color:      darken($link-color, 15%) !default;
+
+
 // Media queries breakpoints
 // --------------------------------------------------
 
@@ -76,3 +83,11 @@ $border-radius-small: 0;
 
 $btn-primary-color:              $brand-primary;
 $btn-primary-bg:                 rgba($brand-primary, 0.2);
+
+
+
+$tooltip-max-width: 300px;
+$tooltip-color: $black;
+$tooltip-bg: $gray6;
+
+$tooltip-arrow-width: 10px;

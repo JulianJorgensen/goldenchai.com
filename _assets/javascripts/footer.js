@@ -63,31 +63,41 @@ $(document).ready(function() {
       // remove active class
       accordionItem.removeClass("active");
 
-      if ($("body").hasClass("mobile"))
+      if ($("body").hasClass("screen-mobile"))
       {
-        // accordionItem.siblings(".accordion-item").removeClass("hidden");
+        accordionItem.siblings(".accordion-item").removeClass("hidden");
       }
 
     }else{
       // add active class
       accordionItem.addClass("active");
 
-      if ($("body").hasClass("mobile"))
+      if ($("body").hasClass("screen-mobile"))
       {
-        // accordionItem.siblings(".accordion-item").addClass("hidden");
-        // accordionItem.removeClass("hidden");
+        accordionItem.siblings(".accordion-item").addClass("hidden");
+        accordionItem.removeClass("hidden");
       }
     }
   });
 
+  // SHOW PROFILE IMAGE OF JULIAN
+  // ****************************
+  $("[data-show-profile]").mouseover(function(){
+    $(".accordion-item-about").addClass("show-profile");
+  });
 
-  // FOOTER NAV LINKS
+  $("[data-show-profile]").mouseout(function(){
+    $(".accordion-item-about").removeClass("show-profile");
+  });
+
+
+  // TOGGLE ACCORDION
   // *****************
   $("a[data-accordion]").on("click", function(event){
-    console.log($("footer #footer-content .accordion .accordion-item.accordion-item-" + $(this).attr("data-accordion")));
     $("footer #footer-content .accordion .accordion-item").removeClass("active");
     $("footer #footer-content .accordion .accordion-item.accordion-item-" + $(this).attr("data-accordion")).addClass("active");
   });
+
 
   // FOOTER NAV LINKS
   // *****************
@@ -98,6 +108,36 @@ $(document).ready(function() {
       return false;
     }else{
       activateFooter($(this));
+    }
+  });
+
+
+  // FOOTER CHAI INVERT STYLES
+  // *************************
+  $("[data-toggle-invert]").on("click", function(event){
+    if ((!$("body").hasClass("inverted-mode-1")) && (!$("body").hasClass("inverted-mode-2")))
+    {
+      $("body").addClass("inverted-mode-1");
+
+      $(".footer-chai p.invert-mode-1").addClass("active");
+      $(".footer-chai p.invert-mode-2").removeClass("active");
+      $(".footer-chai p.copyright").removeClass("active");
+    }
+    else if ($("body").hasClass("inverted-mode-1"))
+    {
+      $("body").removeClass("inverted-mode-1");
+      $("body").addClass("inverted-mode-2");
+
+      $(".footer-chai p.invert-mode-1").removeClass("active");
+      $(".footer-chai p.invert-mode-2").addClass("active");
+      $(".footer-chai p.copyright").removeClass("active");
+    }
+    else
+    {
+      $("body").removeClass("inverted-mode-1 inverted-mode-2");
+
+      $(".footer-chai p.invert-mode-1, .footer-chai p.invert-mode-2").removeClass("active");
+      $(".footer-chai p.copyright").addClass("active");
     }
   });
 

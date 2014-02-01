@@ -28,9 +28,37 @@ body
     width: 100%;
     z-index: 9999;
 
-    .copyright
+    .footer-chai
     {
       padding-top: 10px;
+      padding-left: 25px;
+
+      img
+      {
+        cursor: pointer;
+        position: absolute;
+        margin-top: -12px;
+        left: 10px;
+        z-index: 99;
+        opacity: 0.8;
+
+        &:hover
+        {
+          opacity: 1;
+        }
+      }
+
+      .invert-mode, .copyright
+      {
+        opacity: 0;
+        position: absolute;
+        @include transition(opacity $defaultTransitionSpeed);
+
+        &.active
+        {
+          opacity: 1;
+        }
+      }
     }
 
     #footer-kicker
@@ -40,6 +68,7 @@ body
       bottom: 0;
       margin-right: 15px;
       text-align: center;
+      pointer-events: none;
 
       h4
       {
@@ -87,6 +116,11 @@ body
       text-transform: uppercase;
       @include transition(opacity $defaultTransitionSpeed);
 
+      &.footer-nav-info
+      {
+        margin-left: 0;
+      }
+
       &.active
       {
         background: image-url("footer-nav-arrow.png") top center no-repeat;
@@ -94,6 +128,7 @@ body
 
       .cta-helper
       {
+        color: $gray70;
         opacity: 0;
         position: absolute;
         top: -50px;
@@ -103,7 +138,7 @@ body
         padding: 5px;
         text-align: center;
         font-size: 11px;
-        background: rgba($gray20, 0.3);
+        background: $gray20;
         @include transition(opacity ($defaultTransitionSpeed*2));
 
         .cta-helper-arrow
@@ -116,7 +151,7 @@ body
           height:0;
           border-color:transparent;
           border-style:solid;
-          border-top-color: rgba($gray20, 0.3);
+          border-top-color: $gray20;
           border-width:10px 10px 0;
         }
       }
@@ -205,6 +240,22 @@ body.desktop
   }
 }
 
+
+@media (max-width: $screen-md)
+{
+  body
+  {
+    footer
+    {
+      #footer-kicker
+      {
+        pointer-events: auto;
+      }
+    }    
+  }
+}
+
+
 // FOOTER ACTIVE STATE
 body.footer-active
 {
@@ -243,7 +294,7 @@ body.footer-active
     #footer-content
     {
       pointer-events: auto;
-      margin-top: 50px;
+      margin-top: 30px;
     }
   }
 }
@@ -269,7 +320,7 @@ body.footer-active
         @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.
       }
 
-      .black-diamond
+      .black-diamond, .zen-symbol, .vitruvian 
       {
         opacity: 0.3 !important;
       }
@@ -328,7 +379,7 @@ body.footer-active
         }
       }
 
-      .copyright
+      .footer-chai
       {
         opacity: 0;
       }
@@ -381,9 +432,14 @@ body.footer-active
 
       .footer-nav
       {
-        .copyright
+        .footer-chai
         {
           opacity: 0 !important;
+        }
+
+        .collapseFooter
+        {
+          display: none;
         }
       }
 
@@ -395,13 +451,9 @@ body.footer-active
       section#footer-content
       {
         opacity: 1;
+        margin-top: 0;
 
         @include transition(opacity ($defaultTransitionSpeed) ease);
-
-        .rsOverflow
-        {
-          padding-right: 15px;
-        }
       }
     }
   }
@@ -416,7 +468,7 @@ body.footer-active
       top: 380px;
       height: 50px;
 
-      .copyright
+      .footer-chai
       {
         font-size: 0.8em;
       }

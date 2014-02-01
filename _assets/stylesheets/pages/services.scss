@@ -1,6 +1,7 @@
 @import "constants";
 @import "mixins";
 @import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
 
 
 body.site-multiple-pages.page-services
@@ -16,7 +17,7 @@ body.site-multiple-pages.page-services
     {
       .goldenchai-logo
       {
-        &.goldenchai-logo-portfolio
+        &.goldenchai-logo-alternative
         {
           opacity: 1;
         }
@@ -70,7 +71,7 @@ section#services
       bottom: 0;
       height: 200px;
       width: 100%;
-      @include transparentGradientTop($services-color);
+      @include gradient-vertical(rgba($services-color, 0), rgba($services-color, 1))
     }
   }
 
@@ -81,7 +82,7 @@ section#services
 
   .nav-tabs
   {
-    margin-top: 100px;
+    margin-top: 80px;
     border-bottom: 2px solid $gray6;
     padding-bottom: 22px;
     margin-bottom: 50px;
@@ -94,9 +95,17 @@ section#services
       display: inline-block;
       margin: 0 20px;
       text-transform: uppercase;
-      
+      opacity: 0.5;
+
+      a
+      {
+        color: $black;        
+      }
+
       &.active
       {
+        opacity: 1;
+
         /* shared with before and after */
         &:before, &:after {
           content: ' ';
@@ -172,12 +181,12 @@ section#services
 
       &.design-concept-group-dark
       {
-        background: #89b399;
+        background: $turquoise;
       }
 
       &.design-concept-group-light
       {
-        background: #d3f3e0;
+        background: $bluewhite;
       }
 
       &.design-concept-group-2

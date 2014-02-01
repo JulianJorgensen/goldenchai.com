@@ -1,0 +1,287 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+body.inverted-mode-1
+{
+  background-color: $manifestos-color-inverted-mode-1;
+  color: $gray40;
+  a
+  {
+    color: darken($white, 15%);
+
+    &:hover
+    {
+      color: $white;
+    }
+  }
+
+  header
+  {
+    .goldenchai-logo-wrapper
+    {
+      .goldenchai-logo
+      {
+        &.goldenchai-logo-alternative
+        {
+          background-color: rgba($gray40, 0.3);
+        }
+      }
+    }
+
+    #primary-nav
+    {
+      .primary-nav-item
+      {
+        &.primary-nav-manifestos
+        {
+          .nav-icon
+          {
+            // background-color: invert($manifestos-nav-color);
+          }
+        }
+
+        &.primary-nav-portfolio
+        {
+          .nav-icon
+          {
+            // background-color: darken($portfolio-nav-color, 60%);
+          }
+        }
+
+        &.primary-nav-services
+        {
+          .nav-icon
+          {
+            // background-color: invert($services-nav-color);
+          }
+        }
+      }
+    }
+  }
+
+  #manifestos
+  {
+    background: $manifestos-color-inverted-mode-1;
+
+    .container
+    {
+      .inner-wrapper
+      {
+        .main-content
+        {
+          .tab-content
+          {
+            .arrows
+            {
+              .arrow
+              {
+                background-image: image-url("arrows-white.png");
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+    /* marquee */
+    #marquee-wrapper
+    {
+      #marquee
+      {
+        .nav
+        {
+          > li {
+            &.active
+            {
+              a
+              {
+                &:after
+                {
+                  @include triangle(20px, $manifestos-color-inverted-mode-1, bottom);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // PORTFOLIO INVERTED STYLES
+  // *************************
+  &.page-portfolio
+  {
+    section#portfolio
+    {
+      @include diagonalGradient($portfolio-color-inverted-mode-1, darken($portfolio-color-inverted-mode-1, 10%), 70%);
+
+      h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
+      {
+        color: $white;
+      }
+
+      #portfolio-thumbs-slider
+      {
+
+        .rsThumbs .rsThumbsContainer
+        {
+          border-top-color: $gray40;
+
+          .rsThumb
+          {
+            &.rsNavSelected
+            {
+              .arrow-up {
+                @include triangle(20px, $gray40, top);
+
+                .arrow-up-inner {
+                  @include triangle(18px, $portfolio-color-inverted-mode-1, top);
+                }
+              }
+            }
+
+            .rsTmb
+            {
+              -webkit-filter: invert(100%);  
+            }
+          }
+        }
+      }
+
+
+      .portfolio-content-slider
+      {
+        .intro-slide
+        {
+          background: rgba($black, 0.2);
+
+          h3
+          {
+            color: $black;
+          }
+
+          quote
+          {
+          }
+        }
+
+        .rsArrowRight, .rsArrowLeft
+        {
+          .rsArrowIcn
+          {
+            background-image: image-url("arrows-white.png");
+          }
+        }
+      }
+    }
+  }
+
+  &.page-manifestos
+  {
+    #manifestos
+    {
+      .vitruvian
+      {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  // SERVICES INVERTED STYLES
+  // *************************
+
+  &.page-services
+  {
+    footer
+    {
+      hr
+      {
+        border-top-color: $white;
+      }
+
+      .footer-nav-cta
+      {
+        &.active
+        {
+          background-image: image-url("footer-nav-arrow-white.png");
+        }
+      }
+    }
+  }
+
+  section#services
+  {
+    background: $services-color-inverted-mode-1;
+
+    #services-video
+    {
+      .video-fader
+      {
+        @include gradient-vertical(rgba($services-color-inverted-mode-1, 0), rgba($services-color-inverted-mode-1, 1))
+      }
+    }
+
+    .nav-tabs
+    {
+      border-bottom: 2px solid $gray6;
+
+      li
+      {
+        a
+        {
+          color: $white;
+        }
+
+        &.active
+        {
+          &:before {
+            border-bottom-color: $services-color-inverted-mode-1;  /* arrow color */
+          }
+
+          &:after {
+            border-bottom-color: $gray6;  /* arrow color */
+          }
+        }
+      }
+    }
+
+
+    .design-concept
+    {
+      .design-concept-group
+      {
+        &.design-concept-group-dark
+        {
+          background: darken($services-color-inverted-mode-1, 5%);
+        }
+
+        &.design-concept-group-light
+        {
+          background: lighten($services-color-inverted-mode-1, 5%);
+        }
+      }
+
+      .design-concept-ball
+      {
+        background: darken($gray20, 50%);
+      }
+    }
+  }
+
+
+
+  /* ACCORDION */
+  /* ======== */
+
+  .accordion
+  {
+    .accordion-item.active
+    {
+      color: $white;
+    }
+  }
+}

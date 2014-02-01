@@ -33,8 +33,8 @@ $(document).ready(function() {
 
   // BEHAVIOUR WHEN USING THE MAIN TABS
   // ***********************************
-  $("#marquee .nav a").click(function(){
-    navName = $(this).attr("href").replace('#','');
+  $("#marquee .nav a").click(function(e){
+    navName = $(this).attr("href").replace('#/','');
 
     if (!$(this).parent("li").hasClass("active"))
     {
@@ -50,16 +50,36 @@ $(document).ready(function() {
   });
 
 
+  // FORWARD ARROW (FOR MANIFESTOS)
+  // ************************************
+  $(".arrow-forward").click(function(){
+    $('#marquee .nav > .active').next('li').find('a').trigger('click');
+  });
+
+
+  // BACKWARDS ARROW
+  // ******************************************
+  $("[data-backwards]").click(function(){
+    var tabPane = $("#" + $(this).parent().parent().attr("id") + ".tab-pane");
+    var summaryEl = tabPane.find(".content-summary");
+    var backArrow = tabPane.find(".arrow-backward");
+
+    if (summaryEl.hasClass("active"))
+    {
+      toggleSummary(tabPane);
+    }else{
+      $('#marquee .nav > .active').prev('li').find('a').trigger('click');
+    }
+  });
+
 
   // CONTENT CTA
   // ******************************************
-  $(".content-cta").click(function(){
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-front").toggleClass("active");
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-front").toggle("slow");
-
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-summary").toggleClass("active");
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-summary").toggle("slow");
+  $("[data-toggle-summary]").click(function(){
+    var tabPane = $("#" + $(this).parent().parent().attr("id") + ".tab-pane");
+    toggleSummary(tabPane);
   });
+
 
   $(".content-cta.vitruvian").hover(function(){
     $(this).toggleClass("pulse");
@@ -80,30 +100,6 @@ $(document).ready(function() {
   });
 
 
-  // BACK TO TOP
-  // **************************
-  $(".back-to-top").click(function(){
-    $('html, body').animate({
-      scrollTop: 0
-      }, scrollSpeed, function(){
-        $(".window").removeClass("current");
-        $(".window#manifestos").addClass("current");
-      });
-  });
-
-
-  // FORWARD ARROW (FOR MANIFESTOS)
-  // ************************************
-  $(".arrow-forward").click(function(){
-
-    if ($("body").hasClass("art"))
-    {
-      $("body").addClass("fly-state");
-    }else{
-      $('.nav-tabs > .active').next('li').find('a').trigger('click');
-      collapseMarquee();
-    }
-  });
 
   // MOBILE NAV
   // ************************************

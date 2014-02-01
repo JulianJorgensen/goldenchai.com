@@ -4,7 +4,7 @@
   *= require './lib/animations.css'
   *= require './lib/royalslider.css'
   *= require './lib/boxshadows.css'
-  *= require './lib/progressButton.css'
+  *= require './lib/progressButton.scss'
 
   *= require './components.scss'
 
@@ -27,5 +27,8 @@
   *= require './gc-slider.scss'
 
   *= require './firefox.scss'
+
+  *= require './inverted-mode-1.scss'
+  *= require './inverted-mode-2.scss'
 
   */

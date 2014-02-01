@@ -1,12 +1,15 @@
+@import "constants";
+@import "mixins";
+
 @font-face {
 	font-weight: normal;
 	font-style: normal;
 	font-family: 'icomoon';
-	src:url('/lib/fonts/icomoon/icomoon.eot');
-	src:url('/lib/fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('/lib/fonts/icomoon/icomoon.ttf') format('truetype'),
-		url('/lib/fonts/icomoon/icomoon.woff') format('woff'),
-		url('/lib/fonts/icomoon/icomoon.svg#icomoon') format('svg');
+	src:url('/bin/fonts/icomoon/icomoon.eot');
+	src:url('/bin/fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('/bin/fonts/icomoon/icomoon.ttf') format('truetype'),
+		url('/bin/fonts/icomoon/icomoon.woff') format('woff'),
+		url('/bin/fonts/icomoon/icomoon.svg#icomoon') format('svg');
 }
 
 /* General styles for all types of buttons */
@@ -54,13 +57,13 @@
 }
 
 .progress-button .progress {
-	background: #148544;
+	background: $zen-green;
 }
 
 .progress-button .progress-inner {
 	position: absolute;
 	left: 0;
-	background: #0e7138;
+	background: $zen-green;
 }
 
 .progress-button[data-horizontal] .progress-inner {

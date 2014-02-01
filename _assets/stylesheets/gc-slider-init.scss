@@ -16,9 +16,14 @@
   width: $portfolio-container-lg;
 }
 
-#portfolio-thumbs-slider, .portfolio-content-slider
+#portfolio-thumbs-slider
 {
   height: 500px;
+}
+
+.portfolio-content-slider
+{
+  height: 400px;
 }
 
 #footer-content-slider

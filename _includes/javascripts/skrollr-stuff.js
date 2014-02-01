@@ -143,6 +143,45 @@ $(document).ready(function() {
         updatePageMeta("manifestos");          
         break;
 
+      case "/durability":
+        if ($("body").hasClass("footer-active")){
+          collapseFooter();
+        }
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
+        {
+          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
+        }
+
+        updatePageMeta("manifestos");
+        $('#marquee .nav .nav-durability').trigger('click');
+        break;
+
+      case "/usability":
+        if ($("body").hasClass("footer-active")){
+          collapseFooter();
+        }
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
+        {
+          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
+        }
+
+        updatePageMeta("manifestos");
+        $('#marquee .nav .nav-usability').trigger('click');
+        break;
+
+      case "/art":
+        if ($("body").hasClass("footer-active")){
+          collapseFooter();
+        }
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
+        {
+          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
+        }
+
+        updatePageMeta("manifestos");
+        $('#marquee .nav .nav-art').trigger('click');
+        break;
+
       case "/portfolio":
         if ($("body").hasClass("footer-active")){
           collapseFooter();

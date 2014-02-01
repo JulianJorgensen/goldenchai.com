@@ -33,7 +33,6 @@
 {% asset lib/skrollr.js %}
 {% asset lib/jquery.skrollr.refresh.js %}
 {% asset lib/jquery.history.min.js %}
-{% include javascripts/skrollr-stuff.js %}
 
 
 // PROGRESS BUTTON
@@ -44,13 +43,9 @@
 
 // MY OWN STUFF
 
-{% asset portfolio/single-sliders.js %}
-{% if page.subpage != "true" %}
-  {% asset portfolio/multi-sliders.js %}
-{% endif %}
-{% asset portfolio/functions.js %}
-
 
 {% asset functions.js %}
 {% asset index.js %}
 {% asset footer.js %}
+
+{% include javascripts/skrollr-stuff.js %}

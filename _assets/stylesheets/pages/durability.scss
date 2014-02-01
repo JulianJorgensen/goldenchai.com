@@ -27,6 +27,25 @@ body.manifesto-durability
       .tab-pane#durability
       {
         display: block;
+
+        .arrows
+        {
+          .arrow-backward
+          {
+            display: none;
+          }
+        }
+      
+        &.summary-active
+        {
+          .arrows
+          {
+            .arrow-backward
+            {
+              display: block;
+            }
+          }          
+        }
       }
     }
   }

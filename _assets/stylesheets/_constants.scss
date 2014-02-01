@@ -22,6 +22,9 @@ $golden: #e1cb88;
 $goldendark: #594A1B;
 $beige: #bbb4a0;
 $zen-red: #a5696f;
+$zen-green: #4b723a;
+$turquoise: #89b399;
+$bluewhite: #d3f3e0;
 
 $tooltipBG: $gray2;
 
@@ -31,14 +34,20 @@ $durability-color: $gray70;
 $usability-color: #fbd738;
 $art-color: #d349d1;
 $art-color-dark: #4a1876;
+$manifestos-color-inverted-mode-1: $black;
+$manifestos-color-inverted-mode-2: #515134;
 
 // PORTFOLIO SPECIFIC VARIABLES
 $portfolio-nav-color: #e1cb88;
 $portfolio-color: #e5dbb7;
 $portfolio-color-dark: #E0C77D;
+$portfolio-color-inverted-mode-1: darken($portfolio-color, 60%);
+$portfolio-color-inverted-mode-2: darken($zen-green, 10%);
 
 $portfolio-container-lg: 1000px;
 
 // SERVICES SPECIFIC VARIABLES
 $services-nav-color: #afc8b4;
 $services-color: #c3d5c7;
+$services-color-inverted-mode-1: #2f3632;
+$services-color-inverted-mode-2: invert($services-color);

@@ -3,7 +3,7 @@ body.site-single-page.screen-desktop header .goldenchai-logo-manifestos, body.si
   -skrollr-animation-name: fade_out_manifestos_logo;
 }
 
-body.site-single-page.screen-desktop header .goldenchai-logo-portfolio, body.site-single-page.screen-tablet header .goldenchai-logo-portfolio
+body.site-single-page.screen-desktop header .goldenchai-logo-alternative, body.site-single-page.screen-tablet header .goldenchai-logo-alternative
 {
   -skrollr-animation-name: fade_in_portfolio_logo;
 }

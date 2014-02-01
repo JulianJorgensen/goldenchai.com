@@ -21,13 +21,13 @@ manifestos_end: 1000
 portfolio_auto_scroll_start: 1400
 portfolio_pre_start: 1100
 portfolio_start: 1500
-portfolio_pre_end: 2200
-portfolio_end: 2600
+portfolio_pre_end: 2400
+portfolio_end: 2800
 
-services_pre_start: 2800
-services_start: 3200
-services_pre_end: 3600
-services_end: 4000
+services_pre_start: 3000
+services_start: 3400
+services_pre_end: 3800
+services_end: 4200
 
 
 #other site variables and configs

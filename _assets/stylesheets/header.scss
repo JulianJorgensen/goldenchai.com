@@ -38,7 +38,7 @@ body
 
         &:hover
         {
-          opacity: 0.8 !important;
+          opacity: 1 !important;
         }
 
         &.goldenchai-logo-manifestos
@@ -59,7 +59,7 @@ body
           }
         }
 
-        &.goldenchai-logo-portfolio
+        &.goldenchai-logo-alternative
         {
           opacity: 0;
           background-color: $gray6;

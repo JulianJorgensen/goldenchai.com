@@ -163,7 +163,7 @@
     top: 50%;
     margin-top: -30px;
     width: 150px;
-    padding-top: 15px;
+    line-height: 60px;
     font-size: 13px;
     @include transition(width 0.2s linear);
 
@@ -176,7 +176,7 @@
       cursor: pointer;
       @include transition(background-position 0.2s linear);
 
-      background-image: image-url("arrows-eastern.png");
+      background-image: image-url("arrows.png");
       background-repeat: no-repeat;
     }
 
@@ -197,11 +197,13 @@
     .rsArrowIcn
     {
       right: 80px;
-      background-position: -30px 0px;
+      background-position: 0 0;
     }
 
     &.rsArrowDisabled
     {
+      background-position: 0 0;
+
       &:after
       {
         content: "NEXT PROJECT";
@@ -226,14 +228,14 @@
     .rsArrowIcn
     {
       left: 0;
-      background-position: 0 0px;
+      background-position: 0 -36px;
     }
 
     &.rsArrowDisabled
     {
       .rsArrowIcn
       {
-        background-position: 0 0px;
+        background-position: 0 -36px;
       }
     }
   }

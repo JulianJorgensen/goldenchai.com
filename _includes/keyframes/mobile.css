@@ -69,7 +69,7 @@ body.site-multiple-pages.screen-mobile footer
 
 
 /* FOOTER SHOULD NOW MOVE UP RIGHT BELOW THE HEADER */
-body.site-multiple-pages.screen-mobile footer .copyright
+body.site-multiple-pages.screen-mobile footer .footer-chai
 {
   -skrollr-animation-name:disappear;
 }

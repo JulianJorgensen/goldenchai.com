@@ -13,9 +13,9 @@
       </div>
 
       <ul class="nav">
-        <li class="active"><a href="#durability" class="nav-durability">Durability</a>, </li>
-        <li><a href="#usability" class="nav-usability">Usability</a></li>
-        <li>and <a href="#art" class="nav-art">Art</a></li>
+        <li class="active"><a href="#/durability" class="nav-durability">Durability</a>, </li>
+        <li><a href="#/usability" class="nav-usability">Usability</a></li>
+        <li>and <a href="#/art" class="nav-art">Art</a></li>
       </ul>
     </div>
   </section>
@@ -28,46 +28,55 @@
         <div class="tab-content">
           <div class="tab-pane" id="durability">
             <div class="content-front active">
-              <div class="black-diamond content-cta content-cta-hover">
+              <div class="black-diamond content-cta content-cta-hover" data-toggle-summary>
                 <img src="{% asset_path cta/black-diamond.png %}" class="default">
                 <img src="{% asset_path cta/black-diamond-hover.png %}" class="hover">
               </div>
-              {% include copy/durability.html side="front" %}
+              <div class="hidden-xs">{% include copy/durability.html side="front-desktop" %}</div>
+              <div class="visible-xs">{% include copy/durability.html side="front-mobile" %}</div>
             </div>
             <div class="content-summary">
               {% include copy/durability.html side="back" %}
-              {% include close-summary.html %}
             </div>
-            <div class="arrow-forward"></div>
+            <div class="arrows">
+              <div class="arrow arrow-backward arrow-expand" data-backwards><span class="durability">durability</span></div>
+              <div class="arrow arrow-forward arrow-expand"><span class="usability">usability</span></div>
+            </div>
           </div>
 
           <div class="tab-pane" id="usability">
             <div class="content-front active">
-              <div class="zen-symbol content-cta">
+              <div class="zen-symbol content-cta" data-toggle-summary>
                 <img src="{% asset_path cta/zen-symbol.png %}">
               </div>
-              {% include copy/usability.html side="front" %}
+              <div class="hidden-xs">{% include copy/usability.html side="front-desktop" %}</div>
+              <div class="visible-xs">{% include copy/usability.html side="front-mobile" %}</div>
             </div>
 
             <div class="content-summary">
               {% include copy/usability.html side="back" %}
-              {% include close-summary.html %}
             </div>
-            <div class="arrow-forward"></div>
+            <div class="arrows">
+              <div class="arrow arrow-backward arrow-expand" data-backwards><span class="durability">durability</span></div>
+              <div class="arrow arrow-forward arrow-expand arrow-expand-short"><span class="art">art</span></div>
+            </div>
           </div>
 
           <div class="tab-pane" id="art">
             <div class="content-front active">
-              <div class="vitruvian content-cta">
+              <div class="vitruvian content-cta" data-toggle-summary>
                 <img src="{% asset_path cta/vitruvianman.png %}">
               </div>
-              {% include copy/art.html side="front" %}
+              <div class="hidden-xs">{% include copy/art.html side="front-desktop" %}</div>
+              <div class="visible-xs">{% include copy/art.html side="front-mobile" %}</div>
             </div>
             <div class="content-summary">
               {% include copy/art.html side="back" %}
-              {% include close-summary.html %}
             </div>
-            <div class="arrow-forward"></div>
+            <div class="arrows">
+              <div class="arrow arrow-backward arrow-expand" data-backwards><span class="usability">usability</span></div>
+              <div class="arrow arrow-forward arrow-expand"><span>portfolio</span></div>
+            </div>
           </div>
         </div>
         <!-- END OF TAB CONTENT -->

@@ -28,3 +28,21 @@ function activateFirstTab()
   $("body").addClass("page-manifestos");
   $("#marquee .nav li:eq(0)").addClass("active");
 }
+
+
+function toggleSummary(tabPane)
+{
+  var summaryEl = tabPane.find(".content-summary");
+  var frontEl = tabPane.find(".content-front");;
+  var backArrow = tabPane.find(".arrow-backward");
+
+  backArrow.toggleClass("arrow-expand");
+
+  tabPane.toggleClass("summary-active");
+
+  frontEl.toggleClass("active");
+  frontEl.toggle("slow");
+
+  summaryEl.toggleClass("active");
+  summaryEl.toggle("slow");
+}
