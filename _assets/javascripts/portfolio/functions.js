@@ -1,24 +1,3 @@
-function activateAnimationOnCurrentSlide()
-{
-  var currSlider = currentContentSlider().data('royalSlider');
-
-  setTimeout(function(){
-    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-1").addClass("active");
-  }, 1000);
-
-  setTimeout(function(){
-    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-2").addClass("active");
-  }, 3000);
-
-  setTimeout(function(){
-    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-3").addClass("active");
-  }, 4500);
-
-  setTimeout(function(){
-    currentContentSlider().find(".rsContainer .rsSlide:eq(" + currSlider.currSlideId + ") .delay-4").addClass("active");
-  }, 6000);
-}
-
 function currentContentSlider()
 {
   return $("#portfolio-thumbs-slider > .rsOverflow > .rsContainer > .rsSlide:eq(" + portfolioThumbsSlider.currSlide.id + ") .royalSlider");
@@ -33,9 +12,6 @@ function hideLastArrowNav(){
 
   if ((portfolioThumbsSlider.currSlideId+1) == portfolioThumbsSlider.numSlides) // it's the last slide item in the thumbs slider
   {
-    console.log("portfolio slide id: " + (portfolioThumbsSlider.currSlideId+1));
-    console.log("portfolio num slides: " + portfolioThumbsSlider.numSlides);
-
     if ((lastSlider.currSlideId+1) == lastSlider.numSlides)
     {
       $(".rsArrowRight").addClass("rsHide");

@@ -1,6 +1,7 @@
 @import "constants";
 @import "mixins";
 @import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
 
 
 body.site-multiple-pages.page-portfolio
@@ -19,6 +20,7 @@ body.site-multiple-pages.page-portfolio
         &.goldenchai-logo-alternative
         {
           opacity: 1;
+          z-index: 999;
         }
       }
     }
@@ -28,7 +30,7 @@ body.site-multiple-pages.page-portfolio
   {
     .container
     {
-      margin-top: 10px;
+      margin-top: 20px;
     }
   }
 }
@@ -55,7 +57,7 @@ section#portfolio
         right: 0;
         background-color: rgba($white, 0.8);
         padding: 3px 6px;
-        z-index: 999;
+        z-index: 9999999;
         @include transition(opacity 0.7s ease);
       }
 
@@ -141,5 +143,63 @@ section#portfolio
   }
   100% {
     background-position: -720px 0;
+  }
+}
+
+
+
+@media (max-width: $screen-tablet) {
+  body.page-portfolio
+  {
+    @include gradient-vertical($portfolio-color, $portfolio-color-dark);
+
+    &.footer-active
+    {
+      header
+      {
+        background: $portfolio-color;
+      }
+
+      footer .footer-nav
+      {
+        @include gradient-vertical(rgba($portfolio-color, 1), rgba($portfolio-color, 0), 40%);
+      }
+    }
+
+    section#portfolio
+    {
+      background: none;
+    }
+  }
+}
+
+@media (max-width: $screen-xs) {
+  body.page-portfolio
+  {
+    #portfolio
+    {
+      .portfolio-content-slider
+      {
+        .rsSlide
+        {
+          max-height: 320px;
+
+          img
+          {
+            max-width: 550px;
+          }
+
+          .intro-slide
+          {
+            padding-top: 100px;
+
+            h3
+            {
+              font-size: 2em;
+            }
+          }
+        }
+      }
+    }
   }
 }

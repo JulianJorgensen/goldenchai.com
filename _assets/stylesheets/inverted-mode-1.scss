@@ -5,6 +5,31 @@
 
 body.inverted-mode-1
 {
+  &.manifesto-durability
+  {
+    .visible-inverted-mode-1-durability
+    {
+      opacity: 1;
+    }
+  }
+
+  &.manifesto-usability
+  {
+    .visible-inverted-mode-1-usability
+    {
+      opacity: 1;
+    }
+  }
+
+  &.manifesto-art
+  {
+    .visible-inverted-mode-1-art
+    {
+      opacity: 1;
+    }
+  }
+
+
   background-color: $manifestos-color-inverted-mode-1;
   color: $gray40;
   a
@@ -17,8 +42,39 @@ body.inverted-mode-1
     }
   }
 
+
   header
   {
+    #primary-nav
+    {
+      .primary-nav-item
+      {
+        &.primary-nav-manifestos
+        {
+          .nav-icon
+          {
+            background-color: $manifestos-nav-color-inverted-mode-1;
+          }
+        }
+
+        &.primary-nav-portfolio
+        {
+          .nav-icon
+          {
+            background-color: $portfolio-nav-color-inverted-mode-1;
+          }
+        }
+
+        &.primary-nav-features
+        {
+          .nav-icon
+          {
+            background-color: $features-nav-color-inverted-mode-1;
+          }
+        }
+      }
+    }
+
     .goldenchai-logo-wrapper
     {
       .goldenchai-logo
@@ -50,11 +106,11 @@ body.inverted-mode-1
           }
         }
 
-        &.primary-nav-services
+        &.primary-nav-features
         {
           .nav-icon
           {
-            // background-color: invert($services-nav-color);
+            // background-color: invert($features-nav-color);
           }
         }
       }
@@ -91,6 +147,8 @@ body.inverted-mode-1
     {
       #marquee
       {
+        opacity: 0.6;
+        
         .nav
         {
           > li {
@@ -100,7 +158,7 @@ body.inverted-mode-1
               {
                 &:after
                 {
-                  @include triangle(20px, $manifestos-color-inverted-mode-1, bottom);
+                  display: none;
                 }
               }
             }
@@ -191,10 +249,10 @@ body.inverted-mode-1
     }
   }
 
-  // SERVICES INVERTED STYLES
+  // features INVERTED STYLES
   // *************************
 
-  &.page-services
+  &.page-features
   {
     footer
     {
@@ -213,15 +271,15 @@ body.inverted-mode-1
     }
   }
 
-  section#services
+  section#features
   {
-    background: $services-color-inverted-mode-1;
+    background: $features-color-inverted-mode-1;
 
-    #services-video
+    #features-video
     {
       .video-fader
       {
-        @include gradient-vertical(rgba($services-color-inverted-mode-1, 0), rgba($services-color-inverted-mode-1, 1))
+        @include gradient-vertical(rgba($features-color-inverted-mode-1, 0), rgba($features-color-inverted-mode-1, 1))
       }
     }
 
@@ -239,7 +297,7 @@ body.inverted-mode-1
         &.active
         {
           &:before {
-            border-bottom-color: $services-color-inverted-mode-1;  /* arrow color */
+            border-bottom-color: $features-color-inverted-mode-1;  /* arrow color */
           }
 
           &:after {
@@ -256,12 +314,12 @@ body.inverted-mode-1
       {
         &.design-concept-group-dark
         {
-          background: darken($services-color-inverted-mode-1, 5%);
+          background: darken($features-color-inverted-mode-1, 5%);
         }
 
         &.design-concept-group-light
         {
-          background: lighten($services-color-inverted-mode-1, 5%);
+          background: lighten($features-color-inverted-mode-1, 5%);
         }
       }
 

@@ -1,19 +1,19 @@
-body.site-single-page.screen-desktop #manifestos, body.site-single-page.screen-tablet #manifestos
+body.site-single-page.screen-desktop #manifestos
 {
   -skrollr-animation-name: manifestos_opacity;
 }
 
-body.site-single-page.screen-desktop #manifestos .content-wrapper, body.site-single-page.screen-tablet #manifestos .content-wrapper
+body.site-single-page.screen-desktop #manifestos .content-wrapper
 {
   -skrollr-animation-name: copyContentOpacity;
 }
 
-body.site-single-page.screen-desktop #marquee .nav, body.site-single-page.screen-tablet #marquee .nav
+body.site-single-page.screen-desktop #marquee .nav
 {
   -skrollr-animation-name: goRight;
 }
 
-body.site-single-page.screen-desktop #marquee .marquee-headline, body.site-single-page.screen-tablet #marquee .marquee-headline
+body.site-single-page.screen-desktop #marquee .marquee-headline
 {
   -skrollr-animation-name: goLeft;
 }

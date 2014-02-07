@@ -2,7 +2,8 @@
 /* ************************** */
 
 /* HEADER */
-body.site-multiple-pages.screen-mobile header
+body.site-multiple-pages.screen-mobile header, 
+body.site-multiple-pages.screen-tablet.orientation-landscape header
 {
   -skrollr-animation-name:expandheader;
 }
@@ -18,7 +19,8 @@ body.site-multiple-pages.screen-mobile header
 }
 
 
-body.site-multiple-pages.screen-mobile header #primary-nav
+body.site-multiple-pages.screen-mobile header #primary-nav, 
+body.site-multiple-pages.screen-tablet.orientation-landscape header #primary-nav
 {
   -skrollr-animation-name:appear;
 }
@@ -34,7 +36,8 @@ body.site-multiple-pages.screen-mobile header #primary-nav
 }
 
 
-body.site-multiple-pages.screen-mobile header #screen-mobile-nav-icon
+body.site-multiple-pages.screen-mobile header #mobile-nav-icon, 
+body.site-multiple-pages.screen-tablet.orientation-landscape header #mobile-nav-icon
 {
   -skrollr-animation-name:screen-mobile-icon-disappear;
 }
@@ -46,57 +49,5 @@ body.site-multiple-pages.screen-mobile header #screen-mobile-nav-icon
 
   {{ site.manifestos_content_pre_end }} {
     opacity: 0;
-  }
-}
-
-
-
-/* FOOTER SHOULD NOW MOVE UP RIGHT BELOW THE HEADER */
-body.site-multiple-pages.screen-mobile footer
-{
-  -skrollr-animation-name: mobile-footer-appear;
-}
-
-@-skrollr-keyframes mobile-footer-appear {
-  0 {
-    top: 380px;
-  }
-
-  200 {
-    top: 110px;
-  }
-}
-
-
-/* FOOTER SHOULD NOW MOVE UP RIGHT BELOW THE HEADER */
-body.site-multiple-pages.screen-mobile footer .footer-chai
-{
-  -skrollr-animation-name:disappear;
-}
-
-@-skrollr-keyframes disappear {
-  0 {
-    opacity: 1;
-  }
-
-  200 {
-    opacity: 0;
-  }
-}
-
-
-/* THE FOOTER MAIN CTA */
-body.site-multiple-pages.screen-mobile footer #footer-kicker
-{
-  -skrollr-animation-name:footer-kicker-appear;
-}
-
-@-skrollr-keyframes footer-kicker-appear {
-  250 {
-    opacity: 0;
-  }
-
-  350 {
-    opacity: 1;
   }
 }

@@ -41,8 +41,6 @@ function toggleSummary(tabPane)
   tabPane.toggleClass("summary-active");
 
   frontEl.toggleClass("active");
-  frontEl.toggle("slow");
 
   summaryEl.toggleClass("active");
-  summaryEl.toggle("slow");
 }

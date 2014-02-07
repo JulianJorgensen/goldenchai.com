@@ -8,13 +8,13 @@ body
   {
     #footer-content
     {
-      #info-slide
+      #info
       {
         .accordion
         {
           margin-bottom: 20px;
 
-          .accordion-item
+          .panel
           {
             .accordion-title
             {
@@ -117,7 +117,7 @@ body
 
             &.active, &.active:hover
             {
-              background: rgba($golden, 0.4);              
+              background: rgba($golden, 0.8);              
             }
           }
         }
@@ -128,7 +128,7 @@ body
 
 
 
-@media (max-width: $screen-md)
+@media (max-width: $screen-sm-max)
 {
   body
   {
@@ -136,11 +136,11 @@ body
     {
       #footer-content
       {
-        #info-slide
+        #info
         {
           .accordion
           {
-            .accordion-item
+            .panel
             {    
               .accordion-title
               {
@@ -154,7 +154,7 @@ body
               {
                 .accordion-content
                 {
-                  padding-right: 20px;
+                  padding-right: 0;
                 }                
               }
             }

@@ -1,33 +1,11 @@
+@import "constants";
+@import "mixins";
+
 // BOOTSTRAP SPECIFIC VARIABLES OVERRIDES
 // ===============================
 
-$font-family-base: "ff-basic-gothic-web-pro-1", "ff-basic-gothic-web-pro-2";
-$text-color: $gray70;
-
-$brand-primary: $durability-color;
-
-$font-size-base:          14px !default;
-$font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
-$font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
-
-$line-height-base:        1.428571429 !default; // 20/14
-$headings-line-height: $line-height-base;
-
-$font-size-h1: floor($font-size-base * 2) !default;
-$font-size-h2: floor($font-size-base * 1.6) !default;
-$font-size-h3: ceil($font-size-base * 1.2) !default;
-$font-size-h4: ceil($font-size-base * 1.1) !default;
-$font-size-h5: $font-size-base !default;
-$font-size-h6: ceil($font-size-base * 0.85) !default;
 
 $grid-gutter-width: 30px !default;
-
-
-// Links
-// -------------------------
-
-$link-color: darken($brand-primary, 20%);
-$link-hover-color:      darken($link-color, 15%) !default;
 
 
 // Media queries breakpoints
@@ -53,7 +31,7 @@ $screen-desktop:             $screen-md-min !default;
 
 // Large screen / wide desktop
 // Note: Deprecated $screen-lg and $screen-lg-desktop as of v3.0.1
-$screen-lg:                  1200px !default;
+$screen-lg:                  1100px !default;
 $screen-lg-min:              $screen-lg !default;
 $screen-lg-desktop:          $screen-lg-min !default;
 
@@ -76,16 +54,82 @@ $container-large-desktop:      ((700px + $grid-gutter-width)) !default;
 $container-lg:                 $container-large-desktop !default;
 
 
+// TYPOGRAPHY
+// ===========
+
+$font-family-base: "ff-basic-gothic-web-pro-1", "ff-basic-gothic-web-pro-2";
+$text-color: $gray70;
+
+$brand-primary: $durability-color;
+
+$font-size-base:          14px !default;
+$font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
+$font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
+
+$font-size-tablet-portrait: ceil($font-size-base * 1.5);
+$font-size-tablet-landscape: $font-size-base;
+
+$font-size-phone-portrait: $font-size-base;
+
+
+$line-height-base:        1.428571429 !default; // 20/14
+$headings-line-height: $line-height-base;
+
+$font-size-h1: floor($font-size-base * 2) !default;
+$font-size-h2: floor($font-size-base * 1.6) !default;
+$font-size-h3: ceil($font-size-base * 1.2) !default;
+$font-size-h4: ceil($font-size-base * 1.1) !default;
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil($font-size-base * 0.85) !default;
+
+// tablet portrait H's
+$font-size-tablet-portrait-h1: floor($font-size-tablet-portrait * 2);
+$font-size-tablet-portrait-h2: floor($font-size-tablet-portrait * 1.6);
+$font-size-tablet-portrait-h3: ceil($font-size-tablet-portrait * 1.2);
+$font-size-tablet-portrait-h4: ceil($font-size-tablet-portrait * 1.1);
+$font-size-tablet-portrait-h5: $font-size-tablet-portrait;
+$font-size-tablet-portrait-h6: ceil($font-size-tablet-portrait * 0.85);
+
+// tablet landscape H's
+$font-size-tablet-landscape-h1: floor($font-size-tablet-landscape * 2);
+$font-size-tablet-landscape-h2: floor($font-size-tablet-landscape * 1.6);
+$font-size-tablet-landscape-h3: ceil($font-size-tablet-landscape * 1.2);
+$font-size-tablet-landscape-h4: ceil($font-size-tablet-landscape * 1.1);
+$font-size-tablet-landscape-h5: $font-size-tablet-landscape;
+$font-size-tablet-landscape-h6: ceil($font-size-tablet-landscape * 0.85);
+
+// phone portrait H's
+$font-size-phone-portrait-h1: floor($font-size-phone-portrait * 2);
+$font-size-phone-portrait-h2: floor($font-size-phone-portrait * 1.6);
+$font-size-phone-portrait-h3: ceil($font-size-phone-portrait * 1.2);
+$font-size-phone-portrait-h4: ceil($font-size-phone-portrait * 1.1);
+$font-size-phone-portrait-h5: $font-size-phone-portrait;
+$font-size-phone-portrait-h6: ceil($font-size-phone-portrait * 0.85);
+
+
+
+// Links
+// -------------------------
+
+$link-color: darken($brand-primary, 20%);
+$link-hover-color:      darken($link-color, 15%) !default;
+
+
+
 $border-radius-base: 0;
 $border-radius-large: 0;
 $border-radius-small: 0;
 
 
-$btn-primary-color:              $brand-primary;
-$btn-primary-bg:                 rgba($brand-primary, 0.2);
+// buttons
+$btn-default-color: $brand-primary;
+$btn-default-bg: $brand-primary;
+
+$btn-primary-color: $brand-primary;
+$btn-primary-bg: $golden;
 
 
-
+// tooltip
 $tooltip-max-width: 300px;
 $tooltip-color: $black;
 $tooltip-bg: $gray6;

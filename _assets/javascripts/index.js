@@ -52,7 +52,7 @@ $(document).ready(function() {
 
   // FORWARD ARROW (FOR MANIFESTOS)
   // ************************************
-  $(".arrow-forward").click(function(){
+  $("[data-goto-next-manifesto]").click(function(){
     $('#marquee .nav > .active').next('li').find('a').trigger('click');
   });
 
@@ -76,10 +76,9 @@ $(document).ready(function() {
   // CONTENT CTA
   // ******************************************
   $("[data-toggle-summary]").click(function(){
-    var tabPane = $("#" + $(this).parent().parent().attr("id") + ".tab-pane");
+    var tabPane = $("#" + $(this).parents(".tab-pane").attr("id") + ".tab-pane");
     toggleSummary(tabPane);
   });
-
 
   $(".content-cta.vitruvian").hover(function(){
     $(this).toggleClass("pulse");
@@ -90,27 +89,13 @@ $(document).ready(function() {
   });
 
 
-  // goldenCHAI LOGO CLICK (HOME)
+  // GoldenChai LOGO CLICK (HOME)
   // **************************
   $(".goldenchai-logo").click(function(){
     $('html, body').animate({
       scrollTop: 0
       }, scrollSpeed);
-    $('.nav-tabs li:eq(0)').find('a').trigger('click');
-  });
-
-
-
-  // MOBILE NAV
-  // ************************************
-  $("#mobile-nav-icon").click(function(){
-
-    var windowHeight = $(window).height();
-    collapseFooter();
-    $("html, body").animate({
-      scrollTop: windowHeight
-    }, 10);
-
+    $('#marquee .nav li:eq(0)').find('a').trigger('click');
   });
 
 
@@ -119,7 +104,7 @@ $(document).ready(function() {
   $("a").click(function(e){
     if ($("body").hasClass("site-multiple-pages"))
     {
-      if ($(this).attr("href").indexOf("/#/") != -1)
+      if ($(this).attr("href").indexOf("#/") != -1)
       {
         window.location.href = $(this).attr("href").replace("/#", "");
       }

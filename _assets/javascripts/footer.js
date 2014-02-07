@@ -1,16 +1,12 @@
 $(document).ready(function() {
-  // FOOTER CONTENT SLIDER: INFO, CONTACT, AND GET A QUOTE
-  $('#footer-content-slider').royalSlider({
-    controlNavigation: 'none',
-    autoScaleSliderHeight: 1200,
-    controlsInside: false,
-    navigateByClick: false,
-    sliderDrag: false,
-    arrowsNavAutoHide: false,
-    numImagesToPreload: 3
-  });
 
-  var footerContentSlider = $("#footer-content-slider").data('royalSlider');
+  setTimeout(function(){
+    if (!$("body").hasClass("screen-mobile"))
+    {
+      $("#info-accordion .panel:eq(0)").addClass("active");
+      $("#info-accordion .panel:eq(0) .accordion-content").addClass("in");
+    }
+  }, 100);
 
 
   // CONTACT FORM SEND SCRIPT
@@ -40,7 +36,7 @@ $(document).ready(function() {
       var dataString = 'name=' + name + '&from=' + email + '&subject=GoldenChai inquiry&to=chai@goldenchai.com&message=' + message;
       $.ajax({
         type : "POST",
-        url : "/lib/scripts/mailer.php",
+        url : "/bin/scripts/mailer.php",
         data : dataString,
         cache : false,
         success : function() {
@@ -53,32 +49,21 @@ $(document).ready(function() {
 
   // ACCORDION
   // *****************
-  $(".accordion .accordion-item .accordion-title").click(function(){
+  $(".accordion .panel .accordion-title").click(function(){
     var accordionItem = $(this).parent();
 
     // remove active classes on siblings
-    accordionItem.siblings(".accordion-item").removeClass("active");
+    accordionItem.siblings(".panel").removeClass("active");
 
     if (accordionItem.hasClass("active")){
       // remove active class
       accordionItem.removeClass("active");
-
-      if ($("body").hasClass("screen-mobile"))
-      {
-        accordionItem.siblings(".accordion-item").removeClass("hidden");
-      }
-
     }else{
       // add active class
       accordionItem.addClass("active");
-
-      if ($("body").hasClass("screen-mobile"))
-      {
-        accordionItem.siblings(".accordion-item").addClass("hidden");
-        accordionItem.removeClass("hidden");
-      }
     }
   });
+
 
   // SHOW PROFILE IMAGE OF JULIAN
   // ****************************
@@ -94,9 +79,17 @@ $(document).ready(function() {
   // TOGGLE ACCORDION
   // *****************
   $("a[data-accordion]").on("click", function(event){
-    $("footer #footer-content .accordion .accordion-item").removeClass("active");
-    $("footer #footer-content .accordion .accordion-item.accordion-item-" + $(this).attr("data-accordion")).addClass("active");
+    $("footer #footer-content > .accordion > .panel").removeClass("active");
+    $("footer #footer-content > .accordion > .panel.accordion-item-" + $(this).attr("data-accordion") + " .accordion-title").trigger("click");
   });
+
+
+  // ACTIVATE 1st TAB CONTENT IN PROCESS ACCORDION
+  // *********************************************
+  $(".accordion-item-process .accordion-title").on("click", function(event){
+    $(this).parent().find(".nav-tabs li:eq(0) a").trigger("click");
+  });
+
 
 
   // FOOTER NAV LINKS
@@ -166,26 +159,24 @@ $(document).ready(function() {
 
 });
 
-
 function activateFooter(navItem){
-  var footerContentSlider = $("#footer-content-slider").data('royalSlider');
+  if ($("body").hasClass("screen-mobile") || $("body").hasClass("screen-tablet"))
+  {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 400);
+
+    var s = skrollr.init();
+    s.destroy();
+  }
 
   navItem.siblings(".footer-nav-cta").removeClass("active");
   navItem.addClass("active");
 
   // if the footer was not active before, do this..
   if (!$("body").hasClass("footer-active")){
-    if ($("body").hasClass("screen-mobile"))
-    {
-      $("#footer-content .accordion-item").removeClass("active");
-    }
 
     $("body").addClass("footer-active");
-
-    // the slider should go to slide instantly
-    footerContentSlider.st.transitionSpeed = 0;
-    footerContentSlider.goTo(navItem.index());
-    footerContentSlider.st.transitionSpeed = 600;
 
     // collapse footer when clicking on header area
     if (!$("body").hasClass("mobile"))
@@ -197,16 +188,26 @@ function activateFooter(navItem){
         });
       }, 300);
     }
-  }else{
-    footerContentSlider.goTo(navItem.index());
   }
+
+  // go to the right tab
+  $("#footer-content .tab-pane").removeClass("active in");
+  $("#" + navItem.find("a").attr("href").replace("#/", "")).addClass("active in");
 }
 
 function collapseFooter(){
+  if ($("body").hasClass("screen-mobile") || $("body").hasClass("screen-tablet"))
+  {
+    var s = skrollr.init();
+  }
+
   // remove footer active classes
   $(".footer-nav-cta").removeClass("active");
   $("body").removeClass("footer-active");
   $("body").addClass("footer-post-active");
+
+  // for mobile, remove hidden classes on accordion items
+  // $(".accordion .accordion-item").removeClass("hidden");
 
   $('.footer-nav-cta').tooltip('destroy');
 
@@ -216,8 +217,10 @@ function collapseFooter(){
       $.history.push("/manifestos");
     }else if ($("body").hasClass("page-portfolio")){    
       $.history.push("/portfolio");
-    }else if ($("body").hasClass("page-services")){    
-      $.history.push("/services");
+    }else if ($("body").hasClass("page-features")){    
+      $.history.push("/features");
     }
+  }else{
+    $.history.push("");
   }
 }

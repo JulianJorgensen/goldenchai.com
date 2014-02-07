@@ -52,29 +52,12 @@ body
       {
         opacity: 0;
         position: absolute;
-        @include transition(opacity $defaultTransitionSpeed);
 
         &.active
         {
           opacity: 1;
+          @include transition(opacity $defaultTransitionSpeed);
         }
-      }
-    }
-
-    #footer-kicker
-    {
-      opacity: 0;
-      position: fixed;
-      bottom: 0;
-      margin-right: 15px;
-      text-align: center;
-      pointer-events: none;
-
-      h4
-      {
-        background: rgba($gray20, 0.2);
-        padding: 15px;
-        margin-top: 30px;
       }
     }
 
@@ -87,7 +70,7 @@ body
     hr
     {
       border-top: 1px solid $gray20;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .footer-nav
@@ -131,7 +114,6 @@ body
         color: $gray70;
         opacity: 0;
         position: absolute;
-        top: -50px;
         left: 50%;
         margin-left: -60px;
         width: 120px;
@@ -157,7 +139,7 @@ body
       }
     }
 
-    #contact-slide
+    #contact
     {
       .contact-info
       {
@@ -206,13 +188,32 @@ body.page-manifestos
 {
   footer
   {
-    #contact-slide
+    #contact
     {
       input, textarea
       {
         background: rgba($gray20, 0.2);
       }
     }
+  }
+}
+
+#footer-kicker
+{
+  background: transparent;
+  opacity: 0;
+  position: fixed;
+  bottom: 0;
+  margin-right: 15px;
+  text-align: center;
+  width: 100%;
+  z-index: -1;
+
+  h4
+  {
+    background: rgba($gray20, 0.2);
+    padding: 15px;
+    margin-top: 30px;
   }
 }
 
@@ -240,20 +241,6 @@ body.desktop
   }
 }
 
-
-@media (max-width: $screen-md)
-{
-  body
-  {
-    footer
-    {
-      #footer-kicker
-      {
-        pointer-events: auto;
-      }
-    }    
-  }
-}
 
 
 // FOOTER ACTIVE STATE
@@ -299,7 +286,7 @@ body.footer-active
   }
 }
 
-@media (min-width: $screen-md)
+@media (min-width: $screen-sm)
 {
   body.footer-active
   {
@@ -356,10 +343,15 @@ body.footer-active
 
     footer
     {
-      top: 90px;     
+      top: 110px;
 
       .footer-nav-cta.active
       {
+        .cta-helper
+        {
+          top: -50px;
+        }
+
         &:hover
         {
           .cta-helper
@@ -394,20 +386,49 @@ body.footer-active
 
 
 
-@media (max-width: $screen-md)
+
+
+
+
+
+
+// FOOTER MOBILE STUFF
+// ****************************
+
+@media (max-width: $screen-sm)
+{
+  body
+  {
+    footer
+    {
+      opacity: 0;
+      position: fixed;
+
+      .footer-chai
+      {
+        font-size: 0.8em;
+      }
+
+      .cta-helper
+      {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $screen-sm)
 {
   body.footer-active
   {
-    section.window #marquee-wrapper, section.window .container
-    {
-      opacity: 0.2 !important;
-      @include blur(10px);
-      @include blurPerformanceHack();
-    }
+    padding-top: 130px;
 
     header
     {
       padding-top: 50px !important;
+      padding-bottom: 20px;
+      top: 0;
       @include transition(padding-top ($defaultTransitionSpeed) ease);
 
       #primary-nav
@@ -422,16 +443,27 @@ body.footer-active
       }
     }
 
+    #skrollr-body
+    {
+      display: none !important;
+    }
+
     footer
     {
-      top: 50px !important;
-      // remove comments on below 2 if footer is gonna have lots of content (needs to be static)
-      // position: static;
-      // padding-top: 50px !important;
+      position: static;
+      opacity: 1 !important;
+      z-index: 999 !important;
       @include transition(top ($defaultTransitionSpeed) ease);
 
       .footer-nav
       {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 70px;
+        z-index: 9999;
+        height: 80px;
+
         .footer-chai
         {
           opacity: 0 !important;
@@ -443,34 +475,45 @@ body.footer-active
         }
       }
 
-      #footer-kicker
-      {
-        display: none;
-      }
-
       section#footer-content
       {
         opacity: 1;
         margin-top: 0;
-
         @include transition(opacity ($defaultTransitionSpeed) ease);
       }
+    }
+
+    #footer-kicker
+    {
+      display: none;
     }
   }
 }
 
+
 @media (max-width: $screen-xs)
 {
-  body
+  body.footer-active
   {
     footer
     {
-      top: 380px;
-      height: 50px;
-
-      .footer-chai
+      #contact
       {
-        font-size: 0.8em;
+        .contact-info
+        {
+          padding-top: 0;          
+        }
+
+        textarea, input
+        {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+        }
+
+        textarea
+        {
+          height: 110px;
+        }
       }
     }
   }

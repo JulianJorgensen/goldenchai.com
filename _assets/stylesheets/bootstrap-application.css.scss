@@ -11,6 +11,7 @@
 // BOOTSTRAP STYLE OVERRIDES
 // =====================
 
+
 // tooltip
 .tooltip {
   font-size: $font-size-base;
@@ -31,19 +32,6 @@ span[data-toggle="tooltip"]
   color: $tooltip-color;
 }
 
-
-@media (min-width: $screen-sm)
-{
-  .container
-  {
-    padding: 0;
-
-    .row
-    {
-      padding: 0;
-    }
-  }
-}
 
 /* typography */
 a, a:active, a:focus, a:visited, a:hover
@@ -77,6 +65,22 @@ a, a:active, a:focus, a:visited, a:hover
 {
   text-transform: uppercase;
   border: 0;
+  background-color: rgba($btn-default-bg, 0.1);
+
+  &:hover
+  {
+    background-color: rgba($btn-default-bg, 0.2);
+  }
+
+  &.btn-primary
+  {
+    background-color: rgba($btn-primary-bg, 0.5);
+
+    &:hover
+    {
+      background-color: rgba($btn-primary-bg, 0.8);
+    }
+  }
 
   &.btn-lg
   {

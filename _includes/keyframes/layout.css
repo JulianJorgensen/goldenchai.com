@@ -1,16 +1,11 @@
-body.site-single-page.screen-desktop header .goldenchai-logo-manifestos, body.site-single-page.screen-tablet header .goldenchai-logo-manifestos
+body.site-single-page.screen-desktop header .goldenchai-logo-manifestos
 {
   -skrollr-animation-name: fade_out_manifestos_logo;
 }
 
-body.site-single-page.screen-desktop header .goldenchai-logo-alternative, body.site-single-page.screen-tablet header .goldenchai-logo-alternative
+body.site-single-page.screen-desktop header .goldenchai-logo-alternative
 {
   -skrollr-animation-name: fade_in_portfolio_logo;
-}
-
-body.site-single-page.screen-desktop #primary-nav .primary-nav-active-bg, body.site-single-page.screen-tablet #primary-nav .primary-nav-active-bg
-{
-  -skrollr-animation-name: transition_active_nav_bg;
 }
 
 
@@ -40,41 +35,57 @@ body.site-single-page.screen-desktop #primary-nav .primary-nav-active-bg, body.s
 }
 
 
-@-skrollr-keyframes transition_active_nav_bg{
+
+body.site-single-page.screen-desktop #primary-nav .primary-nav-manifestos
+{
+  -skrollr-animation-name: transition_active_nav_bg_manifestos;
+}
+
+@-skrollr-keyframes transition_active_nav_bg_manifestos{
   {{ site.manifestos_pre_end }} {
-    opacity: 0.5;
-    top: 0px;
+    background-color: rgba(204,204,204,0.5);
   }
 
   {{ site.manifestos_end }} {
-    opacity: 0;
-    top: 0px;
+    background-color: rgba(204,204,204,0);
   }
+}
 
+body.site-single-page.screen-desktop #primary-nav .primary-nav-portfolio
+{
+  -skrollr-animation-name: transition_active_nav_bg_portfolio;
+}
+
+@-skrollr-keyframes transition_active_nav_bg_portfolio{
   {{ site.portfolio_pre_start }} {
-    opacity: 0;
-    top: 30px;
+    background-color: rgba(204,204,204,0);
   }
 
   {{ site.portfolio_start }} {
-    opacity: 0.5;
+    background-color: rgba(204,204,204,0.5);
   }
 
   {{ site.portfolio_pre_end }} {
-    opacity: 0.5;
+    background-color: rgba(204,204,204,0.5);
   }
 
   {{ site.portfolio_end }} {
-    opacity: 0;
+    background-color: rgba(204,204,204,0);
+  }
+}
+
+
+body.site-single-page.screen-desktop #primary-nav .primary-nav-features
+{
+  -skrollr-animation-name: transition_active_nav_bg_features;
+}
+
+@-skrollr-keyframes transition_active_nav_bg_features{
+  {{ site.features_pre_start }} {
+    background-color: rgba(204,204,204,0);
   }
 
-  {{ site.services_pre_start }} {
-    opacity: 0;
-    top: 60px;
+  {{ site.features_start }} {
+    background-color: rgba(204,204,204,0.5);
   }
-
-  {{ site.services_start }} {
-    opacity: 0.5;
-  }
-
 }

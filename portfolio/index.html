@@ -1,26 +1,17 @@
 ---
-layout: layout
+layout: mobile
 title: Portfolio
 name: portfolio
 subpage: true
 ---
 
-<section id="portfolio-wrapper" class="window">
-
+<section id="portfolio" class="window subpage">
+  <div class="container">
     <div class="royalSlider rsDefault portfolio-content-slider">
-
-      <!-- INTRO SLIDER -->
-      {% include portfolio/slides.html slides="intro" %}
-
-      <!-- ADOBE YOUTH VOICES SLIDER -->
-      {% include portfolio/slides.html slides="ayv" %}
-
-      <!-- MAX SLIDER -->
-      {% include portfolio/slides.html slides="max" %}
-
+      {% include portfolio-slides.html slides="intro" %}
+      {% include portfolio-slides.html slides="ayv" %}
+      {% include portfolio-slides.html slides="max" %}
+      {% include portfolio-slides.html slides="adobestudio" %}
     </div>
-
   </div>
-
-  {% include footer.html %}
 </section>

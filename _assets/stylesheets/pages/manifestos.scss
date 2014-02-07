@@ -1,6 +1,7 @@
 @import "constants";
 @import "mixins";
 @import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
 
 body.site-multiple-pages.page-manifestos
 {
@@ -41,6 +42,39 @@ body
 {
   #manifestos
   {
+    .manifestos-video
+    {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+
+      video
+      {
+        height: 100%;
+        opacity: 0.1;
+      }
+
+      &.visible-inverted-mode-1-durability
+      {
+        video
+        {
+          opacity: 0.05;
+        }
+      }
+
+      &.visible-inverted-mode-1-usability
+      {
+        video
+        {
+          opacity: 0.15;          
+        }
+      }
+    }
+    
     .container
     {
       .inner-wrapper
@@ -53,6 +87,32 @@ body
           {
             height: 250px;
             @include transition(opacity $defaultTransitionSpeed ease-out);
+
+            .mobile-manifesto-ctas
+            {
+              display: none;
+            }
+
+            .tab-pane
+            {
+              .mobile-manifesto-cta-back
+              {
+                display: none;
+              }
+
+              &.summary-active
+              {
+                .mobile-manifesto-cta-summary
+                {
+                  display: none;
+                }
+
+                .mobile-manifesto-cta-back
+                {
+                  display: block;
+                }
+              }
+            }
 
             .arrows
             {
@@ -188,6 +248,21 @@ body
 
             .content-front, .content-summary
             {
+              opacity: 0;
+              position: absolute;
+              top: 0;
+              pointer-events: none;
+              margin-left: -100px;
+              @include transition((opacity $slowTransitionSpeed, margin-left $slowTransitionSpeed));
+
+              &.active
+              {
+                margin-left: 0;
+                position: static;
+                opacity: 1;
+                pointer-events: auto;
+              }
+
               p
               {
                 margin-top: 0;
@@ -196,8 +271,7 @@ body
 
             .content-summary
             {
-              display: none;
-              min-height: 200px;
+              visibility: hidden;
 
               h2
               {
@@ -523,26 +597,30 @@ body
 
 
 
-@media (max-width: 600px)
+@media (max-width: $screen-md-max)
 {
   body
   {
     #manifestos
     {
-      #marquee-wrapper
+      .container
       {
-        height: 140px;
-        
-        #marquee
+        .inner-wrapper
         {
-          .marquee-headline h1
+          .main-content
           {
-            font-size: 1.8em;
-          }
+            .tab-content
+            {
+              .arrows
+              {
+                display: none;
+              }
 
-          .nav
-          {
-            font-size: 2.2em;
+              .mobile-manifesto-ctas
+              {
+                display: block;
+              }
+            }
           }
         }
       }
@@ -551,8 +629,28 @@ body
 }
 
 
+@media (max-width: $screen-tablet)
+{
+  body.page-manifestos
+  {
 
-@media (max-width: $screen-xs)
+    &.footer-active
+    {
+      header
+      {
+        background: $white;
+      }
+
+      footer .footer-nav
+      {
+        @include gradient-vertical(rgba($white, 1), rgba($white, 0), 40%);
+      }
+    }
+  }
+}
+
+
+@media (max-width: $screen-xs-max)
 {
   body
   {
@@ -732,6 +830,14 @@ body
           .nav
           {
             font-size: 1.4em;
+
+            li
+            {
+              a
+              {
+                border-bottom-width: 1px !important;
+              }
+            }
           }
         }
       }

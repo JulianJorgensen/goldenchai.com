@@ -635,7 +635,8 @@
       _reset(_skrollables[skrollableIndex].element);
     }
 
-    documentElement.style.overflow = body.style.overflow = 'auto';
+    // commenting below line helped with a minor bug causing double scrollbars to appear when resizing from mobile to desktop and back to mobile again...
+    // documentElement.style.overflow = body.style.overflow = 'auto';
     documentElement.style.height = body.style.height = 'auto';
 
     if(_skrollrBody) {

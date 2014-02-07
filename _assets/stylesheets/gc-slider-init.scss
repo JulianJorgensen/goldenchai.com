@@ -30,3 +30,23 @@
 {
   height: 1200px;
 }
+
+
+// TABLET BOTH PORTRAIT AND LANDSCAPE STYLES
+@media (min-device-width: $screen-phone) and (max-device-width: $screen-tablet) and (orientation: portrait), (min-device-width: $screen-phone) and (max-device-width: $screen-tablet) and (orientation: landscape)
+{
+  .portfolio-content-slider
+  {
+    height: 450px;
+
+    .rsSlide
+    {
+      max-height: 450px;
+    }
+
+    .slide-caption
+    {
+      opacity: 1 !important;
+    }
+  }
+}

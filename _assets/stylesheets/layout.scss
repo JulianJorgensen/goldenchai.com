@@ -11,17 +11,33 @@ html.wf-loading
   }
 }
 
-html.wf-active
+html.wf-active, html.wf-inactive
 {
   body
   {
     opacity: 1;
+    @include transition(opacity $defaultTransitionSpeed);
+
+    #manifestos .container .inner-wrapper .main-content .tab-content
+    {
+      .content-summary
+      {
+        visibility: visible;
+      }
+    }
+  }
+
+  .preloader
+  {
+    display: none;
   }
 }
 
 
 body
-{  
+{
+  overflow-x: hidden;
+
   .container
   {
     .inner-wrapper
@@ -53,7 +69,7 @@ body
   }
 
   &.index.site-multiple-pages
-  {    
+  {
     section.window
     {
       &.subpage
@@ -62,12 +78,39 @@ body
       }
     }
   }
+
+  .visible-inverted-mode-1-durability, .visible-inverted-mode-1-usability, .visible-inverted-mode-1-art,
+  .visible-inverted-mode-2-durability, .visible-inverted-mode-2-usability, .visible-inverted-mode-2-art
+  {
+    opacity: 0;
+    @include transition(opacity $slowTransitionSpeed);
+  }
 }
 
 
 /* MEDIA QUERIES */
 
-@media (max-width: $screen-sm) {
+.user-notification
+{
+  display: none;
+  position: fixed;
+  width: 100%;
+  color: $black;
+  text-align: center;
+  padding: 4px 0;
+  background: rgba($zen-red, 0.2);
+  z-index: 999999;
+}
+
+body.site-multiple-pages.screen-desktop
+{
+  .user-notification
+  {
+    display: block;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
   /* Sometimes, you just want to be different on small screens */
   .center-on-mobiles {
     text-align: center !important;
@@ -78,8 +121,13 @@ body
 }
 
 
-@media (max-width: $screen-xs)
+@media (max-width: $screen-sm)
 {
+  html, body
+  {
+    min-height: 100%;
+  }
+
   body
   {
     .container
@@ -87,6 +135,19 @@ body
       width: 100%;
     }
 
+    .window
+    {
+      position: static;
+      height: auto;
+    }
+  }
+}
+
+
+@media (max-width: $screen-xs-max), (min-width: $screen-phone) and (max-width: $screen-tablet) and (orientation: landscape)
+{
+  body
+  {
     .window
     {
       padding-top: 55px;

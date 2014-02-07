@@ -3,6 +3,12 @@
 @import 'bootstrap-variables';
 
 
+@mixin activeNavBg($color: $gray20)
+{
+  background-color: rgba($color, 0.5);
+}
+
+
 /* header */
 body
 {
@@ -18,7 +24,6 @@ body
 
       .primary-nav-item
       {
-        position: relative;
         text-align: right;
         height: 25px;
         margin: 5px 0 0;
@@ -33,9 +38,9 @@ body
         .nav-title
         {
           display: inline-block;
-          position: relative;
           height: inherit;
-          bottom: -3px;
+          line-height: 25px;
+          padding-left: 10px;
           font-size: 0.9em;
           text-transform: uppercase;
           @include disableHighlighting;
@@ -67,32 +72,44 @@ body
           }
         }
 
-        &.primary-nav-services
+        &.primary-nav-features
         {
           .nav-icon
           {
-            background-color: $services-nav-color;
+            background-color: $features-nav-color;
           }
         }
       }
+    }
+  }
 
-      .primary-nav-active-bg
-      {
-        position: absolute;
-        right: 30px;
-        top: 0;
-        background-color: $gray20;
-        opacity: 0.5;
-        width: 100px;
-        height: 25px;
-        z-index: 998;
-      }
+  &.page-manifestos
+  {
+    header #primary-nav .primary-nav-manifestos
+    {
+      @include activeNavBg();
+    }
+  }
+
+  &.page-portfolio
+  {
+    header #primary-nav .primary-nav-portfolio
+    {
+      @include activeNavBg();
+    }
+  }
+
+  &.page-features
+  {
+    header #primary-nav .primary-nav-features
+    {
+      @include activeNavBg();
     }
   }
 }
 
 
-@media (max-width: $screen-sm) {
+@media (max-width: $screen-sm-max) {
   body
   {
     header

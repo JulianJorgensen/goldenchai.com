@@ -1,36 +1,32 @@
 <footer>
   <div class="container">
-    <hr>
-    <div class="row footer-nav">
-      <div class="collapseFooter"><p>&lsaquo; back</p></div>
-      <div class="col-xs-5">
-        <div class="footer-chai">
-          <img src="{% asset_path chai-icon.png %}" data-toggle-invert>
-          <p class="invert-mode invert-mode-1">Black Ceylon Chai mode.</p>
-          <p class="invert-mode invert-mode-2">Magic Chai mode</p>
-          <p class="copyright active">© 2014 GoldenChai</p>
+    <div class="footer-nav">
+      <hr>
+      <div class="row">
+        <div class="collapseFooter"><p>&lsaquo; back</p></div>
+        <div class="col-xs-3 col-sm-5">
+          <div class="footer-chai">
+            <img src="{% asset_path chai-icon.png %}" data-toggle-invert>
+            <p class="invert-mode invert-mode-1">Black Ceylon Chai mode.</p>
+            <p class="invert-mode invert-mode-2">Magic Chai mode</p>
+            <p class="copyright active hidden-xs">© 2014 GoldenChai</p>
+          </div>
+        </div>
+        <div class="col-xs-9 col-sm-7 align-right">
+          <div class="footer-nav-cta footer-nav-info"><a href="#/info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</div>
+          <div class="footer-nav-cta footer-nav-contact"><a href="#/contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</div>
         </div>
       </div>
-      <div class="col-xs-7 align-right">
-        <div class="footer-nav-cta footer-nav-info"><a href="#/info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</div>
-        <div class="footer-nav-cta footer-nav-contact"><a href="#/contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</div>
-      </div>
     </div>
-    <div id="footer-kicker">
-      <!-- <h3>Minimalism to perfection.</h3> -->
-      <h4>Let's get started; <a href="contact@goldenchai.com">contact@goldenchai.com</a></h4>
-      <h6>(response within 24 hours.)</h6>
-    </div>
+    
     <section id="footer-content">
-
-     <div id="footer-content-slider" class="royalSlider rsDefault">
-        <div id="info-slide">
-          <div class="accordion">
+      <div class="tab-content">
+        <div class="tab-pane fade" id="info">
+          <div id="info-accordion" class="accordion">
             {% include copy/info.html %}
           </div>
         </div>
-
-        <div id="contact-slide">
+        <div class="tab-pane fade" id="contact">
           <form action="POST">
             <div class="row">
               <div class="col-sm-6 col-sm-push contact-info text-center">
@@ -52,9 +48,19 @@
             </div>
           </form>
         </div>
-
       </div>
 
     </section>
   </div>
 </footer>
+
+<div id="footer-kicker">
+  <div class="container">
+    <h4>Let's get started; <a href="contact@goldenchai.com">contact@goldenchai.com</a></h4>
+    <h6>(response within 24 hours.)</h6>
+  </div>
+</div>
+
+<div id="phone-portrait-kicker">
+  {% include copy/art.html side="back" %}
+</div>

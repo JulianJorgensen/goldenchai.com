@@ -152,7 +152,7 @@ body.manifesto-art
 }
 
 
-@media (max-width: $screen-xs)
+@media (max-width: $screen-xs-max), (min-width: $screen-phone) and (max-width: $screen-tablet) and (orientation: landscape)
 {
   body
   {

@@ -7,6 +7,14 @@ $(document).ready(function() {
   var s = skrollr.init();
 
 
+  // MOBILE NAV
+  // ************************************
+  $("#mobile-nav-icon").click(function(){
+    var windowHeight = $(window).height();
+    s.animateTo(windowHeight);
+  });
+
+
   // ON WINDOW RESIZE: APPLY MOBILE CLASS FOR SMALL SCREENS, AND DESKTOP FOR LARGER
   $( window ).resize(function() {
     updateSite(true);
@@ -15,42 +23,66 @@ $(document).ready(function() {
 
   // ALSO UPDATE SKROLLR AND BODY CLASSES ON ORIENTATION CHANGE
   window.addEventListener("orientationchange", (function() {
+    updateOrientationClass();
+    updateSkrollr();
     updateSite(true);
   }), false);
 
 
+  function updateOrientationClass(){
+    windowWidth = $(window).width();
+    windowHeight = $(window).height();
+
+    // DETECT ORIENTATION
+    if(windowHeight < windowWidth){
+      $("body").addClass("orientation-landscape");
+    }else{
+      $("body").removeClass("orientation-landscape");
+    }
+  }
+
+
+
   var refresh;
+  var screenChange;
 
   function updateSite(refresh){
 
+
     // window variables
     windowWidth = $(window).width();
-
+    windowHeight = $(window).height();
 
     // SCREEN WIDTH DETECTION (MOBILE, TABLET, DESKTOP)
     // ************************************************
-    if ((windowWidth > {{ site.mobile_start_width }}) && (windowWidth <= {{ site.tablet_start_width }}))
+    if ((windowWidth > {{ site.mobile_end_width }}) && (windowWidth <= {{ site.tablet_end_width }}))
     {
       // ITS A TABLET SIZED WINDOW!
       if ($("body").hasClass("screen-tablet")){return "";}
       $("body").removeClass("screen-desktop");
       $("body").removeClass("screen-mobile");
       $("body").addClass("screen-tablet");
+      screenChange = true;
     }
-    else if (windowWidth < {{ site.tablet_start_width }})
+    else if (windowWidth <= {{ site.mobile_end_width }})
     {
       // ITS A MOBILE SIZED WINDOW!
       if ($("body").hasClass("screen-mobile")){return "";}
       $("body").removeClass("screen-desktop");
       $("body").removeClass("screen-tablet");
       $("body").addClass("screen-mobile");
+      screenChange = true;
     }else{
       // ITS A DESKTOP SIZED WINDOW!
       if ($("body").hasClass("screen-desktop")){return "";}
       $("body").removeClass("screen-tablet");
       $("body").removeClass("screen-mobile");
       $("body").addClass("screen-desktop");
+      screenChange = true;
     }
+
+    updateOrientationClass();
+
 
     // DETERMINE WHETHER TO DISPLAY SITE AS SINGLE ONE-PAGE OR MULTIPLE PAGES
     // ***************************************
@@ -58,12 +90,12 @@ $(document).ready(function() {
     {
       var isSubpage;
 
-      if ((windowWidth <= {{ site.mobile_start_width }}))
+      if ((windowWidth <= {{ site.multipages_start_width }}))
       {
-        if ($("body").hasClass("site-multiple-pages")){return "";}
+        if ((!screenChange) && ($("body").hasClass("site-multiple-pages"))){return "";}
 
-        $("body").removeClass("site-single-page");
-        $("body").addClass("site-multiple-pages");
+        $("body").removeClass("site-single-page page-features page-portfolio");
+        $("body").addClass("site-multiple-pages page-manifestos");
 
         if (refresh){
           updateSkrollr();
@@ -82,6 +114,7 @@ $(document).ready(function() {
         }
       }
     }else{
+
       if (refresh){
         updateSkrollr();
       }
@@ -90,22 +123,10 @@ $(document).ready(function() {
 
 
   function updateSkrollr(){
-
     s.destroy();
-
     skrollrStylesheets.refresh();
-    console.log("skrollr stylesheets re-initialized.");
-
     s = skrollr.init();
-    console.log("skrollr re-initialized.");
   }
-
-
-
-  // $("body").addClass('mobile');
-  // skrollrStylesheets.refresh();
-  // s.refresh();
-
 
 
 
@@ -195,16 +216,16 @@ $(document).ready(function() {
         break;
 
 
-      case "/services":
+      case "/features":
         if ($("body").hasClass("footer-active")){
           collapseFooter();
         }
-        if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.services_start }}))
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.features_start }}))
         {
-          smoothPageScroll({{ site.services_end }}, scrollSpeed);
+          smoothPageScroll({{ site.features_end }}, scrollSpeed);
         }
 
-        updatePageMeta("services");
+        updatePageMeta("features");
         break;
 
       default:
@@ -229,15 +250,13 @@ $(document).ready(function() {
         if (!$("body").hasClass("page-manifestos")){
           $.history.push("/manifestos");
         }
-      }else if ((scrollPos > {{ site.portfolio_pre_start }}) && (scrollPos < {{ site.services_pre_start }})){
-        console.log('portfolio start');
+      }else if ((scrollPos > {{ site.portfolio_pre_start }}) && (scrollPos < {{ site.features_pre_start }})){
         if (!$("body").hasClass("page-portfolio")){
           $.history.push("/portfolio");
         }
-      }else if ((scrollPos > {{ site.services_pre_start }}) && (scrollPos <= {{ site.services_start }})){
-        console.log('services start');
-        if (!$("body").hasClass("page-services")){
-          $.history.push("/services");
+      }else if ((scrollPos > {{ site.features_pre_start }}) && (scrollPos <= {{ site.features_start }})){
+        if (!$("body").hasClass("page-features")){
+          $.history.push("/features");
         }
       }
     }
@@ -277,5 +296,4 @@ $(document).ready(function() {
       }
     }
   }
-
 });

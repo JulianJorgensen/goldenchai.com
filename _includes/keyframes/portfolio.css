@@ -1,4 +1,4 @@
-body.site-single-page.screen-desktop #portfolio, body.site-single-page.screen-tablet #portfolio
+body.site-single-page.screen-desktop #portfolio
 {
   -skrollr-animation-name: portfolio_opacity;
 }

@@ -72,13 +72,6 @@ body
 {
   .tab-pane
   {
-    display: none;
-
-    &.active
-    {
-      display: block;
-    }
-
     /* LIST STYLES */
     /* ======== */
 
@@ -165,12 +158,11 @@ body
 {
   text-align: left;
 
-  .accordion-item
+  .panel
   {
     border-bottom: 1px solid #aca68e;
     padding: 0 20px;
     opacity: 0.7;
-    @include transition(opacity $defaultTransitionSpeed);
 
     &:hover
     {
@@ -186,18 +178,9 @@ body
       padding: 15px 15px 15px 20px;
       @include disableHighlighting;
     }
-
-    .accordion-content
-    {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      padding-right: 20px;
-      @include transition((opacity $defaultTransitionSpeed*1.5, max-height $defaultTransitionSpeed/2));
-    }
   }
 
-  .accordion-item.active
+  .panel.active
   {
     background: rgba($white, 0.1);
     opacity: 1;
@@ -205,15 +188,6 @@ body
     .accordion-title
     {
       background: image-url("nav/accordion-active.png") left center no-repeat;
-    }
-
-    .accordion-content
-    {
-      max-height: 450px;
-      opacity: 1;
-      margin-top: -12px;
-      padding: 0 0 20px 20px;
-      @include transition((opacity $defaultTransitionSpeed*1.5, max-height ($defaultTransitionSpeed*2)));
     }
   }
 }
@@ -246,36 +220,8 @@ body
 }
 
 
-@media (max-width: $screen-xs)
+@media (max-width: $screen-xs-max)
 {
-  .accordion
-  {
-    .accordion-item
-    {
-      padding: 0;
-
-      .accordion-title
-      {
-        padding-left: 30px;
-      }
-
-      .accordion-title, &.active .accordion-title
-      {
-        background-position: 12px center;
-      }
-
-      .accordion-content p
-      {
-        padding-right: 15px;
-      }
-
-      &.active
-      {
-        background: none;
-      }
-    }
-  }
-
   a[data-show-profile]
   {
     color: $text-color;

@@ -7,19 +7,6 @@
 {% asset lib/jquery.custom-functions.js %}
 
 
-// TYPEKIT
-(function(d) {
-  var config = {
-    kitId: 'qxk0qin',
-    scriptTimeout: 3000
-  },
-  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-})(document);
-
-
-  $('.window#portfolio').load('lazy-pages/portfolio.html');
-
-
 // BOOTSTRAP
 {% asset lib/bootstrap-3.0.3.js %}
 
@@ -41,11 +28,17 @@
 {% asset lib/progressButton/progressButton.js %}
 
 
+// LAZY LOAD PORTFOLIO PAGE
+$('.window#portfolio').load('/pages/portfolio.html');
+
+
 // MY OWN STUFF
-
-
 {% asset functions.js %}
 {% asset index.js %}
 {% asset footer.js %}
-
 {% include javascripts/skrollr-stuff.js %}
+
+
+
+$("#features-video").load('/features-video.html');
+$('#manifesto-videos').load('/manifesto-videos.html');
