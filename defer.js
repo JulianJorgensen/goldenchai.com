@@ -40,5 +40,5 @@ $('.window#portfolio').load('/pages/portfolio.html');
 
 
 
-$("#features-video").load('/features-video.html');
+$("#features-video .video-element").load('/features-video.html');
 $('#manifesto-videos').load('/manifesto-videos.html');
