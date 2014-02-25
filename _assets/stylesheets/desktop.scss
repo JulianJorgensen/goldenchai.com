@@ -1,0 +1,140 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+
+// DESKTOP PORTRAIT SPECIFIC STYLES
+@media (min-width: $screen-lg)
+{
+  body, .btn
+  {
+    font-size: $font-size-desktop;
+  }
+
+  h1{font-size: $font-size-desktop-h1;}
+  h2{font-size: $font-size-desktop-h2;}
+  h3{font-size: $font-size-desktop-h3;}
+  h4{font-size: $font-size-desktop-h4;}
+  h5{font-size: $font-size-desktop-h5;}
+  h6{font-size: $font-size-desktop-h6;}
+
+  body
+  {
+    margin-top: 50px;
+
+    @include largeHeader();
+    @include largeMarquee();
+
+
+    #manifestos 
+    {
+      #durability.tab-pane
+      {
+        .content-front
+        {
+          .black-diamond
+          {
+            width: 315px;
+            height: 294px;
+
+            .default
+            {
+              background-image: image-url("cta/black-diamond-desktop.png");
+            }
+
+            .hover
+            {
+              background-image: image-url("cta/black-diamond-hover-desktop.png");
+            }
+          }
+        }
+      }
+
+      #usability.tab-pane
+      {
+        .content-front
+        {
+          .zen-symbol
+          {
+            width: 315px;
+            height: 294px;
+            background-image: image-url("cta/zen-symbol-desktop.png");
+          }
+        }
+      }
+
+      #art.tab-pane
+      {
+        .content-front
+        {
+          .vitruvian
+          {
+            width: 258px;
+            height: 258px;
+            background-image: image-url("cta/vitruvian-desktop.png");
+          }
+        }
+      }
+
+      .container .inner-wrapper .main-content .tab-content .arrows
+      {
+        .arrow
+        {
+          width: 180px;
+        }
+
+        .arrow-forward
+        {
+          @include arrow(30px, 3, $black, $white, right);
+          right: -180px;
+
+          span
+          {
+            right: 40px;
+          }
+        }
+
+        .arrow-backward
+        {
+          @include arrow(30px, 3, $black, $white, left);
+          left: -180px;
+
+          span
+          {
+            left: 40px;
+          }
+        }
+      }
+
+      #marquee-wrapper
+      {
+        height: 170px;
+
+        #marquee
+        {
+          .marquee-headline h1
+          {
+            font-size: 1.6em;
+            margin-top: 9px;
+          }
+
+          .nav
+          {
+            font-size: 2.3em;
+          }
+        }
+      }
+    }
+
+    .window
+    {
+      padding-top: 170px;
+    }
+
+    footer
+    {
+      top: 900px;
+    }
+  }
+}

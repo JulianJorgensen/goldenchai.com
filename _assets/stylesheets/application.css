@@ -3,7 +3,9 @@
 
   *= require './lib/animations.css'
   *= require './lib/royalslider.css'
+  *= require './lib/rs-default.scss'
   *= require './lib/boxshadows.css'
+  *= require './lib/twentytwenty.scss'
   *= require './lib/progressButton.scss'
 
   *= require './components.scss'
@@ -23,6 +25,7 @@
   *= require './pages/features.scss'
 
   *= require './mobile.scss'
+  *= require './desktop.scss'
 
   *= require './gc-slider.scss'
 

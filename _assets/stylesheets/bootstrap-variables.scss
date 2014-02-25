@@ -4,6 +4,8 @@
 // BOOTSTRAP SPECIFIC VARIABLES OVERRIDES
 // ===============================
 
+$bootstrap-sass-asset-helper: false;
+
 
 $grid-gutter-width: 30px !default;
 
@@ -31,7 +33,7 @@ $screen-desktop:             $screen-md-min !default;
 
 // Large screen / wide desktop
 // Note: Deprecated $screen-lg and $screen-lg-desktop as of v3.0.1
-$screen-lg:                  1100px !default;
+$screen-lg:                  1300px !default;
 $screen-lg-min:              $screen-lg !default;
 $screen-lg-desktop:          $screen-lg-min !default;
 
@@ -50,7 +52,7 @@ $container-desktop:            ((700px + $grid-gutter-width)) !default;
 $container-md:                 $container-desktop !default;
 
 // Large screen / wide desktop
-$container-large-desktop:      ((700px + $grid-gutter-width)) !default;
+$container-large-desktop:      ((1000px + $grid-gutter-width)) !default;
 $container-lg:                 $container-large-desktop !default;
 
 
@@ -66,6 +68,8 @@ $font-size-base:          14px !default;
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
 
+
+$font-size-desktop: ceil($font-size-base * 1.5);
 $font-size-tablet-portrait: ceil($font-size-base * 1.5);
 $font-size-tablet-landscape: $font-size-base;
 
@@ -81,6 +85,14 @@ $font-size-h3: ceil($font-size-base * 1.2) !default;
 $font-size-h4: ceil($font-size-base * 1.1) !default;
 $font-size-h5: $font-size-base !default;
 $font-size-h6: ceil($font-size-base * 0.85) !default;
+
+// desktop H's
+$font-size-desktop-h1: floor($font-size-desktop * 2);
+$font-size-desktop-h2: floor($font-size-desktop * 1.6);
+$font-size-desktop-h3: ceil($font-size-desktop * 1.2);
+$font-size-desktop-h4: ceil($font-size-desktop * 1.1);
+$font-size-desktop-h5: $font-size-desktop;
+$font-size-desktop-h6: ceil($font-size-desktop * 0.85);
 
 // tablet portrait H's
 $font-size-tablet-portrait-h1: floor($font-size-tablet-portrait * 2);

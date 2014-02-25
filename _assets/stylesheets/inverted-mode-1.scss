@@ -133,7 +133,6 @@ body.inverted-mode-1
             {
               .arrow
               {
-                background-image: image-url("arrows-white.png");
               }
             }
           }
@@ -180,60 +179,6 @@ body.inverted-mode-1
       h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
       {
         color: $white;
-      }
-
-      #portfolio-thumbs-slider
-      {
-
-        .rsThumbs .rsThumbsContainer
-        {
-          border-top-color: $gray40;
-
-          .rsThumb
-          {
-            &.rsNavSelected
-            {
-              .arrow-up {
-                @include triangle(20px, $gray40, top);
-
-                .arrow-up-inner {
-                  @include triangle(18px, $portfolio-color-inverted-mode-1, top);
-                }
-              }
-            }
-
-            .rsTmb
-            {
-              -webkit-filter: invert(100%);  
-            }
-          }
-        }
-      }
-
-
-      .portfolio-content-slider
-      {
-        .intro-slide
-        {
-          background: rgba($black, 0.2);
-
-          h3
-          {
-            color: $black;
-          }
-
-          quote
-          {
-          }
-        }
-
-        .rsArrowRight, .rsArrowLeft
-        {
-          .rsArrowIcn
-          {
-            background-image: image-url("arrows-white.png");
-          }
-        }
       }
     }
   }

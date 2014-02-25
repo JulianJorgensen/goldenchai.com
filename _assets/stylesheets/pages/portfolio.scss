@@ -44,109 +44,402 @@ section#portfolio
   {
     color: $black;
   }
+}
 
-  .portfolio-content-slider
+#workflow-slider
+{
+  margin-top: 20px;
+
+  .rsContent
   {
-    .rsSlide
+    padding-top: 20px;
+    background: rgba($white, 0.6);
+
+    h2
     {
-      .slide-caption
-      {
-        opacity: 0;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        background-color: rgba($white, 0.8);
-        padding: 3px 6px;
-        z-index: 9999999;
-        @include transition(opacity 0.7s ease);
-      }
+      font-size: 3em;
+      margin-bottom: 0;
+    }
 
-      &:hover
+    h3
+    {
+      font-size: 1.6em;
+      color: $gray60;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    p, li
+    {
+      font-size: 1.3em;
+    }
+
+    a
+    {
+      color: $goldenbrown;
+
+      &.slide-animation
       {
-        .slide-caption
+        background: -webkit-gradient(linear,left top,right top,color-stop(0, $goldenbrown),color-stop(0.4, $goldenbrown),color-stop(0.5, lighten($goldenbrown, 40%)),color-stop(0.6, $goldenbrown),color-stop(1, $goldenbrown)); 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: slidetounlock 5s infinite;
+        padding: 0 60px;
+      }
+    }
+
+    .slide-content
+    {
+      padding: 0 50px;
+      text-align: left;
+
+      ul
+      {
+        list-style-type: square;
+        list-style-position: inside;
+        padding-left: 0;
+
+        li
         {
-          opacity: 1;
+          color: $goldenbrown;
         }
       }
 
-      .slide-from-right
+      &.slide-center-vertical
       {
-        position: absolute;        
-        left: $container-lg;
-        opacity: 0;
-        top: 0;
-        @include transition((left 0.7s ease-out, opacity 0.7s ease-out));
+        position: absolute;
+        text-align: center;
+        top: 30%;
+        width: 100%;
+      }
 
-        &.active
+      &.slide-agile
+      {
+        h3
         {
-          opacity: 1;
-          left: 0;
-
-          &.offset-250
-          {
-            left: 450px;
-          }
+          margin-top: 12%;
+          margin-left: 18%;
+        }
+        p
+        {
+          margin-left: 23%;
         }
       }
 
-      .slide-fade-in
+      &.slide-qa
       {
-        position: absolute;        
-        left: 0;
-        opacity: 0;
-        top: 0;
-        @include transition(opacity 0.7s ease-out);
-
-        &.active
+        h3
         {
-          opacity: 1;
+          margin-left: 80px;
+        }
+      }
+
+      &.slide-deploy
+      {
+        h2, h3, p
+        {
+          display: none;
         }
       }
     }
 
-    .intro-slide
+    // SLIDE POPUPS
+    // ==========
+    .slide-popup
     {
-      height: inherit;
-      padding-top: 140px;
-      background: rgba($white, 0.2);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      padding: 30px;
+      background: rgba($goldendark, 0.9);
+      @include transition(top $defaultTransitionSpeed);
 
       h3
       {
-        background: -webkit-gradient(linear,left top,right top,color-stop(0, #8f804c),color-stop(0.4, #8f804c),color-stop(0.5, white),color-stop(0.6, #8f804c),color-stop(1, #8f804c)); 
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-animation: slidetounlock 5s infinite;
-        width: 100%;
-
-        margin: 0 auto 30px;
-        font-weight: 100;
-        color: $black;
-        font-size: 3em;
+        margin-top: 50px;
+        color: $goldenbrown;
       }
 
-      quote
+      ul
       {
-        font-weight: 100;
-
-        strong
+        li, a
         {
-          font-weight: 400;
+          color: $white;
+        }
+
+        li
+        {
+          font-size: 2.3em;
         }
       }
+
+      .slide-popup-close
+      {
+        background-color: rgba($goldenbrown, 0.6);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 26px;
+        color: $white;
+
+        &:hover
+        {
+          background-color: rgba($goldenbrown, 1);
+        }
+      }
+
+      &.active
+      {
+        top: 0;
+      }
+
+      &#slide-popup-style-guide
+      {
+        img
+        {
+          width: 80%;
+          margin-top: 30px;
+        }
+      }
+    }
+
+
+    // SLIDE GRAPHICS
+    // ==========
+    .slide-graphic
+    {
+      &.slide-graphic-tiger
+      {
+        position: absolute;
+        right: -80px;
+        top: 30%;
+        width: 45%;
+        opacity: 0.8;
+      }
+
+      &.slide-graphic-bottom-right
+      {
+        position: relative;
+        float: right;
+        bottom: 0;
+        right: 0;
+        opacity: 0.8;
+        width: 40%;
+
+        &.slide-graphic-imac
+        {
+          right: -70px;
+          bottom: 70px;
+        }
+      }
+
+      &.slide-graphic-agile
+      {
+        position: relative;
+        width: 50%;
+        left: -20%;
+      }
+
+      &.slide-graphic-devices
+      {
+        float: left;
+        margin-top: -30px;
+
+        .device
+        {
+          position: relative;
+          display: inline-block;
+          margin-right: 35px;
+          height: 240px;
+
+          &.device-desktop
+          {
+            width: 115px;
+          }
+
+          &.device-laptop
+          {
+            width: 313px;
+            text-align: center;
+
+            .browsers
+            {
+              margin-left: 60px;
+              top: 50px;
+              width: 40%;
+            }
+          }
+
+          &.device-tablet-lg
+          {
+            width: 137px;
+          }
+
+          &.device-tablet-sm
+          {
+            width: 99px;
+          }
+
+          &.device-cell
+          {
+            width: 47px;
+          }
+
+          img
+          {
+            top: auto;
+            bottom: 0;
+          }
+        }
+      }
+
+      &.slide-graphic-socialmedia, &.slide-graphic-optimized
+      {
+        position: relative;
+        clear: both;
+        float: right;
+        margin-right: 12%;
+        margin-top: 30px;
+      }
+
+      &.slide-graphic-socialmedia
+      {
+        img
+        {
+          display: inline-block;
+          margin-right: 3px;
+        }
+      }
+
+      &.slide-graphic-deploy
+      {
+        position: absolute;
+        text-align: center;
+        width: 15%;
+        top: 40%;
+        left: 45%;
+        cursor: pointer;
+      }
+    }
+
+    // TWENTY TWENTY
+    // ==========
+    .twentytwenty-container
+    {
+      img
+      {
+        -webkit-backface-visibility:visible;
+      }
+    }
+
+
+    // preview and support slide
+    p[contenteditable]
+    {
+      cursor: text;
+      max-height: 250px;
+      overflow: auto;
     }
   }
 }
 
 @-webkit-keyframes slidetounlock {
   0% {
-    background-position: 720px 0;
+    background-position: 230px 0;
   }
   100% {
-    background-position: -720px 0;
+    background-position: -230px 0;
   }
 }
 
 
+
+@media (max-width: $screen-lg) {
+  body.page-portfolio
+  {
+    #workflow-slider
+    {
+      margin-top: 20px;
+
+      .rsContent
+      {
+        .slide-content
+        {
+          &.slide-qa
+          {
+            h3
+            {
+              margin-left: 54px;
+            }
+          }
+        }
+
+        // SLIDE GRAPHICS
+        // ==========
+        .slide-graphic
+        {
+          &.slide-graphic-devices
+          {
+            .device
+            {
+              margin-right: 35px;
+              height: 140px;
+
+              &.device-desktop
+              {
+                width: 69px;
+              }
+
+              &.device-laptop
+              {
+                width: 188px;
+              }
+
+              &.device-tablet-lg
+              {
+                width: 82px;
+              }
+
+              &.device-tablet-sm
+              {
+                width: 59px;
+              }
+
+              &.device-cell
+              {
+                width: 28px;
+              }
+            }
+          }
+
+          &.slide-graphic-optimized, &.slide-graphic-socialmedia
+          {
+            margin-top: 20px;
+            margin-right: 16%;
+          }
+
+          &.slide-graphic-socialmedia
+          {
+            img
+            {
+              height: 22px;
+            }
+          }
+
+          &.slide-graphic-optimized
+          {
+            width: 210px;
+          }
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: $screen-tablet) {
   body.page-portfolio

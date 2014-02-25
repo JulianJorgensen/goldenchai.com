@@ -27,9 +27,14 @@
 {% asset lib/progressButton/classie.js %}
 {% asset lib/progressButton/progressButton.js %}
 
+// WORKFLOW PAGE AND TWENTYTWENTY (BEFORE/AFTER)
+{% asset lib/jquery.twentytwenty.js %}
+{% asset lib/jquery.event.move.js %}
 
-// LAZY LOAD PORTFOLIO PAGE
-$('.window#portfolio').load('/pages/portfolio.html');
+{% asset workflow.js %}
+
+// // LAZY LOAD PORTFOLIO PAGE
+// $('.window#portfolio').load('/pages/portfolio.html');
 
 
 // MY OWN STUFF
@@ -37,7 +42,6 @@ $('.window#portfolio').load('/pages/portfolio.html');
 {% asset index.js %}
 {% asset footer.js %}
 {% include javascripts/skrollr-stuff.js %}
-
 
 
 $("#features-video .video-element").load('/features-video.html');

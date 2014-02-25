@@ -203,7 +203,7 @@ $(document).ready(function() {
         $('#marquee .nav .nav-art').trigger('click');
         break;
 
-      case "/portfolio":
+      case "/workflow":
         if ($("body").hasClass("footer-active")){
           collapseFooter();
         }
@@ -252,7 +252,7 @@ $(document).ready(function() {
         }
       }else if ((scrollPos > {{ site.portfolio_pre_start }}) && (scrollPos < {{ site.features_pre_start }})){
         if (!$("body").hasClass("page-portfolio")){
-          $.history.push("/portfolio");
+          $.history.push("/workflow");
         }
       }else if ((scrollPos > {{ site.features_pre_start }}) && (scrollPos <= {{ site.features_start }})){
         if (!$("body").hasClass("page-features")){

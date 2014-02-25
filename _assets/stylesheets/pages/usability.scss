@@ -35,4 +35,24 @@ body.manifesto-usability
       }
     }
   }
+
+  .container
+  {
+    .inner-wrapper
+    {
+      #usability.tab-pane
+      {
+        .content-front
+        {
+          .zen-symbol
+          {
+            float: right;
+            width: 225px;
+            height: 210px;
+            @include img-retina(image-url("cta/zen-symbol-1x.png"), image-url("cta/zen-symbol-2x.png"), 225px, 210px);
+          }
+        }
+      }
+    }
+  }
 }

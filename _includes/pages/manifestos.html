@@ -1,4 +1,5 @@
 <section id="manifestos" class="window">
+
   <section id="marquee-wrapper">
     <div id="marquee">
       <div class="marquee-bg marquee-bg-durability"></div>
@@ -29,8 +30,8 @@
           <div class="tab-pane" id="durability">
             <div class="content-front active">
               <div class="black-diamond content-cta content-cta-hover" data-toggle-summary>
-                <img src="{% asset_path cta/black-diamond.png %}" class="default">
-                <img src="{% asset_path cta/black-diamond-hover.png %}" class="hover">
+                <div class="default"></div>
+                <div class="hover"></div>
               </div>
               <div class="hidden-xs">{% include copy/durability.html side="front-desktop" %}</div>
               <div class="visible-xs">{% include copy/durability.html side="front-mobile" %}</div>
@@ -47,9 +48,7 @@
 
           <div class="tab-pane" id="usability">
             <div class="content-front active">
-              <div class="zen-symbol content-cta" data-toggle-summary>
-                <img src="{% asset_path cta/zen-symbol.png %}">
-              </div>
+              <div class="zen-symbol content-cta" data-toggle-summary></div>
               <div class="hidden-xs">{% include copy/usability.html side="front-desktop" %}</div>
               <div class="visible-xs">{% include copy/usability.html side="front-mobile" %}</div>
             </div>
@@ -66,9 +65,7 @@
 
           <div class="tab-pane" id="art">
             <div class="content-front active">
-              <div class="vitruvian content-cta" data-toggle-summary>
-                <img src="{% asset_path cta/vitruvianman.png %}">
-              </div>
+              <div class="vitruvian content-cta" data-toggle-summary></div>
               <div class="hidden-xs">{% include copy/art.html side="front-desktop" %}</div>
               <div class="visible-xs">{% include copy/art.html side="front-mobile" %}</div>
             </div>

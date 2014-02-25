@@ -85,7 +85,6 @@ body
 
           .tab-content
           {
-            height: 250px;
             @include transition(opacity $defaultTransitionSpeed ease-out);
 
             .mobile-manifesto-ctas
@@ -120,20 +119,19 @@ body
               {
                 position: absolute;
                 top: 50%;
-                margin-top: -18px;
-                background: image-url("arrows.png");
-                background-repeat: no-repeat;
-                height: 36px;
-                width: 24px;
+                margin-top: -25px;
+                height: 60px;
+                width: 120px;
                 cursor: pointer;
                 opacity: 0.5;
                 overflow: hidden;
 
                 span
                 {
+                  position: absolute;
                   opacity: 0;
                   text-transform: uppercase;
-                  line-height: 34px;
+                  margin-top: 9px;
                   font-size: 1.1em;
 
                   &.durability
@@ -158,18 +156,10 @@ body
 
                   &.arrow-expand
                   {
-                    width: 110px;
-                    @include transition(width $defaultTransitionSpeed);
-
                     span
                     {
                       opacity: 1;
                       @include transition(opacity $defaultTransitionSpeed);
-                    }
-
-                    &.arrow-expand-short
-                    {
-                      width: 80px;
                     }
                   }
                 }
@@ -177,18 +167,24 @@ body
 
               .arrow-forward
               {
-                text-align: right;
-                background-position: right 0;
-                left: ($container-lg + 50);
-                padding-right: 30px;
+                @include arrow(20px, 1, $black, $white, right);
+                right: -120px;
+
+                span
+                {
+                  right: 30px;
+                }
               }
 
               .arrow-backward
               {
-                text-align: left;
-                background-position: left -36px;
-                right: ($container-lg + 50);
-                padding-left: 30px;
+                @include arrow(20px, 1, $black, $white, left);
+                left: -120px;
+
+                span
+                {
+                  left: 30px;
+                }
               }
             }
 
@@ -469,135 +465,7 @@ body
 }
 
 
-// DURABILITY CONTENT STYLES
-// *************************
-body
-{
-  .container
-  {
-    .inner-wrapper
-    {
-      #durability.tab-pane
-      {
-        .content-front
-        {
-          .black-diamond
-          {
-            float: right;
-            width: 219px;
-            height: 203px;
-
-            img
-            {
-              position: absolute;
-            }
-
-            img.default
-            {
-              opacity: 1;
-            }
-
-            img.hover
-            {
-              opacity: 0;
-            }
-
-            &:hover
-            {
-              img.default
-              {
-                opacity: 0;
-              }
-
-              img.hover
-              {
-                opacity: 1;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// USABILITY CONTENT STYLES
-// *************************
-body
-{
-  .container
-  {
-    .inner-wrapper
-    {
-      #usability.tab-pane
-      {
-        .content-front
-        {
-          .zen-symbol
-          {
-            float: right;
-            width: 180px;
-            height: 179px;
-          }
-        }
-      }
-    }
-  }
-}
-
-// ART CONTENT STYLES
-// *************************
-body
-{
-  .container
-  {
-    .inner-wrapper
-    {
-      #art.tab-pane
-      {
-        .arrow-forward
-        {
-          display: none;
-        }
-
-        .content-front
-        {
-          .vitruvian
-          {
-            float: right;
-            width: 178px;
-            height: 178px;
-          }
-        }
-
-        .content-summary
-        {
-          text-align: center;
-          padding-top: 40px;
-
-          quote
-          {
-            color: darken($art-color, 20);
-            font-size: 3em;
-            font-weight: 100;
-          }
-
-          .author
-          {
-            display: block;
-            margin-top: 15px;
-            font-size: 1.2em;
-            font-weight: 100;
-          }
-        }
-      }
-    }
-  }
-}
-
-
-
-@media (max-width: $screen-md-max)
+@media (max-width: $screen-md)
 {
   body
   {

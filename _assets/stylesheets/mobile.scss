@@ -59,35 +59,8 @@
   {
     margin-top: 50px;
 
-    header #primary-nav .primary-nav-item
-    {
-      height: 33px;
-      margin-top: 9px;
-      
-      .nav-title
-      {
-        line-height: 33px;
-      }
-
-      .nav-icon
-      {
-        width: 36px;        
-      }
-    }
-
-    #manifestos #marquee-wrapper #marquee
-    {
-      .marquee-headline h1
-      {
-        font-size: 1.4em;
-        margin-top: 0;        
-      }
-
-      .nav
-      {
-        font-size: 2.2em;
-      }
-    }
+    @include largeHeader();
+    @include largeMarquee();
 
     &.page-features
     {

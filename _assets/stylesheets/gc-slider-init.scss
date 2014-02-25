@@ -2,51 +2,37 @@
 @import "mixins";
 @import "bootstrap-variables";
 
-
-.rsDefault .rsThumb
-{
-  float: left;
-  width: 120px;
-  height: 100px;
-  padding-right: 20px;
-}
-
-#portfolio-thumbs-slider
-{
-  width: $portfolio-container-lg;
-}
-
-#portfolio-thumbs-slider
+#workflow-slider
 {
   height: 500px;
 }
 
-.portfolio-content-slider
+@media (min-width: $screen-lg)
 {
-  height: 400px;
-}
-
-#footer-content-slider
-{
-  height: 1200px;
-}
-
-
-// TABLET BOTH PORTRAIT AND LANDSCAPE STYLES
-@media (min-device-width: $screen-phone) and (max-device-width: $screen-tablet) and (orientation: portrait), (min-device-width: $screen-phone) and (max-device-width: $screen-tablet) and (orientation: landscape)
-{
-  .portfolio-content-slider
+  #workflow-slider
   {
-    height: 450px;
+    height: 800px;
+  }
+}
 
-    .rsSlide
-    {
-      max-height: 450px;
-    }
+// RSDEFAULT OVERWRITES
 
-    .slide-caption
-    {
-      opacity: 1 !important;
-    }
+/***************
+*
+*  1. Arrows
+*
+****************/
+
+.rsDefault.rsHor .rsArrowLeft { 
+  .rsArrowIcn
+  {
+    @include arrow(20px, 1, $black, $portfolio-color, left);    
+  }
+}
+
+.rsDefault.rsHor .rsArrowRight { 
+  .rsArrowIcn
+  {
+    @include arrow(20px, 1, $black, $portfolio-color, right);    
   }
 }

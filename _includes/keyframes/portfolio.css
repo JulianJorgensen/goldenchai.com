@@ -12,12 +12,12 @@ body.site-single-page.screen-desktop #portfolio
 
   {{ site.portfolio_start }} {
     opacity: 1;
-    z-index: 999;
+    z-index: 9;
   }
 
   {{ site.portfolio_pre_end }} {
     opacity: 1;
-    z-index: 999;
+    z-index: 9;
   }
 
   {{ site.portfolio_end }} {

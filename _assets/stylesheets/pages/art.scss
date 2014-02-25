@@ -30,4 +30,50 @@ body.manifesto-art
       }
     }
   }
+
+  .container
+  {
+    .inner-wrapper
+    {
+      #art.tab-pane
+      {
+        .arrow-forward
+        {
+          display: none;
+        }
+
+        .content-front
+        {
+          .vitruvian
+          {
+            float: right;
+            width: 215px;
+            height: 215px;
+            @include img-retina(image-url("cta/vitruvian-1x.png"), image-url("cta/vitruvian-2x.png"), 215px, 215px);
+          }
+        }
+
+        .content-summary
+        {
+          text-align: center;
+          padding-top: 40px;
+
+          quote
+          {
+            color: darken($art-color, 20);
+            font-size: 3em;
+            font-weight: 100;
+          }
+
+          .author
+          {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: 100;
+          }
+        }
+      }
+    }
+  }
 }

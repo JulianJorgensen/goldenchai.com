@@ -23,7 +23,7 @@ body
   footer
   {
     position: fixed;
-    top: 650px;
+    top: 680px;
     height: 100%;
     width: 100%;
     z-index: 9999;
@@ -246,6 +246,8 @@ body.desktop
 // FOOTER ACTIVE STATE
 body.footer-active
 {
+  margin-top: 0;
+  
   header
   {
     .goldenchai-logo-wrapper

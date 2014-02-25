@@ -1,8 +1,6 @@
-/* variables */
 @import "constants";
-
-/* mixins */
 @import "mixins";
+@import 'bootstrap-variables';
 
 
 // STYLES FOR DURABILITY ONLY
@@ -45,6 +43,59 @@ body.manifesto-durability
               display: block;
             }
           }          
+        }
+      }
+    }
+  }
+
+  .container
+  {
+    .inner-wrapper
+    {
+      #durability.tab-pane
+      {
+        .content-front
+        {
+          .black-diamond
+          {
+            float: right;
+            width: 225px;
+            height: 210px;
+
+            .default, .hover
+            {
+              position: absolute;
+              top: 0;
+            }
+
+            .default
+            {
+              width: inherit;
+              height: inherit;
+              @include img-retina(image-url("cta/black-diamond-1x.png"), image-url("cta/black-diamond-2x.png"), 225px, 210px);
+            }
+
+            .hover
+            {
+              width: inherit;
+              height: inherit;
+              opacity: 0;
+              @include img-retina(image-url("cta/black-diamond-hover-1x.png"), image-url("cta/black-diamond-hover-2x.png"), 225px, 210px);
+            }
+
+            &:hover
+            {
+              .default
+              {
+                opacity: 0;
+              }
+
+              .hover
+              {
+                opacity: 1;
+              }
+            }
+          }
         }
       }
     }

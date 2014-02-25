@@ -22,7 +22,7 @@ body.site-single-page.screen-desktop #marquee .marquee-headline
 @-skrollr-keyframes manifestos_opacity{
   {{ site.manifestos_pre_end }} {
     opacity: 1;
-    z-index: 999;
+    z-index: 9;
   }
 
   {{ site.manifestos_end }} {
