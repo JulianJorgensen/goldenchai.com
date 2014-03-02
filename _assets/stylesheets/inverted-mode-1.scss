@@ -31,7 +31,8 @@ body.inverted-mode-1
 
 
   background-color: $manifestos-color-inverted-mode-1;
-  color: $gray40;
+  color: $white;
+
   a
   {
     color: darken($white, 15%);
@@ -42,77 +43,77 @@ body.inverted-mode-1
     }
   }
 
-
   header
   {
     #primary-nav
     {
       .primary-nav-item
       {
-        &.primary-nav-manifestos
-        {
-          .nav-icon
-          {
-            background-color: $manifestos-nav-color-inverted-mode-1;
-          }
-        }
+        opacity: 0.8;
 
-        &.primary-nav-portfolio
-        {
-          .nav-icon
+        .nav-title
+        {          
+          a
           {
-            background-color: $portfolio-nav-color-inverted-mode-1;
-          }
-        }
-
-        &.primary-nav-features
-        {
-          .nav-icon
-          {
-            background-color: $features-nav-color-inverted-mode-1;
+            color: $white;
           }
         }
       }
     }
+  }
 
-    .goldenchai-logo-wrapper
+
+  // SLIDER ARROW COLOR
+  .rsDefault.rsHor .rsArrowLeft { 
+    .rsArrowIcn
     {
-      .goldenchai-logo
+      @include arrow(20px, 1, $white, $workflow-color-inverted-mode-1, left);    
+    }
+  }
+
+  .rsDefault.rsHor .rsArrowRight { 
+    .rsArrowIcn
+    {
+      @include arrow(20px, 1, $white, $workflow-color-inverted-mode-1, right);    
+    }
+  }
+
+
+  &.footer-active
+  {
+    hr
+    {
+      border-top-color: $white;
+    }
+
+    // blur/hide workflow stuff
+    #workflow
+    {
+      .royalSlider
       {
-        &.goldenchai-logo-alternative
+        .rsOverflow
         {
-          background-color: rgba($gray40, 0.3);
+          opacity: 0.2;
         }
       }
     }
+  }
 
-    #primary-nav
+  footer
+  {
+    .footer-nav-cta
     {
-      .primary-nav-item
+      &.active
       {
-        &.primary-nav-manifestos
+        &:before
         {
-          .nav-icon
-          {
-            // background-color: invert($manifestos-nav-color);
-          }
+          @include triangle(6px, $white, top);
         }
+      }
 
-        &.primary-nav-portfolio
-        {
-          .nav-icon
-          {
-            // background-color: darken($portfolio-nav-color, 60%);
-          }
-        }
-
-        &.primary-nav-features
-        {
-          .nav-icon
-          {
-            // background-color: invert($features-nav-color);
-          }
-        }
+      a
+      {
+        color: $white;
       }
     }
   }
@@ -131,8 +132,14 @@ body.inverted-mode-1
           {
             .arrows
             {
-              .arrow
+              .arrow-forward
               {
+                @include arrow(20px, 1, $white, $black, right);
+              }
+
+              .arrow-backward
+              {
+                @include arrow(20px, 1, $white, $black, left);
               }
             }
           }
@@ -168,15 +175,15 @@ body.inverted-mode-1
   }
 
 
-  // PORTFOLIO INVERTED STYLES
+  // workflow INVERTED STYLES
   // *************************
-  &.page-portfolio
+  &.page-workflow
   {
-    section#portfolio
+    section#workflow
     {
-      @include diagonalGradient($portfolio-color-inverted-mode-1, darken($portfolio-color-inverted-mode-1, 10%), 70%);
+      @include diagonalGradient($workflow-color-inverted-mode-1, darken($workflow-color-inverted-mode-1, 5%), 70%);
 
-      h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
+      nav, footer, header
       {
         color: $white;
       }
@@ -196,25 +203,6 @@ body.inverted-mode-1
 
   // features INVERTED STYLES
   // *************************
-
-  &.page-features
-  {
-    footer
-    {
-      hr
-      {
-        border-top-color: $white;
-      }
-
-      .footer-nav-cta
-      {
-        &.active
-        {
-          background-image: image-url("footer-nav-arrow-white.png");
-        }
-      }
-    }
-  }
 
   section#features
   {
@@ -282,6 +270,22 @@ body.inverted-mode-1
 
   .accordion
   {
+    .panel
+    {
+      .accordion-title
+      {
+        background-image: image-url("nav/accordion-default-white.png");
+      }
+    }
+
+    .panel.active
+    {
+      .accordion-title
+      {
+        background-image: image-url("nav/accordion-active-white.png");
+      }
+    }
+
     .accordion-item.active
     {
       color: $white;

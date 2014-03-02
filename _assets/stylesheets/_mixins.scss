@@ -40,6 +40,11 @@
 // END RESPONSIVE MIXINS
 
 
+@mixin activeNavBg($color: $gray20)
+{
+  background-color: rgba($color, 0.5);
+}
+
 /* mixins */
 @mixin transition($transition)
 {
@@ -121,7 +126,7 @@
   }
 }
 
-@mixin arrow($arrow-size, $arrow-thickness, $arrow-color, $arrow-bg, $arrow-direction)
+@mixin arrow($arrow-size, $arrow-thickness, $arrow-color, $arrow-bg, $arrow-direction, $arrow-offset: 0)
 {
   /* top-stacked, smaller arrow */
   &:before {
@@ -139,6 +144,13 @@
     {
       right: ($arrow-thickness - $arrow-size);
     }
+    @if ($arrow-direction == bottom)
+    {
+      top: ($arrow-offset+$arrow-thickness);
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
   }
 
   &:after {
@@ -155,6 +167,13 @@
     @if ($arrow-direction == right)
     {
       right: (-$arrow-size);
+    }
+    @if ($arrow-direction == bottom)
+    {
+      top: $arrow-offset;
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
     }
   }
 }

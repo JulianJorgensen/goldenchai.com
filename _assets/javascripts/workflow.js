@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  // PORTFOLIO CONTENT SLIDERS (HORIZONTAL)
+  // workflow CONTENT SLIDERS (HORIZONTAL)
   $('#workflow-slider').royalSlider({
     controlsInside: false,
     navigateByClick: false,
@@ -10,7 +10,7 @@ $(document).ready(function() {
   });
 
   setTimeout(function(){
-    $("#workflow-slider .twentytwenty-container").twentytwenty({default_offset_pct: 0.7});
+    $("#workflow-slider .twentytwenty-container").twentytwenty({default_offset_pct: 0.5});
   }, 400);
 
 

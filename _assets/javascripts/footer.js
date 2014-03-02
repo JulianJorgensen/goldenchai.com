@@ -116,15 +116,15 @@ $(document).ready(function() {
       $(".footer-chai p.invert-mode-2").removeClass("active");
       $(".footer-chai p.copyright").removeClass("active");
     }
-    else if ($("body").hasClass("inverted-mode-1"))
-    {
-      $("body").removeClass("inverted-mode-1");
-      $("body").addClass("inverted-mode-2");
+    // else if ($("body").hasClass("inverted-mode-1"))
+    // {
+    //   $("body").removeClass("inverted-mode-1");
+    //   $("body").addClass("inverted-mode-2");
 
-      $(".footer-chai p.invert-mode-1").removeClass("active");
-      $(".footer-chai p.invert-mode-2").addClass("active");
-      $(".footer-chai p.copyright").removeClass("active");
-    }
+    //   $(".footer-chai p.invert-mode-1").removeClass("active");
+    //   $(".footer-chai p.invert-mode-2").addClass("active");
+    //   $(".footer-chai p.copyright").removeClass("active");
+    // }
     else
     {
       $("body").removeClass("inverted-mode-1 inverted-mode-2");
@@ -215,8 +215,8 @@ function collapseFooter(){
   {
     if ($("body").hasClass("page-manifestos")){
       $.history.push("/manifestos");
-    }else if ($("body").hasClass("page-portfolio")){    
-      $.history.push("/portfolio");
+    }else if ($("body").hasClass("page-workflow")){    
+      $.history.push("/workflow");
     }else if ($("body").hasClass("page-features")){    
       $.history.push("/features");
     }

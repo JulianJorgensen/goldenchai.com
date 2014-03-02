@@ -33,8 +33,8 @@
 
 {% asset workflow.js %}
 
-// // LAZY LOAD PORTFOLIO PAGE
-// $('.window#portfolio').load('/pages/portfolio.html');
+// // LAZY LOAD workflow PAGE
+// $('.window#workflow').load('/pages/workflow.html');
 
 
 // MY OWN STUFF

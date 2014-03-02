@@ -26,13 +26,13 @@
 .rsDefault.rsHor .rsArrowLeft { 
   .rsArrowIcn
   {
-    @include arrow(20px, 1, $black, $portfolio-color, left);    
+    @include arrow(20px, 1, $black, $workflow-color, left);    
   }
 }
 
 .rsDefault.rsHor .rsArrowRight { 
   .rsArrowIcn
   {
-    @include arrow(20px, 1, $black, $portfolio-color, right);    
+    @include arrow(20px, 1, $black, $workflow-color, right);    
   }
 }

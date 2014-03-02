@@ -1,30 +1,33 @@
 {% if include.side == "front-desktop" %}
-  <h3>Manifesto #2: Your users are the primary focus. Intuitively guided, they should achieve their goal with least effort.</h3>
-  <p>Web users are extremely impatient. Any redundant clicks, or effort using your site, distracts them from achieving their goal. Within seconds they may give up and already googled their way to your competitor.</p>
-  <p class="hidden-xs">To keep the users' focus, only highly applicable information is presented. Measured using A/B tests, their experience, and focus, is continuously optimized.</p>
-  <p>This leads to a higher Conversion Rate, which simply means: both your users, and yourself, get what you want - with most ease.</p>
+  <h3>Manifesto #2: Your users are the primary focus: Intuitively guided, they should achieve their goal with least effort.</h3>
+  <p>Web users are extremely impatient. Any redundant click, or effort using your site, distracts them from achieving their goal. Within seconds they may give up and click way to your competition.</p>
+  <p>To keep the users' focus, only highly applicable information need be presented. Utilizing randomized A/B tests, the user experience, and their focus is continuously optimized.</p>
+  <p>This leads to a higher Conversion Rate, which means we've given the <i>right content</i> to the <i>right user</i> at the <i>right time</i>.</p>
 
 {% elsif include.side == "front-mobile" %}
 
-  <h3>Manifesto #2: Your users are the primary focus. Intuitively guided, they should achieve their goal with least effort.</h3>
-  <p>Web users are extremely impatient. Any redundant clicks, or effort using your site, distracts them from achieving their goal. Within seconds they may give up and already googled their way to your competitor.</p>
 
 {% else %}
 
   <h2>To us, Usability involves:</h2>
 
   <div class="row">
-    <ul class="col-sm-6">
-      <li>Intuitive design</li>
-      <li>Keeping users engaged</li>
-      <li><span href="#" data-toggle="tooltip" title="Google PageSpeed gives insights on where improve.">Lightning-fast load speed</span></li>
-    </ul>
-    <ul class="col-sm-6">
-      <li>Helping users achieve their goal</li>
-      <li><span href="#" data-toggle="tooltip" title="A conversion means; a visitor has made a purchase, signup, or inquiry on your website. He has achieved his goal successfully.">An achieved goal is a <i>Conversion</i></span></li>
-      <li><span href="#" data-toggle="tooltip" title="Using this test, random 50% of your users will be presented with layout A, while the other 50% will be presented with layout B. This allows us to determine which is most effective.">A/B tests and Google Analytics</span></li>
-    </ul>
-    <p class="lead hidden-xs">Both Durability and Usability is the foundation - <a href="#/art">Art is what makes it come alive &rsaquo;</a>
+    <div class="col-sm-6">
+      <ul>
+        <li>Intuitive design</li>
+        <li>Keeping users engaged</li>
+        <li><span href="#" data-toggle="tooltip" title="Google PageSpeed gives insights on where improve.">Lightning-fast load speed</span></li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <ul>
+        <li>Helping users achieve their goal</li>
+        <li><span href="#" data-toggle="tooltip" title="A conversion means; a visitor has made a purchase, signup, or inquiry on your website. He has achieved his goal successfully.">An achieved goal is a <i>Conversion</i></span></li>
+        <li><span href="#" data-toggle="tooltip" title="Using this test, random 50% of your users will be presented with layout A, while the other 50% will be presented with layout B. This allows us to determine which is most effective.">A/B tests and Google Analytics</span></li>
+      </ul>
+    </div>
   </div>
+
+  <p class="lead hidden-xs">Both Durability and Usability is the foundation - <a href="#/art">Art is what makes it come alive &rsaquo;</a>
 
 {% endif %}

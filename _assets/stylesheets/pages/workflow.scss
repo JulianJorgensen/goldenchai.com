@@ -4,7 +4,7 @@
 @import 'lib/bootstrap-3.0.3/_mixins';
 
 
-body.site-multiple-pages.page-portfolio
+body.page-workflow
 {
   header
   {
@@ -17,28 +17,29 @@ body.site-multiple-pages.page-portfolio
     {
       .goldenchai-logo
       {
-        &.goldenchai-logo-alternative
+        background-color: $gray6;
+
+        .logo-copy
         {
-          opacity: 1;
-          z-index: 999;
+          .logo-golden
+          {
+            color: $goldenbrown;
+          }
+
+          .logo-chai
+          {
+            color: $gray70;
+          }
         }
       }
     }
   }
-
-  section#portfolio
-  {
-    .container
-    {
-      margin-top: 20px;
-    }
-  }
 }
 
-section#portfolio
+section#workflow
 {
   text-align: center;
-  @include diagonalGradient($portfolio-color, $portfolio-color-dark, 70%);
+  @include diagonalGradient($workflow-color, $workflow-color-dark, 70%);
 
   h1, h2, h3, h4, h5, h6, p, ul, li, div, span, blockquote, nav, footer, header, button, a
   {
@@ -53,7 +54,7 @@ section#portfolio
   .rsContent
   {
     padding-top: 20px;
-    background: rgba($white, 0.6);
+    background: $gray6;
 
     h2
     {
@@ -158,7 +159,6 @@ section#portfolio
 
       h3
       {
-        margin-top: 50px;
         color: $goldenbrown;
       }
 
@@ -167,11 +167,6 @@ section#portfolio
         li, a
         {
           color: $white;
-        }
-
-        li
-        {
-          font-size: 2.3em;
         }
       }
 
@@ -198,13 +193,9 @@ section#portfolio
         top: 0;
       }
 
-      &#slide-popup-style-guide
+      img
       {
-        img
-        {
-          width: 80%;
-          margin-top: 30px;
-        }
+        margin-top: 30px;
       }
     }
 
@@ -360,7 +351,7 @@ section#portfolio
 
 
 @media (max-width: $screen-lg) {
-  body.page-portfolio
+  body.page-workflow
   {
     #workflow-slider
     {
@@ -442,24 +433,24 @@ section#portfolio
 }
 
 @media (max-width: $screen-tablet) {
-  body.page-portfolio
+  body.page-workflow
   {
-    @include gradient-vertical($portfolio-color, $portfolio-color-dark);
+    @include gradient-vertical($workflow-color, $workflow-color-dark);
 
     &.footer-active
     {
       header
       {
-        background: $portfolio-color;
+        background: $workflow-color;
       }
 
       footer .footer-nav
       {
-        @include gradient-vertical(rgba($portfolio-color, 1), rgba($portfolio-color, 0), 40%);
+        @include gradient-vertical(rgba($workflow-color, 1), rgba($workflow-color, 0), 40%);
       }
     }
 
-    section#portfolio
+    section#workflow
     {
       background: none;
     }
@@ -467,11 +458,11 @@ section#portfolio
 }
 
 @media (max-width: $screen-xs) {
-  body.page-portfolio
+  body.page-workflow
   {
-    #portfolio
+    #workflow
     {
-      .portfolio-content-slider
+      .workflow-content-slider
       {
         .rsSlide
         {

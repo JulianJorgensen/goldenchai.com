@@ -3,12 +3,6 @@
 @import 'bootstrap-variables';
 
 
-@mixin activeNavBg($color: $gray20)
-{
-  background-color: rgba($color, 0.5);
-}
-
-
 /* header */
 body
 {
@@ -44,6 +38,11 @@ body
           font-size: 0.9em;
           text-transform: uppercase;
           @include disableHighlighting;
+          
+          a
+          {
+            color: $black;
+          }
         }
 
         .nav-icon
@@ -64,11 +63,11 @@ body
           }
         }
 
-        &.primary-nav-portfolio
+        &.primary-nav-workflow
         {
           .nav-icon
           {
-            background-color: $portfolio-nav-color;
+            background-color: $workflow-nav-color;
           }
         }
 
@@ -91,9 +90,9 @@ body
     }
   }
 
-  &.page-portfolio
+  &.page-workflow
   {
-    header #primary-nav .primary-nav-portfolio
+    header #primary-nav .primary-nav-workflow
     {
       @include activeNavBg();
     }

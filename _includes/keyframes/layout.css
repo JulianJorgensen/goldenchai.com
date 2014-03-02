@@ -13,25 +13,25 @@ body.site-single-page.screen-desktop #primary-nav .primary-nav-manifestos
   }
 }
 
-body.site-single-page.screen-desktop #primary-nav .primary-nav-portfolio
+body.site-single-page.screen-desktop #primary-nav .primary-nav-workflow
 {
-  -skrollr-animation-name: transition_active_nav_bg_portfolio;
+  -skrollr-animation-name: transition_active_nav_bg_workflow;
 }
 
-@-skrollr-keyframes transition_active_nav_bg_portfolio{
-  {{ site.portfolio_pre_start }} {
+@-skrollr-keyframes transition_active_nav_bg_workflow{
+  {{ site.workflow_pre_start }} {
     background-color: rgba(204,204,204,0);
   }
 
-  {{ site.portfolio_start }} {
+  {{ site.workflow_start }} {
     background-color: rgba(204,204,204,0.5);
   }
 
-  {{ site.portfolio_pre_end }} {
+  {{ site.workflow_pre_end }} {
     background-color: rgba(204,204,204,0.5);
   }
 
-  {{ site.portfolio_end }} {
+  {{ site.workflow_end }} {
     background-color: rgba(204,204,204,0);
   }
 }

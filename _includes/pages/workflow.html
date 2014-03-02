@@ -25,33 +25,58 @@
       </div>
       <div class="slide-popup text-center" id="slide-popup-style-guide">
         <div class="slide-popup-close" data-close-popup>x</div>
-        <img src="{% asset_path workflow/style-tile.jpg %}" />
+        <img src="{% asset_path workflow/style-tile.jpg %}" class="img-responsive" />
       </div>
       <div class="slide-popup" id="slide-popup-favourite-sites">
         <div class="slide-popup-close" data-close-popup>x</div>
 
         <div class="row">
-          <div class="col-sm-10 col-sm-offset-1">
+          <div class="col-sm-10 col-sm-offset-1 text-left">
             <h3>Our top 10 favourite sites</h3>
+            <div class="row lead">
+              <div class="col-sm-6">
+                <ul>
+                  <li><a href="http://apple.com/mac-pro" target="_blank">Mac Pro</a></li>
+                  <li><a href="http://misfitwearables.com" target="_blank">misfitwearables.com</a></li>
+                  <li><a href="http://webflow.com" target="_blank">webflow.com</a></li>
+                  <li><a href="http://bjoernmeier.com" target="_blank">bjoernmeier.com</a></li>
+                  <li><a href="http://elevatorstrategy.com" target="_blank">elevatorstrategy.com</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul>
+                  <li><a href="http://www.eone-time.com" target="_blank">eone-time.com</a></li>
+                  <li><a href="http://www.roidna.com" target="_blank">roidna.com</a></li>
+                  <li><a href="http://www.teslamotors.com/goelectric#charging" target="_blank">teslamotors.com</a></li>
+                  <li><a href="http://www.kaleidoscopeapp.com" target="_blank">kaleidoscopeapp.com</a></li>
+                  <li><a href="http://www.discovershadow.com" target="_blank">discovershadow.com</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Additional sites for inspiration</h3>
             <div class="row">
               <div class="col-sm-6">
                 <ul>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
+                  <li><a href="https://www.apple.com/30-years/" target="_blank">apple.com/30-years/</a></li>
+                  <li><a href="http://marquee-demo.squarespace.com" target="_blank">MARQUEE</a></li>
+                  <li><a href="http://wildlife.la" target="_blank">wildlife.la</a></li>
+                  <li><a href="http://kitkat.com" target="_blank">kitkat.com</a></li>
+                  <li><a href="http://activatedrinks.com" target="_blank">activatedrinks.com</a></li>
                 </ul>
               </div>
               <div class="col-sm-6">
                 <ul>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
-                  <li><a href="" target="_blank">apple.com</a></li>
+                  <li><a href="http://nizoapp.com" target="_blank">nizoapp.com</a></li>
+                  <li><a href="http://bartaz.github.io/impress.js" target="_blank">bartaz.github.io/impress.js</a></li>
+                  <li><a href="http://www.kia.co.uk/new-cars/range/mid-sized-cars/proceed-gt/intro.aspx" target="_blank"></a>KIA</li>
+                  <li><a href="http://www.imagemechanics.com.au" target="_blank">imagemechanics.com.au</a></li>
+                  <li><a href="http://hlvticons.ch" target="_blank">hlvticons.ch</a></li>
                 </ul>
               </div>
+
+
+
             </div>
           </div>
         </div>
@@ -60,8 +85,8 @@
     <div class="rsContent">
       <div class="slide-content">
         <h2>3. Solidify</h2>
-        <h3>The blueprint involves: functionality, behaviour and content, whereas the mockup is more involved with layouts and aesthetics.</h3>
-        <p>This will often take form of a potent<br>collection of websites, and style guides.</p>
+        <h3>Bringing discussed concepts and inspirations together, we'll create blueprints and mockups.</h3>
+        <p>The blueprint involves: functionality, behaviour and content, whereas the mockup is more involved with layouts and aesthetics.</p>
         <ul>
           <li><a href="#" data-activate-slide-popup="slide-popup-blueprint">See an example of a blueprint</a></li>
           <li><a href="#" data-activate-slide-popup="slide-popup-mockup">See an example of a mockup</a></li>
@@ -72,20 +97,22 @@
       </div>
       <div class="slide-popup text-center" id="slide-popup-blueprint">
         <div class="slide-popup-close" data-close-popup>x</div>
-        <img src="{% asset_path workflow/style-tile.jpg %}" />
+        <h3>Blueprint example (using Omnigraffle Pro)</h3>
+        <img src="{% asset_path workflow/dev-before.jpg %}" class="img-responsive" />
       </div>
       <div class="slide-popup" id="slide-popup-mockup">
         <div class="slide-popup-close" data-close-popup>x</div>
-        <h3>Mockup</h3>
+        <h3>Mockup example (using Photoshop)</h3>
+        <img src="{% asset_path workflow/mockup.jpg %}" class="img-responsive" />
       </div>
     </div>
     <div class="rsContent">
       <div class="slide-content">
         <h2>4. Development</h2>
-        <h3>Time to begin manifesting.<br>Drag the slider below to see it in action.</h3>
+        <h3>Manifesting begins. To illustrate, drag the slider below.</h3>
         <div class="twentytwenty-container rsNoDrag">
-          <img src="{% asset_path workflow/1_1.jpg %}" class="img-responsive" />
-          <img src="{% asset_path workflow/1_2.jpg %}" class="img-responsive" />
+          <img src="{% asset_path workflow/dev-before.jpg %}" class="img-responsive" />
+          <img src="{% asset_path workflow/dev-after.jpg %}" class="img-responsive" />
         </div>
       </div>
     </div>

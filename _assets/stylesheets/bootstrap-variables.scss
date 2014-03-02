@@ -60,7 +60,7 @@ $container-lg:                 $container-large-desktop !default;
 // ===========
 
 $font-family-base: "ff-basic-gothic-web-pro-1", "ff-basic-gothic-web-pro-2";
-$text-color: $gray70;
+$text-color: $black;
 
 $brand-primary: $durability-color;
 
@@ -123,8 +123,8 @@ $font-size-phone-portrait-h6: ceil($font-size-phone-portrait * 0.85);
 // Links
 // -------------------------
 
-$link-color: darken($brand-primary, 20%);
-$link-hover-color:      darken($link-color, 15%) !default;
+$link-color: darken($goldenbrown, 30%);
+$link-hover-color: darken($link-color, 20%);
 
 
 

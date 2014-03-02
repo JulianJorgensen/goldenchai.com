@@ -21,7 +21,7 @@ body.browser-firefox
     // hide manifestos stuff (the css blur filter doesnt work on firefox)
     .window
     {
-      .container, #marquee .nav, #marquee .marquee-headline, #portfolio-thumbs-slider
+      .container, #marquee .nav, #marquee .marquee-headline, #workflow-thumbs-slider
       {
         opacity: 0;
       }

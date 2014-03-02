@@ -21,7 +21,7 @@
   *= require './pages/usability.scss'
   *= require './pages/art.scss'
 
-  *= require './pages/portfolio.scss'
+  *= require './pages/workflow.scss'
   *= require './pages/features.scss'
 
   *= require './mobile.scss'

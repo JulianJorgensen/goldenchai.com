@@ -58,7 +58,7 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-g
   }
 
   {{ site.features_end }} {
-    left: -130px;
+    left: -110px;
     top: -60px;
     opacity: 0.8;
     width: 100px;
@@ -119,7 +119,7 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-g
   }
 
   {{ site.features_pre_end }} {
-    left: 130px;
+    left: 100px;
     opacity: 0.8;
     width: 100px;
     height: 100px;

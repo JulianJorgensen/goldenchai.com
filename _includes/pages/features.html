@@ -1,39 +1,40 @@
-<div id="features-video" class="hidden-xs hidden-sm">
+<div id="features-video" class="video-top hidden-xs hidden-sm">
   <div class="video-element"></div>
   <div class="video-fader"></div>
 </div>
 <section class="container">
   <div class="inner-wrapper">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#design" data-toggle="tab">Webdesign</a></li>
+      <li class="active"><a href="#design" data-toggle="tab">Design</a></li>
+      <li><a class="features-dev-tab" href="#development" data-toggle="tab"><span class="hidden-xs">Development</span><span class="visible-xs">Dev</span></a></li>
       <li><a href="#userexperience" data-toggle="tab"><span class="hidden-xs">User Experience</span><span class="visible-xs">UX</span></a></li>
-      <li><a href="#development" data-toggle="tab"><span class="hidden-xs">Development</span><span class="visible-xs">Dev</span></a></li>
-      <li><a href="#performance" data-toggle="tab">Performance</a></li>
+      <li><a href="#social" data-toggle="tab">Social</a></li>
     </ul>
+
 
     <div class="tab-content">
       <div class="tab-pane fade in active" id="design">
         <div class="row">
-          <div class="col-sm-6 col-md-5">
-            <p>Great design blends both function and beauty in a unique and intuitive way. Inevitably, it is also a question of compromising; to find the golden mean.</p>
+          <div class="col-md-6">
 
-            <h5>We design:</h5>
-            <ul>
-              <li>Websites</li>
+            <h3>Areas of expertise:</h3>
+            <ul class="lead">
+              <li>Webdesign</li>
               <li>Online identity and branding</li>
               <li>Landing pages that converts</li>
-              <li>Web architecture</li>
+              <li>Persuassive web architecture</li>
+              <li>Marketing material (e.g. business cards)</li>
             </ul>
 
             <hr>
             <p>
-              <a href="#/info" data-accordion="pricing">$70 / hour. More info here.</a>
+              <a href="#/info" data-accordion="pricing">Pricing info</a>
             </p>
             <p>
               <a href="#/info" data-accordion="why">Why work with us?</a>
             </p>
           </div>
-          <div class="col-sm-6 col-md-6 col-md-offset-1 hidden-xs">
+          <div class="col-md-4 col-md-offset-2 hidden-xs">
             <div class="design-concept">
               <h2>DESIGN</h2>
               <div class="design-concept-group design-concept-group-1 design-concept-group-light">
@@ -51,9 +52,37 @@
         </div>
       </div>
 
-      <div class="tab-pane fade" id="userexperience">
+      <div class="tab-pane fade" id="development">
         <div class="row">
           <div class="col-sm-6">
+            <h4>Front-end</h4>
+            <ul>
+              <li>Scalable CSS3 architecture (using sass and other frameworks)</li>
+              <li>Compact Javascript / Coffeescript</li>
+              <li>Semantic HTML5. Bootstrap 3</li>
+              <li>Jekyll and Github based</li>
+              <li>Our code is universal; easy to collaborate with other developers</li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <h4>Back-end</h4>
+            <ul>
+              <li>PHP, Ruby on Rails, and Python web development</li>
+              <li>eCommerce development (Magento)</li>
+              <li>Facebook app development</li>
+              <li>iPhone/iPad app development</li>
+            </ul>
+          </div>
+        </div>
+        <div class="development-before-after">
+          <img src="{% asset_path features/dev-before.jpg %}" />
+          <img src="{% asset_path features/dev-after.jpg %}" />
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="userexperience">
+        <div class="row">
+          <div class="col-sm-7">
             <h4>User Interface tips</h4>
             <ul>
               <li>Keep consistent design patterns</li>
@@ -70,95 +99,52 @@
               <li>Measure it, measure it, measure it</li>
             </ul>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-5">
             <div class="row">
-              <div class="col-sm-2 col-sm-offset-1 visible-sm">
+              <div class="col-sm-2 col-sm-offset-1">
                 <div class="spacer-vertical left">
                   <div class="mask"></div>
                 </div>
               </div>
               <div class="col-sm-9">
-                <p>Keep your users engaged, and help them achieve their goal. Express your uniqueness - there's enough wordpress-template-look-a-likes out there. In other words, optimize the User Experience.</p><p><a href="#/contact">We'd like to work with you</a></p>
+                <p>Getting the <strong>right content</strong><br>to the <strong>right user</strong><br>at the <strong>right time</strong><br>... is the right way.</p>
                 <hr>
-                <p>
-                  <a href="#/info" data-accordion="pricing">$70 / hour. More info here.</a>
-                </p>
-                <p>
-                  <a href="#/info" data-accordion="why">Why work with us?</a>
-                </p>
+                <p><a href="#/contact">We'd like to work with you</a></p>
+                <p><a href="#/info" data-accordion="pricing">Pricing info</a></p>
+                <p><a href="#/info" data-accordion="why">Why work with us?</a></p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="tab-pane fade" id="development">
+      <div class="tab-pane fade" id="social">
         <div class="row">
-          <div class="col-sm-6">
-            <h4>Front-end</h4>
-            <ul>
-              <li>Scalable CSS3 architecture (using sass and other frameworks)</li>
-              <li>Compact Javascript / Coffeescript</li>
-              <li>Semantic HTML5. Bootstrap 3</li>
-              <li>Jekyll and Github based</li>
-              <li>Our code is universal; easy to transfer to other developers</li>
-            </ul>
-
-            <h4>Back-end</h4>
-            <ul>
-              <li>PHP, Ruby on Rails, and Python web development</li>
-              <li>eCommerce development (Magento)</li>
-              <li>Facebook app development</li>
-              <li>iPhone/iPad app development</li>
-            </ul>
+          <div class="col-sm-7 text-center">
+            <h2>Spread and convey<br><strong>your message</strong> <span class="nobr">to the world.</span></h2>
+            <h3><a href="#/contact">Work with us today &rsaquo;</a></h3>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-5">
             <div class="row">
-              <div class="col-sm-2 col-sm-offset-1 visible-sm">
+              <div class="col-sm-2 col-sm-offset-1">
                 <div class="spacer-vertical left">
                   <div class="mask"></div>
                 </div>
               </div>
-              <div class="col-sm-9">
-                <p>Let this site' code be the proof of our front-end expertise. If you're not familiar with front-end code, then we'd be happy to explain what makes this site particularly cutting-edge.</p><p>It's not a coincidence that Adobe has hired us for more than 20 projects over the last 5 years.</p><p><a href="#/contact">We'd like to work with you</a></p>
+              <div class="col-sm-9 socialmedia-icons">
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/Behance_001.jpg %}" class="img-responsive"></div>
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/facebook_001.jpg %}" class="img-responsive"></div>
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/Linkedin_001.jpg %}" class="img-responsive"></div>
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/Pinterest_001.jpg %}" class="img-responsive"></div>
+                <div class="clear"></div>
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/RSS_001.jpg %}" class="img-responsive"></div>
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/Tumblr_001.jpg %}" class="img-responsive"></div>
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/Twitter_001.jpg %}" class="img-responsive"></div>
+                <div class="socialmedia-icon"><img src="{% asset_path features/socialmedia/YouTube_001.jpg %}" class="img-responsive"></div>
+                <div class="clear"></div>
                 <hr>
-                <p>
-                  <a href="#/info" data-accordion="pricing">$70 / hour. More info here.</a>
-                </p>
-                <p>
-                  <a href="#/info" data-accordion="about">Curious about us?</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tab-pane fade" id="performance">
-        <div class="row">
-          <div class="col-sm-6">
-            <h4>Our websites works on all devices and screens</h4>
-            <ul>
-              <li>Screenshots from 300+ devices will be the proof</li>
-              <li>Both slow and fast internet connections are considered</li>
-              <li>From house-mom to computer-wizard, we understand peoples' needs</li>
-            </ul>
-
-            <h4>They are solid and ultra fast</h4>
-            <ul>
-              <li>Guerilla-tested to the very core</li>
-              <li>Light-weight and fast websites (tested using Google <i>PageSpeed</i></li>
-            </ul>
-          </div>
-          <div class="col-sm-6">
-            <div class="row">
-              <div class="col-sm-2 col-sm-offset-1 visible-sm">
-                <div class="spacer-vertical left">
-                  <div class="mask"></div>
-                </div>
-              </div>
-              <div class="col-sm-9">
-                <p>A complimentary CMS-like editor is always included. This allows you to easily edit all your content. Yes, like the rest of our work, that too is minimalistic and intuitive.</p><p><a href="#/contact">We'd like to work with you</a></p><hr><p><a href="#/info" data-accordion="pricing">$70 / hour. More info here.</a></p><p><a href="#/info" data-accordion="warranty">3-month warranty on all our work</a></p>
+                <p><a href="#/info" data-accordion="pricing">Pricing info</a></p>
+                <p><a href="#/info" data-accordion="warranty">3-month warranty on all our work</a></p>
               </div>
             </div>
           </div>

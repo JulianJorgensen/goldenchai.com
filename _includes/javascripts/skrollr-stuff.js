@@ -94,7 +94,7 @@ $(document).ready(function() {
       {
         if ((!screenChange) && ($("body").hasClass("site-multiple-pages"))){return "";}
 
-        $("body").removeClass("site-single-page page-features page-portfolio");
+        $("body").removeClass("site-single-page page-features page-workflow");
         $("body").addClass("site-multiple-pages page-manifestos");
 
         if (refresh){
@@ -207,12 +207,12 @@ $(document).ready(function() {
         if ($("body").hasClass("footer-active")){
           collapseFooter();
         }
-        if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.portfolio_start }}))
+        if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.workflow_start }}))
         {
-          smoothPageScroll({{ site.portfolio_start }}, scrollSpeed);
+          smoothPageScroll({{ site.workflow_start }}, scrollSpeed);
         }
 
-        updatePageMeta("portfolio");
+        updatePageMeta("workflow");
         break;
 
 
@@ -246,12 +246,12 @@ $(document).ready(function() {
     {
       scrollPos = $(window).scrollTop();
 
-      if (scrollPos < {{ site.portfolio_pre_start }}){
+      if (scrollPos < {{ site.workflow_pre_start }}){
         if (!$("body").hasClass("page-manifestos")){
           $.history.push("/manifestos");
         }
-      }else if ((scrollPos > {{ site.portfolio_pre_start }}) && (scrollPos < {{ site.features_pre_start }})){
-        if (!$("body").hasClass("page-portfolio")){
+      }else if ((scrollPos > {{ site.workflow_pre_start }}) && (scrollPos < {{ site.features_pre_start }})){
+        if (!$("body").hasClass("page-workflow")){
           $.history.push("/workflow");
         }
       }else if ((scrollPos > {{ site.features_pre_start }}) && (scrollPos <= {{ site.features_start }})){

@@ -44,24 +44,24 @@ $manifestos-color-inverted-mode-2: $gray90;
 $manifestos-nav-color-inverted-mode-2: $manifestos-nav-color;
 
 
-// PORTFOLIO SPECIFIC VARIABLES
-$portfolio-nav-color: #e1cb88;
-$portfolio-color: #e5dbb7;
-$portfolio-color-dark: #E0C77D;
+// workflow SPECIFIC VARIABLES
+$workflow-nav-color: #e1cb88;
+$workflow-color: #e5dbb7;
+$workflow-color-dark: #E0C77D;
 
-$portfolio-color-inverted-mode-1: darken($portfolio-color, 60%);
-$portfolio-nav-color-inverted-mode-1: lighten($portfolio-color-inverted-mode-1, 20%);
+$workflow-color-inverted-mode-1: #5a563c;
+$workflow-nav-color-inverted-mode-1: lighten($workflow-color-inverted-mode-1, 20%);
 
-$portfolio-color-inverted-mode-2: $zen-green;
-$portfolio-nav-color-inverted-mode-2: $portfolio-nav-color;
+$workflow-color-inverted-mode-2: $zen-green;
+$workflow-nav-color-inverted-mode-2: $workflow-nav-color;
 
-$portfolio-container-lg: 1000px;
+$workflow-container-lg: 1000px;
 
 
 // features SPECIFIC VARIABLES
 $features-nav-color: #afc8b4;
 $features-color: #c3d5c7;
-$features-color-inverted-mode-1: #2f3632;
+$features-color-inverted-mode-1: #728B7C;
 $features-nav-color-inverted-mode-1: lighten($features-color-inverted-mode-1, 20%);
 
 $features-color-inverted-mode-2: #1b1329;

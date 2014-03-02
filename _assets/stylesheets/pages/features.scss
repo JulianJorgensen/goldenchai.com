@@ -4,43 +4,28 @@
 @import 'lib/bootstrap-3.0.3/_mixins';
 
 
-body.site-multiple-pages.page-features
+body.page-features
 {
   header
   {
-    #primary-nav .primary-nav-active-bg
-    {
-      top: 60px;
-    }
-
     .goldenchai-logo-wrapper
     {
       .goldenchai-logo
       {
-        &.goldenchai-logo-alternative
+        background-color: $gray6;
+
+        .logo-copy
         {
-          opacity: 1;
-          z-index: 999;
+          .logo-golden
+          {
+            color: $goldenbrown;
+          }
+
+          .logo-chai
+          {
+            color: $gray70;
+          }
         }
-      }
-    }
-  }
-}
-
-body.page-features
-{
-  footer
-  {
-    hr
-    {
-      border-top-color: $white;
-    }
-
-    .footer-nav-cta
-    {
-      &.active
-      {
-        background-image: image-url("footer-nav-arrow-white.png");
       }
     }
   }
@@ -52,25 +37,8 @@ section#features
 
   #features-video
   {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-
-    video
-    {
-      width: 100% !important;
-      opacity: 0.1;
-    }
-
     .video-fader
     {
-      position: absolute;
-      bottom: 0;
-      height: 200px;
-      width: 100%;
       @include gradient-vertical(rgba($features-color, 0), rgba($features-color, 1))
     }
   }
@@ -83,19 +51,24 @@ section#features
   .nav-tabs
   {
     margin-top: 80px;
-    border-bottom: 2px solid $gray6;
-    padding-bottom: 22px;
-    margin-bottom: 50px;
+    border-bottom: 2px solid $black;
+    padding-bottom: 16px;
+    margin-bottom: 30px;
 
     li
     {
       position: relative;
-      font-size: 1.4em;
-      font-weight: 100;
+      font-size: 1.5em;
+      font-weight: 200;
       display: inline-block;
       margin: 0 19px;
       text-transform: uppercase;
       opacity: 0.5;
+
+      &:hover
+      {
+        opacity: 0.8;
+      }
 
       a
       {
@@ -105,37 +78,7 @@ section#features
       &.active
       {
         opacity: 1;
-
-        /* shared with before and after */
-        &:before, &:after {
-          content: ' ';
-          height: 0;
-          position: absolute;
-          width: 0;
-          left: 50%;
-          margin-left: -15px;
-          border: 15px solid transparent; /* arrow size */
-        }
-
-        /* these arrows will point up */
-
-        /* top-stacked, smaller arrow */
-        &:before {
-          border-bottom-color: $features-color;  /* arrow color */
-
-          /* positioning */
-          top: 25px;
-          z-index: 2;
-        }
-
-        /* arrow which acts as a background shadow */
-        &:after {
-          border-bottom-color: $gray6;  /* arrow color */
-
-          /* positioning */
-          top: 22px;
-          z-index: 1;
-        }
+        @include arrow(15px, 3px, $black, $features-color, bottom, 15px);
       }
     }
   }
@@ -143,21 +86,40 @@ section#features
   .tab-content
   {
     margin-bottom: 60px;
+
+    hr
+    {
+      border-top-color: $gray70;
+      opacity: 0.6;
+    }
+  }
+
+  .socialmedia-icons
+  {
+    padding-top: 25px;
+
+    .socialmedia-icon
+    {
+      float: left;
+      width: 32px;
+      height: 32px;
+      margin: 0 8px 8px 0;
+    }
   }
 
   .design-concept
   {
     position: relative;
-    top: 50px;
-    left: 100px;
+    top: 110px;
+    left: 20px;
     height: 250px;
 
     h2
     {
       position: absolute;
-      top: 0;
-      left: -20px;
-      font-size: 2.5em;
+      top: 20px;
+      left: 0;
+      font-size: 1.8em;
       z-index: 99;
     }
 
@@ -209,6 +171,11 @@ section#features
       &.design-concept-ball-1
       {
         top: 0;
+      }
+
+      &.design-concept-ball-3
+      {
+        left: 40px;
       }
     }
   }

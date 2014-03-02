@@ -18,10 +18,10 @@ manifestos_pre_end: 200
 manifestos_content_end: 500
 manifestos_end: 1000
 
-portfolio_pre_start: 1100
-portfolio_start: 1500
-portfolio_pre_end: 2400
-portfolio_end: 2800
+workflow_pre_start: 1100
+workflow_start: 1500
+workflow_pre_end: 2400
+workflow_end: 2800
 
 features_pre_start: 3000
 features_start: 3400
