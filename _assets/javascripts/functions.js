@@ -21,3 +21,26 @@ function collapseMarquee(navName)
     $("#manifestos").removeClass("transitioning");
   }, 700);
 }
+
+function activateFirstTab()
+{
+  $("body").addClass("manifesto-durability");
+  $("body").addClass("page-manifestos");
+  $("#marquee .nav li:eq(0)").addClass("active");
+}
+
+
+function toggleSummary(tabPane)
+{
+  var summaryEl = tabPane.find(".content-summary");
+  var frontEl = tabPane.find(".content-front");;
+  var backArrow = tabPane.find(".arrow-backward");
+
+  backArrow.toggleClass("arrow-expand");
+
+  tabPane.toggleClass("summary-active");
+
+  frontEl.toggleClass("active");
+
+  summaryEl.toggleClass("active");
+}

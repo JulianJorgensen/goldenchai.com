@@ -1,7 +1,7 @@
 @import "constants";
 @import "mixins";
 @import 'bootstrap-variables';
-
+@import 'lib/bootstrap-3.0.3/_mixins';
 
 /* header */
 body
@@ -24,7 +24,7 @@ body
       position: absolute;
       bottom: 0;
       cursor: pointer;
-      @include transition(bottom $fastTransitionSpeed);
+      @include transition(bottom $defaultTransitionSpeed);
       @include disableHighlighting;
 
       .goldenchai-logo
@@ -35,43 +35,17 @@ body
         padding: 7px 13px;
         text-transform: uppercase;
         text-align: center;
-        @include transition(all $defaultTransitionSpeed);
 
-        &:hover
+        .logo-copy
         {
-          text-shadow: 0 0 10px $gray40;
-        }
-
-        &.goldenchai-logo-manifestos
-        {
-          z-index:999;
-          opacity: 0;
-
-          .logo-copy
+          .logo-golden
           {
-            .logo-golden
-            {
-              color: $golden;
-            }
-
-            .logo-chai
-            {
-              color: $white;
-            }
+            color: $golden;
           }
-        }
 
-        &.goldenchai-logo-portfolio
-        {
-          opacity: 0;
-          background-color: $gray6;
-
-          .logo-copy
+          .logo-chai
           {
-            .logo-golden
-            {
-              color: $goldenbrown;
-            }
+            color: $white;
           }
         }
       }
@@ -90,71 +64,99 @@ body
       @include disableHighlighting;
     }
   }
+
+  .video-top
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+
+    video
+    {
+      width: 100% !important;
+      opacity: 0.1;
+    }
+
+    .video-fader
+    {
+      position: absolute;
+      bottom: 0;
+      height: 200px;
+      width: 100%;
+      @include gradient-vertical(rgba($black, 0), rgba($black, 1))
+    }
+  }
 }
 
 
 // STYLES FOR DURABILITY ONLY
-body.durability
+body.page-manifestos
 {
-  header
+  &.manifesto-durability
   {
-    .goldenchai-logo-wrapper
+    header
     {
-      .goldenchai-logo.goldenchai-logo-manifestos
+      .goldenchai-logo-wrapper
       {
-        background-color: darken($durability-color, 10);
+        .goldenchai-logo
+        {
+          background-color: darken($durability-color, 10);
+        }
+      }
+    }
+  }
+
+  // STYLES FOR USABILITY ONLY
+  &.manifesto-usability
+  {
+    header
+    {
+      .goldenchai-logo-wrapper
+      {
+        .goldenchai-logo
+        {
+          background-color: $usability-color;
+
+          &:hover
+          {
+            text-shadow: 0 0 10px $white;
+          }
+
+          .logo-golden
+          {
+            color: $goldendark;
+          }
+
+          .logo-chai
+          {
+            color: $gray40;
+          }
+        }
+      }
+    }
+  }
+
+  // STYLES FOR ART ONLY
+  &.manifesto-art
+  {
+    header
+    {
+      .goldenchai-logo-wrapper
+      {
+        .goldenchai-logo
+        {
+          background-color: darken($art-color, 20);
+        }
       }
     }
   }
 }
 
-// STYLES FOR USABILITY ONLY
-body.usability
-{
-  header
-  {
-    .goldenchai-logo-wrapper
-    {
-      .goldenchai-logo.goldenchai-logo-manifestos
-      {
-        background-color: $usability-color;
 
-        &:hover
-        {
-          text-shadow: 0 0 10px $white;
-        }
-
-        .logo-golden
-        {
-          color: $goldendark;
-        }
-
-        .logo-chai
-        {
-          color: $gray40;
-        }
-      }
-    }
-  }
-}
-
-// STYLES FOR ART ONLY
-body.art
-{
-  header
-  {
-    .goldenchai-logo-wrapper
-    {
-      .goldenchai-logo.goldenchai-logo-manifestos
-      {
-        background-color: darken($art-color, 20);
-      }
-    }
-  }
-}
-
-
-@media (max-width: $screen-xs)
+@media (max-width: $screen-xs-max), (min-width: $screen-phone) and (max-width: $screen-tablet) and (orientation: landscape)
 {
   body
   {

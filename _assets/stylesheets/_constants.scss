@@ -1,6 +1,7 @@
 /* marquee variables */
+$slowTransitionSpeed: 0.5s;
 $defaultTransitionSpeed: 0.3s;
-$fastTransitionSpeed: 0.5s;
+$fastTransitionSpeed: 0.2s;
 
 
 /* COLOR VARIABLES */
@@ -17,13 +18,18 @@ $gray60: #666666;
 $gray70: #4d4d4d;
 $gray80: #343434;
 $gray85: #272727;
+$gray90: #191919;
 $goldenbrown: #c3a96a;
 $golden: #e1cb88;
-$goldendark: #594A1B;
+$goldendark: #564f39;
 $beige: #bbb4a0;
 $zen-red: #a5696f;
+$zen-green: #354635;
+$turquoise: #89b399;
+$bluewhite: #d3f3e0;
 
 $tooltipBG: $gray2;
+
 
 // MANIFESTOS SPECIFIC VARIABLES
 $manifestos-nav-color: $gray80;
@@ -31,14 +37,32 @@ $durability-color: $gray70;
 $usability-color: #fbd738;
 $art-color: #d349d1;
 $art-color-dark: #4a1876;
+$manifestos-color-inverted-mode-1: $black;
+$manifestos-nav-color-inverted-mode-1: lighten($manifestos-color-inverted-mode-1, 20%);
 
-// PORTFOLIO SPECIFIC VARIABLES
-$portfolio-nav-color: #e1cb88;
-$portfolio-color: #e5dbb7;
-$portfolio-color-dark: #E0C77D;
+$manifestos-color-inverted-mode-2: $gray90;
+$manifestos-nav-color-inverted-mode-2: $manifestos-nav-color;
 
-$portfolio-container-lg: 1000px;
 
-// SERVICES SPECIFIC VARIABLES
-$services-nav-color: #afc8b4;
-$services-color: #c3d5c7;
+// workflow SPECIFIC VARIABLES
+$workflow-nav-color: #e1cb88;
+$workflow-color: #e5dbb7;
+$workflow-color-dark: #E0C77D;
+
+$workflow-color-inverted-mode-1: #8d8762;
+$workflow-nav-color-inverted-mode-1: lighten($workflow-color-inverted-mode-1, 20%);
+
+$workflow-color-inverted-mode-2: $zen-green;
+$workflow-nav-color-inverted-mode-2: $workflow-nav-color;
+
+$workflow-container-lg: 1000px;
+
+
+// features SPECIFIC VARIABLES
+$features-nav-color: #afc8b4;
+$features-color: #c3d5c7;
+$features-color-inverted-mode-1: #728B7C;
+$features-nav-color-inverted-mode-1: lighten($features-color-inverted-mode-1, 20%);
+
+$features-color-inverted-mode-2: #1b1329;
+$features-nav-color-inverted-mode-2: $features-nav-color;

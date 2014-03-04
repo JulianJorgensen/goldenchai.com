@@ -3,11 +3,9 @@ var disableScrollLength = 2000;
 var scrollSpeed = 600;
 
 // MARQUEE VARIABLES
-var marqueeTransitionSpeed = 300;
-
+var marqueeTransitionSpeed = 200;
 
 $(document).ready(function() {
-
 
   // ACTIVATE TOOLTIPS
   // ***********************************
@@ -21,44 +19,65 @@ $(document).ready(function() {
 
   if (pathname !== "/"){
     $("body").addClass("subpage");
-    if (pathname == "/manifestos/")
-    {
-      $("body").addClass("durability");
-      $('.nav-tabs li:eq(0)').find('a').trigger('click');
-    }
   }else{
-    $("body").addClass("durability");
-    $("body").addClass("page-manifestos");
-    $('.nav-tabs li:eq(0)').find('a').trigger('click');
+    if ((pathname == "/#manifestos") || (pathname == "/"))
+    {
+      setTimeout(function(){
+        $(".window.lazy-load").removeClass("lazy-load");
+      }, 200);
+    }else{
+      $(".window.lazy-load").removeClass("lazy-load");
+    }
   }
 
 
   // BEHAVIOUR WHEN USING THE MAIN TABS
   // ***********************************
-  $("#marquee .nav a").click(function(){
-    navName = $(this).attr("href").replace('#','');
+  $("#marquee .nav a").click(function(e){
+    navName = $(this).attr("href").replace('#/','');
 
     if (!$(this).parent("li").hasClass("active"))
     {
+      $("#marquee .nav li").removeClass("active");
       collapseMarquee(navName);
 
       setTimeout(function(){
-        $("body").removeClass("durability usability art");
-        $("body").addClass(navName);
+        $("body").removeClass("manifesto-durability manifesto-usability manifesto-art");
+        $("body").addClass("manifesto-" + navName);
+        $("#marquee .nav li a.nav-" + navName).parent("li").addClass("active");
       }, marqueeTransitionSpeed);
     }
   });
 
 
+  // FORWARD ARROW (FOR MANIFESTOS)
+  // ************************************
+  $("[data-goto-next-manifesto]").click(function(){
+    $('#marquee .nav > .active').next('li').find('a').trigger('click');
+  });
+
+
+  // BACKWARDS ARROW
+  // ******************************************
+  $("[data-backwards]").click(function(){
+    var tabPane = $("#" + $(this).parent().parent().attr("id") + ".tab-pane");
+    var summaryEl = tabPane.find(".content-summary");
+    var backArrow = tabPane.find(".arrow-backward");
+
+    if (summaryEl.hasClass("active"))
+    {
+      toggleSummary(tabPane);
+    }else{
+      $('#marquee .nav > .active').prev('li').find('a').trigger('click');
+    }
+  });
+
 
   // CONTENT CTA
   // ******************************************
-  $(".content-cta").click(function(){
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-front").toggleClass("active");
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-front").toggle("slow");
-
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-summary").toggleClass("active");
-    $("#" + $(this).parent().parent().attr("id") + ".tab-pane .content-summary").toggle("slow");
+  $("[data-toggle-summary]").click(function(){
+    var tabPane = $("#" + $(this).parents(".tab-pane").attr("id") + ".tab-pane");
+    toggleSummary(tabPane);
   });
 
   $(".content-cta.vitruvian").hover(function(){
@@ -70,51 +89,13 @@ $(document).ready(function() {
   });
 
 
-  // goldenCHAI LOGO CLICK (HOME)
+  // GoldenChai LOGO CLICK (HOME)
   // **************************
   $(".goldenchai-logo").click(function(){
     $('html, body').animate({
       scrollTop: 0
       }, scrollSpeed);
-    $('.nav-tabs li:eq(0)').find('a').trigger('click');
-  });
-
-
-  // BACK TO TOP
-  // **************************
-  $(".back-to-top").click(function(){
-    $('html, body').animate({
-      scrollTop: 0
-      }, scrollSpeed, function(){
-        $(".window").removeClass("current");
-        $(".window#manifestos").addClass("current");
-      });
-  });
-
-
-  // FORWARD ARROW (FOR MANIFESTOS)
-  // ************************************
-  $(".arrow-forward").click(function(){
-
-    if ($("body").hasClass("art"))
-    {
-      $("body").addClass("fly-state");
-    }else{
-      $('.nav-tabs > .active').next('li').find('a').trigger('click');
-      collapseMarquee();
-    }
-  });
-
-  // MOBILE NAV
-  // ************************************
-  $("#mobile-nav-icon").click(function(){
-
-    var windowHeight = $(window).height();
-    collapseFooter();
-    $("html, body").animate({
-      scrollTop: windowHeight
-    }, 10);
-
+    $('#marquee .nav li:eq(0)').find('a').trigger('click');
   });
 
 
@@ -123,7 +104,7 @@ $(document).ready(function() {
   $("a").click(function(e){
     if ($("body").hasClass("site-multiple-pages"))
     {
-      if ($(this).attr("href").indexOf("/#/") != -1)
+      if ($(this).attr("href").indexOf("#/") != -1)
       {
         window.location.href = $(this).attr("href").replace("/#", "");
       }
@@ -131,4 +112,19 @@ $(document).ready(function() {
       e.preventDefault();
     }
   });
+
+
+  // STUPID FIREFOX SPECIFIC CLASS
+  // ****************************
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
+  {
+    $("body").addClass("browser-firefox");
+  }
+
+
+  // FEATURES PAGE TWENTY TWENTY
+  // ******************************
+  $('a.features-dev-tab[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    $("#features .development-before-after").twentytwenty({default_offset_pct: 0.7});
+  })
 });

@@ -12,15 +12,13 @@ body
     {
       position: absolute;
       bottom: 0;
-      right: 0;
+      right: 15px;
       @include disableHighlighting;
 
 
       .primary-nav-item
       {
-        position: relative;
         text-align: right;
-        clear: both;
         height: 25px;
         margin: 5px 0 0;
         z-index: 999;
@@ -34,12 +32,17 @@ body
         .nav-title
         {
           display: inline-block;
-          position: relative;
           height: inherit;
-          bottom: -3px;
+          line-height: 25px;
+          padding-left: 10px;
           font-size: 0.9em;
           text-transform: uppercase;
           @include disableHighlighting;
+          
+          a
+          {
+            color: $black;
+          }
         }
 
         .nav-icon
@@ -48,7 +51,8 @@ body
           height: inherit;
           float: right;
           margin-left: 10px;
-          background: url("/images/nav/nav-double-arrow.png") center center no-repeat;
+          background: image-url("nav/nav-double-arrow.png") center center no-repeat;
+
         }
 
         &.primary-nav-manifestos
@@ -59,40 +63,52 @@ body
           }
         }
 
-        &.primary-nav-portfolio
+        &.primary-nav-workflow
         {
           .nav-icon
           {
-            background-color: $portfolio-nav-color;
+            background-color: $workflow-nav-color;
           }
         }
 
-        &.primary-nav-services
+        &.primary-nav-features
         {
           .nav-icon
           {
-            background-color: $services-nav-color;
+            background-color: $features-nav-color;
           }
         }
       }
+    }
+  }
 
-      .primary-nav-active-bg
-      {
-        position: absolute;
-        right: 30px;
-        top: 0;
-        background-color: $gray20;
-        opacity: 0.5;
-        width: 100px;
-        height: 25px;
-        z-index: 998;
-      }
+  &.page-manifestos
+  {
+    header #primary-nav .primary-nav-manifestos
+    {
+      @include activeNavBg();
+    }
+  }
+
+  &.page-workflow
+  {
+    header #primary-nav .primary-nav-workflow
+    {
+      @include activeNavBg();
+    }
+  }
+
+  &.page-features
+  {
+    header #primary-nav .primary-nav-features
+    {
+      @include activeNavBg();
     }
   }
 }
 
 
-@media (max-width: $screen-sm) {
+@media (max-width: $screen-sm-max) {
   body
   {
     header

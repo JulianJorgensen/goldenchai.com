@@ -1,27 +1,35 @@
 {% if include.side == "front" %}
 
+  <div class="black-diamond content-cta content-cta-hover" data-toggle-summary data-toggle="tooltip" title="See summary">
+    <div class="default"></div>
+    <div class="hover"></div>
+  </div>
   <h3>Manifesto #1: Your website should be rock-solid and stay robust through any storm.</h3>
-  <p>Fully responsive in all browsers and platforms (including mobile and tablets), we ensure your visitors a start-to-end solid experience.</p>
-  <p>To achieve these high standards, we utilize scalable, agile, and semantic development practices. This also means lightning-fast turnaround time, should your needs change.</p>
-  <p class="hidden-xs">Before deploying your website, Quality Assurance experts (QA) verifies the site is 100% bug-free and durable as a rock.</p>
+  <p>Fully responsive in all browsers and platforms (including mobile and tablets); we ensure your audience the continuity of a solid experience from start-to-end.</p>
+  <p>Thorough planning and <span data-toggle="tooltip" title="Using agile and scalable practices we: decrease development time while also making it easier to add/modify content">efficient development</span> is key. Even after your site is launched, we're dedicated to maintain these high standards. With lightning-fast turnaround time we're always by your side.</p>
+  <p>Prior to launch, a final <span data-toggle="tooltip" title="Quality Assurance experts (hired externally)">QA </span> will assure your site is ready to amaze the public.</p>
 
 {% else %}
 
-  <h2>In summary...</h2>
+  <h2>By <i>Durable</i>, we mean:</h2>
   <div class="row">
-    <ul class="col-sm-6">
-      <li>Fully responsive on all platforms: <a href="#" data-toggle="tooltip" title="including Mac, Windows, iPhone, iPad, and various Android devices">desktop, tablets and mobile</a></li>
-      <li><a href="#" data-toggle="tooltip" title="including Chrome, Internet Explorer, Safari and Firefox">Cross-browser optimized</a></li>
-    </ul>
-    <ul class="col-sm-6">
-      <li><a href="#" data-toggle="tooltip" title="Scalability means easy to add new pages, content or modify anything while still maintaining consistency">Always scalable and consistent</a></li>
-      <li><a href="#" data-toggle="tooltip" title="QA experts assures the website is rock-solid and meets all requirements">100% bug-free</li>
-      <li><a href="#" data-toggle="tooltip" title="New sites and features are pushed to a secure &quot;Preview site&quot; for your approval prior to a big production deploy">Secure 3-layer deploys</a></li>
-    </ul>
-
+    <div class="col-sm-6">
+      <ul>
+        <li><span href="#" data-toggle="tooltip" title="Including Mac, Windows, iPhone, iPad, and all other Android devices.">Compatible with all platforms</span></li>
+        <li><span href="#" data-toggle="tooltip" title="Including Chrome, Firefox, Safari and Internet Explorer.">Cross-browser optimized</span></li>
+        <li><span href="#" data-toggle="tooltip" title="A complimentary CMS-like system comes with all our custom websites.">Easy and safe to update content</span></li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <ul>
+        <li><span href="#" data-toggle="tooltip" title="Scalability means easy to add new pages, content or modify anything while still maintaining consistency.">Always scalable and consistent</span></li>
+        <li><span href="#" data-toggle="tooltip" title="QA experts assures the website is rock-solid and meets all requirements.">Bug-free</li>
+        <li><span href="#" data-toggle="tooltip" title="New sites and features are pushed to a secure &quot;Preview site&quot; for your approval prior to a big production deploy.">Secure 3-layer deploys</span></li>
+      </ul>
+    </div>
     <div class="clear"></div>
 
   </div>
-  <p><i>Durability</i> is just one of three essential components; <a href="#usability">Usability</a> is equally important.</a></p>
+  <p class="lead hidden-xs"><i>Durability</i> is just one of three essential components; <a href="#/usability">Usability is equally important &rsaquo;</a></p>
 
 {% endif %}

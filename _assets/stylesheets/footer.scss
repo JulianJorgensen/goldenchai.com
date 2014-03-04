@@ -12,41 +12,57 @@
 // styles start
 body
 {
-  &.site-single-page
+  &.site-single-page.footer-post-active, &.site-single-page.footer-active
   {
     footer
     {
-      @include transition((background $defaultTransitionSpeed ease, top ($fastTransitionSpeed/2) ease-out));
+      @include transition((background $fastTransitionSpeed, top $fastTransitionSpeed));
     }
   }
 
   footer
   {
     position: fixed;
-    top: 650px;
-    height: 100%;
+    top: 680px;
     width: 100%;
-    z-index: 9999;
+    z-index: 10;
+    height: 40px; /* this needs to be low for the down arrow to work. Otherwise issues with z-index */
 
-    .copyright
+    .container
     {
-      padding-top: 10px;
-      @include transition(opacity $defaultTransitionSpeed);
+      height: inherit;
     }
 
-    #footer-kicker
+    .footer-chai
     {
-      opacity: 0;
-      position: fixed;
-      bottom: 0;
-      margin-right: 15px;
-      text-align: center;
+      padding-top: 10px;
+      padding-left: 25px;
 
-      h4
+      img
       {
-        background: rgba($gray20, 0.2);
-        padding: 15px;
-        margin-top: 30px;
+        cursor: pointer;
+        position: absolute;
+        margin-top: -12px;
+        left: 10px;
+        z-index: 99;
+        opacity: 0.8;
+
+        &:hover
+        {
+          opacity: 1;
+        }
+      }
+
+      .invert-mode, .copyright
+      {
+        opacity: 0;
+        position: absolute;
+
+        &.active
+        {
+          opacity: 1;
+          @include transition(opacity $defaultTransitionSpeed);
+        }
       }
     }
 
@@ -54,19 +70,29 @@ body
     {
       opacity: 0;
       pointer-events: none;
-
-      .collapseFooter
-      {
-        cursor: pointer;
-        text-align: right;
-        float: right;
-      }
     }
 
     hr
     {
-      border-top: 1px solid $gray20;
-      margin-bottom: 0;
+      border-top: 1px solid $gray40;
+      margin: 0;
+    }
+
+    .footer-nav
+    {
+      position: relative;
+
+      .collapseFooter
+      {
+        display: none;
+        position: absolute;
+        top: -50px;
+        right: 15px;
+        opacity: 0.5;
+        cursor: pointer;
+        text-align: right;
+        float: right;
+      }
     }
 
     .footer-nav-cta
@@ -76,21 +102,44 @@ body
       padding: 10px;
       margin: 0 0 0 15px;
       text-transform: uppercase;
-      @include transition(all $defaultTransitionSpeed);
+      @include transition(opacity $defaultTransitionSpeed);
+
+      a
+      {
+        color: $black;
+      }
+
+      &.footer-nav-info
+      {
+        margin-left: 0;
+      }
+
+      &.active
+      {
+        padding-top: 0;
+
+        &:before
+        {
+          position: relative;
+          left: 50%;
+          margin-left: -6px;
+          @include triangle(6px, $gray70, top);
+        }
+      }
 
       .cta-helper
       {
+        color: $gray70;
         opacity: 0;
         position: absolute;
-        top: -50px;
         left: 50%;
         margin-left: -60px;
         width: 120px;
         padding: 5px;
         text-align: center;
         font-size: 11px;
-        background: rgba($gray20, 0.3);
-        @include transition(opacity ($defaultTransitionSpeed*2));
+        background: $gray20;
+        @include transition(opacity $slowTransitionSpeed);
 
         .cta-helper-arrow
         {
@@ -102,56 +151,28 @@ body
           height:0;
           border-color:transparent;
           border-style:solid;
-          border-top-color: rgba($gray20, 0.3);
+          border-top-color: $gray20;
           border-width:10px 10px 0;
         }
       }
     }
 
-    #info-slide
+    #contact
     {
-      .accordion
+      .contact-info
       {
-        margin-bottom: 20px;
-      }
+        padding-top: 20px;
 
-      .button.footer-cta-button
-      {
-        position: absolute;
-        bottom: 15px;
-        right: 0;
-      }
-    }
-
-    #contact-slide
-    {
-      text-align: center;
-      padding-top: 50px;
-
-      p
-      {
-        font-size: 2.5em;
-      }
-
-      .button-get-a-quote
-      {
-        margin-top: 50px;
+        p
+        {
+          font-size: 1.3em;
+        }
       }
 
       small
       {
         display: block;
-        margin-top: 10px;
-      }
-    }
-
-    #get-a-quote-slide
-    {
-      text-align: right;
-
-      h2
-      {
-        text-align: left;
+        margin-top: 12px;
       }
 
       input, textarea
@@ -160,8 +181,9 @@ body
         width: 100%;
         border: none;
         outline: 0;
-        background: transparent;
-        font-size: 1.8em;
+        background: rgba($white, 0.2);
+        padding: 8px 15px;
+        font-size: 1.6em;
         margin-bottom: 20px;
 
         &:hover, &:focus, &:active
@@ -174,9 +196,42 @@ body
 
       textarea
       {
-        height: 200px;
+        height: 160px;
       }
     }
+  }
+}
+
+body.page-manifestos
+{
+  footer
+  {
+    #contact
+    {
+      input, textarea
+      {
+        background: rgba($gray20, 0.2);
+      }
+    }
+  }
+}
+
+#footer-kicker
+{
+  background: transparent;
+  opacity: 0;
+  position: fixed;
+  bottom: 0;
+  margin-right: 15px;
+  text-align: center;
+  width: 100%;
+  z-index: -1;
+
+  h4
+  {
+    background: rgba($gray20, 0.2);
+    padding: 15px;
+    margin-top: 30px;
   }
 }
 
@@ -204,9 +259,13 @@ body.desktop
   }
 }
 
+
+
 // FOOTER ACTIVE STATE
 body.footer-active
 {
+  margin-top: 0;
+  
   header
   {
     .goldenchai-logo-wrapper
@@ -221,16 +280,49 @@ body.footer-active
     }
   }
 
+  #manifestos
+  {
+    .manifestos-video
+    {
+      video
+      {
+        opacity: 0.1 !important;
+      }
+    }
+  }
+
   footer
   {
+    hr
+    {
+      border-top-color: $gray70;
+    }
+
+    .collapseFooter
+    {
+      display: block;
+    }
+
+    .footer-nav-cta
+    {
+      font-size: 1.4em;
+      opacity: 0.6;
+
+      &.active
+      {
+        opacity: 1;
+      }
+    }
+
     #footer-content
     {
-      pointer-events: auto;      
+      pointer-events: auto;
+      margin-top: 10px;
     }
   }
 }
 
-@media (min-width: $screen-md)
+@media (min-width: $screen-sm)
 {
   body.footer-active
   {
@@ -251,14 +343,14 @@ body.footer-active
         @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.
       }
 
-      .black-diamond
+      .black-diamond, .zen-symbol, .vitruvian 
       {
         opacity: 0.3 !important;
       }
     }
 
-    // blur/hide portfolio stuff
-    #portfolio
+    // blur/hide workflow stuff
+    #workflow
     {
       .royalSlider
       {
@@ -287,17 +379,21 @@ body.footer-active
 
     footer
     {
-      top: 120px;
-      
+      top: 110px;
 
       .footer-nav-cta.active
       {
+        .cta-helper
+        {
+          top: -50px;
+        }
+
         &:hover
         {
           .cta-helper
           {
             opacity: 1 !important;
-            @include transition(opacity ($defaultTransitionSpeed*2) ease 1s);
+            @include transition(opacity $slowTransitionSpeed ease 1s);
           }          
         }
 
@@ -306,12 +402,12 @@ body.footer-active
           .cta-helper
           {
             opacity: 1 !important;
-            @include transition(opacity ($defaultTransitionSpeed*4) ease 0.5s);
+            @include transition(opacity ($slowTransitionSpeed*2) ease 0.5s);
           }
         }
       }
 
-      .copyright
+      .footer-chai
       {
         opacity: 0;
       }
@@ -322,85 +418,53 @@ body.footer-active
       }
     }
   }
+}
 
-  body.page-manifestos
+
+
+
+
+
+
+
+
+// FOOTER MOBILE STUFF
+// ****************************
+
+@media (max-width: $screen-sm)
+{
+  body
   {
     footer
     {
-      .footer-nav-cta.active
+      opacity: 0;
+      position: fixed;
+
+      .footer-chai
       {
-        @include footerNavActive($gray20);
+        font-size: 0.8em;
       }
-    }
-  }
 
-  body.page-portfolio
-  {
-    footer
-    {
-      .footer-nav-cta.active
+      .cta-helper
       {
-        @include footerNavActive($white);
-      }
-    }
-  }
-
-  body.page-services
-  {
-    footer
-    {
-      .footer-nav-cta.active
-      {
-        @include footerNavActive($white);
+        display: none;
       }
     }
   }
 }
 
 
-
-@media (max-width: $screen-md)
+@media (max-width: $screen-sm)
 {
-  body
-  {
-    footer
-    {
-      #contact-slide
-      {
-        padding-top: 70px;
-
-        p
-        {
-          font-size: 1.5em;
-        }
-
-        .button-get-a-quote
-        {
-          margin-top: 50px;
-        }
-
-        small
-        {
-          display: block;
-          margin-top: 10px;
-        }
-      }      
-    }
-  }
-
-
   body.footer-active
   {
-    section.window #marquee-wrapper, section.window .container
-    {
-      opacity: 0.2 !important;
-      @include blur(10px);
-      @include blurPerformanceHack();
-    }
+    padding-top: 130px;
 
     header
     {
       padding-top: 50px !important;
+      padding-bottom: 20px;
+      top: 0;
       @include transition(padding-top ($defaultTransitionSpeed) ease);
 
       #primary-nav
@@ -415,62 +479,77 @@ body.footer-active
       }
     }
 
+    #skrollr-body
+    {
+      display: none !important;
+    }
+
     footer
     {
-      top: 50px !important;
-      // remove comments on below 2 if footer is gonna have lots of content (needs to be static)
-      // position: static;
-      // padding-top: 50px !important;
-      @include transition(top ($defaultTransitionSpeed) ease);
+      position: static;
+      opacity: 1 !important;
+      z-index: 999 !important;
+      @include transition(top $fastTransitionSpeed);
 
       .footer-nav
       {
-        .copyright
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 70px;
+        z-index: 9999;
+        height: 80px;
+
+        .footer-chai
         {
           opacity: 0 !important;
         }
 
-        .footer-nav-cta
+        .collapseFooter
         {
-          &.active
-          {
-            background: url("/images/footer-nav-arrow.png") top center no-repeat;
-          }
+          display: none;
         }
-      }
-
-      #footer-kicker
-      {
-        display: none;
       }
 
       section#footer-content
       {
         opacity: 1;
-
+        margin-top: 0;
         @include transition(opacity ($defaultTransitionSpeed) ease);
-
-        .rsOverflow
-        {
-          padding-right: 15px;
-        }
       }
+    }
+
+    #footer-kicker
+    {
+      display: none;
     }
   }
 }
 
+
 @media (max-width: $screen-xs)
 {
-  body
+  body.footer-active
   {
     footer
     {
-      top: 380px;
-      height: 50px;
-
-      .copyright
+      #contact
       {
-        font-size: 0.8em;
+        .contact-info
+        {
+          padding-top: 0;
+        }
+
+        textarea, input
+        {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+        }
+
+        textarea
+        {
+          height: 110px;
+        }
       }
     }
   }

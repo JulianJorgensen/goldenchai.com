@@ -1,12 +1,107 @@
-/* mixins */
-@mixin btn{
-  display: inline-block;
-  padding: 10px 28px;
-  font-size: 1.4em;
-  text-transform: uppercase;
-  cursor: pointer;
+@import "constants";
+
+
+// RESPONSIVE MIXINS
+// ===============
+@mixin largeHeader()
+{
+  header #primary-nav .primary-nav-item
+  {
+    height: 33px;
+    margin-top: 9px;
+    
+    .nav-title
+    {
+      line-height: 33px;
+    }
+
+    .nav-icon
+    {
+      width: 36px;        
+    }
+  }
 }
 
+@mixin largeArrows($arrow-color: $black, $arrow-bg: $white)
+{
+  #manifestos .container .inner-wrapper .main-content .tab-content 
+  {
+    .arrows
+    {
+      .arrow
+      {
+        width: 180px;
+      }
+
+      .arrow-forward
+      {
+        @include arrow(30px, 3, $arrow-color, $arrow-bg, right);
+        right: -180px;
+
+        span
+        {
+          right: 40px;
+        }
+      }
+
+      .arrow-backward
+      {
+        @include arrow(30px, 3, $arrow-color, $arrow-bg, left);
+        left: -180px;
+
+        span
+        {
+          left: 40px;
+        }
+      }
+    }
+  }
+}
+
+@mixin workflowNavArrows($arrow-size, $color, $bg)
+{
+  .rsDefault.rsHor .rsArrowLeft { 
+    .rsArrowIcn
+    {
+      @include arrow($arrow-size, 1, $color, $bg, left);    
+    }
+  }
+
+  .rsDefault.rsHor .rsArrowRight { 
+    .rsArrowIcn
+    {
+      @include arrow($arrow-size, 1, $color, $bg, right);    
+    }
+  }
+}
+
+@mixin largeMarquee()
+{
+  #manifestos #marquee-wrapper #marquee
+  {
+    .marquee-headline h1
+    {
+      font-size: 1.4em;
+      margin-top: 0;        
+    }
+
+    .nav
+    {
+      font-size: 2.2em;
+    }
+  }
+}
+
+
+// END RESPONSIVE MIXINS
+
+
+@mixin activeNavBg($color: $gray20)
+{
+  background-color: rgba($color, 0.5);
+}
+
+/* mixins */
 @mixin transition($transition)
 {
   -webkit-transition: $transition;
@@ -21,6 +116,14 @@
   -moz-transition-delay: $delay;
   -o-transition-delay: $delay;
   transition-delay: $delay;
+}
+
+@mixin transitionDuration($duration)
+{
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
 }
 
 @mixin blur($amount)
@@ -47,6 +150,112 @@
   -moz-user-select: none;    
   -ms-user-select: none;      
   user-select: none;
+}
+
+@mixin triangle($triangle-size, $triangle-color, $triangle-direction)
+{
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: $triangle-size solid transparent; /* arrow size */
+
+  @if ($triangle-direction == top)
+  {
+      border-color: $triangle-color transparent transparent transparent;
+      border-top-style: solid;
+  }
+  @if ($triangle-direction == bottom)
+  {
+      border-color: transparent transparent $triangle-color transparent;
+      border-bottom-style: solid;
+  }
+  @if ($triangle-direction == right)
+  {
+      border-color: transparent transparent transparent $triangle-color;
+      border-left-style: solid;
+  }
+  @if ($triangle-direction == left)
+  {
+      border-color: transparent $triangle-color transparent transparent;
+      border-right-style: solid;
+  }
+}
+
+@mixin arrow($arrow-size, $arrow-thickness, $arrow-color, $arrow-bg, $arrow-direction, $arrow-offset: 0)
+{
+  /* top-stacked, smaller arrow */
+  &:before {
+    @include triangle($arrow-size, $arrow-bg, $arrow-direction);
+    position: absolute;
+
+    top: 0;
+    z-index: 2;
+
+    @if ($arrow-direction == left)
+    {
+      left: ($arrow-thickness - $arrow-size);
+    }
+    @if ($arrow-direction == right)
+    {
+      right: ($arrow-thickness - $arrow-size);
+    }
+    @if ($arrow-direction == bottom)
+    {
+      top: auto;
+      bottom: $arrow-offset;
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+    @if ($arrow-direction == top)
+    {
+      top: -($arrow-offset+$arrow-thickness);
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+  }
+
+  &:after {
+    @include triangle($arrow-size, $arrow-color, $arrow-direction);
+    position: absolute;
+
+    top: 0;
+    z-index: 1;
+
+    @if ($arrow-direction == left)
+    {
+      left: (-$arrow-size);
+    }
+    @if ($arrow-direction == right)
+    {
+      right: (-$arrow-size);
+    }
+    @if ($arrow-direction == bottom)
+    {
+      top: auto;
+      bottom: ($arrow-offset+$arrow-thickness);
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+    @if ($arrow-direction == top)
+    {
+      top: $arrow-offset;
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+  }
+}
+
+@mixin circle($radius)
+{
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
 
 @mixin gradientBG($color1, $color2)
@@ -123,16 +332,6 @@
 }
 
 
-@mixin transparentGradientTop($color, $opacity:1, $color-stop-percentage:60%, $color-stop-opacity:0.4){
-  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba($color,$color-stop-opacity) $color-stop-percentage, rgba($color,0.99) 99%, rgba($color,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop($color-stop-percentage,rgba($color,$color-stop-opacity)), color-stop(99%,rgba($color,0.99)), color-stop(100%,rgba($color,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba($color,$color-stop-opacity) $color-stop-percentage,rgba($color,0.99) 99%,rgba($color,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba($color,$color-stop-opacity) $color-stop-percentage,rgba($color,0.99) 99%,rgba($color,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba($color,$color-stop-opacity) $color-stop-percentage,rgba($color,0.99) 99%,rgba($color,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba($color,$color-stop-opacity) $color-stop-percentage,rgba($color,0.99) 99%,rgba($color,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$color',GradientType=0 ); /* IE6-9 */
-}
-
 @mixin smoothTransparentGradientTop($color, $opacity:1){
   background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba($color,0.99) 99%, rgba($color,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(99%,rgba($color,0.99)), color-stop(100%,rgba($color,1))); /* Chrome,Safari4+ */
@@ -163,58 +362,22 @@
   box-shadow: $shadow;
 }
 
-@mixin stripedBG($color1, $color2, $opacity)
-{
-  background-size: 50px 50px;
-  background-color: $color2;
-  background-image: -webkit-linear-gradient(45deg, rgba($color1, $opacity) 25%, transparent 25%,
-                    transparent 50%, rgba($color1, $opacity) 50%, rgba($color1, $opacity) 75%,
-                    transparent 75%, transparent);
-  background-image: -moz-linear-gradient(45deg, rgba($color1, $opacity) 25%, transparent 25%,
-                    transparent 50%, rgba($color1, $opacity) 50%, rgba($color1, $opacity) 75%,
-                    transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba($color1, $opacity) 25%, transparent 25%,
-                    transparent 50%, rgba($color1, $opacity) 50%, rgba($color1, $opacity) 75%,
-                    transparent 75%, transparent);
-  -pie-background: linear-gradient(45deg, rgba($color1, $opacity) 25%, transparent 25%,
-                   transparent 50%, rgba($color1, $opacity) 50%, rgba($color1, $opacity) 75%,
-                   transparent 75%, transparent) 0 0 / 50px 50px $color2;
-  behavior: url(/pie/PIE.htc);  
-}
 
-@mixin zigzag($color1, $color2)
-{
-}
+// Retina images
+//
+// Short retina mixin for setting background-image and -size
 
-@mixin carbonBG()
-{
-  background: -webkit-linear-gradient(63deg, #151515 5px, transparent 5px) 0 5px,
-              -webkit-linear-gradient(243deg, #151515 5px, transparent 5px) 10px 0px,
-              -webkit-linear-gradient(63deg, #222 5px, transparent 5px) 0px 10px,
-              -webkit-linear-gradient(243deg, #222 5px, transparent 5px) 10px 5px,
-              -webkit-linear-gradient(0deg, #1b1b1b 10px, transparent 10px),
-              -webkit-linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background: -moz-linear-gradient(63deg, #151515 5px, transparent 5px) 0 5px,
-              -moz-linear-gradient(243deg, #151515 5px, transparent 5px) 10px 0px,
-              -moz-linear-gradient(63deg, #222 5px, transparent 5px) 0px 10px,
-              -moz-linear-gradient(243deg, #222 5px, transparent 5px) 10px 5px,
-              -moz-linear-gradient(0deg, #1b1b1b 10px, transparent 10px),
-              -moz-linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-              linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-              linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-              linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-              linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-              linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background-size: 20px 20px;
-  background-color: #131313;
-  -pie-background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px / 20px,
-                   linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px / 20px,
-                   linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px / 20px,
-                   linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px / 20px,
-                   linear-gradient(90deg, #1b1b1b 10px, transparent 10px) 0 0 / 20px,
-                   linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424)
-                   0 0 / 20px #131313;
-  behavior: url(/pie/PIE.htc);
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: $file-1x;
 
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: $file-2x;
+    background-size: $width-1x $height-1x;
+  }
 }

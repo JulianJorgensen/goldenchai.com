@@ -1,12 +1,10 @@
-/* variables */
 @import "constants";
-
-/* mixins */
 @import "mixins";
+@import 'bootstrap-variables';
 
 
 // STYLES FOR DURABILITY ONLY
-body.durability
+body.manifesto-durability
 {
   #manifestos
   {
@@ -18,6 +16,88 @@ body.durability
         {
           opacity: 1;
           @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
+        }
+      }
+    }
+
+    .tab-content
+    {
+      .tab-pane#durability
+      {
+        display: block;
+
+        .arrows
+        {
+          .arrow-backward
+          {
+            display: none;
+          }
+        }
+      
+        &.summary-active
+        {
+          .arrows
+          {
+            .arrow-backward
+            {
+              display: block;
+            }
+          }          
+        }
+      }
+    }
+  }
+
+  .container
+  {
+    .inner-wrapper
+    {
+      #durability.tab-pane
+      {
+        .content-front
+        {
+          .black-diamond
+          {
+            float: right;
+            position: relative;
+            width: 225px;
+            height: 210px;
+            right: -20px;
+
+            .default, .hover
+            {
+              position: absolute;
+              top: 0;
+            }
+
+            .default
+            {
+              width: inherit;
+              height: inherit;
+              @include img-retina(image-url("cta/black-diamond-1x.png"), image-url("cta/black-diamond-2x.png"), 225px, 210px);
+            }
+
+            .hover
+            {
+              width: inherit;
+              height: inherit;
+              opacity: 0;
+              @include img-retina(image-url("cta/black-diamond-hover-1x.png"), image-url("cta/black-diamond-hover-2x.png"), 225px, 210px);
+            }
+
+            &:hover
+            {
+              .default
+              {
+                opacity: 0;
+              }
+
+              .hover
+              {
+                opacity: 1;
+              }
+            }
+          }
         }
       }
     }

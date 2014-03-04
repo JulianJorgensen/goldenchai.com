@@ -11,18 +11,27 @@
 // BOOTSTRAP STYLE OVERRIDES
 // =====================
 
-@media (min-width: $screen-sm)
-{
-  .container
-  {
-    padding: 0;
 
-    .row
-    {
-      padding: 0;
-    }
+// tooltip
+.tooltip
+{
+  font-size: $font-size-base;
+  line-height: 1.4;
+
+  &.in { @include opacity(1); }
+
+  // Wrapper for the tooltip content
+  .tooltip-inner {
+    padding: 10px;
+    color: $tooltip-color;
   }
 }
+
+[data-toggle="tooltip"]
+{
+  cursor: help;
+}
+
 
 /* typography */
 a, a:active, a:focus, a:visited, a:hover
@@ -33,14 +42,49 @@ a, a:active, a:focus, a:visited, a:hover
   text-decoration: none !important;
 }
 
-.nav-tabs
+.lead
+{
+  font-size: 1.2em;
+}
+
+.nav
 {
   > li
   {
     >a, >a:hover, >a:focus
     {
       background-color: transparent !important;
-      border: 0 !important;
     }
+  }
+}
+
+
+/* buttons */
+
+.btn
+{
+  text-transform: uppercase;
+  border: 0;
+  background-color: rgba($btn-default-bg, 0.1);
+
+  &:hover
+  {
+    background-color: rgba($btn-default-bg, 0.2);
+  }
+
+  &.btn-primary
+  {
+    background-color: rgba($btn-primary-bg, 0.5);
+
+    &:hover
+    {
+      background-color: rgba($btn-primary-bg, 0.8);
+    }
+  }
+
+  &.btn-lg
+  {
+    padding: 0 25px;
+    line-height: 3; /* this is necessary for progress-button. No top padding should be added. */
   }
 }

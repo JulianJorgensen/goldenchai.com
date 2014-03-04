@@ -1,47 +1,93 @@
 $(document).ready(function() {
-  // FOOTER CONTENT SLIDER: INFO, CONTACT, AND GET A QUOTE
-  $('#footer-content-slider').royalSlider({
-    controlNavigation: 'none',
-    autoScaleSlider: true,
-    autoScaleSliderHeight: 1200,
-    controlsInside: false,
-    navigateByClick: false,
-    sliderDrag: false,
-    arrowsNavAutoHide: false,
-    numImagesToPreload: 3
-  });
 
-  var footerContentSlider = $("#footer-content-slider").data('royalSlider');
+  setTimeout(function(){
+    if (!$("body").hasClass("screen-mobile"))
+    {
+      $("#info-accordion .panel:eq(0)").addClass("active");
+      $("#info-accordion .panel:eq(0) .accordion-content").addClass("in");
+    }
+  }, 100);
 
+
+  // CONTACT FORM SEND SCRIPT
+  // *****************
+
+    [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+      new ProgressButton( bttn, {
+        callback : function( instance ) {
+          var progress = 0,
+            interval = setInterval( function() {
+              progress = Math.min( progress + Math.random() * 0.1, 1 );
+              instance._setProgress( progress );
+
+              if( progress === 1 ) {
+                instance._stop(1);
+                clearInterval( interval );
+              }
+            }, 200 );
+        }
+      } );
+    } );
+
+    $('.progress-button').click(function() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var message = $("#message").val();
+      var dataString = 'name=' + name + '&from=' + email + '&subject=GoldenChai inquiry&to=chai@goldenchai.com&message=' + message;
+      $.ajax({
+        type : "POST",
+        url : "/bin/scripts/mailer.php",
+        data : dataString,
+        cache : false,
+        success : function() {
+
+        }
+      });
+      return false;
+    });
 
 
   // ACCORDION
   // *****************
-  $(".accordion .accordion-item .accordion-title").click(function(){
+  $(".accordion .panel .accordion-title").click(function(){
     var accordionItem = $(this).parent();
 
     // remove active classes on siblings
-    accordionItem.siblings(".accordion-item").removeClass("active");
+    accordionItem.siblings(".panel").removeClass("active");
 
     if (accordionItem.hasClass("active")){
       // remove active class
       accordionItem.removeClass("active");
-
-      if ($("body").hasClass("mobile"))
-      {
-        // accordionItem.siblings(".accordion-item").removeClass("hidden");
-      }
-
     }else{
       // add active class
       accordionItem.addClass("active");
-
-      if ($("body").hasClass("mobile"))
-      {
-        // accordionItem.siblings(".accordion-item").addClass("hidden");
-        // accordionItem.removeClass("hidden");
-      }
     }
+  });
+
+
+  // SHOW PROFILE IMAGE OF JULIAN
+  // ****************************
+  $("[data-show-profile]").mouseover(function(){
+    $(".accordion-item-about").addClass("show-profile");
+  });
+
+  $("[data-show-profile]").mouseout(function(){
+    $(".accordion-item-about").removeClass("show-profile");
+  });
+
+
+  // TOGGLE ACCORDION
+  // *****************
+  $("a[data-accordion]").on("click", function(event){
+    $("footer #footer-content > .accordion > .panel").removeClass("active");
+    $("footer #footer-content #info-accordion > .panel.accordion-item-" + $(this).attr("data-accordion") + " .accordion-title").trigger("click");
+  });
+
+
+  // ACTIVATE 1st TAB CONTENT IN PROCESS ACCORDION
+  // *********************************************
+  $(".accordion-item-process .accordion-title").on("click", function(event){
+    $(this).parent().find(".nav-tabs li:eq(0) a").trigger("click");
   });
 
 
@@ -55,6 +101,36 @@ $(document).ready(function() {
       return false;
     }else{
       activateFooter($(this));
+    }
+  });
+
+
+  // FOOTER CHAI INVERT STYLES
+  // *************************
+  $("[data-toggle-invert]").on("click", function(event){
+    if ((!$("body").hasClass("inverted-mode-1")) && (!$("body").hasClass("inverted-mode-2")))
+    {
+      $("body").addClass("inverted-mode-1");
+
+      $(".footer-chai p.invert-mode-1").addClass("active");
+      $(".footer-chai p.invert-mode-2").removeClass("active");
+      $(".footer-chai p.copyright").removeClass("active");
+    }
+    // else if ($("body").hasClass("inverted-mode-1"))
+    // {
+    //   $("body").removeClass("inverted-mode-1");
+    //   $("body").addClass("inverted-mode-2");
+
+    //   $(".footer-chai p.invert-mode-1").removeClass("active");
+    //   $(".footer-chai p.invert-mode-2").addClass("active");
+    //   $(".footer-chai p.copyright").removeClass("active");
+    // }
+    else
+    {
+      $("body").removeClass("inverted-mode-1 inverted-mode-2");
+
+      $(".footer-chai p.invert-mode-1, .footer-chai p.invert-mode-2").removeClass("active");
+      $(".footer-chai p.copyright").addClass("active");
     }
   });
 
@@ -83,26 +159,24 @@ $(document).ready(function() {
 
 });
 
-
 function activateFooter(navItem){
-  var footerContentSlider = $("#footer-content-slider").data('royalSlider');
+  if ($("body").hasClass("screen-mobile") || $("body").hasClass("screen-tablet"))
+  {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 400);
+
+    var s = skrollr.init();
+    s.destroy();
+  }
 
   navItem.siblings(".footer-nav-cta").removeClass("active");
   navItem.addClass("active");
 
   // if the footer was not active before, do this..
   if (!$("body").hasClass("footer-active")){
-    if ($("body").hasClass("screen-mobile"))
-    {
-      $("#footer-content .accordion-item").removeClass("active");
-    }
 
     $("body").addClass("footer-active");
-
-    // the slider should go to slide instantly
-    footerContentSlider.st.transitionSpeed = 0;
-    footerContentSlider.goTo(navItem.index());
-    footerContentSlider.st.transitionSpeed = 600;
 
     // collapse footer when clicking on header area
     if (!$("body").hasClass("mobile"))
@@ -114,15 +188,26 @@ function activateFooter(navItem){
         });
       }, 300);
     }
-  }else{
-    footerContentSlider.goTo(navItem.index());
   }
+
+  // go to the right tab
+  $("#footer-content .tab-pane").removeClass("active in");
+  $("#" + navItem.find("a").attr("href").replace("#/", "")).addClass("active in");
 }
 
 function collapseFooter(){
+  if ($("body").hasClass("screen-mobile") || $("body").hasClass("screen-tablet"))
+  {
+    var s = skrollr.init();
+  }
+
   // remove footer active classes
   $(".footer-nav-cta").removeClass("active");
   $("body").removeClass("footer-active");
+  $("body").addClass("footer-post-active");
+
+  // for mobile, remove hidden classes on accordion items
+  // $(".accordion .accordion-item").removeClass("hidden");
 
   $('.footer-nav-cta').tooltip('destroy');
 
@@ -130,10 +215,12 @@ function collapseFooter(){
   {
     if ($("body").hasClass("page-manifestos")){
       $.history.push("/manifestos");
-    }else if ($("body").hasClass("page-portfolio")){    
-      $.history.push("/portfolio");
-    }else if ($("body").hasClass("page-services")){    
-      $.history.push("/services");
+    }else if ($("body").hasClass("page-workflow")){    
+      $.history.push("/workflow");
+    }else if ($("body").hasClass("page-features")){    
+      $.history.push("/features");
     }
+  }else{
+    $.history.push("");
   }
 }

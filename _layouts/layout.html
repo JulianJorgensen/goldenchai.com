@@ -1,82 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+<html lang="en" class="wf-loading">
 
-  <title>Minimalist web development. GoldenChai.</title>
+{% include head.html %}
 
-  <script type="text/javascript" src="//use.typekit.net/qxk0qin.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-  {% javascript application-init %}
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
-  {% stylesheet application %}
-
-
-  <!-- keyframes for skrollr -->
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/layout.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/manifestos.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/portfolio.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/services.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/site-multiple-pages.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/tablet.css" data-skrollr-stylesheet />
-  <link rel="stylesheet" type="text/css" href="/assets/keyframes/mobile.css" data-skrollr-stylesheet />
-
-  <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico">
-</head>
-
-
-{% if page.subpage and page.name == "services" %}
-<body class="page-services site-multiple-pages">
-{% elsif page.subpage and page.name == "portfolio" %}
-<body class="page-portfolio site-multiple-pages">
-{% elsif page.subpage and page.name == "manifestos" %}
-<body class="page-manifestos site-multiple-pages">
-{% else %}
-<body class="index">
-{% endif %}
-
+<body class="index manifesto-durability page-manifestos site-single-page">
 
   <!-- INCLUDE THE HEADER -->
   {% include header.html %}
 
-  {% if page.subpage %}
-    <!-- INCLUDE THE MANIFESTOS CONTENT -->
-    {% if page.name == "manifestos" %}
+  <div id="skrollr-body">
       {% include pages/manifestos.html %}
-    {% endif %}
-
-    <!-- INCLUDE THE FULL PORTFOLIO CONTENT -->
-    {% if page.name == "portfolio" %}
-      {% include pages/portfolio-single.html %}
-    {% endif %}
-
-    <!-- INCLUDE THE SERVICES CONTENT -->
-    {% if page.name == "services" %}
-      {% include pages/services.html %}
-    {% endif %}
-
-  {% else %}
-
-    {% include pages/manifestos.html %}
-    {% include pages/portfolio-full.html %}
-    {% include pages/services.html %}
-
-  {% endif %}
+      <section id="workflow" class="window subpage lazy-load">{% include pages/workflow.html %}</section>
+      <section id="features" class="window subpage lazy-load">{% include pages/features.html %}</section>
+  </div>
 
   <!-- INCLUDE THE FOOTER -->
   {% include footer.html %}
 
 
-  <!-- the main js files (compiled) -->
-  {% javascript application %}
+  <!-- main stylesheet file -->
+  <link rel="stylesheet" type="text/css" href="{% asset_path application %}"/>
 
+  <!-- keyframes for skrollr -->
+  <link rel="stylesheet" type="text/css" href="/skrollr/keyframes.css" data-skrollr-stylesheet />
+    
+  <!-- MAIN JS STUFF -->
+  {% include defer.html defer="/defer.js" %}
 
-  <!-- include the js files that shouldn't be pre-compiled. This is primarily the ones that uses environment variables (such as the scrolling stuff) -->
-  <script type="text/javascript" src="/assets/deeplinking.js"></script>
-  <script type="text/javascript" src="/assets/scrollBehaviours.js"></script>
+  <script type="text/javascript">
+    {% asset analytics.js %}
+  </script>
 
 </body>
 </html>
