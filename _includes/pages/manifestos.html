@@ -9,8 +9,8 @@
       <div class="marquee-headline">
         <h1 class="headline-default">Great websites merge</h1>
         <h1 class="headline-durability">Flawless websites merge</h1>
-        <h1 class="headline-usability">Brilliant websites merge</h1>
-        <h1 class="headline-art">GoldenChai merge</h1>
+        <h1 class="headline-usability">Zen websites merge</h1>
+        <h1 class="headline-art">True web-artists merge</h1>
       </div>
 
       <ul class="nav">
@@ -29,12 +29,7 @@
         <div class="tab-content">
           <div class="tab-pane" id="durability">
             <div class="content-front active">
-              <div class="black-diamond content-cta content-cta-hover" data-toggle-summary>
-                <div class="default"></div>
-                <div class="hover"></div>
-              </div>
-              <div class="hidden-xs">{% include copy/durability.html side="front-desktop" %}</div>
-              <div class="visible-xs">{% include copy/durability.html side="front-mobile" %}</div>
+              <div>{% include copy/durability.html side="front" %}</div>
             </div>
             <div class="content-summary">
               {% include copy/durability.html side="back" %}
@@ -48,9 +43,8 @@
 
           <div class="tab-pane" id="usability">
             <div class="content-front active">
-              <div class="zen-symbol content-cta" data-toggle-summary></div>
-              <div class="hidden-xs">{% include copy/usability.html side="front-desktop" %}</div>
-              <div class="visible-xs">{% include copy/usability.html side="front-mobile" %}</div>
+              <div class="zen-symbol content-cta" data-toggle-summary data-toggle="tooltip" title="See summary"></div>
+              <div>{% include copy/usability.html side="front" %}</div>
             </div>
 
             <div class="content-summary">
@@ -65,12 +59,12 @@
 
           <div class="tab-pane" id="art">
             <div class="content-front active">
-              <div class="vitruvian content-cta" data-toggle-summary></div>
-              <div class="hidden-xs">{% include copy/art.html side="front-desktop" %}</div>
-              <div class="visible-xs">{% include copy/art.html side="front-mobile" %}</div>
+              <div class="vitruvian content-cta" data-toggle-summary data-toggle="tooltip" title="See summary"></div>
+              <div>{% include copy/art.html side="front" %}</div>
             </div>
             <div class="content-summary">
               {% include copy/art.html side="back" %}
+              <a href="#/workflow" class="arrow-down active"></a>
             </div>
             <div class="arrows">
               <div class="arrow arrow-backward arrow-expand" data-backwards><span class="usability">usability</span></div>
@@ -87,5 +81,4 @@
   </section>
 
   <div id="manifesto-videos"></div>
-
 </section>

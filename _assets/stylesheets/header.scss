@@ -24,7 +24,7 @@ body
       position: absolute;
       bottom: 0;
       cursor: pointer;
-      @include transition(bottom $fastTransitionSpeed);
+      @include transition(bottom $defaultTransitionSpeed);
       @include disableHighlighting;
 
       .goldenchai-logo

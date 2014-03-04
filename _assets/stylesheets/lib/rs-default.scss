@@ -52,7 +52,6 @@
 
 	position: absolute;	
 	cursor: pointer;
-	background: image-url("lib/rs-default.png");
 }
 
 .rsDefault.rsHor .rsArrowLeft .rsArrowIcn { background-position: -64px -32px; }
@@ -92,6 +91,7 @@
 	border-radius: 50%;
 	background: #777;
 	background: rgba(255,255,255,0.5);
+	cursor: pointer;
 }
 .rsDefault .rsBullet.rsNavSelected  {
 	background-color: #FFF;

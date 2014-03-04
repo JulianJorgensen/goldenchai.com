@@ -59,8 +59,10 @@ body.manifesto-durability
           .black-diamond
           {
             float: right;
+            position: relative;
             width: 225px;
             height: 210px;
+            right: -20px;
 
             .default, .hover
             {

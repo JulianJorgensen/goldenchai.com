@@ -46,10 +46,12 @@ body.manifesto-art
         {
           .vitruvian
           {
+            position: relative;
+            right: -20px;
             float: right;
-            width: 215px;
-            height: 215px;
-            @include img-retina(image-url("cta/vitruvian-1x.png"), image-url("cta/vitruvian-2x.png"), 215px, 215px);
+            width: 200px;
+            height: 200px;
+            @include img-retina(image-url("cta/vitruvian-1x.png"), image-url("cta/vitruvian-2x.png"), 200px, 200px);
           }
         }
 

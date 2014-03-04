@@ -3,7 +3,7 @@ var disableScrollLength = 2000;
 var scrollSpeed = 600;
 
 // MARQUEE VARIABLES
-var marqueeTransitionSpeed = 300;
+var marqueeTransitionSpeed = 200;
 
 $(document).ready(function() {
 

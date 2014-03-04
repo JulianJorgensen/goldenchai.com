@@ -46,10 +46,12 @@ body.manifesto-usability
         {
           .zen-symbol
           {
+            position: relative;
             float: right;
-            width: 225px;
-            height: 210px;
-            @include img-retina(image-url("cta/zen-symbol-1x.png"), image-url("cta/zen-symbol-2x.png"), 225px, 210px);
+            width: 200px;
+            height: 198px;
+            right: -20px;
+            @include img-retina(image-url("cta/zen-symbol-1x.png"), image-url("cta/zen-symbol-2x.png"), 200px, 198px);
           }
         }
       }

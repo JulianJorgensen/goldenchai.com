@@ -3,6 +3,8 @@
 @import 'bootstrap-variables';
 @import 'lib/bootstrap-3.0.3/_mixins';
 
+$marqueeTransitionSpeed: $fastTransitionSpeed;
+
 body.site-multiple-pages.page-manifestos
 {
   header
@@ -41,9 +43,16 @@ body
       overflow: hidden;
       z-index: -1;
 
+      .video-fader
+      {
+        top: 270px;
+        height: 100%;
+        @include gradient-vertical(rgba($black, 0), rgba($black, 1), 0%, 20%);
+      }
+
       video
       {
-        height: 100%;
+        width: 100%;
         opacity: 0.1;
       }
 
@@ -51,7 +60,7 @@ body
       {
         video
         {
-          opacity: 0.05;
+          opacity: 0.15;
         }
       }
 
@@ -59,9 +68,22 @@ body
       {
         video
         {
-          opacity: 0.15;          
+          opacity: 0.2;
         }
       }
+
+      &.visible-inverted-mode-1-art
+      {
+        video
+        {
+          opacity: 0.15;
+        }
+      }
+    }
+
+    .arrow-down
+    {
+      @include arrow(14px, 1px, $black, $white, top);
     }
     
     .container
@@ -74,7 +96,7 @@ body
 
           .tab-content
           {
-            @include transition(opacity $defaultTransitionSpeed ease-out);
+            @include transition(opacity $slowTransitionSpeed ease 0.1s);
 
             .mobile-manifesto-ctas
             {
@@ -327,7 +349,7 @@ body
           height: inherit;
           opacity: 0;
           @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
-          @include transition(opacity $defaultTransitionSpeed);
+          @include transition(opacity $marqueeTransitionSpeed);
         }
 
         .marquee-shadow
@@ -336,7 +358,7 @@ body
           background: image-url("marquee/shadow.png") 0 0 repeat-x;
           padding-bottom: 20px;
           position: relative;
-          @include transition(opacity $defaultTransitionSpeed ease-in);
+          @include transition(opacity $marqueeTransitionSpeed);
         }
 
         .nav
@@ -409,11 +431,11 @@ body
       {
         #marquee
         {
-          @include transition(height $defaultTransitionSpeed);
+          @include transition(height $marqueeTransitionSpeed);
 
           .marquee-headline h1, .nav
           {
-            @include transition(opacity $defaultTransitionSpeed ease-out ($defaultTransitionSpeed*0.8));
+            @include transition(opacity $marqueeTransitionSpeed ease $marqueeTransitionSpeed);
           }
         }
       }

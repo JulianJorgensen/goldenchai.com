@@ -80,7 +80,7 @@ $(document).ready(function() {
   // *****************
   $("a[data-accordion]").on("click", function(event){
     $("footer #footer-content > .accordion > .panel").removeClass("active");
-    $("footer #footer-content > .accordion > .panel.accordion-item-" + $(this).attr("data-accordion") + " .accordion-title").trigger("click");
+    $("footer #footer-content #info-accordion > .panel.accordion-item-" + $(this).attr("data-accordion") + " .accordion-title").trigger("click");
   });
 
 

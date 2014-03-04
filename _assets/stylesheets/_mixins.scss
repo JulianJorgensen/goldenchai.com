@@ -1,3 +1,6 @@
+@import "constants";
+
+
 // RESPONSIVE MIXINS
 // ===============
 @mixin largeHeader()
@@ -15,6 +18,59 @@
     .nav-icon
     {
       width: 36px;        
+    }
+  }
+}
+
+@mixin largeArrows($arrow-color: $black, $arrow-bg: $white)
+{
+  #manifestos .container .inner-wrapper .main-content .tab-content 
+  {
+    .arrows
+    {
+      .arrow
+      {
+        width: 180px;
+      }
+
+      .arrow-forward
+      {
+        @include arrow(30px, 3, $arrow-color, $arrow-bg, right);
+        right: -180px;
+
+        span
+        {
+          right: 40px;
+        }
+      }
+
+      .arrow-backward
+      {
+        @include arrow(30px, 3, $arrow-color, $arrow-bg, left);
+        left: -180px;
+
+        span
+        {
+          left: 40px;
+        }
+      }
+    }
+  }
+}
+
+@mixin workflowNavArrows($arrow-size, $color, $bg)
+{
+  .rsDefault.rsHor .rsArrowLeft { 
+    .rsArrowIcn
+    {
+      @include arrow($arrow-size, 1, $color, $bg, left);    
+    }
+  }
+
+  .rsDefault.rsHor .rsArrowRight { 
+    .rsArrowIcn
+    {
+      @include arrow($arrow-size, 1, $color, $bg, right);    
     }
   }
 }
@@ -146,7 +202,15 @@
     }
     @if ($arrow-direction == bottom)
     {
-      top: ($arrow-offset+$arrow-thickness);
+      top: auto;
+      bottom: $arrow-offset;
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+    @if ($arrow-direction == top)
+    {
+      top: -($arrow-offset+$arrow-thickness);
       width: ($arrow-size*2);
       left: 50%;
       margin-left: -($arrow-size);
@@ -169,6 +233,14 @@
       right: (-$arrow-size);
     }
     @if ($arrow-direction == bottom)
+    {
+      top: auto;
+      bottom: ($arrow-offset+$arrow-thickness);
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+    @if ($arrow-direction == top)
     {
       top: $arrow-offset;
       width: ($arrow-size*2);

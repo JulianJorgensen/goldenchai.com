@@ -33,13 +33,29 @@ body.inverted-mode-1
   background-color: $manifestos-color-inverted-mode-1;
   color: $white;
 
+  // tooltip
+  .tooltip {
+    .tooltip-arrow
+    {
+      border-top-color: $gray80;
+    }
+
+    .tooltip-inner
+    {
+      color: $white;
+      background-color: $gray80;
+    }
+
+  }
+
+
   a
   {
-    color: darken($white, 15%);
+    color: $goldenbrown;
 
     &:hover
     {
-      color: $white;
+      color: lighten($goldenbrown, 20%);
     }
   }
 
@@ -63,20 +79,8 @@ body.inverted-mode-1
   }
 
 
-  // SLIDER ARROW COLOR
-  .rsDefault.rsHor .rsArrowLeft { 
-    .rsArrowIcn
-    {
-      @include arrow(20px, 1, $white, $workflow-color-inverted-mode-1, left);    
-    }
-  }
-
-  .rsDefault.rsHor .rsArrowRight { 
-    .rsArrowIcn
-    {
-      @include arrow(20px, 1, $white, $workflow-color-inverted-mode-1, right);    
-    }
-  }
+  // WORKFLOW SLIDER ARROWS
+  @include workflowNavArrows(20px, $white, $workflow-color-inverted-mode-1);
 
 
   &.footer-active
@@ -121,6 +125,11 @@ body.inverted-mode-1
   #manifestos
   {
     background: $manifestos-color-inverted-mode-1;
+
+    .arrow-down
+    {
+      @include arrow(14px, 1px, $white, $black, top);
+    }
 
     .container
     {
@@ -186,6 +195,11 @@ body.inverted-mode-1
       nav, footer, header
       {
         color: $white;
+      }
+
+      .arrow-down
+      {
+        @include arrow(14px, 1px, $white, $workflow-color-inverted-mode-1, top);
       }
     }
   }
@@ -290,5 +304,20 @@ body.inverted-mode-1
     {
       color: $white;
     }
+  }
+}
+
+
+// DESKTOP SPECIFIC STYLES
+@media (min-width: $screen-lg)
+{
+  body.inverted-mode-1
+  {
+    // MANIFESTOS ARROWS
+    @include largeArrows($white, $black);
+
+    // WORKFLOW SLIDER ARROWS
+    @include workflowNavArrows(30px, $white, $workflow-color-inverted-mode-1);
+
   }
 }

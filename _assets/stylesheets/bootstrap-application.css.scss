@@ -13,23 +13,23 @@
 
 
 // tooltip
-.tooltip {
+.tooltip
+{
   font-size: $font-size-base;
   line-height: 1.4;
 
-  &.in     { @include opacity(1); }
+  &.in { @include opacity(1); }
+
+  // Wrapper for the tooltip content
+  .tooltip-inner {
+    padding: 10px;
+    color: $tooltip-color;
+  }
 }
 
-span[data-toggle="tooltip"]
+[data-toggle="tooltip"]
 {
   cursor: help;
-}
-
-
-// Wrapper for the tooltip content
-.tooltip-inner {
-  padding: 10px;
-  color: $tooltip-color;
 }
 
 

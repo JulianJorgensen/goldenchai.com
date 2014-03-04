@@ -52,7 +52,6 @@ section#features
   {
     margin-top: 80px;
     border-bottom: 2px solid $black;
-    padding-bottom: 16px;
     margin-bottom: 30px;
 
     li
@@ -61,7 +60,8 @@ section#features
       font-size: 1.5em;
       font-weight: 200;
       display: inline-block;
-      margin: 0 19px;
+      margin: 0 19px -3px;
+      padding-bottom: 16px;
       text-transform: uppercase;
       opacity: 0.5;
 
@@ -72,13 +72,13 @@ section#features
 
       a
       {
-        color: $black;        
+        color: $black;
       }
 
       &.active
       {
         opacity: 1;
-        @include arrow(15px, 3px, $black, $features-color, bottom, 15px);
+        @include arrow(12px, 3px, $black, $features-color, bottom);
       }
     }
   }
@@ -94,10 +94,14 @@ section#features
     }
   }
 
+  .features-highlight
+  {
+    padding: 20px;
+    background: rgba($white, 0.1);
+  }
+
   .socialmedia-icons
   {
-    padding-top: 25px;
-
     .socialmedia-icon
     {
       float: left;
@@ -107,12 +111,21 @@ section#features
     }
   }
 
+  .development-before-after
+  {
+    margin-bottom: 30px;
+
+    .twentytwenty-overlay
+    {
+      display: none;
+    }
+  }
+
   .design-concept
   {
     position: relative;
-    top: 110px;
-    left: 20px;
-    height: 250px;
+    top: 100px;
+    left: 140px;
 
     h2
     {

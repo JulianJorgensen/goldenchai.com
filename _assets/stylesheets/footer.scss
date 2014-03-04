@@ -16,7 +16,7 @@ body
   {
     footer
     {
-      @include transition((background $defaultTransitionSpeed ease, top ($fastTransitionSpeed/2) ease-out));
+      @include transition((background $fastTransitionSpeed, top $fastTransitionSpeed));
     }
   }
 
@@ -24,9 +24,14 @@ body
   {
     position: fixed;
     top: 680px;
-    height: 100%;
     width: 100%;
-    z-index: 9999;
+    z-index: 10;
+    height: 40px; /* this needs to be low for the down arrow to work. Otherwise issues with z-index */
+
+    .container
+    {
+      height: inherit;
+    }
 
     .footer-chai
     {
@@ -134,7 +139,7 @@ body
         text-align: center;
         font-size: 11px;
         background: $gray20;
-        @include transition(opacity ($defaultTransitionSpeed*2));
+        @include transition(opacity $slowTransitionSpeed);
 
         .cta-helper-arrow
         {
@@ -275,6 +280,17 @@ body.footer-active
     }
   }
 
+  #manifestos
+  {
+    .manifestos-video
+    {
+      video
+      {
+        opacity: 0.1 !important;
+      }
+    }
+  }
+
   footer
   {
     hr
@@ -301,7 +317,7 @@ body.footer-active
     #footer-content
     {
       pointer-events: auto;
-      margin-top: 30px;
+      margin-top: 10px;
     }
   }
 }
@@ -377,7 +393,7 @@ body.footer-active
           .cta-helper
           {
             opacity: 1 !important;
-            @include transition(opacity ($defaultTransitionSpeed*2) ease 1s);
+            @include transition(opacity $slowTransitionSpeed ease 1s);
           }          
         }
 
@@ -386,7 +402,7 @@ body.footer-active
           .cta-helper
           {
             opacity: 1 !important;
-            @include transition(opacity ($defaultTransitionSpeed*4) ease 0.5s);
+            @include transition(opacity ($slowTransitionSpeed*2) ease 0.5s);
           }
         }
       }
@@ -473,7 +489,7 @@ body.footer-active
       position: static;
       opacity: 1 !important;
       z-index: 999 !important;
-      @include transition(top ($defaultTransitionSpeed) ease);
+      @include transition(top $fastTransitionSpeed);
 
       .footer-nav
       {
@@ -521,7 +537,7 @@ body.footer-active
       {
         .contact-info
         {
-          padding-top: 0;          
+          padding-top: 0;
         }
 
         textarea, input

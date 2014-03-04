@@ -7,7 +7,7 @@
 // DESKTOP PORTRAIT SPECIFIC STYLES
 @media (min-width: $screen-lg)
 {
-  body, .btn
+  body, .btn, .tooltip
   {
     font-size: $font-size-desktop;
   }
@@ -25,10 +25,41 @@
 
     @include largeHeader();
     @include largeMarquee();
+    @include largeArrows($black, $white);
+
+    // WORKFLOW SLIDER ARROWS
+    @include workflowNavArrows(30px, $black, $workflow-color);
+
+    .rsDefault.rsHor .rsArrowLeft { left: -100px; }
+    .rsDefault.rsHor .rsArrowRight { right: -100px; }
+
+
+    // Wrapper for the tooltip content
+    .tooltip
+    {
+      &.top .tooltip-arrow {
+        margin-left: -$tooltip-arrow-width-desktop;
+        border-width: $tooltip-arrow-width-desktop $tooltip-arrow-width-desktop 0;
+      }
+
+      .tooltip-inner {
+        max-width: $tooltip-max-width-desktop;
+        padding: 15px;
+      }
+    }
 
 
     #manifestos 
     {
+      .manifestos-video
+      {
+        .video-fader
+        {
+          top: 390px;
+        }
+      }
+
+
       #durability.tab-pane
       {
         .content-front
@@ -57,8 +88,8 @@
         {
           .zen-symbol
           {
-            width: 315px;
-            height: 294px;
+            width: 258px;
+            height: 255px;
             background-image: image-url("cta/zen-symbol-desktop.png");
           }
         }
@@ -73,36 +104,6 @@
             width: 258px;
             height: 258px;
             background-image: image-url("cta/vitruvian-desktop.png");
-          }
-        }
-      }
-
-      .container .inner-wrapper .main-content .tab-content .arrows
-      {
-        .arrow
-        {
-          width: 180px;
-        }
-
-        .arrow-forward
-        {
-          @include arrow(30px, 3, $black, $white, right);
-          right: -180px;
-
-          span
-          {
-            right: 40px;
-          }
-        }
-
-        .arrow-backward
-        {
-          @include arrow(30px, 3, $black, $white, left);
-          left: -180px;
-
-          span
-          {
-            left: 40px;
           }
         }
       }
@@ -135,6 +136,20 @@
     footer
     {
       top: 900px;
+    }
+  }
+
+  section#features
+  {
+    .nav-tabs
+    {
+      li
+      {
+        &.active
+        {
+          @include arrow(15px, 3px, $black, $features-color, bottom);
+        }
+      }
     }
   }
 }

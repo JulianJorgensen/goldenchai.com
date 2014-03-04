@@ -158,10 +158,9 @@ $(document).ready(function() {
         }
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
-          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
+          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
         }
 
-        updatePageMeta("manifestos");          
         break;
 
       case "/durability":
@@ -170,10 +169,9 @@ $(document).ready(function() {
         }
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
-          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
+          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
         }
 
-        updatePageMeta("manifestos");
         $('#marquee .nav .nav-durability').trigger('click');
         break;
 
@@ -183,10 +181,9 @@ $(document).ready(function() {
         }
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
-          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
+          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
         }
 
-        updatePageMeta("manifestos");
         $('#marquee .nav .nav-usability').trigger('click');
         break;
 
@@ -196,10 +193,9 @@ $(document).ready(function() {
         }
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
-          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed);
+          smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
         }
 
-        updatePageMeta("manifestos");
         $('#marquee .nav .nav-art').trigger('click');
         break;
 
@@ -209,10 +205,9 @@ $(document).ready(function() {
         }
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.workflow_start }}))
         {
-          smoothPageScroll({{ site.workflow_start }}, scrollSpeed);
+          smoothPageScroll({{ site.workflow_start }}, scrollSpeed, "workflow");
         }
 
-        updatePageMeta("workflow");
         break;
 
 
@@ -222,10 +217,9 @@ $(document).ready(function() {
         }
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.features_start }}))
         {
-          smoothPageScroll({{ site.features_end }}, scrollSpeed);
+          smoothPageScroll({{ site.features_end }}, scrollSpeed, "features");
         }
 
-        updatePageMeta("features");
         break;
 
       default:
@@ -264,12 +258,13 @@ $(document).ready(function() {
 
 
   // SCROLL TO THE NEW PAGE
-  function smoothPageScroll(scrollTo, scrollSpeed){
+  function smoothPageScroll(scrollTo, scrollSpeed, pagename){
     $("body").addClass("transitioning");
     $("html, body").animate({
       scrollTop: scrollTo
     }, scrollSpeed, function(){
       $("body").removeClass("transitioning");
+      updatePageMeta(pagename);
     });
   }
 

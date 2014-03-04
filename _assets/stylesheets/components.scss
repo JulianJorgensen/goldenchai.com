@@ -45,6 +45,33 @@ ul
   list-style-type: square;
 }
 
+
+/* DOWN ARROW */
+/* ==== */
+
+.arrow-down
+{
+  display: none;
+  height: 28px;
+  width: 28px;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -14px;
+  opacity: 0.7;
+
+  &.active
+  {
+    display: block;
+  }
+
+  &:hover
+  {
+    opacity: 1;
+  }
+}
+
+
 /* TABS */
 /* ==== */
 body

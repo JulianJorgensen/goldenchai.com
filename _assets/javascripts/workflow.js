@@ -27,4 +27,10 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
+  // DEPLOY BUTTON
+  $(".slide-graphic-deploy").click(function(){
+    $(".slide-deploy").addClass("deployed");
+    $("#workflow .arrow-down").addClass("active");
+  });
+
 });
