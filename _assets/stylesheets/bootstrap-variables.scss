@@ -64,7 +64,7 @@ $text-color: $black;
 
 $brand-primary: $durability-color;
 
-$font-size-base:          14px !default;
+$font-size-base:          15px !default;
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
 
@@ -134,10 +134,10 @@ $border-radius-small: 0;
 
 
 // buttons
-$btn-default-color: $brand-primary;
+$btn-default-color: $black;
 $btn-default-bg: $brand-primary;
 
-$btn-primary-color: $brand-primary;
+$btn-primary-color: $black;
 $btn-primary-bg: $golden;
 
 

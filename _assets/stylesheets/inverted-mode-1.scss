@@ -3,8 +3,24 @@
 @import 'bootstrap-variables';
 @import 'lib/bootstrap-3.0.3/_mixins';
 
-body.inverted-mode-1
+.visible-inverted-mode-1
 {
+  display: none;
+}
+
+
+body.inverted-mode-1.site-single-page
+{
+  .visible-normal-mode
+  {
+    display: none !important;
+  }
+
+  .visible-inverted-mode-1
+  {
+    display: block;
+  }
+
   &.manifesto-durability
   {
     .visible-inverted-mode-1-durability
@@ -56,6 +72,30 @@ body.inverted-mode-1
     &:hover
     {
       color: lighten($goldenbrown, 20%);
+    }
+
+    &.btn
+    {
+      color: $white;
+      background-color: rgba($black, 0.2);
+
+      &:hover
+      {
+        background-color: rgba($black, 0.3);
+        color: $white;
+      }
+
+      &.btn-primary
+      {
+        color: $black;
+        background-color: rgba($btn-primary-bg, 0.7);
+
+        &:hover
+        {
+          color: $black;
+          background-color: rgba($btn-primary-bg, 1);
+        }
+      }
     }
   }
 
@@ -131,6 +171,14 @@ body.inverted-mode-1
       @include arrow(14px, 1px, $white, $black, top);
     }
 
+    .manifestos-video
+    {
+      .video-fader
+      {
+        @include gradient-vertical(rgba($black, 0), rgba($black, 1), 0%, 15%);
+      }
+    }
+
     .container
     {
       .inner-wrapper
@@ -173,7 +221,7 @@ body.inverted-mode-1
               {
                 &:after
                 {
-                  display: none;
+                  @include triangle(20px, $black, bottom);
                 }
               }
             }

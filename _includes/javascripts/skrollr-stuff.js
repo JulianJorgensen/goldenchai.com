@@ -11,8 +11,9 @@ $(document).ready(function() {
   // ************************************
   $("#mobile-nav-icon").click(function(){
     var windowHeight = $(window).height();
-    s.animateTo(windowHeight);
+    s.animateTo(windowHeight, 100);
   });
+
 
 
   // ON WINDOW RESIZE: APPLY MOBILE CLASS FOR SMALL SCREENS, AND DESKTOP FOR LARGER
@@ -59,8 +60,7 @@ $(document).ready(function() {
     {
       // ITS A TABLET SIZED WINDOW!
       if ($("body").hasClass("screen-tablet")){return "";}
-      $("body").removeClass("screen-desktop");
-      $("body").removeClass("screen-mobile");
+      $("body").removeClass("screen-mobile screen-laptop screen-desktop");
       $("body").addClass("screen-tablet");
       screenChange = true;
     }
@@ -68,15 +68,23 @@ $(document).ready(function() {
     {
       // ITS A MOBILE SIZED WINDOW!
       if ($("body").hasClass("screen-mobile")){return "";}
-      $("body").removeClass("screen-desktop");
-      $("body").removeClass("screen-tablet");
+      $("body").removeClass("screen-tablet screen-laptop screen-desktop");
       $("body").addClass("screen-mobile");
       screenChange = true;
-    }else{
+    }
+    else if (windowWidth <= {{ site.laptop_end_width }})
+    {
+      // ITS A LAPTOP SIZED WINDOW!
+      if ($("body").hasClass("screen-laptop")){return "";}
+      $("body").removeClass("screen-tablet screen-mobile screen-desktop");
+      $("body").addClass("screen-laptop");
+      screenChange = true;
+    }
+    else
+    {
       // ITS A DESKTOP SIZED WINDOW!
       if ($("body").hasClass("screen-desktop")){return "";}
-      $("body").removeClass("screen-tablet");
-      $("body").removeClass("screen-mobile");
+      $("body").removeClass("screen-tablet screen-mobile screen-laptop");
       $("body").addClass("screen-desktop");
       screenChange = true;
     }
@@ -103,9 +111,8 @@ $(document).ready(function() {
 
       }else{
 
-        if ($("body").hasClass("site-single-page")){return "";}
+        if ((!screenChange) && ($("body").hasClass("site-single-page"))){return "";}
 
-        // $("header").removeClass("mobile-nav-active"); // hide mobile nav just in case it's active
         $("body").removeClass("site-multiple-pages");
         $("body").addClass("site-single-page");
 
@@ -159,6 +166,8 @@ $(document).ready(function() {
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
           smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
+        }else{
+          updatePageMeta("manifestos");
         }
 
         break;
@@ -170,6 +179,8 @@ $(document).ready(function() {
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
           smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
+        }else{
+          updatePageMeta("manifestos");
         }
 
         $('#marquee .nav .nav-durability').trigger('click');
@@ -182,6 +193,8 @@ $(document).ready(function() {
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
           smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
+        }else{
+          updatePageMeta("manifestos");
         }
 
         $('#marquee .nav .nav-usability').trigger('click');
@@ -194,6 +207,8 @@ $(document).ready(function() {
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos > {{ site.manifestos_start }}))
         {
           smoothPageScroll({{ site.manifestos_start }}, scrollSpeed, "manifestos");
+        }else{
+          updatePageMeta("manifestos");
         }
 
         $('#marquee .nav .nav-art').trigger('click');
@@ -206,6 +221,8 @@ $(document).ready(function() {
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.workflow_start }}))
         {
           smoothPageScroll({{ site.workflow_start }}, scrollSpeed, "workflow");
+        }else{
+          updatePageMeta("workflow");
         }
 
         break;
@@ -218,6 +235,8 @@ $(document).ready(function() {
         if ((event.type != "push") && (event.type != "pushed") && (scrollPos !== {{ site.features_start }}))
         {
           smoothPageScroll({{ site.features_end }}, scrollSpeed, "features");
+        }else{
+          updatePageMeta("features");
         }
 
         break;
@@ -233,22 +252,54 @@ $(document).ready(function() {
   }).listen('hash');
 
 
+  // LAZY LOAD SUBPAGES
+  // *******************
+  setTimeout(function(){
+    lazyLoadPages();
+  }, 2500);
+
+  $(window).scroll(function() {
+    lazyLoadPages();
+  });
+
+
+  function lazyLoadPages(){
+    if (!$("body").hasClass("subpages-loaded")){
+
+      // SUBPAGES
+      $.get("/pages/workflow.html", function(data) {
+        $("section#workflow").html(data);
+      });
+
+      $.get("/pages/features.html", function(data) {
+        $("section#features").html(data);
+        setTimeout(function(){
+          updateSkrollr(true);
+        }, 100);
+      });
+
+      $("body").addClass("subpages-loaded");
+    }
+  }
 
   // CONTROL OF WHAT NEEDS TO GET ACTIVATED AT WHICH SCROLL POSITIONS.
   $(window).scroll(function() {
     if (!$("body").hasClass("transitioning") && !$("body").hasClass("site-multiple-pages"))
     {
       scrollPos = $(window).scrollTop();
-
+      console.log(scrollPos + " {{ site.workflow_pre_start }}");
       if (scrollPos < {{ site.workflow_pre_start }}){
+        console.log('manifestos');
         if (!$("body").hasClass("page-manifestos")){
           $.history.push("/manifestos");
         }
       }else if ((scrollPos > {{ site.workflow_pre_start }}) && (scrollPos < {{ site.features_pre_start }})){
+        console.log('workflow');
         if (!$("body").hasClass("page-workflow")){
           $.history.push("/workflow");
         }
       }else if ((scrollPos > {{ site.features_pre_start }}) && (scrollPos <= {{ site.features_start }})){
+        console.log('features');
         if (!$("body").hasClass("page-features")){
           $.history.push("/features");
         }
@@ -258,13 +309,17 @@ $(document).ready(function() {
 
 
   // SCROLL TO THE NEW PAGE
-  function smoothPageScroll(scrollTo, scrollSpeed, pagename){
+  function smoothPageScroll(scrollTo, scrollSpeed, pageName){
+
+    setTimeout(function(){
+      updatePageMeta(pageName);
+    }, (scrollSpeed/2));
+
     $("body").addClass("transitioning");
     $("html, body").animate({
       scrollTop: scrollTo
     }, scrollSpeed, function(){
       $("body").removeClass("transitioning");
-      updatePageMeta(pagename);
     });
   }
 

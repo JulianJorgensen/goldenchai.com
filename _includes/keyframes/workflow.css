@@ -1,3 +1,4 @@
+body.site-single-page.screen-laptop #workflow,
 body.site-single-page.screen-desktop #workflow
 {
   -skrollr-animation-name: workflow_opacity;

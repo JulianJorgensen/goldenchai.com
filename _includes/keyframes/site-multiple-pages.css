@@ -23,7 +23,7 @@ body.site-multiple-pages.screen-mobile section.window
 }
 
 @-skrollr-keyframes content-disappear {
-  80 {
+  120 {
     opacity: 1;
   }
 
@@ -40,12 +40,12 @@ body.site-multiple-pages.screen-tablet footer
 }
 
 @-skrollr-keyframes mobile-footer-appear {
-  200 {
+  300 {
     opacity: 0;
     z-index: -1;
   }
 
-  250 {
+  350 {
     opacity: 1;
     z-index: 99;
   }
@@ -60,11 +60,11 @@ body.site-multiple-pages.screen-tablet #footer-kicker
 }
 
 @-skrollr-keyframes footer-kicker-appear {
-  250 {
+  350 {
     opacity: 0;
   }
 
-  300 {
+  400 {
     opacity: 1;
   }
 }

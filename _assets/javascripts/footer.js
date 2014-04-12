@@ -30,10 +30,9 @@ $(document).ready(function() {
     } );
 
     $('.progress-button').click(function() {
-      var name = $("#name").val();
       var email = $("#email").val();
       var message = $("#message").val();
-      var dataString = 'name=' + name + '&from=' + email + '&subject=GoldenChai inquiry&to=chai@goldenchai.com&message=' + message;
+      var dataString = 'from=' + email + '&subject=GoldenChai inquiry&to=chai@goldenchai.com&message=' + message;
       $.ajax({
         type : "POST",
         url : "/bin/scripts/mailer.php",
@@ -107,7 +106,18 @@ $(document).ready(function() {
 
   // FOOTER CHAI INVERT STYLES
   // *************************
-  $("[data-toggle-invert]").on("click", function(event){
+  $("#workflow, .footer-chai").on("click", "[data-toggle-invert]", function(event){
+    // FIRST LOAD THE VIDEOS
+    if (!$("body").hasClass("manifestos-videos-loaded")){
+
+      $.get("/pages/manifestos-videos.html", function(data) {
+        $("#manifestos-videos").html(data);
+      });
+
+      $("body").addClass("manifestos-videos-loaded");
+    }
+
+    // THEN UPDATE CLASSES
     if ((!$("body").hasClass("inverted-mode-1")) && (!$("body").hasClass("inverted-mode-2")))
     {
       $("body").addClass("inverted-mode-1");

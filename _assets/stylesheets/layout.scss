@@ -1,6 +1,7 @@
 @import "constants";
 @import "mixins";
 @import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
 
 
 html.wf-loading
@@ -78,6 +79,45 @@ body
       }
     }
   }
+
+
+
+  // VIDEOS
+  .bg-video
+  {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+
+    video
+    {
+      width: 100% !important;
+      opacity: 0.1;
+    }
+
+    &.video-top
+    {
+      top: 0;
+      height: 250px;
+
+      .video-fader
+      {
+        position: absolute;
+        bottom: 0;
+        height: 200px;
+        width: 100%;
+        @include gradient-vertical(rgba($black, 0), rgba($black, 1))
+      }
+    }
+
+    &.video-bottom
+    {
+      bottom: 0;
+    }
+  }
+
 
   .visible-inverted-mode-1-durability, .visible-inverted-mode-1-usability, .visible-inverted-mode-1-art,
   .visible-inverted-mode-2-durability, .visible-inverted-mode-2-usability, .visible-inverted-mode-2-art

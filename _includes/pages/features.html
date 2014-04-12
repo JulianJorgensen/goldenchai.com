@@ -1,5 +1,7 @@
-<div id="features-video" class="video-top hidden-xs hidden-sm">
-  <div class="video-element"></div>
+<div id="features-video" class="bg-video video-top hidden-xs hidden-sm">
+  <video autoplay loop>
+    <source src="{% asset_path sunrays.mp4 %}" type="video/mp4">
+  </video>
   <div class="video-fader"></div>
 </div>
 <section class="container">
@@ -15,26 +17,26 @@
     <div class="tab-content">
       <div class="tab-pane fade in active" id="design">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-sm-5">
             <div class="features-highlight">
-              <h4>Areas of expertise:</h4>
+              <p>Areas of expertise:</p>
               <ul>
                 <li>Webdesign</li>
                 <li>Online identity and branding</li>
                 <li>Landing pages that converts</li>
                 <li>Persuassive web architecture</li>
-                <li>Marketing material (e.g. business cards)</li>
+                <li>Marketing material (e.g. business cards, brochures)</li>
               </ul>
               <hr>
               <p>
-                <a href="#/info" data-accordion="pricing">Pricing info</a>
+                <a class="btn" href="#/info" data-accordion="pricing">Pricing info  &rsaquo;</a>
               </p>
               <p>
-                <a href="#/info" data-accordion="why">Why work with us?</a>
+                <a class="btn" href="#/info" data-accordion="why">Why work with us?</a>
               </p>
             </div>
           </div>
-          <div class="col-md-6 col-md-offset-1 hidden-xs">
+          <div class="col-sm-5 col-sm-offset-1 hidden-xs">
             <div class="design-concept">
               <h2>DESIGN</h2>
               <div class="design-concept-group design-concept-group-1 design-concept-group-light">
@@ -53,9 +55,9 @@
       </div>
 
       <div class="tab-pane fade" id="development">
-        <div class="development-before-after">
-          <img src="{% asset_path features/dev-before.jpg %}" />
-          <img src="{% asset_path features/dev-after.jpg %}" />
+        <div class="development-before-after hidden-xs">
+          <img src="{% asset_path features/dev-before-lg.jpg %}" />
+          <img src="{% asset_path features/dev-after-lg.jpg %}" />
         </div>
 
         <div class="row">
@@ -87,7 +89,7 @@
           <div class="col-sm-7 text-center">
             <h2>Getting the <strong>right content</strong><br>to the <strong>right user</strong><br>at the <strong>right time</strong></h2>
           </div>
-          <div class="col-sm-5">
+          <div class="col-sm-5 hidden-xs">
             <div class="row">
               <div class="col-sm-2 col-sm-offset-1">
                 <div class="spacer-vertical left">
@@ -97,9 +99,8 @@
               <div class="col-sm-9">
                 <p><i>"The best design is the simplest one that works" <span class="nobr">- Albert Einstein</span></i></p>
                 <hr>
-                <p><a href="#/contact">We'd like to work with you</a></p>
-                <p><a href="#/info" data-accordion="pricing">Pricing info</a></p>
-                <p><a href="#/info" data-accordion="about">About us</a></p>
+                <p><a class="btn btn-primary" href="#/info" data-accordion="pricing">Pricing info &rsaquo;</a></p>
+                <p><a class="btn" href="#/info" data-accordion="about">About us  &rsaquo;</a></p>
               </div>
             </div>
           </div>
@@ -108,51 +109,34 @@
 
       <div class="tab-pane fade" id="social">
         <div class="row">
-          <div class="col-sm-6 text-center">
-            <h4 class="text-left">We connect your website to the world with:</h4>
-            <div class="row">
-              <div class="col-sm-7">
-                <ul>
-                  <li>Facebook/twitter integration</li>
-                  <li>Video/photo integration</li>
-                  <li>Newsletters</li>
-                </ul>
-              </div>
-              <div class="col-sm-5">
-                <ul>
-                  <li>Blogs</li>
-                  <li>Google optimization</li>
-                  <li>Advanced SEO</li>
-                </ul>
-              </div>
-            </div>          
-            <h2>Share <strong>your message</strong><br><span class="nobr">more effectively</span></h2>
-            <h3><a href="#/contact">Get a free quote &rsaquo;</a></h3>
-          </div>
-          <div class="col-sm-6">
-            <div class="row">
-              <div class="col-sm-2 col-sm-offset-1">
-                <div class="spacer-vertical left">
-                  <div class="mask"></div>
-                </div>
-              </div>
-              <div class="col-sm-9 socialmedia-icons">
+          <div class="col-sm-5">
+            <div class="features-highlight">
+              <p>We connect your website to the world with:</p>
+              <ul>
+                <li>Facebook/twitter integration</li>
+                <li>Video/photo integration</li>
+                <li>Newsletters</li>
+                <li>Blogs</li>
+                <li>Google optimization</li>
+                <li>Advanced SEO</li>
+              </ul>
+              <hr>
+              <div class="socialmedia-icons text-center">
                 <div class="socialmedia-icon" data-toggle="tooltip" title="Get more Likes and Shares with proper Facebook integration"><img src="{% asset_path features/socialmedia/facebook_001.jpg %}" class="img-responsive"></div>
                 <div class="socialmedia-icon" data-toggle="tooltip" title="Show tweets on your site"><img src="{% asset_path features/socialmedia/Twitter_001.jpg %}" class="img-responsive"></div>
                 <div class="socialmedia-icon" data-toggle="tooltip" title="Expand your network"><img src="{% asset_path features/socialmedia/Linkedin_001.jpg %}" class="img-responsive"></div>
-                <div class="socialmedia-icon" data-toggle="tooltip" title="Video says something words cant"><img src="{% asset_path features/socialmedia/YouTube_001.jpg %}" class="img-responsive"></div>
-                <div class="clear"></div>
+                <div class="socialmedia-icon" data-toggle="tooltip" title="Video says something words cant"><img src="{% asset_path features/socialmedia/YouTube_001.jpg %}" class="img-responsive"></div><br>
                 <div class="socialmedia-icon" data-toggle="tooltip" title="Be part of the discovery with Pinterest"><img src="{% asset_path features/socialmedia/Pinterest_001.jpg %}" class="img-responsive"></div>
                 <div class="socialmedia-icon" data-toggle="tooltip" title="Connect any blog with your website with RSS feeds"><img src="{% asset_path features/socialmedia/RSS_001.jpg %}" class="img-responsive"></div>
                 <div class="socialmedia-icon" data-toggle="tooltip" title="Connect with Tumblr"><img src="{% asset_path features/socialmedia/Tumblr_001.jpg %}" class="img-responsive"></div>
                 <div class="socialmedia-icon" data-toggle="tooltip" title="Google+ is one of the biggest social media platforms"><img src="{% asset_path features/socialmedia/Google_Plus_001.jpg %}" class="img-responsive"></div>
                 <div class="clear"></div>
-                <hr>
-                <p><a href="#/info" data-accordion="pricing">Pricing info</a></p>
-                <p><a href="#/info" data-accordion="warranty">Warranty on all our work</a></p>
-                <p><a href="#/contact">Contact us now &rsaquo;</a></p>
               </div>
             </div>
+          </div>
+          <div class="col-sm-7 text-center cta-col hidden-xs">
+            <h2>Share <strong>your message</strong><br><span class="nobr">more effectively</span></h2>
+            <h3><a class="btn btn-primary btn-lg" href="#/contact">Get a free quote now &rsaquo;</a></h3>
           </div>
         </div>
       </div>
@@ -160,3 +144,6 @@
     <div class="clear"></div>
   </div>
 </section>
+<script type="text/javascript">
+  {% asset features.js %}
+</script>

@@ -19,15 +19,6 @@ $(document).ready(function() {
 
   if (pathname !== "/"){
     $("body").addClass("subpage");
-  }else{
-    if ((pathname == "/#manifestos") || (pathname == "/"))
-    {
-      setTimeout(function(){
-        $(".window.lazy-load").removeClass("lazy-load");
-      }, 200);
-    }else{
-      $(".window.lazy-load").removeClass("lazy-load");
-    }
   }
 
 
@@ -122,9 +113,14 @@ $(document).ready(function() {
   }
 
 
-  // FEATURES PAGE TWENTY TWENTY
-  // ******************************
-  $('a.features-dev-tab[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-    $("#features .development-before-after").twentytwenty({default_offset_pct: 0.7});
-  })
+  // INFO ACCORDION AUTO SCROLL FOR MOBILE
+  // **************************************
+  $("body.site-multiple-pages #info-accordion .accordion-title").click(function(){
+    var collapsedAccordionItemHeight = 60;
+
+    $('html, body').animate({
+      scrollTop: ($(this).parent(".panel").index(".panel") * collapsedAccordionItemHeight)
+      }, 50);
+  });
+
 });

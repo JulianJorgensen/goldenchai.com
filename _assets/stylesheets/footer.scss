@@ -161,8 +161,6 @@ body
     {
       .contact-info
       {
-        padding-top: 20px;
-
         p
         {
           font-size: 1.3em;
@@ -175,13 +173,18 @@ body
         margin-top: 12px;
       }
 
+      input#email
+      {
+        margin-top: 8px;
+      }
+
       input, textarea
       {
         display: block;
         width: 100%;
         border: none;
         outline: 0;
-        background: rgba($white, 0.2);
+        background: rgba($white, 0.8);
         padding: 8px 15px;
         font-size: 1.6em;
         margin-bottom: 20px;
@@ -328,6 +331,8 @@ body.footer-active
   {
     header
     {
+      padding-top: 80px;
+      
       .goldenchai-logo-wrapper
       {
         bottom: 20px;
@@ -352,14 +357,19 @@ body.footer-active
     // blur/hide workflow stuff
     #workflow
     {
-      .royalSlider
+      #workflow-slider
       {
         @include blur(10px);
         @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.      
 
         .rsOverflow
         {
-          opacity: 0.5;
+          opacity: 0.7;
+
+          .rsContent
+          {
+            background: none;
+          }
         }
       }
     }
@@ -379,7 +389,7 @@ body.footer-active
 
     footer
     {
-      top: 110px;
+      top: 80px;
 
       .footer-nav-cta.active
       {
@@ -533,11 +543,20 @@ body.footer-active
   {
     footer
     {
+      height: auto;
+
+      .footer-nav-cta
+      {
+        font-size: 1em;
+        opacity: 1;
+      }
+
+
       #contact
       {
         .contact-info
         {
-          padding-top: 0;
+          margin: 0 0 30px;
         }
 
         textarea, input

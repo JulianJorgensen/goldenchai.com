@@ -64,31 +64,6 @@ body
       @include disableHighlighting;
     }
   }
-
-  .video-top
-  {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-
-    video
-    {
-      width: 100% !important;
-      opacity: 0.1;
-    }
-
-    .video-fader
-    {
-      position: absolute;
-      bottom: 0;
-      height: 200px;
-      width: 100%;
-      @include gradient-vertical(rgba($black, 0), rgba($black, 1))
-    }
-  }
 }
 
 

@@ -100,20 +100,36 @@ section#features
     background: rgba($white, 0.1);
   }
 
-  .socialmedia-icons
+  .cta-col
   {
+    padding-top: 60px;
+  }
+
+  .socialmedia-icons
+  {    
     .socialmedia-icon
     {
-      float: left;
+      display: inline-block;
       width: 32px;
       height: 32px;
       margin: 0 8px 8px 0;
+      -webkit-filter: grayscale(1);
+
+      &:hover
+      {
+        -webkit-filter: grayscale(0);
+      }
     }
   }
 
   .development-before-after
   {
     margin-bottom: 30px;
+
+    img
+    {
+      width: 100%;
+    }
 
     .twentytwenty-overlay
     {
@@ -220,8 +236,8 @@ section#features
       {
         li
         {
-          font-size: 1em;
-          margin: 0 12px;
+          font-size: 1.2em;
+          margin: 0 12px -3px;
 
           &:nth-child(0)
           {
@@ -243,29 +259,21 @@ section#features
   {
     section#features
     {
+      .features-highlight
+      {
+        padding: 0;
+        background: none;
+      }
+
       .nav-tabs
       {
-        margin-top: 30px;
-        padding-bottom: 22px;
+        margin-top: 0;
+        padding-bottom: 0;
         margin-bottom: 30px;
 
         li
         {
-          margin: 0 9px;
 
-          &.active
-          {
-            &:before, &:after {
-            }
-
-            &:before {
-              top: 16px;
-            }
-
-            &:after {
-              top: 13px;
-            }
-          }
         }
       }
     }

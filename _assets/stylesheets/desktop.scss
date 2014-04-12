@@ -53,9 +53,9 @@
     {
       .manifestos-video
       {
-        .video-fader
+        &.art-video
         {
-          top: 390px;
+          height: 370px;
         }
       }
 
@@ -116,8 +116,8 @@
         {
           .marquee-headline h1
           {
-            font-size: 1.6em;
-            margin-top: 9px;
+            font-size: 1.5em;
+            margin-top: 2px;
           }
 
           .nav
@@ -136,11 +136,52 @@
     footer
     {
       top: 900px;
+
+      #contact
+      {
+        input
+        {
+          padding: 12px 15px;
+        }
+
+        textarea
+        {
+          height: 360px;
+        }
+      }
     }
   }
 
   section#features
   {
+    .design-concept
+    {
+      top: 150px;
+      left: 190px;
+      
+      h2
+      {
+        top: 50px;
+        left: 20px;
+      }
+
+      .design-concept-group
+      {
+        h3
+        {
+          top: 40px;
+        }
+
+        .design-concept-ball
+        {
+          font-size: 0.7em;
+          width: 80px;
+          height: 80px;
+          @include circle(80px);
+        }
+      }
+    }
+
     .nav-tabs
     {
       li
@@ -149,6 +190,16 @@
         {
           @include arrow(15px, 3px, $black, $features-color, bottom);
         }
+      }
+    }
+
+    .socialmedia-icons
+    {
+      .socialmedia-icon
+      {
+        width: 48px;
+        height: 48px;
+        margin: 0 12px 12px 0;
       }
     }
   }

@@ -308,6 +308,11 @@
 
 body
 {
+  .container .inner-wrapper
+  {
+    margin: 20px auto;
+  }
+
   #phone-portrait-kicker
   {
     display: none;

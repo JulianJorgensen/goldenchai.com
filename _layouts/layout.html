@@ -8,11 +8,7 @@
   <!-- INCLUDE THE HEADER -->
   {% include header.html %}
 
-  <div id="skrollr-body">
-      {% include pages/manifestos.html %}
-      <section id="workflow" class="window subpage lazy-load">{% include pages/workflow.html %}</section>
-      <section id="features" class="window subpage lazy-load">{% include pages/features.html %}</section>
-  </div>
+  {{ content }}
 
   <!-- INCLUDE THE FOOTER -->
   {% include footer.html %}
@@ -25,11 +21,7 @@
   <link rel="stylesheet" type="text/css" href="/skrollr/keyframes.css" data-skrollr-stylesheet />
     
   <!-- MAIN JS STUFF -->
-  {% include defer.html defer="/defer.js" %}
-
-  <script type="text/javascript">
-    {% asset analytics.js %}
-  </script>
+  <script src="defer.js" type="text/javascript"></script>
 
 </body>
 </html>

@@ -16,13 +16,17 @@ body.site-multiple-pages.page-manifestos
   }
 }
 
-body.page-manifestos
+body
 {
-  .accordion
+  &.page-manifestos, 
+  &.page-workflow
   {
-    .accordion-item.active
+    .accordion
     {
-      background: rgba($gray20, 0.1);
+      .panel.active
+      {
+        background: rgba($gray40, 0.1);
+      }
     }
   }
 }
@@ -34,33 +38,59 @@ body
   #manifestos
   {
     .manifestos-video
-    {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-
-      .video-fader
+    {      
+      &.video-top
       {
-        top: 270px;
         height: 100%;
-        @include gradient-vertical(rgba($black, 0), rgba($black, 1), 0%, 20%);
+
+        .video-fader
+        {
+          top: 240px;
+          height: 100%;
+          @include gradient-vertical(rgba($white, 0), rgba($white, 1), 0%, 15%);          
+        }
       }
 
-      video
+      &.art-video
       {
-        width: 100%;
-        opacity: 0.1;
+        height: 350px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        @include transition(opacity $marqueeTransitionSpeed);
+
+        .video-content
+        {
+          position: relative;
+          height: inherit;
+
+          video
+          {
+            height: inherit;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            opacity: 0.1;
+            width: auto !important;
+          }
+
+          .video-fader
+          {
+            position: absolute;
+            top: 0;
+            height: 200px;
+            width: 100%;
+            z-index: 9;
+            @include gradient-vertical(rgba($white, 1), rgba($white, 0), 0%, 100%);
+          }
+        }
       }
 
       &.visible-inverted-mode-1-durability
       {
         video
         {
-          opacity: 0.15;
+          opacity: 0.1;
         }
       }
 
@@ -68,7 +98,7 @@ body
       {
         video
         {
-          opacity: 0.2;
+          opacity: 0.25;
         }
       }
 
@@ -76,7 +106,7 @@ body
       {
         video
         {
-          opacity: 0.15;
+          opacity: 0.2;
         }
       }
     }
@@ -307,6 +337,7 @@ body
 
     #marquee-wrapper
     {
+      position: relative;
       width: 100%;
       text-align: center;
       margin-top: 30px;
@@ -333,7 +364,7 @@ body
           {
             font-size: 1.8em;
             font-weight: 100;            
-            margin: 14px 0 0 0;
+            margin: 5px 0 0 0;
           }
 
           .headline-durability, .headline-usability,  .headline-art
@@ -437,6 +468,11 @@ body
           {
             @include transition(opacity $marqueeTransitionSpeed ease $marqueeTransitionSpeed);
           }
+        }
+
+        .bg-video
+        {
+          opacity: 0;
         }
       }
     }
@@ -549,14 +585,14 @@ body
 
             h1
             {
-              font-size: 1.2em;
+              font-size: 1em;
               margin: 0;              
             }
           }
 
           .nav
           {
-            font-size: 2em;
+            font-size: 1.8em;
 
             li a
             {
@@ -702,7 +738,7 @@ body
 
           .marquee-headline h1
           {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin: 0;
           }
 

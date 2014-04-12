@@ -32,6 +32,15 @@
   white-space: nowrap;
 }
 
+@media (min-width: $screen-md)
+{
+  .nobr-sm
+  {
+    white-space: nowrap;
+  }
+}
+
+
 /* Utility classes */
 .align-center { text-align: center; }
 .align-left   { text-align: left; }

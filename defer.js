@@ -31,11 +31,6 @@
 {% asset lib/jquery.twentytwenty.js %}
 {% asset lib/jquery.event.move.js %}
 
-{% asset workflow.js %}
-
-// // LAZY LOAD workflow PAGE
-// $('.window#workflow').load('/pages/workflow.html');
-
 
 // MY OWN STUFF
 {% asset functions.js %}
@@ -43,6 +38,5 @@
 {% asset footer.js %}
 {% include javascripts/skrollr-stuff.js %}
 
-
-$("#features-video .video-element").load('/features-video.html');
-$('#manifesto-videos').load('/manifesto-videos.html');
+// ANALYTICS
+{% asset analytics.js %}

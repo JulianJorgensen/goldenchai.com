@@ -1,10 +1,10 @@
 <div class="container">
   <div id="workflow-slider" class="royalSlider rsDefault">
     <div class="rsContent">
-      <div class="slide-content slide-center-vertical">
+      <div class="slide-content slide-intro">
         <h2>The focus is on you</h2>
-        <h3>We want to hear about your vision, goals<br>and audience; their needs and personas.</h3>
-        <p><a href="/" class="slide-animation">Slide to see phase 2: inspiration</a></p>
+        <h3>We want to hear about your vision, goals <span class="nobr">and audience;</span> their needs and personas.</h3>
+        <p><a href="/" class="slide-animation">Slide to see phase 2<span class="hidden-xs">: inspiration</span></a></p>
       </div>
       <div class="slide-graphic slide-graphic-tiger">
         <img src="{% asset_path workflow/tiger.png %}" class="img-responsive" />
@@ -74,9 +74,6 @@
                   <li><a href="http://hlvticons.ch" target="_blank">hlvticons.ch</a></li>
                 </ul>
               </div>
-
-
-
             </div>
           </div>
         </div>
@@ -109,7 +106,7 @@
     <div class="rsContent">
       <div class="slide-content">
         <h2>4. Development</h2>
-        <h3>Manifesting begins. To illustrate, drag the slider below.</h3>
+        <h3 class="nobr-md">Manifesting begins. To illustrate, drag the slider below.</h3>
         <div class="twentytwenty-container rsNoDrag">
           <img src="{% asset_path workflow/dev-before.jpg %}" class="img-responsive" />
           <img src="{% asset_path workflow/dev-after.jpg %}" class="img-responsive" />
@@ -167,7 +164,7 @@
     <div class="rsContent">
       <div class="slide-content">
         <h2>6. Final review</h2>
-        <h3>Accessible to only you and your team, we want to educate relevant members on site operation and maintenance.</h3>
+        <h3>Accessible to only you and your team, we want to educate your team on site operation and maintenance.</h3>
         <p contenteditable="true" class="rsNoDrag">This includes learning how to easily update copy.<br>Try it right now by editing this text.</p>
           <p><small>(Geek note: We use prose.io combined with github as ‘CMS’)</small></p>
       </div>
@@ -185,3 +182,7 @@
 
   <a href="#/features" class="arrow-down"></a>
 </div>
+
+<script type="text/javascript">
+  {% asset workflow.js %}
+</script>

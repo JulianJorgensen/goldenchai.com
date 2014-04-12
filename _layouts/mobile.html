@@ -29,9 +29,9 @@
 
 
   {% if page.defer %}
-    {% include defer.html defer="/mobile-manifest.js" %}
+    {% include defer.html defer="/defer.js" %}
   {% else %}
-    <script type="text/javascript" src="/mobile-manifest.js"></script>
+    <script type="text/javascript" src="/defer.js"></script>
   {% endif %}
 
 

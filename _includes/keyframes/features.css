@@ -1,3 +1,4 @@
+body.site-single-page.screen-laptop #features,
 body.site-single-page.screen-desktop #features
 {
   -skrollr-animation-name: features_opacity;
@@ -25,7 +26,8 @@ body.site-single-page.screen-desktop #features
 /* DESIGN CONCEPT */
 /* =================  */
 
-body.site-single-page.screen-desktop #features .design-concept .design-concept-group h3
+body.site-single-page.screen-desktop #features .design-concept .design-concept-group h3,
+body.site-single-page.screen-laptop #features .design-concept .design-concept-group h3
 {
   -skrollr-animation-name: group-title-opacity;
 }
@@ -43,7 +45,7 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-g
 /* DESIGN CONCEPT GROUP 1 */
 /* =================  */
 
-body.site-single-page.screen-desktop #features .design-concept .design-concept-group-1
+body.site-single-page.screen-laptop #features .design-concept .design-concept-group-1
 {
   -skrollr-animation-name: group-one-expand;
 }
@@ -59,7 +61,7 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-g
 
   {{ site.features_end }} {
     left: -110px;
-    top: -60px;
+    top: -70px;
     opacity: 0.8;
     width: 100px;
     height: 100px;
@@ -67,7 +69,8 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-g
 }
 
 
-body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-1
+body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-1,
+body.site-single-page.screen-laptop #features .design-concept .design-concept-ball-1
 {
   -skrollr-animation-name: expand-ball-1;
 }
@@ -84,7 +87,8 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-b
   }
 }
 
-body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-2
+body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-2,
+body.site-single-page.screen-laptop #features .design-concept .design-concept-ball-2
 {
   -skrollr-animation-name: expand-ball-2;
 }
@@ -105,7 +109,7 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-b
 /* DESIGN CONCEPT GROUP 2 */
 /* =================  */
 
-body.site-single-page.screen-desktop #features .design-concept .design-concept-group-2
+body.site-single-page.screen-laptop #features .design-concept .design-concept-group-2
 {
   -skrollr-animation-name: group-two-expand;
 }
@@ -127,7 +131,7 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-g
 }
 
 
-body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-3
+body.site-single-page.screen-laptop #features .design-concept .design-concept-ball-3
 {
   -skrollr-animation-name: expand-ball-3;
 }
@@ -144,7 +148,7 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-b
   }
 }
 
-body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-4
+body.site-single-page.screen-laptop #features .design-concept .design-concept-ball-4
 {
   -skrollr-animation-name: expand-ball-4;
 }
@@ -157,6 +161,93 @@ body.site-single-page.screen-desktop #features .design-concept .design-concept-b
 
   {{ site.features_end }} {
     left: -45px;
+    opacity: 0.8;
+  }
+}
+
+
+
+
+/* DESKTOP STUFF */
+/* =================  */
+
+body.site-single-page.screen-desktop #features .design-concept .design-concept-group-2
+{
+  -skrollr-animation-name: group-two-expand-desktop;
+}
+
+@-skrollr-keyframes group-two-expand-desktop{
+  {{ site.features_pre_start }} {
+    left: 60px;
+    top: 20px;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+
+  {{ site.features_pre_end }} {
+    left: 150px;
+    opacity: 0.8;
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+body.site-single-page.screen-desktop #features .design-concept .design-concept-group-1
+{
+  -skrollr-animation-name: group-one-expand-desktop;
+}
+
+@-skrollr-keyframes group-one-expand-desktop{
+  {{ site.features_pre_start }} {
+    left: 60px;
+    top: 80px;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+
+  {{ site.features_end }} {
+    left: -130px;
+    top: -80px;
+    opacity: 0.8;
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-3
+{
+  -skrollr-animation-name: expand-ball-3-desktop;
+}
+
+@-skrollr-keyframes expand-ball-3-desktop{
+  {{ site.features_pre_end }} {
+    top: 0px;
+    opacity: 0;
+  }
+
+  {{ site.features_end }} {
+    top: -65px;
+    opacity: 0.8;
+  }
+}
+
+body.site-single-page.screen-desktop #features .design-concept .design-concept-ball-4
+{
+  -skrollr-animation-name: expand-ball-4-desktop;
+}
+
+@-skrollr-keyframes expand-ball-4-desktop{
+  {{ site.features_pre_end }} {
+    left: 0px;
+    opacity: 0;
+  }
+
+  {{ site.features_end }} {
+    left: -65px;
     opacity: 0.8;
   }
 }
