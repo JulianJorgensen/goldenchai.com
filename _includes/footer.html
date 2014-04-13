@@ -6,7 +6,7 @@
         <div class="collapseFooter"><p>&lsaquo; back</p></div>
         <div class="col-xs-3 col-sm-5">
           <div class="footer-chai hidden-xs">
-            <img src="{% asset_path chai-icon.png %}" data-toggle-invert>
+            <img src="{% asset_path chai-icon.png %}" alt="Toggle Black Ceylon mode" data-toggle-invert>
             <p class="invert-mode invert-mode-1">Black Ceylon mode.</p>
             <p class="invert-mode invert-mode-2">Magic Chai mode</p>
             <p class="copyright active">© 2014 GoldenChai</p>
@@ -33,16 +33,16 @@
                 <p><a href="contact@goldenchai.com">contact@goldenchai.com</a><br>phone: (+91) 8476 957419</p>
               </div>
               <div class="col-sm-6 col-sm-pull">
-                <input type="text" id="email" placeholder="Your email..."></input>
+                <input type="text" id="email" placeholder="Your email..." />
               </div>
             </div>
             <textarea id="message" placeholder="Tell us what you have in mind..."></textarea>
             <div class="row">
               <div class="col-xs-7 col-sm-9 text-right">
-                <small>You'll get a response <nobr>within 24 hrs.</nobr></small>
+                <small>You'll get a response <span class="nobr">within 24 hrs.</span></small>
               </div>
               <div class="col-xs-5 col-sm-3 text-right">
-                <button class="btn btn-lg btn-primary progress-button" data-style="shrink" data-horizontal>Submit</button>
+                <button class="btn btn-lg btn-primary progress-button" data-style="shrink" data-horizontal onClick="_gaq.push(['_trackEvent', 'Contact', 'submit']);">Submit</button>
               </div>
             </div>
           </form>
@@ -55,7 +55,7 @@
 
 <div id="footer-kicker">
   <div class="container">
-    <h4>Let's get started; <a href="contact@goldenchai.com">contact@goldenchai.com</a></h4>
+    <h4>Let's get started; <a href="contact@goldenchai.com" onClick="_gaq.push(['_trackEvent', 'Contact', 'click']);">contact@goldenchai.com</a></h4>
     <h6>(response within 24 hours.)</h6>
   </div>
 </div>

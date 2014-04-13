@@ -13,6 +13,7 @@ body
       position: absolute;
       bottom: 0;
       right: 15px;
+      width: 135px;
       @include disableHighlighting;
 
 
@@ -47,9 +48,9 @@ body
 
         .nav-icon
         {
+          float: right;
           width: 30px;
           height: inherit;
-          float: right;
           margin-left: 10px;
           background: image-url("nav/nav-double-arrow.png") center center no-repeat;
 

@@ -26,11 +26,11 @@ body.site-multiple-pages.screen-tablet.orientation-landscape header #primary-nav
 }
 
 @-skrollr-keyframes appear {
-  {{ site.manifestos_start }} {
+  200 {
     opacity: 0;
   }
 
-  {{ site.manifestos_content_pre_end }} {
+  400 {
     opacity: 1;
   }
 }

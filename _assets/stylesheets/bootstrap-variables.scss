@@ -33,7 +33,7 @@ $screen-desktop:             $screen-md-min !default;
 
 // Large screen / wide desktop
 // Note: Deprecated $screen-lg and $screen-lg-desktop as of v3.0.1
-$screen-lg:                  1300px !default;
+$screen-lg:                  1450px !default;
 $screen-lg-min:              $screen-lg !default;
 $screen-lg-desktop:          $screen-lg-min !default;
 
@@ -69,8 +69,8 @@ $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
 
 
-$font-size-desktop: ceil($font-size-base * 1.5);
-$font-size-tablet-portrait: ceil($font-size-base * 1.5);
+$font-size-desktop: ceil($font-size-base * 1.4);
+$font-size-tablet-portrait: ceil($font-size-base * 1.4);
 $font-size-tablet-landscape: $font-size-base;
 
 $font-size-phone-portrait: $font-size-base;

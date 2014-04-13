@@ -44,6 +44,10 @@ $(document).ready(function() {
   // FORWARD ARROW (FOR MANIFESTOS)
   // ************************************
   $("[data-goto-next-manifesto]").click(function(){
+    if ($("body").hasClass("site-multiple-pages")){
+      var s = skrollr.init();
+      s.animateTo(0, { duration: 100 });
+    }
     $('#marquee .nav > .active').next('li').find('a').trigger('click');
   });
 
@@ -67,6 +71,10 @@ $(document).ready(function() {
   // CONTENT CTA
   // ******************************************
   $("[data-toggle-summary]").click(function(){
+    if ($("body").hasClass("site-multiple-pages")){
+      var s = skrollr.init();
+      s.animateTo(0, { duration: 100 });
+    }
     var tabPane = $("#" + $(this).parents(".tab-pane").attr("id") + ".tab-pane");
     toggleSummary(tabPane);
   });

@@ -7,15 +7,6 @@ $(document).ready(function() {
   var s = skrollr.init();
 
 
-  // MOBILE NAV
-  // ************************************
-  $("#mobile-nav-icon").click(function(){
-    var windowHeight = $(window).height();
-    s.animateTo(windowHeight, 100);
-  });
-
-
-
   // ON WINDOW RESIZE: APPLY MOBILE CLASS FOR SMALL SCREENS, AND DESKTOP FOR LARGER
   $( window ).resize(function() {
     updateSite(true);
@@ -43,12 +34,18 @@ $(document).ready(function() {
   }
 
 
+  // MOBILE NAV
+  // ************************************
+  $("#mobile-nav-icon").click(function(){
+    var windowHeight = $(window).height() + 50;
+    s.animateTo(windowHeight, { duration: 400 });
+  });
+
 
   var refresh;
   var screenChange;
 
   function updateSite(refresh){
-
 
     // window variables
     windowWidth = $(window).width();
@@ -252,18 +249,28 @@ $(document).ready(function() {
   }).listen('hash');
 
 
-  // LAZY LOAD SUBPAGES
-  // *******************
-  setTimeout(function(){
-    lazyLoadPages();
-  }, 2500);
 
-  $(window).scroll(function() {
-    lazyLoadPages();
-  });
+  var hashname = window.location.hash;
+
+  // LAZY LOAD SUBPAGES IF NOT MOBILE AND ON INDEX PAGE
+  // **************************************************
+  if ($("body").hasClass("site-single-page") && ((hashname == "") || (hashname == "#/manifestos")))
+  {
+    // LAZY LOAD PAGES
+    setTimeout(function(){
+      loadPages();
+    }, 2500);
+
+    $(window).scroll(function() {
+      loadPages();
+    });    
+  }else{
+    // load pages instantly
+    loadPages();
+  }
 
 
-  function lazyLoadPages(){
+  function loadPages(){
     if (!$("body").hasClass("subpages-loaded")){
 
       // SUBPAGES

@@ -302,33 +302,29 @@
     {
       top: 130px;
     }
+
+    .container .inner-wrapper
+    {
+      margin: 20px auto;
+    }
   }
 }
 
-
-body
+#phone-portrait-kicker
 {
-  .container .inner-wrapper
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 50px;
+  
+  quote
   {
-    margin: 20px auto;
-  }
-
-  #phone-portrait-kicker
-  {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    padding-top: 50px;
-    
-    quote
-    {
-      display: block;
-      color: $art-color;
-      font-size: 1.8em;
-      font-weight: 100      
-    }
+    display: block;
+    color: $art-color;
+    font-size: 1.8em;
+    font-weight: 100; 
   }
 }
 

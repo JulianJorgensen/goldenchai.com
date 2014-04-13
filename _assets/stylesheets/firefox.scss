@@ -7,9 +7,20 @@ body.browser-firefox
 {
   -moz-osx-font-smoothing: grayscale;
 
-  #manifestos #marquee-wrapper #marquee .marquee-headline h1
+  #manifestos
   {
-    margin-top: 10px;
+    .container
+    {
+      .inner-wrapper
+      {
+        .main-content
+        {
+          .tab-content
+          {
+          }
+        }
+      }
+    }
   }
 }
 

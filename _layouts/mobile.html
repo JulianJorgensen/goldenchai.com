@@ -19,13 +19,6 @@
 
   <!-- INCLUDE THE FOOTER -->
   {% include footer.html %}
-    
-
-  <!-- main stylesheet file -->
-  <link rel="stylesheet" type="text/css" href="{% asset_path application %}"/>
-
-  <!-- keyframes for skrollr -->
-  <link rel="stylesheet" type="text/css" href="/skrollr/keyframes.css" data-skrollr-stylesheet />
 
 
   {% if page.defer %}
@@ -40,10 +33,6 @@
     {% include javascripts/skrollr-stuff.js %}
   </script>
 
-
-  <script type="text/javascript">
-    {% asset analytics.js %}
-  </script>
 
 </body>
 </html>

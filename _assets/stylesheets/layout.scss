@@ -38,7 +38,8 @@ html.wf-active, html.wf-inactive
 body
 {
   overflow-x: hidden;
-
+  -webkit-font-smoothing: antialiased;
+  
   .container
   {
     .inner-wrapper
@@ -142,7 +143,7 @@ body
   z-index: 999999;
 }
 
-body.site-multiple-pages.screen-desktop
+body.site-multiple-pages.screen-desktop, body.site-multiple-pages.screen-laptop
 {
   .user-notification
   {
