@@ -132,7 +132,8 @@
   -moz-filter: blur($amount);
   -o-filter: blur($amount);
   -ms-filter: blur($amount);
-  filter: blur($amount);
+  filter: image-url("blur.svg#blur");
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='#{$amount}');
 }
 
 @mixin blurPerformanceHack()

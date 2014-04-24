@@ -29,15 +29,16 @@ body
 
       .goldenchai-logo
       {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 7px 13px;
+        padding: 0 13px;
         text-transform: uppercase;
         text-align: center;
 
         .logo-copy
         {
+          margin: 0;
+          padding: 0;
+          line-height: 34px;
+
           .logo-golden
           {
             color: $golden;
@@ -143,8 +144,13 @@ body.page-manifestos
       {
         .goldenchai-logo
         {
-          padding: 4px 9px;
+          padding: 0 9px;
           font-size: 0.7em;
+
+          .logo-copy
+          {
+            line-height: 25px;
+          }
         }
       }
 

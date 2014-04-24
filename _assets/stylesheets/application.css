@@ -30,6 +30,7 @@
   *= require './gc-slider.scss'
 
   *= require './firefox.scss'
+  *= require './ie.scss'
 
   *= require './inverted-mode-1.scss'
   *= require './inverted-mode-2.scss'

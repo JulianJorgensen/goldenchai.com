@@ -210,7 +210,15 @@ body.inverted-mode-1.site-single-page
     {
       #marquee
       {
-        opacity: 0.6;
+        .marquee-shadow
+        {
+          opacity: 0.5;
+        }
+
+        .marquee-bg
+        {
+          opacity: 0.8;          
+        }
         
         .nav
         {

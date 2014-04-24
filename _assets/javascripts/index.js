@@ -119,6 +119,10 @@ $(document).ready(function() {
   {
     $("body").addClass("browser-firefox");
   }
+  else if (navigator.userAgent.toLowerCase().indexOf('msie') > -1)
+  {
+    $("body").addClass("browser-ie");
+  }
 
 
   // INFO ACCORDION AUTO SCROLL FOR MOBILE

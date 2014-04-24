@@ -90,7 +90,7 @@ body
       {
         video
         {
-          opacity: 0.1;
+          opacity: 0.2;
         }
 
         .video-fader
@@ -385,7 +385,6 @@ body
           width: 100%;
           height: inherit;
           opacity: 0;
-          @include gradientDiagonal(darken($durability-color, 18%), $durability-color);
           @include transition(opacity $marqueeTransitionSpeed);
         }
 

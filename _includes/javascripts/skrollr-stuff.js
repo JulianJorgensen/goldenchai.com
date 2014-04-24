@@ -294,19 +294,15 @@ $(document).ready(function() {
     if (!$("body").hasClass("transitioning") && !$("body").hasClass("site-multiple-pages"))
     {
       scrollPos = $(window).scrollTop();
-      console.log(scrollPos + " {{ site.workflow_pre_start }}");
       if (scrollPos < {{ site.workflow_pre_start }}){
-        console.log('manifestos');
         if (!$("body").hasClass("page-manifestos")){
           $.history.push("/manifestos");
         }
       }else if ((scrollPos > {{ site.workflow_pre_start }}) && (scrollPos < {{ site.features_pre_start }})){
-        console.log('workflow');
         if (!$("body").hasClass("page-workflow")){
           $.history.push("/workflow");
         }
       }else if ((scrollPos > {{ site.features_pre_start }}) && (scrollPos <= {{ site.features_start }})){
-        console.log('features');
         if (!$("body").hasClass("page-features")){
           $.history.push("/features");
         }
