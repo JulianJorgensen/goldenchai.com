@@ -30,7 +30,7 @@
           <form action="POST">
             <div class="row">
               <div class="col-sm-6 col-sm-push contact-info text-center">
-                <p><a href="contact@goldenchai.com">contact@goldenchai.com</a><br>phone: (+91) 8476 957419</p>
+                <p><a href="mailto:chai@goldenchai.com" onClick="ga('send', 'event', 'Contact', 'click');">chai@goldenchai.com</a></p>
               </div>
               <div class="col-sm-6 col-sm-pull">
                 <input type="text" id="email" placeholder="Your email..." />
@@ -42,7 +42,7 @@
                 <small>You'll get a response <span class="nobr">within 24 hrs.</span></small>
               </div>
               <div class="col-xs-5 col-sm-3 text-right">
-                <button class="btn btn-lg btn-primary progress-button" data-style="shrink" data-horizontal onClick="_gaq.push(['_trackEvent', 'Contact', 'submit']);">Submit</button>
+                <button class="btn btn-lg btn-primary progress-button" data-style="shrink" data-horizontal onClick="ga('send', 'event', 'Contact', 'submit');">Submit</button>
               </div>
             </div>
           </form>
@@ -55,7 +55,7 @@
 
 <div id="footer-kicker">
   <div class="container">
-    <h4>Let's get started; <a href="contact@goldenchai.com" onClick="_gaq.push(['_trackEvent', 'Contact', 'click']);">contact@goldenchai.com</a></h4>
+    <h4>Let's get started; <a href="mailto:chai@goldenchai.com" onClick="ga('send', 'event', 'Contact', 'click');">chai@goldenchai.com</a></h4>
     <h6>(response within 24 hours.)</h6>
   </div>
 </div>

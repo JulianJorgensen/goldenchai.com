@@ -236,7 +236,6 @@
       }
       for(var k = 0; k < attArray.length; k++){
         curElement.removeAttribute(attArray[k]);
-        console.log("removed: " + attArray[k]);
       }
     }
 
